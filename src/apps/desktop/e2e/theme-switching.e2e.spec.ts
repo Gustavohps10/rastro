@@ -1,6 +1,6 @@
 import { expect, test } from './fixtures/electron-fixture'
 
-test.describe('E2E - Seleção e Alternância de Temas Visuais (Mr. Tick Core & Addons)', () => {
+test.describe('E2E - Seleção e Alternância de Temas Visuais (Rastro Core & Addons)', () => {
   test('deve alternar entre tema nativo e tema de addon com aplicação imediata de CSS no DOM e persistência pós-reload', async ({
     page,
   }) => {

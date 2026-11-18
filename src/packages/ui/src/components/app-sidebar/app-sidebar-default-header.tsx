@@ -1,7 +1,10 @@
-import { Github, Star } from 'lucide-react'
+import { useQuery } from '@tanstack/react-query'
+import { Star } from 'lucide-react'
+import { z } from 'zod'
 
+import logo from '@/assets/logo.svg'
+import logoDark from '@/assets/logo-dark.svg'
 import logoIcon from '@/assets/logo-icon.svg'
-import logoText from '@/assets/logo-text.svg'
 import { AppSidebarQuickActions } from '@/components/app-sidebar/app-sidebar-quick-actions'
 import { ModeToggle } from '@/components/mode-toggle'
 import { SidebarHeader, useSidebar } from '@/components/ui/sidebar'
@@ -12,8 +15,37 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 
+const starsCacheDuration = 60 * 60 * 1000
+const repositoryStarsResponse = z.object({
+  stars: z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER).nullable(),
+})
+
+async function fetchRepositoryStars(
+  signal: AbortSignal,
+): Promise<number | null> {
+  const response = await fetch('https://www.mistertick.com/api/github-stars', {
+    headers: { Accept: 'application/json' },
+    signal,
+  }).catch(() => null)
+  if (!response?.ok) return null
+
+  const count = repositoryStarsResponse.safeParse(
+    await response.json().catch(() => null),
+  )
+  if (!count.success) return null
+  return count.data.stars
+}
+
 export function AppSidebarDefaultHeader() {
   const { open } = useSidebar()
+  const { data: stars } = useQuery({
+    queryKey: ['rastro', 'repository-stars'],
+    queryFn: ({ signal }) => fetchRepositoryStars(signal),
+    enabled: open,
+    staleTime: starsCacheDuration,
+    gcTime: starsCacheDuration,
+    retry: false,
+  })
 
   if (!open) {
     return (
@@ -25,13 +57,13 @@ export function AppSidebarDefaultHeader() {
                 <div className="hover:bg-muted/60 flex size-8 cursor-pointer items-center justify-center rounded-md transition-colors">
                   <img
                     src={logoIcon}
-                    className="size-6 object-contain dark:invert"
-                    alt="Mr. Tick"
+                    className="size-6 object-contain"
+                    alt="Rastro"
                   />
                 </div>
               </TooltipTrigger>
               <TooltipContent side="right" className="text-xs">
-                Mr. Tick (Open Core)
+                Rastro Kit
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -45,45 +77,37 @@ export function AppSidebarDefaultHeader() {
     <SidebarHeader className="z-40 gap-1.5 pb-1">
       <div className="hover:bg-muted/40 relative flex items-center justify-between gap-3 rounded-lg p-2 transition-colors select-none">
         {/* Lado Esquerdo: Identidade Visual */}
-        <div className="flex min-w-0 items-center gap-2.5">
-          <div className="flex size-7.5 shrink-0 items-center justify-center">
-            <img
-              src={logoIcon}
-              className="h-full w-auto object-contain dark:invert"
-              alt="Logo Mr-tick"
-            />
-          </div>
-
+        <div className="flex min-w-0 items-center">
           <div className="flex min-w-0 flex-col">
             <img
-              src={logoText}
-              className="w-[80px] self-start dark:invert"
-              alt="Mr-tick"
+              src={logo}
+              className="h-auto w-28 max-w-full self-start dark:hidden"
+              alt="Rastro Kit"
+            />
+            <img
+              src={logoDark}
+              className="hidden h-auto w-28 max-w-full self-start dark:block"
+              alt="Rastro Kit"
             />
 
-            {/* Linha de Metadados: Open Core + GitHub Stars */}
-            <div className="mt-0.5 flex items-center gap-1.5">
-              <span className="text-muted-foreground/70 font-mono text-[10px] leading-none font-medium tracking-tight">
-                Open Core
-              </span>
-
-              <div className="bg-border/60 h-2.5 w-px" />
-
-              <a
-                href="https://github.com/gustavohps10/mr-tick"
-                target="_blank"
-                rel="noreferrer"
-                className="group flex items-center gap-1 opacity-70 transition-opacity hover:opacity-100"
-              >
-                <Github className="text-muted-foreground size-3" />
-                <div className="flex items-center gap-0.5">
-                  <Star className="size-2.5 fill-amber-400/80 text-transparent" />
-                  <span className="text-muted-foreground font-mono text-[10px] font-bold tabular-nums">
-                    120
-                  </span>
-                </div>
-              </a>
-            </div>
+            <a
+              href="https://github.com/gustavohps10/rastro"
+              target="_blank"
+              rel="noreferrer"
+              className="text-muted-foreground hover:text-foreground mt-0.5 flex min-w-0 items-center gap-1.5 font-mono text-[10px] leading-none"
+            >
+              <span className="truncate">gustavohps10/rastro</span>
+              {stars != null && (
+                <span className="flex shrink-0 items-center gap-0.5 tabular-nums">
+                  <Star
+                    className="size-2.5 fill-amber-400 text-amber-400"
+                    aria-hidden
+                  />
+                  {stars}
+                  <span className="sr-only"> estrelas no GitHub</span>
+                </span>
+              )}
+            </a>
           </div>
         </div>
 

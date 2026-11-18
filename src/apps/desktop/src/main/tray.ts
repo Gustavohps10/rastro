@@ -2,15 +2,15 @@ import { join } from 'node:path'
 
 import { app, BrowserWindow, Menu, nativeImage, screen, Tray } from 'electron'
 
-function getDefaultAppIcon() {
+function getTrayIcon(status: TrayTimerStatus) {
+  const iconName = status === 'idle' ? 'icon.png' : `tray-${status}.png`
   const iconPath = app.isPackaged
-    ? join(process.resourcesPath, 'favicon.ico')
-    : join(__dirname, '../../resources/favicon.ico')
-  return nativeImage.createFromPath(iconPath).resize({ width: 16, height: 16 })
+    ? join(process.resourcesPath, iconName)
+    : join(__dirname, '../../resources', iconName)
+  return nativeImage.createFromPath(iconPath).resize({ width: 32, height: 32 })
 }
 
 let tray: Tray | null = null
-let trayCanvasWindow: BrowserWindow | null = null
 let tooltipWindow: BrowserWindow | null = null
 
 export type TrayTimerStatus = 'running' | 'paused' | 'idle'
@@ -27,8 +27,6 @@ let lastInfo: TrayTimerInfo = {
   status: 'idle',
 }
 
-// Formata o tempo (mantido caso seja útil em outro lugar da UI — o ícone
-// da bandeja em si não desenha mais texto, só a ampulheta)
 export function formatTrayTime(totalSeconds: number): string {
   const hours = Math.floor(totalSeconds / 3600)
   const minutes = Math.floor((totalSeconds % 3600) / 60)
@@ -38,138 +36,22 @@ export function formatTrayTime(totalSeconds: number): string {
     .join(':')
 }
 
-// --- ÍCONE: ampulheta desenhada (número em 16-32px nunca fica legível) ---
-
-async function getTrayHourglassImage(status: TrayTimerStatus): Promise<string> {
-  // Renderiza numa resolução maior e deixa o nativeImage reduzir depois,
-  // pra manter o traço nítido em telas HiDPI.
-  const RENDER_SIZE = 64
-
-  if (!trayCanvasWindow || trayCanvasWindow.isDestroyed()) {
-    trayCanvasWindow = new BrowserWindow({
-      width: RENDER_SIZE,
-      height: RENDER_SIZE,
-      show: false,
-      webPreferences: {
-        offscreen: true,
-        nodeIntegration: false,
-        contextIsolation: true,
-      },
-    })
-
-    const html = `
-      <!DOCTYPE html>
-      <html>
-        <body style="margin:0;padding:0;background:transparent;overflow:hidden;">
-          <canvas id="c" width="${RENDER_SIZE}" height="${RENDER_SIZE}"></canvas>
-        </body>
-      </html>
-    `
-    await trayCanvasWindow.loadURL(
-      `data:text/html;charset=utf-8,${encodeURIComponent(html)}`,
-    )
-  }
-
-  // A cor do traço muda com o status — dá pra saber se o timer tá rodando
-  // ou pausado só de bater o olho na bandeja, sem precisar do hover.
-  const accentColor =
-    status === 'running'
-      ? '#22c55e' // verde: rodando
-      : status === 'paused'
-        ? '#f59e0b' // âmbar: pausado
-        : '#e5e7eb' // cinza claro: parado/idle
-
-  return trayCanvasWindow.webContents.executeJavaScript(`
-    (() => {
-      const SIZE = ${RENDER_SIZE};
-      const canvas = document.getElementById('c');
-      const ctx = canvas.getContext('2d');
-      ctx.clearRect(0, 0, SIZE, SIZE);
-
-      const cx = SIZE / 2;
-      const cy = SIZE / 2;
-      const top = SIZE * 0.18;
-      const bottom = SIZE * 0.82;
-      const halfWidth = SIZE * 0.24;
-      const capOverhang = SIZE * 0.06;
-
-      ctx.lineJoin = 'round';
-      ctx.lineCap = 'round';
-
-      const drawOutline = (strokeStyle, lineWidth) => {
-        ctx.strokeStyle = strokeStyle;
-        ctx.lineWidth = lineWidth;
-
-        // Silhueta da ampulheta: dois triângulos se tocando no centro
-        ctx.beginPath();
-        ctx.moveTo(cx - halfWidth, top);
-        ctx.lineTo(cx + halfWidth, top);
-        ctx.lineTo(cx, cy);
-        ctx.lineTo(cx + halfWidth, bottom);
-        ctx.lineTo(cx - halfWidth, bottom);
-        ctx.lineTo(cx, cy);
-        ctx.closePath();
-        ctx.stroke();
-
-        // "Pés" (barras) no topo e na base, como o corpo de madeira/metal
-        // de uma ampulheta real
-        ctx.beginPath();
-        ctx.moveTo(cx - halfWidth - capOverhang, top);
-        ctx.lineTo(cx + halfWidth + capOverhang, top);
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.moveTo(cx - halfWidth - capOverhang, bottom);
-        ctx.lineTo(cx + halfWidth + capOverhang, bottom);
-        ctx.stroke();
-      };
-
-      // Contorno preto grosso primeiro (contraste em qualquer taskbar),
-      // depois o traço colorido por cima, mais fino.
-      drawOutline('#000000', SIZE * 0.14);
-      drawOutline('${accentColor}', SIZE * 0.065);
-
-      // Areia acumulada embaixo, reforçando a leitura de "tempo passando"
-      ctx.fillStyle = '${accentColor}';
-      ctx.beginPath();
-      ctx.moveTo(cx - halfWidth * 0.55, bottom - SIZE * 0.05);
-      ctx.lineTo(cx + halfWidth * 0.55, bottom - SIZE * 0.05);
-      ctx.lineTo(cx, cy + SIZE * 0.1);
-      ctx.closePath();
-      ctx.fill();
-
-      return canvas.toDataURL('image/png');
-    })()
-  `)
-}
-
-export async function updateTrayTimer(info: TrayTimerInfo) {
+export async function updateTrayTimer(info: TrayTimerInfo): Promise<void> {
   lastInfo = info
 
   if (!tray || tray.isDestroyed()) return
 
+  tray.setImage(getTrayIcon(info.status))
   if (info.status === 'idle') {
-    tray.setImage(getDefaultAppIcon())
-    tray.setToolTip('Mr-tick')
+    tray.setToolTip('Rastro')
     updateTooltipContent(info)
     return
   }
 
-  try {
-    const dataUrl = await getTrayHourglassImage(info.status)
-    const image = nativeImage
-      .createFromDataURL(dataUrl)
-      .resize({ width: 32, height: 32, quality: 'best' })
-    tray.setImage(image)
-    // Tooltip nativo continua como fallback (leitores de tela, ou usuário
-    // que preferir desativar o hover custom no futuro).
-    tray.setToolTip(
-      `Mr-tick — ${info.taskName ?? 'Sem tarefa'} · ${info.elapsedText}`,
-    )
-    updateTooltipContent(info)
-  } catch (error) {
-    console.error('Erro ao atualizar ícone da tray:', error)
-  }
+  tray.setToolTip(
+    `Rastro — ${info.taskName ?? 'Sem tarefa'} · ${info.elapsedText}`,
+  )
+  updateTooltipContent(info)
 }
 
 // --- TOOLTIP CUSTOMIZADO (card ao passar o mouse, estilo FanControl) ---
@@ -249,7 +131,7 @@ function getTooltipHtml(): string {
         <div class="card">
           <div class="header">
             <span class="dot" id="status-dot"></span>
-            <span>Mr-tick</span>
+            <span>Rastro</span>
           </div>
           <div class="divider"></div>
           <div class="task-name" id="task-name">Sem tarefa</div>
@@ -424,10 +306,6 @@ export function destroyTray() {
     tooltipWindow.destroy()
     tooltipWindow = null
   }
-  if (trayCanvasWindow && !trayCanvasWindow.isDestroyed()) {
-    trayCanvasWindow.destroy()
-    trayCanvasWindow = null
-  }
   if (tray && !tray.isDestroyed()) {
     tray.destroy()
     tray = null
@@ -438,7 +316,7 @@ export const createTray = (
   getSecondaryWindow: () => BrowserWindow | null,
   createSecondaryWindow: () => void,
 ) => {
-  const defaultIcon = getDefaultAppIcon()
+  const defaultIcon = getTrayIcon('idle')
 
   tray = new Tray(defaultIcon)
 
@@ -462,7 +340,7 @@ export const createTray = (
     ])
   }
 
-  tray.setToolTip('Mr-tick')
+  tray.setToolTip('Rastro')
 
   tray.on('click', () => {
     const menu = buildContextMenu()

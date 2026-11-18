@@ -424,7 +424,7 @@ export function DataSourceList({
               <span>Instalar {activePlugin?.name}</span>
             </DialogTitle>
             <DialogDescription>
-              Selecione a versão compatível com seu Mr-tick App.
+              Selecione a versão compatível com seu Rastro App.
             </DialogDescription>
           </DialogHeader>
 

@@ -46,7 +46,7 @@ export function Header({ className }: HeaderProps = {}) {
 
         <div className="flex items-center gap-1 leading-none">
           <span className="text-foreground max-w-[140px] truncate text-[11px] font-semibold tracking-tight">
-            {workspace?.name || 'Mr. Tick'}
+            {workspace?.name || 'Rastro'}
           </span>
           <span className="text-muted-foreground/60 font-mono text-[9px]">
             {workspace?.id}

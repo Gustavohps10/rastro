@@ -74,7 +74,7 @@ describe('UnlinkConnectionService', () => {
 
     fakeWorkspace = {
       id: 'workspace-123',
-      name: 'Mr-tick Workspace',
+      name: 'Rastro Workspace',
       status: 'configured',
       connections: [
         {

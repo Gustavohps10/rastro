@@ -216,7 +216,7 @@ export class DiscordMockRpcServer extends EventEmitter {
         data: {
           application: {
             id: '1372352088457220126',
-            name: 'Mister Tick Observer',
+            name: 'Rastro Observer',
           },
           scopes: ['rpc', 'rpc.voice.read'],
           expires: new Date(Date.now() + 86400000).toISOString(),

@@ -627,7 +627,7 @@ describe('WorkspaceAddonConnectionsManager', () => {
           id: 'addon-a',
           name: 'Jira Cloud',
           version: '0.2.1',
-          creator: 'Mr. Tick',
+          creator: 'Rastro',
           description: 'Issues do Jira',
           path: '/addons/jira',
           logo: 'https://example.com/jira-logo.png',

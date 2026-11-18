@@ -38,7 +38,7 @@ export class UpdaterService {
       provider: 'custom',
       updateProvider: GitHubMonorepoProvider,
       owner: 'Gustavohps10',
-      repo: 'mr-tick',
+      repo: 'rastro',
     })
 
     autoUpdater.autoDownload = false
@@ -293,7 +293,7 @@ export class UpdaterService {
     const version = this.latestUpdateInfo.version
     const fileName = `mr-tick-${version}-portable.zip`
     const tag = encodeURIComponent(`@mr-tick/desktop@${version}`)
-    const url = `https://github.com/Gustavohps10/mr-tick/releases/download/${tag}/${fileName}`
+    const url = `https://github.com/Gustavohps10/rastro/releases/download/${tag}/${fileName}`
 
     const tempDir = path.join(app.getPath('temp'), 'mr-tick-update')
     if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true })

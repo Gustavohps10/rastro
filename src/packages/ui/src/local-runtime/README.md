@@ -1,12 +1,12 @@
 # Browser Local Runtime (`ui/src/local-runtime`)
 
-O **Custodiante Local-First no Renderer (Chromium)** do Mr. Tick. Responsável por implementar a persistência reativa do banco de dados local (**RxDB / IndexedDB**), gerenciar a concorrência serial de escrita e garantir idempotência durável de comandos em tempo de execução no navegador.
+O **Custodiante Local-First no Renderer (Chromium)** do Rastro. Responsável por implementar a persistência reativa do banco de dados local (**RxDB / IndexedDB**), gerenciar a concorrência serial de escrita e garantir idempotência durável de comandos em tempo de execução no navegador.
 
 ---
 
 ## 🎯 Por que este módulo existe?
 
-No Mr. Tick, a interface gráfica (React) roda no **Renderer Process** do Chromium, onde reside a API de armazenamento de alta performance reativa **IndexedDB**.
+No Rastro, a interface gráfica (React) roda no **Renderer Process** do Chromium, onde reside a API de armazenamento de alta performance reativa **IndexedDB**.
 
 Para evitar corrupção de dados, perdas silenciosas de horas de trabalho e colisões de revisão (`RxError: CONFLICT`) no IndexedDB em cenários de alta concorrência (ex: sincronização em segundo plano rodando enquanto o usuário inicia/para timers ou clica repetidamente), este módulo atua como o **executor canônico serializado** de todas as operações locais.
 

@@ -1,13 +1,13 @@
 {
   "private": true,
   "name": "@mr-tick/desktop",
-  "productName": "mr-tick",
+  "productName": "Rastro",
   "version": "0.16.0",
-  "description": "Mr-tick Desktop App.",
+  "description": "Rastro Desktop App.",
   "author": "Gustavo Henrique",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Gustavohps10/mr-tick.git"
+    "url": "https://github.com/Gustavohps10/rastro.git"
   },
   "main": "./out/main/index.js",
   "type": "module",

@@ -1,6 +1,7 @@
 import { randomUUID } from 'node:crypto'
 import {
   existsSync,
+  mkdirSync,
   readFileSync,
   unlinkSync,
   watch,
@@ -164,11 +165,22 @@ function extractActivationKeyFromDeepLink(cleanUrl: string): string | null {
   }
 }
 
-app.name = 'mr-tick'
+app.name = 'Rastro'
 
 const testUserDataPath = process.env.MR_TICK_TEST_USER_DATA_DIR
-if (process.env.NODE_ENV === 'test' && testUserDataPath)
-  app.setPath('userData', testUserDataPath)
+
+function configureUserDataPath(): void {
+  if (process.env.NODE_ENV === 'test' && testUserDataPath) {
+    app.setPath('userData', testUserDataPath)
+    return
+  }
+
+  const directory = join(app.getPath('appData'), 'mr-tick')
+  mkdirSync(directory, { recursive: true })
+  app.setPath('userData', directory)
+}
+
+configureUserDataPath()
 
 const userDataDir = app.getPath('userData')
 const bridgeFilePath = join(userDataDir, 'oauth_bridge.tmp')
@@ -180,7 +192,7 @@ if (!isTestMode) {
 }
 
 if (!gotTheLock) {
-  console.log('[Mr-tick Core] ❌ Instância secundária capturada.')
+  console.log('[Rastro Core] ❌ Instância secundária capturada.')
 
   const cleanUrl = findDeepLinkInArgs(process.argv)
 
@@ -188,11 +200,11 @@ if (!gotTheLock) {
     try {
       writeFileSync(bridgeFilePath, cleanUrl, 'utf-8')
       console.log(
-        '[Mr-tick Core] 💾 URL gravada na ponte com sucesso:',
+        '[Rastro Core] 💾 URL gravada na ponte com sucesso:',
         cleanUrl,
       )
     } catch (err) {
-      console.error('[Mr-tick Core] Erro ao gravar URL no arquivo ponte:', err)
+      console.error('[Rastro Core] Erro ao gravar URL no arquivo ponte:', err)
     }
   }
 
@@ -200,7 +212,7 @@ if (!gotTheLock) {
 }
 
 if (gotTheLock) {
-  console.log('[Mr-tick Core] ✅ PRIMEIRA INSTÂNCIA EM EXECUÇÃO')
+  console.log('[Rastro Core] ✅ PRIMEIRA INSTÂNCIA EM EXECUÇÃO')
 
   let mainWindow: BrowserWindow | null = null
   let tray: Tray | null = null
@@ -210,10 +222,10 @@ if (gotTheLock) {
   let pendingActivationKey: string | null = null
   let nativeOverlay: NativeOverlay | null = null
 
-  let appIconPath = join(__dirname, '../../resources/favicon.ico')
-  if (app.isPackaged) {
-    appIconPath = join(process.resourcesPath, 'favicon.ico')
-  }
+  const iconName = process.platform === 'win32' ? 'favicon.ico' : 'icon.png'
+  const appIconPath = app.isPackaged
+    ? join(process.resourcesPath, iconName)
+    : join(__dirname, '../../resources', iconName)
 
   async function processActivationDeepLinkKey(key: string): Promise<void> {
     if (!globalLicensingFacade) {
@@ -231,8 +243,8 @@ if (gotTheLock) {
     if (result.isSuccess()) {
       globalAddonLoader?.showToast(
         'success',
-        'Sua assinatura Mr. Tick Plus foi ativada neste dispositivo!',
-        'Mr. Tick Plus Ativado',
+        'Sua assinatura Rastro Plus foi ativada neste dispositivo!',
+        'Rastro Plus Ativado',
       )
       return
     }
@@ -245,7 +257,7 @@ if (gotTheLock) {
 
   function handleIncomingDeepLink(rawUrl: string) {
     const cleanUrl = rawUrl.replace(/\/$/, '').trim()
-    console.log('[Mr-tick Core] 🔗 Deep Link recebido:', cleanUrl)
+    console.log('[Rastro Core] 🔗 Deep Link recebido:', cleanUrl)
 
     if (mainWindow && !mainWindow.isDestroyed()) {
       if (mainWindow.isMinimized()) mainWindow.restore()
@@ -289,7 +301,7 @@ if (gotTheLock) {
       }
     })
   } catch (err) {
-    console.error('[Mr-tick Core] Erro ao iniciar watcher da ponte:', err)
+    console.error('[Rastro Core] Erro ao iniciar watcher da ponte:', err)
   }
 
   if (process.platform === 'win32') {
@@ -336,7 +348,7 @@ if (gotTheLock) {
   if (remoteDebugPort) {
     app.commandLine.appendSwitch('remote-debugging-port', remoteDebugPort)
     console.log(
-      `🐞 [Mr-tick Core] Remote debugging port ativo: http://localhost:${remoteDebugPort}`,
+      `🐞 [Rastro Core] Remote debugging port ativo: http://localhost:${remoteDebugPort}`,
     )
   }
 
@@ -354,7 +366,7 @@ if (gotTheLock) {
   const currentCompiledFile = fileURLToPath(import.meta.url)
 
   if (!app.isPackaged) {
-    console.log('[Mr-tick Core] 🔗 Registrando protocolos (Dev Monorepo):', {
+    console.log('[Rastro Core] 🔗 Registrando protocolos (Dev Monorepo):', {
       executable: process.execPath,
       compiledFile: currentCompiledFile,
     })
@@ -544,7 +556,7 @@ if (gotTheLock) {
             nativeOverlay.cleanupOverlay()
           }
         } catch (err) {
-          console.error('[Mr-tick Core] Erro ao limpar overlay nativo:', err)
+          console.error('[Rastro Core] Erro ao limpar overlay nativo:', err)
         }
       }
       secondaryWindow = null
@@ -912,12 +924,12 @@ if (gotTheLock) {
         if (installedResult.isSuccess() && installedResult.success.length > 0) {
           await addonLoader.loadInstalledAddons(installedResult.success)
           console.log(
-            `🧩 [Mr-tick Core] ${installedResult.success.length} addon(s) instalado(s) carregado(s) no boot.`,
+            `🧩 [Rastro Core] ${installedResult.success.length} addon(s) instalado(s) carregado(s) no boot.`,
           )
         }
       } catch (err) {
         console.error(
-          '❌ [Mr-tick Core] Erro ao carregar addons instalados no boot:',
+          '❌ [Rastro Core] Erro ao carregar addons instalados no boot:',
           err,
         )
       }
@@ -1142,10 +1154,7 @@ if (gotTheLock) {
               nativeOverlay.cleanupOverlay()
             }
           } catch (err) {
-            console.error(
-              '[Mr-tick Core] Erro ao liberar overlay no quit:',
-              err,
-            )
+            console.error('[Rastro Core] Erro ao liberar overlay no quit:', err)
           }
         }
         if (tray) {

@@ -25,8 +25,8 @@ export function GeneralSettingsTab() {
               Inicialização Automática
             </h4>
             <p className="text-muted-foreground mt-0.5 text-xs">
-              Iniciar o Mr. Tick automaticamente quando o sistema operacional
-              for iniciado.
+              Iniciar o Rastro automaticamente quando o sistema operacional for
+              iniciado.
             </p>
           </div>
           <div className="shrink-0">

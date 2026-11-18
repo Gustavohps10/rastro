@@ -1,6 +1,6 @@
 # Services (Application Layer)
 
-Esta camada orquestra os **Casos de Uso (Use Cases)** do ecossistema Mr. Tick.
+Esta camada orquestra os **Casos de Uso (Use Cases)** do ecossistema Rastro.
 
 ## 🎯 Princípios Fundamentais
 

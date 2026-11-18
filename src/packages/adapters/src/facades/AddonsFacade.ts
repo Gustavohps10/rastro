@@ -640,7 +640,7 @@ export class AddonsFacade implements IAddonsFacade {
         maxRedirects: 10,
         headers: {
           'User-Agent':
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Mr-tickApp/1.0.0',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Rastro/1.0.0',
           Accept: 'application/octet-stream, */*',
         },
         onDownloadProgress: (progressEvent) => {
@@ -812,7 +812,7 @@ export class AddonsFacade implements IAddonsFacade {
           ...installedItem,
           updateAvailable: false,
           incompatibleUpdate: true,
-          incompatibleReason: `Requer Mr. Tick API ${requiredDisplay}`,
+          incompatibleReason: `Requer Rastro API ${requiredDisplay}`,
         }
       }
 

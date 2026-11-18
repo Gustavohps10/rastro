@@ -75,7 +75,7 @@ const NAV_ITEMS: NavMenuItem[] = [
   },
   {
     id: 'license',
-    label: 'Mr. Tick Plus',
+    label: 'Rastro Plus',
     icon: Sparkles,
     sectionGroup: 'app',
     description: 'Gerenciamento de chave de ativação, plano e dispositivos.',

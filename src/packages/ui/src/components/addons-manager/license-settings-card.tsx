@@ -121,7 +121,7 @@ export function LicenseActivationDialog({
         throw new Error(
           resolveErrorMessage(
             response.error,
-            'Falha ao ativar licença Mr. Tick Plus.',
+            'Falha ao ativar licença Rastro Plus.',
           ),
         )
       }
@@ -130,7 +130,7 @@ export function LicenseActivationDialog({
     onSuccess: async (state) => {
       queryClient.setQueryData(['licensing', 'state'], state)
       await queryClient.invalidateQueries({ queryKey: ['plugins'] })
-      toast.success('Licença Mr. Tick Plus ativada com sucesso!')
+      toast.success('Licença Rastro Plus ativada com sucesso!')
       setLicenseKey('')
       onOpenChange(false)
       onActivated?.(state)
@@ -156,7 +156,7 @@ export function LicenseActivationDialog({
         <DialogHeader className="shrink-0 border-b p-6 pb-4">
           <DialogTitle className="flex items-center gap-2">
             <Sparkles className="h-5 w-5 text-amber-500" />
-            Ativar Mr. Tick Plus
+            Ativar Rastro Plus
           </DialogTitle>
           <DialogDescription>
             Insira a chave enviada para o seu e-mail após a assinatura para
@@ -231,7 +231,7 @@ export function useLicensingState() {
         }
         void queryClient.invalidateQueries({ queryKey: ['plugins'] })
         if (nextState && nextState.isPlusActive) {
-          toast.success('Licença Mr. Tick Plus ativada via link rápido!')
+          toast.success('Licença Rastro Plus ativada via link rápido!')
         }
       },
     )
@@ -267,7 +267,7 @@ export function LicenseSettingsCard() {
         throw new Error(
           resolveErrorMessage(
             response.error,
-            'Falha ao sincronizar licença Mr. Tick Plus.',
+            'Falha ao sincronizar licença Rastro Plus.',
           ),
         )
       }
@@ -321,7 +321,7 @@ export function LicenseSettingsCard() {
               <div>
                 <div className="flex items-center gap-2">
                   <CardTitle className="text-sm font-semibold">
-                    Assinatura Mr. Tick Plus
+                    Assinatura Rastro Plus
                   </CardTitle>
                   <Badge
                     variant="outline"

@@ -45,7 +45,7 @@ sha256: 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 size: 4096
 capabilities:
   - watcher
-author: Mr. Tick Official
+author: Rastro Official
 shortDescription: Integração com Discord
 description: Plugin oficial Plus do Discord
 iconUrl: https://example.com/icon.png
@@ -169,7 +169,7 @@ iconUrl: https://example.com/icon.png
         name: 'Discord Presence',
         version: '1.0.0',
         capabilities: ['watcher'],
-        author: 'Mr-tick',
+        author: 'Rastro',
         description: 'Discord watcher',
         downloadUrl: 'https://example.com/discord.tladdon',
       },

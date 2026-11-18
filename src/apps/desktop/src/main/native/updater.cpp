@@ -81,7 +81,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 
         // 2. Title Label (x: 70, y: 20)
         g_hTitleCtrl = CreateWindowExW(
-            0, L"STATIC", L"Updating Mr. Tick",
+            0, L"STATIC", L"Updating Rastro",
             WS_CHILD | WS_VISIBLE | SS_LEFT,
             70, 20, 360, 22,
             hWnd, (HMENU)(INT_PTR)IDC_STATIC_TITLE, hInstance, NULL
@@ -145,7 +145,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 
     case WM_APP_ERROR: {
         wchar_t* pErr = (wchar_t*)lParam;
-        MessageBoxW(hWnd, pErr ? pErr : L"Unknown update error.", L"Mr. Tick - Error", MB_OK | MB_ICONERROR);
+        MessageBoxW(hWnd, pErr ? pErr : L"Unknown update error.", L"Rastro - Error", MB_OK | MB_ICONERROR);
         if (pErr) delete[] pErr;
         DestroyWindow(hWnd);
         return 0;
@@ -182,13 +182,13 @@ void RunUpdateWorker(DWORD pid, fs::path targetDir, fs::path extractDir, std::ws
     };
 
     // 1. Stage: Wait for main process to exit (~600ms)
-    reportProgress(5, L"Waiting for Mr. Tick to close...");
+    reportProgress(5, L"Waiting for Rastro to close...");
     HANDLE hProcess = OpenProcess(SYNCHRONIZE, FALSE, pid);
     if (hProcess != NULL) {
         WaitForSingleObject(hProcess, 15000);
         CloseHandle(hProcess);
     }
-    animateTo(5, 25, L"Waiting for Mr. Tick to close...", 500);
+    animateTo(5, 25, L"Waiting for Rastro to close...", 500);
     std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
     // 2. Stage: Copy new files with retries (~1000ms)
@@ -221,7 +221,7 @@ void RunUpdateWorker(DWORD pid, fs::path targetDir, fs::path extractDir, std::ws
     } catch (...) {}
 
     // 4. Stage: Restart application (~400ms)
-    animateTo(90, 100, L"Restarting Mr. Tick...", 400);
+    animateTo(90, 100, L"Restarting Rastro...", 400);
     std::this_thread::sleep_for(std::chrono::milliseconds(250));
 
     // Launch the updated process
@@ -244,7 +244,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, PWSTR /*pC
     int argc = 0;
     LPWSTR* argv = CommandLineToArgvW(GetCommandLineW(), &argc);
     if (!argv || argc < 5) {
-        MessageBoxW(NULL, L"Usage: updater.exe <PID> <TargetDir> <ExtractDir> <ExePath>", L"Mr. Tick - Portable Updater", MB_OK | MB_ICONWARNING);
+        MessageBoxW(NULL, L"Usage: updater.exe <PID> <TargetDir> <ExtractDir> <ExePath>", L"Rastro - Portable Updater", MB_OK | MB_ICONWARNING);
         if (argv) LocalFree(argv);
         return 1;
     }
@@ -260,7 +260,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, PWSTR /*pC
     wc.lpfnWndProc = WndProc;
     wc.hInstance = hInstance;
     wc.hCursor = LoadCursorW(NULL, IDC_ARROW);
-    wc.lpszClassName = L"MrTickPortableUpdaterWindow";
+    wc.lpszClassName = L"RastroPortableUpdaterWindow";
 
     if (!RegisterClassExW(&wc)) {
         return 1;
@@ -277,7 +277,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, PWSTR /*pC
     g_hWnd = CreateWindowExW(
         WS_EX_TOPMOST,
         wc.lpszClassName,
-        L"Mr. Tick - Portable Updater",
+        L"Rastro - Portable Updater",
         WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU,
         posX, posY, winWidth, winHeight,
         NULL, NULL, hInstance, NULL

@@ -55,7 +55,7 @@ export class HttpClient implements IHttpClient {
       baseURL: this.baseURL ? this.baseURL : undefined,
       timeout: this.timeout,
       headers: {
-        'User-Agent': 'Mr-tickApp/1.0',
+        'User-Agent': 'Rastro/1.0',
         ...this.defaultHeaders,
       },
     })

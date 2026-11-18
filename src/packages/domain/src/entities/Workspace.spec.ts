@@ -137,7 +137,7 @@ describe('Workspace Entity', () => {
       vi.setSystemTime(now)
 
       const result = Workspace.create({
-        name: 'My Mr-tick Workspace',
+        name: 'My Rastro Workspace',
         description: 'desc',
         avatarUrl: 'https://avatar.com/img.png',
       })
@@ -147,7 +147,7 @@ describe('Workspace Entity', () => {
       const workspace = result.success
 
       expect(workspace.id).toBe('ws-mock-uuid-1234')
-      expect(workspace.name).toBe('My Mr-tick Workspace')
+      expect(workspace.name).toBe('My Rastro Workspace')
       expect(workspace.description).toBe('desc')
       expect(workspace.avatarUrl).toBe('https://avatar.com/img.png')
       expect(workspace.status).toBe('draft')

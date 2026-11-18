@@ -1,6 +1,6 @@
 # Local Runtime Subcontext (`services/local-runtime`)
 
-O **Coração Determinístico Local-First** do Mr. Tick. Responsável por orquestrar o ciclo de vida do cronômetro (timer), enfileirar comandos locais e mediar resoluções de conflitos sem bloqueio de rede.
+O **Coração Determinístico Local-First** do Rastro. Responsável por orquestrar o ciclo de vida do cronômetro (timer), enfileirar comandos locais e mediar resoluções de conflitos sem bloqueio de rede.
 
 ## 🎯 Responsabilidades
 

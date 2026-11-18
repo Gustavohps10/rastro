@@ -445,7 +445,7 @@ export class ElectronHttpClient implements IHttpClient {
   ): Record<string, string> {
     const sameOrigin = this.isSameOrigin(fullUrl)
     const headers: Record<string, string> = {
-      'User-Agent': 'MrTick/1.0 (Desktop; Electron)',
+      'User-Agent': 'Rastro/1.0 (Desktop; Electron)',
     }
 
     for (const [key, value] of Object.entries(this.defaultHeaders)) {

@@ -1,6 +1,6 @@
 # Sync Subcontext (`services/sync`)
 
-Responsável pela **Sincronização Bidirecional (Pull & Push)** de dados entre o repositório local do Mr. Tick e os provedores remotos conectados (Redmine, Jira, etc.).
+Responsável pela **Sincronização Bidirecional (Pull & Push)** de dados entre o repositório local do Rastro e os provedores remotos conectados (Redmine, Jira, etc.).
 
 ## 🎯 Responsabilidades
 

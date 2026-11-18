@@ -99,7 +99,7 @@ export function LicenseSettingsTab() {
         throw new Error(
           resolveErrorMessage(
             response.error,
-            'Falha ao ativar licença Mr. Tick Plus.',
+            'Falha ao ativar licença Rastro Plus.',
           ),
         )
       }
@@ -108,7 +108,7 @@ export function LicenseSettingsTab() {
     onSuccess: async (data) => {
       queryClient.setQueryData(['licensing', 'state'], data)
       await queryClient.invalidateQueries({ queryKey: ['plugins'] })
-      toast.success('Licença Mr. Tick Plus ativada com sucesso!')
+      toast.success('Licença Rastro Plus ativada com sucesso!')
       setLicenseKeyInput('')
     },
     onError: (error: Error) => {
@@ -123,7 +123,7 @@ export function LicenseSettingsTab() {
         throw new Error(
           resolveErrorMessage(
             response.error,
-            'Falha ao sincronizar licença Mr. Tick Plus.',
+            'Falha ao sincronizar licença Rastro Plus.',
           ),
         )
       }
@@ -180,7 +180,7 @@ export function LicenseSettingsTab() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Sparkles className="h-5 w-5 text-amber-500" />
-            <h3 className="text-lg font-medium">Mr. Tick Plus</h3>
+            <h3 className="text-lg font-medium">Rastro Plus</h3>
           </div>
           <Badge
             variant="outline"
@@ -338,16 +338,14 @@ export function LicenseSettingsTab() {
 
           <div className="bg-muted/40 flex flex-col gap-2 rounded-lg border p-4 text-xs">
             <div className="flex items-center justify-between">
-              <span className="font-medium">
-                Ainda não possui Mr. Tick Plus?
-              </span>
+              <span className="font-medium">Ainda não possui Rastro Plus?</span>
               <a
                 href="https://mistertick.com/license?action=checkout"
                 target="_blank"
                 rel="noreferrer"
                 className="text-primary hover:text-primary/80 flex items-center gap-1 font-semibold transition-colors"
               >
-                <span>Assinar Mr. Tick Plus</span>
+                <span>Assinar Rastro Plus</span>
                 <ExternalLink className="h-3 w-3" />
               </a>
             </div>

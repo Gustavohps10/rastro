@@ -554,7 +554,7 @@ export class AddonLoader implements IAddonReloader {
         Notification.isSupported()
       ) {
         new Notification({
-          title: title || 'Mr. Tick',
+          title: title || 'Rastro',
           body: message,
         }).show()
       }

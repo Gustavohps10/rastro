@@ -115,7 +115,7 @@ export function NotificationsPopover() {
                       Nova versão disponível
                     </h4>
                     <span className="text-muted-foreground text-[11px]">
-                      Mr. Tick Auto Updater
+                      Rastro Auto Updater
                     </span>
                   </div>
                 </div>

@@ -1,5 +1,5 @@
 appId: com.electron.app
-productName: mr-tick
+productName: Rastro
 directories:
   buildResources: resources
   output: .output
@@ -13,9 +13,11 @@ files:
   - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
 extraResources:
   - from: resources
-    to: resources
+    to: .
     filter:
-      - '**/*'
+      - favicon.ico
+      - icon.png
+      - tray-*.png
   - from: native-prebuilds/window_overlay.node
     to: native-prebuilds/window_overlay.node
   - from: native-prebuilds/updater.exe
@@ -26,7 +28,7 @@ asarUnpack:
   - resources/**
   - node_modules/@duckdb/node-bindings*/**
 protocols:
-  name: Mr-tick Auth Protocol
+  name: Rastro Auth Protocol
   schemes:
     - mr-tick
 win:
@@ -39,7 +41,7 @@ win:
     - target: zip
       arch:
         - x64
-  artifactName: ${productName}-${version}-portable.${ext}
+  artifactName: mr-tick-${version}-portable.${ext}
 nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true
@@ -49,13 +51,14 @@ nsis:
   uninstallerIcon: resources/favicon.ico
   installerSidebar: resources/install-sidebar.bmp
   uninstallerSidebar: resources/install-sidebar.bmp
-  artifactName: ${productName}-${version}-setup.${ext}
+  artifactName: mr-tick-${version}-setup.${ext}
   shortcutName: ${productName}
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
   createStartMenuShortcut: true
   deleteAppDataOnUninstall: false
 mac:
+  icon: resources/icon.png
   entitlementsInherit: build/entitlements.mac.plist
   extendInfo:
     - NSCameraUsageDescription: Application requests access to the device's camera.
@@ -66,6 +69,7 @@ mac:
 dmg:
   artifactName: ${name}-${version}.${ext}
 linux:
+  icon: resources/icon.png
   target:
     - AppImage
     - snap
@@ -78,6 +82,6 @@ npmRebuild: false
 publish:
   provider: github
   owner: Gustavohps10
-  repo: mr-tick
+  repo: rastro
 electronDownload:
   mirror: https://npmmirror.com/mirrors/electron/

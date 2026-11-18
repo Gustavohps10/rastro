@@ -273,7 +273,7 @@ describe('DeleteWorkspaceService', () => {
   })
 
   it('should delete workspace and its avatar from storage if it exists', async () => {
-    const workspace = Workspace.create({ name: 'Mr-tick Workspace' }).success
+    const workspace = Workspace.create({ name: 'Rastro Workspace' }).success
     const input = { workspaceId: workspace.id }
     workspace.updateAvatarUrl('https://storage.com/avatars/ws-123.png')
 

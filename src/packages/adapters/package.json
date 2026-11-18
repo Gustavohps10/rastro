@@ -2,7 +2,7 @@
   "name": "@mr-tick/adapters",
   "version": "1.5.1",
   "private": true,
-  "description": "Pacote de infraestrutura consolidado para o Mr-tick, contendo implementações concretas de recursos externos",
+  "description": "Pacote de infraestrutura consolidado para o Rastro, contendo implementações concretas de recursos externos",
   "type": "module",
   "scripts": {
     "build": "tsup",

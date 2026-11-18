@@ -2,7 +2,7 @@
   "name": "@mr-tick/application",
   "version": "2.4.0",
   "private": true,
-  "description": "Contém os serviços e casos de uso (use cases) da aplicação Mr-tick.",
+  "description": "Contém os serviços e casos de uso (use cases) da aplicação Rastro.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

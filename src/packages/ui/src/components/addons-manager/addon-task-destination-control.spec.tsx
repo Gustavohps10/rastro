@@ -138,7 +138,7 @@ describe('AddonTaskDestinationControl', () => {
     dataSourceId: 'redmine',
     title: 'Implementar Observer Discord',
     status: { id: 's1', name: 'Em Andamento' },
-    projectName: 'Mr. Tick Core',
+    projectName: 'Rastro Core',
     createdAt: '2026-01-01T00:00:00.000Z',
     updatedAt: '2026-01-01T00:00:00.000Z',
   }

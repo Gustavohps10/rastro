@@ -144,7 +144,7 @@ export function AddonThemeSettingsPanel({
               </div>
               <p className="text-muted-foreground text-xs leading-relaxed">
                 Este addon disponibiliza estilos, paleta de cores e componentes
-                visuais personalizados para a interface do Mr. Tick.
+                visuais personalizados para a interface do Rastro.
               </p>
             </div>
 

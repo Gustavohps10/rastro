@@ -18,13 +18,6 @@ export default defineConfig({
       viteStaticCopy({
         targets: [
           {
-            src: [
-              'src/main/assets/timer-icon.png',
-              'src/main/assets/favicon.ico',
-            ],
-            dest: 'assets',
-          },
-          {
             src: 'native-prebuilds/*',
             dest: 'native-prebuilds',
           },

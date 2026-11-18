@@ -31,7 +31,7 @@ function resolveDefaultDeviceLabel(): string {
   if (host && host.trim().length > 0) {
     return host.trim()
   }
-  return 'Mr. Tick Desktop'
+  return 'Rastro Desktop'
 }
 
 export class LicensingService implements ILicensingFacade {

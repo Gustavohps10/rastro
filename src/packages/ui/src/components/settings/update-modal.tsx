@@ -85,7 +85,7 @@ export function UpdateModal() {
               'You are already running the latest version.'}
             {updaterState === 'error' && errorMessage}
             {updaterState === 'available' &&
-              'A new version of Mr. Tick is available for download.'}
+              'A new version of Rastro is available for download.'}
             {updaterState === 'downloading' &&
               'Please wait while the update is being downloaded.'}
             {updaterState === 'ready' &&

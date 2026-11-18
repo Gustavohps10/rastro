@@ -50,7 +50,7 @@ const availableAddon: AddonManifestViewModel = {
   id: 'redmine',
   version: '0.6.0',
   name: 'Redmine',
-  creator: 'Mr Tick',
+  creator: 'Rastro',
   description: 'Integração com Redmine.',
   path: '/addons/redmine',
   logo: '',

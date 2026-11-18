@@ -47,7 +47,7 @@ export function UpdateSettingsTab() {
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2">
               <h4 className="text-foreground text-sm font-medium">
-                Versão do Mr. Tick
+                Versão do Rastro
               </h4>
               <Badge
                 variant="outline"

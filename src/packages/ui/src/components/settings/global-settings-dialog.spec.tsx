@@ -386,7 +386,7 @@ describe('GlobalSettingsDialog (Obsidian Style)', () => {
           id: 'mistertick-discord',
           name: 'Discord Presence',
           version: '0.2.0',
-          creator: 'Mister Tick',
+          creator: 'Rastro',
           description: 'Captura automática de chamadas de voz.',
           capabilities: ['auth', 'watcher'],
         },

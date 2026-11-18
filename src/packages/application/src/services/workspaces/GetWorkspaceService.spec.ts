@@ -29,7 +29,7 @@ describe('GetWorkspaceService', () => {
 
     fakeWorkspace = {
       id: 'workspace-123',
-      name: 'Mr-tick Workspace',
+      name: 'Rastro Workspace',
       connections: [],
       createdAt: fakeDate,
       updatedAt: fakeDate,

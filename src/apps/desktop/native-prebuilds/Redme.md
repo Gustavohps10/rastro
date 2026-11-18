@@ -1,4 +1,4 @@
-# Native Prebuilds (Mr-tick Desktop)
+# Native Prebuilds (Rastro Desktop)
 
 Este diretório contém os binários nativos pré-compilados (`.node`) utilizados pelo processo principal do Electron.
 

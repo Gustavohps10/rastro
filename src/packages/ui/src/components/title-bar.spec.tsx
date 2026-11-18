@@ -56,7 +56,7 @@ describe('TitleBar', () => {
   })
 
   it('renders header with z-[100], brightness-[0.97], dark:brightness-90, and border-b styling', () => {
-    render(<TitleBar title="Mr. Tick App" />)
+    render(<TitleBar title="Rastro App" />)
 
     const header = screen.getByRole('banner')
     expect(header).toBeInTheDocument()

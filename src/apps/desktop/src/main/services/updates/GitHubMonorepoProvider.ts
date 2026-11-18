@@ -52,7 +52,7 @@ export class GitHubMonorepoProvider extends Provider<UpdateInfo> {
     super(runtimeOptions)
     const opts = options as GitHubMonorepoProviderOptions
     this.owner = opts.owner || 'Gustavohps10'
-    this.repo = opts.repo || 'mr-tick'
+    this.repo = opts.repo || 'rastro'
     this.packageName = opts.packageName || '@mr-tick/desktop'
     this.baseUrl = new URL('https://github.com')
     this.basePath = `/${this.owner}/${this.repo}/releases`

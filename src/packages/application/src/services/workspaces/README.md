@@ -1,6 +1,6 @@
 # Workspaces Subcontext (`services/workspaces`)
 
-Gerencia a unidade primária de agrupamento de trabalho do usuário no Mr. Tick: o **Workspace**.
+Gerencia a unidade primária de agrupamento de trabalho do usuário no Rastro: o **Workspace**.
 
 ## 🎯 Responsabilidades
 

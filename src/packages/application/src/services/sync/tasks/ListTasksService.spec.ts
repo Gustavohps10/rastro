@@ -38,7 +38,7 @@ describe('ListTasksService', () => {
         title: 'Fix login bug',
         description: 'Bug is preventing users from logging in via Google',
         url: 'https://tracker.example.com/issues/1',
-        projectName: 'Mr-tick Auth App',
+        projectName: 'Rastro Auth App',
         status: {
           id: 'status-2',
           name: 'In Progress',

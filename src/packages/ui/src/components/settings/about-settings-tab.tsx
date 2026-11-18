@@ -73,10 +73,10 @@ export function AboutSettingsTab() {
               </Badge>
             </div>
             <p className="text-muted-foreground mt-0.5 text-xs">
-              Versão do instalador: {version || '1.0.0'} · Mr. Tick (Open Core)
+              Versão do instalador: {version || '1.0.0'} · Rastro (Open Core)
             </p>
             <a
-              href="https://github.com/gustavohps10/mr-tick/releases"
+              href="https://github.com/gustavohps10/rastro/releases"
               target="_blank"
               rel="noreferrer"
               className="text-primary mt-1 inline-flex items-center gap-1 text-xs hover:underline"
@@ -134,7 +134,7 @@ export function AboutSettingsTab() {
           <div className="min-w-0 flex-1">
             <div className="text-foreground text-sm font-medium">Idioma</div>
             <p className="text-muted-foreground mt-0.5 text-xs">
-              Alterar o idioma de exibição do Mr. Tick.
+              Alterar o idioma de exibição do Rastro.
             </p>
           </div>
           <div className="shrink-0">
@@ -167,7 +167,7 @@ export function AboutSettingsTab() {
               className="h-8 cursor-pointer text-xs"
             >
               <a
-                href="https://github.com/gustavohps10/mr-tick"
+                href="https://github.com/gustavohps10/rastro"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5"
@@ -198,7 +198,7 @@ export function AboutSettingsTab() {
                   className="border-amber-500/30 bg-amber-500/10 text-[10px] text-amber-600 dark:text-amber-400"
                 >
                   <Sparkles className="mr-1 size-3" />
-                  Mr. Tick Plus Ativo
+                  Rastro Plus Ativo
                 </Badge>
               ) : (
                 <Badge variant="secondary" className="text-[10px]">
@@ -209,7 +209,7 @@ export function AboutSettingsTab() {
             <p className="text-muted-foreground mt-0.5 text-xs">
               {isPlusActive
                 ? `Licença vinculada a este dispositivo. Validade e chave ativas.`
-                : 'Você está no modo gratuito local. Assine o Mr. Tick Plus para desbloquear recursos avançados.'}
+                : 'Você está no modo gratuito local. Assine o Rastro Plus para desbloquear recursos avançados.'}
             </p>
           </div>
           <div className="flex shrink-0 items-center gap-2">

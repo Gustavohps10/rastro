@@ -207,7 +207,7 @@ export function AppearanceSettingsTab() {
   }, [activeThemeData, availableThemeOptions])
 
   const activeThemeName = useMemo(() => {
-    if (activeValue === 'native') return 'Default (Padrão Mr. Tick)'
+    if (activeValue === 'native') return 'Default (Padrão Rastro)'
     const match = availableThemeOptions.find((opt) => opt.id === activeValue)
     if (match) return match.name
     return activeValue
@@ -228,7 +228,7 @@ export function AppearanceSettingsTab() {
         await queryClient.invalidateQueries({
           queryKey: ['addons', 'activeTheme'],
         })
-        toast.success('Tema nativo do Mr. Tick restaurado.')
+        toast.success('Tema nativo do Rastro restaurado.')
         return
       }
 
@@ -268,7 +268,7 @@ export function AppearanceSettingsTab() {
               )}
             </div>
             <p className="text-muted-foreground mt-0.5 text-xs">
-              Alterne entre a identidade visual nativa do Mr. Tick e temas
+              Alterne entre a identidade visual nativa do Rastro e temas
               fornecidos por addons instalados.
             </p>
           </div>

@@ -7,9 +7,11 @@ import {
 
 export const revalidate = 3600
 
+const headers = { 'Access-Control-Allow-Origin': '*' }
+
 export async function GET() {
   const stars = await fetchRepositoryStars()
   const body: GitHubStarsResponse = { stars }
-  if (stars === null) return NextResponse.json(body, { status: 502 })
-  return NextResponse.json(body)
+  if (stars === null) return NextResponse.json(body, { status: 502, headers })
+  return NextResponse.json(body, { headers })
 }

@@ -4,7 +4,7 @@ description: Crie um addon de tema e aprenda a compilar, empacotar e instalar su
 icon: Rocket
 ---
 
-Neste guia você vai criar um addon de tema pequeno, depois compilá-lo e gerar um pacote para instalar no Mr. Tick. É uma forma simples de conhecer a mesma estrutura de projeto usada pelas outras integrações. Comece em um projeto separado e instale o SDK publicado:
+Neste guia você vai criar um addon de tema pequeno, depois compilá-lo e gerar um pacote para instalar no Rastro. É uma forma simples de conhecer a mesma estrutura de projeto usada pelas outras integrações. Comece em um projeto separado e instale o SDK publicado:
 
 ```bash
 npm init -y
@@ -44,7 +44,7 @@ export default class OceanAddon implements IAddon {
 }
 ```
 
-Registre as funcionalidades em `activate` e retorne sem esperar que todos os serviços do aplicativo estejam prontos. Ao desativar o addon, o Mr. Tick remove os registros feitos por ele. Use `deactivate` para fechar conexões e encerrar tarefas que o próprio addon iniciou.
+Registre as funcionalidades em `activate` e retorne sem esperar que todos os serviços do aplicativo estejam prontos. Ao desativar o addon, o Rastro remove os registros feitos por ele. Use `deactivate` para fechar conexões e encerrar tarefas que o próprio addon iniciou.
 
 ```bash
 npx tsup src/index.ts --format esm,cjs --dts --clean

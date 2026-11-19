@@ -11,7 +11,7 @@ import {
 const plan: PlusPlanCatalogItem = {
   priceId: 'price_test',
   productId: 'product_test',
-  name: 'Mr. Tick Plus',
+  name: 'Rastro Plus',
   description: null,
   interval: 'month',
   intervalCount: 1,

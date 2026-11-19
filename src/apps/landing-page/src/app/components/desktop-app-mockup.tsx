@@ -41,7 +41,6 @@ import {
   Search,
   Settings,
   Sparkles,
-  Star,
   Timer,
   User,
   Users,
@@ -69,7 +68,7 @@ const mockMember: MemberViewModel = {
 // Mock workspace data model with Jira and Redmine connections and user credentials
 const mockWorkspace: WorkspaceViewModel = {
   id: 'default',
-  name: 'MR. TICK CORE WORKSPACE',
+  name: 'RASTRO CORE WORKSPACE',
   status: 'configured',
   description: 'Engineering Productivity Hub',
   avatarUrl: '',
@@ -113,7 +112,7 @@ const mockInstalledPlugins: AddonManifestViewModel[] = [
     version: '1.2.0',
     capabilities: ['dataSource'],
     logo: '/ui/temp-plugins-icons/redmine.png',
-    creator: 'Mr. Tick',
+    creator: 'Rastro',
     description: 'Redmine integration',
     path: '',
     downloads: 100,
@@ -126,7 +125,7 @@ const mockInstalledPlugins: AddonManifestViewModel[] = [
     version: '2.4.1',
     capabilities: ['dataSource'],
     logo: '/ui/temp-plugins-icons/jira.png',
-    creator: 'Mr. Tick',
+    creator: 'Rastro',
     description: 'Jira integration',
     path: '',
     downloads: 200,
@@ -505,13 +504,13 @@ function MockSidebar({
               <div className="hover:bg-muted/60 flex size-8 cursor-pointer items-center justify-center rounded-md transition-colors">
                 <img
                   src="/logo-icon.svg"
-                  alt="Mr. Tick"
-                  className="size-5.5 object-contain dark:invert"
+                  alt="Rastro"
+                  className="size-5.5 object-contain"
                 />
               </div>
             </TooltipTrigger>
             <TooltipContent side="right" className="text-xs">
-              Mr. Tick (Open Core)
+              Rastro Kit
             </TooltipContent>
           </Tooltip>
 
@@ -681,29 +680,25 @@ function MockSidebar({
         {/* Header com a logo oficial limpa */}
         <div className="hover:bg-muted/40 flex items-center justify-between gap-2 rounded-lg p-1.5 transition-colors">
           <div className="flex items-center gap-2">
-            <img
-              src="/logo-icon.svg"
-              alt="Mr. Tick"
-              className="size-6 object-contain dark:invert"
-            />
             <div className="flex flex-col leading-none">
               <img
-                src="/logo-text.svg"
-                alt="Mr. Tick"
-                className="w-[70px] object-contain dark:invert"
+                src="/logo.svg"
+                alt="Rastro Kit"
+                className="h-auto w-24 object-contain dark:hidden"
               />
-              <div className="mt-0.5 flex items-center gap-1">
-                <span className="text-muted-foreground/70 font-mono text-[9px] leading-none font-medium">
-                  Open Core
-                </span>
-                <span className="bg-border/60 h-2 w-px" />
-                <span className="flex items-center gap-0.5 text-amber-500">
-                  <Star className="size-2 fill-current" />
-                  <span className="font-mono text-[9px] font-bold tabular-nums">
-                    120
-                  </span>
-                </span>
-              </div>
+              <img
+                src="/logo-dark.svg"
+                alt="Rastro Kit"
+                className="hidden h-auto w-24 object-contain dark:block"
+              />
+              <a
+                href="https://github.com/gustavohps10/rastro"
+                target="_blank"
+                rel="noreferrer"
+                className="text-muted-foreground hover:text-foreground mt-0.5 font-mono text-[9px]"
+              >
+                gustavohps10/rastro
+              </a>
             </div>
           </div>
         </div>
@@ -854,7 +849,7 @@ function MockDesktopShell({ workspaceId }: { workspaceId: string }) {
 
   return (
     <div className="bg-background text-foreground flex h-full w-full flex-col overflow-hidden select-none">
-      <TitleBar title="Mr. Tick">
+      <TitleBar title="Rastro">
         <Header />
       </TitleBar>
 

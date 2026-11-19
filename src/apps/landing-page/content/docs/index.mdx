@@ -1,10 +1,10 @@
 ---
 title: "SDK"
-description: Learn how the SDK helps you build integrations, actions and themes for Mr. Tick.
+description: Learn how the SDK helps you build integrations, actions and themes for Rastro.
 icon: BookOpen
 ---
 
-The SDK is a set of tools for creating extensions for Mr. Tick. It lets you add integrations, actions and visual customizations without changing the application itself.
+The SDK is a set of tools for creating extensions for Rastro. It lets you add integrations, actions and visual customizations without changing the application itself.
 
 These extensions are called **addons**. Each addon brings a feature that users can install according to their needs, such as connecting a work management tool or suggesting time entries after a meeting.
 
@@ -12,7 +12,7 @@ This documentation describes the upcoming SDK 0.11 contract. Using `auth` requir
 
 ## What can you extend?
 
-- **Connect work tools:** bring tasks into Mr. Tick and send time entries to the original system. The Redmine addon is one example.
+- **Connect work tools:** bring tasks into Rastro and send time entries to the original system. The Redmine addon is one example.
 - **Create activity observers:** detect voice calls or other activities and offer time-entry suggestions, as the Discord addon does.
 - **Add actions and shortcuts:** register commands and items in the sidebar or timer bar.
 - **Customize the interface:** create themes with your own colors and visual identity.
@@ -22,7 +22,7 @@ An addon can combine these features. A calendar or attendance integration can us
 
 ## How does it work?
 
-Your addon describes the features it offers and registers them with Mr. Tick. The application provides access to its supported functions and handles the connection with the interface. You implement the behavior specific to your integration.
+Your addon describes the features it offers and registers them with Rastro. The application provides access to its supported functions and handles the connection with the interface. You implement the behavior specific to your integration.
 
 The SDK also provides the contracts for account connections, settings, private storage and application events. These help each addon use the correct account and workspace.
 
@@ -36,6 +36,6 @@ The SDK also provides the contracts for account connections, settings, private s
 
 ## Developing with the SDK
 
-Install the published `@mr-tick/sdk` package in your project. You do not need the private packages used to build Mr. Tick. The guides explain the types and methods when they are needed for implementation.
+Install the published `@mr-tick/sdk` package in your project. You do not need the private packages used to build Rastro. The guides explain the types and methods when they are needed for implementation.
 
 Addons execute code inside the application. Install extensions from authors you trust: the SDK does not provide a sandbox that contains malicious addon code. Saving an entry locally also does not mean an external service has already accepted it.

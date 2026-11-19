@@ -43,11 +43,11 @@ describe('GitHub stars transport', () => {
     vi.stubGlobal('fetch', fetch)
     expect(await fetchRepositoryStars()).toBe(42)
     expect(fetch).toHaveBeenCalledWith(
-      'https://api.github.com/repos/gustavohps10/mr-tick',
+      'https://api.github.com/repos/gustavohps10/rastro',
       {
         headers: {
           Accept: 'application/vnd.github+json',
-          'User-Agent': 'Mr-Tick-Landing-Page',
+          'User-Agent': 'Rastro-Landing-Page',
         },
         next: { revalidate: 3600 },
       },

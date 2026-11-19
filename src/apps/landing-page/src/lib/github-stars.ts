@@ -8,11 +8,11 @@ interface GitHubRepositoryStars {
 
 export async function fetchRepositoryStars(): Promise<number | null> {
   const response = await fetch(
-    'https://api.github.com/repos/gustavohps10/mr-tick',
+    'https://api.github.com/repos/gustavohps10/rastro',
     {
       headers: {
         Accept: 'application/vnd.github+json',
-        'User-Agent': 'Mr-Tick-Landing-Page',
+        'User-Agent': 'Rastro-Landing-Page',
       },
       next: { revalidate: 3600 },
     },

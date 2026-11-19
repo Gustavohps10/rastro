@@ -6,7 +6,7 @@ icon: KeyRound
 
 OAuth permite que o usuário autorize uma conta pelo navegador, sem entregar sua senha ao addon. PKCE acrescenta uma prova que vincula o código recebido à solicitação que iniciou a autorização.
 
-Declare `auth` no manifesto. Para usar esse fluxo, registre um `AddonConnectionAuthenticator` com `method: oauth`. O Mr. Tick gera a prova PKCE e o identificador de segurança `state`, acompanha a tentativa e salva as credenciais. O addon implementa a comunicação com o serviço externo.
+Declare `auth` no manifesto. Para usar esse fluxo, registre um `AddonConnectionAuthenticator` com `method: oauth`. O Rastro gera a prova PKCE e o identificador de segurança `state`, acompanha a tentativa e salva as credenciais. O addon implementa a comunicação com o serviço externo.
 
 | Ambiente        | Endereço de retorno cadastrado no serviço | Página abre no desktop      |
 | --------------- | --------------------------------------- | --------------------------- |

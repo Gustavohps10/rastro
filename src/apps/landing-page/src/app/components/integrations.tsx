@@ -272,7 +272,7 @@ export function Integrations() {
               </Link>
 
               <a
-                href="https://github.com/gustavohps10/mr-tick/issues/new"
+                href="https://github.com/gustavohps10/rastro/issues/new"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex h-9 items-center gap-2 rounded-lg border border-zinc-800 bg-zinc-900 px-4 text-xs font-semibold text-zinc-300 transition-colors hover:bg-zinc-800 hover:text-white"

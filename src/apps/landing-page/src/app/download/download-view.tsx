@@ -133,10 +133,10 @@ export function DownloadView({
                 <div className="border-border/80 bg-muted/60 flex size-14 shrink-0 items-center justify-center rounded-lg border shadow-inner">
                   <Image
                     src="/logo-icon.svg"
-                    alt="Mr. Tick Icon"
+                    alt="Rastro Icon"
                     width={32}
                     height={38}
-                    className="h-8 w-auto object-contain dark:invert"
+                    className="h-8 w-auto object-contain"
                   />
                 </div>
 
@@ -276,7 +276,7 @@ export function DownloadView({
                     <a
                       href={
                         release.pr.url ||
-                        `https://github.com/Gustavohps10/mr-tick/pull/${release.pr.number}`
+                        `https://github.com/Gustavohps10/rastro/pull/${release.pr.number}`
                       }
                       target="_blank"
                       rel="noreferrer"

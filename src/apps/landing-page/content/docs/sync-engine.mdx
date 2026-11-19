@@ -4,7 +4,7 @@ description: Understand how tasks and time entries synchronize and how to handle
 icon: RefreshCw
 ---
 
-Mr. Tick keeps time entries on the device and synchronizes them with the connected tool. An addon supplies the code that reads and writes that external service. The application coordinates pending changes and recovery after failures.
+Rastro keeps time entries on the device and synchronizes them with the connected tool. An addon supplies the code that reads and writes that external service. The application coordinates pending changes and recovery after failures.
 
 The local executor handles timer and time-entry changes; the interface reads saved data. `core.tasks.list` and `core.tasks.get` read the local cache. `core.tasks.search` explicitly queries the provider and stores results through the same local owner. Supply `workspaceId`, `connectionInstanceId`, `limit` (1–100), and an optional `search` string. Handle the returned `Either`; provider failures remain visible.
 

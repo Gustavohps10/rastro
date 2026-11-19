@@ -14,10 +14,10 @@ export function Footer() {
     {
       title: t('product'),
       links: [
-        { label: t('whyMrTick'), href: '/#positioning' },
+        { label: t('whyRastro'), href: '/#positioning' },
         { label: t('integrationsSdk'), href: '/#integrations' },
         { label: t('architecture'), href: '/#offline' },
-        { label: 'Mr. Tick Plus', href: '/license' },
+        { label: 'Rastro Plus', href: '/license' },
       ],
     },
     {
@@ -32,12 +32,12 @@ export function Footer() {
         },
         {
           label: t('githubRepository'),
-          href: 'https://github.com/gustavohps10/mr-tick',
+          href: 'https://github.com/gustavohps10/rastro',
           external: true,
         },
         {
           label: t('reportAnIssue'),
-          href: 'https://github.com/gustavohps10/mr-tick/issues',
+          href: 'https://github.com/gustavohps10/rastro/issues',
           external: true,
         },
       ],
@@ -47,7 +47,7 @@ export function Footer() {
       links: [
         {
           label: t('mitLicenseOpenSource'),
-          href: 'https://github.com/gustavohps10/mr-tick/blob/main/LICENSE',
+          href: 'https://github.com/gustavohps10/rastro/blob/main/LICENSE',
           external: true,
         },
         { label: t('termsOfService'), href: '#' },
@@ -63,22 +63,19 @@ export function Footer() {
           {/* Brand Info */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3">
-              <div className="flex h-9 w-auto shrink-0 items-center justify-center">
-                <Image
-                  src="/logo-icon.svg"
-                  alt="Logo Mr-tick"
-                  width={28}
-                  height={34}
-                  className="h-8 w-auto object-contain dark:invert"
-                />
-              </div>
-
               <Image
-                src="/logo-text.svg"
-                alt="Mr-tick"
-                width={124}
-                height={26}
-                className="h-auto w-[124px] object-contain dark:invert"
+                src="/logo.svg"
+                alt="Rastro Kit"
+                width={963}
+                height={222}
+                className="h-auto w-40 object-contain dark:hidden"
+              />
+              <Image
+                src="/logo-dark.svg"
+                alt="Rastro Kit"
+                width={963}
+                height={222}
+                className="hidden h-auto w-40 object-contain dark:block"
               />
             </Link>
 
@@ -89,7 +86,7 @@ export function Footer() {
             {/* Social Links */}
             <div className="mt-6 flex items-center gap-3">
               <a
-                href="https://github.com/gustavohps10/mr-tick"
+                href="https://github.com/gustavohps10/rastro"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
@@ -152,7 +149,7 @@ export function Footer() {
 
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-muted-foreground font-mono text-xs">
-            {t('2026MrTickReleasedUnderThe')}
+            {t('2026RastroReleasedUnderThe')}
           </p>
 
           <div className="flex items-center gap-2">

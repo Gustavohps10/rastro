@@ -459,7 +459,7 @@ function LicenseViewInner({
             </div>
           </div>
 
-          {/* Plan 2: Mr. Tick Plus (Featured) */}
+          {/* Plan 2: Rastro Plus (Featured) */}
           <div className="border-primary/50 bg-card shadow-primary/5 ring-primary/20 relative flex flex-col justify-between rounded-lg border p-6 shadow-md ring-1 backdrop-blur-sm">
             <div>
               <div className="mb-4">
@@ -467,7 +467,7 @@ function LicenseViewInner({
                   {tPricing('plusPlan.badge')}
                 </span>
                 <h3 className="text-foreground mt-2 text-base font-bold">
-                  Mr. Tick Plus
+                  Rastro Plus
                 </h3>
                 <p className="text-muted-foreground mt-1 text-xs">
                   {tPricing('plusPlan.description')}
@@ -756,7 +756,7 @@ function LicenseViewInner({
                         >
                           <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
                             <span className="text-foreground font-semibold">
-                              Mr. Tick Plus ({item.status.toUpperCase()})
+                              Rastro Plus ({item.status.toUpperCase()})
                             </span>
                             <span className="text-muted-foreground">
                               {item.maxDevices} dispositivos

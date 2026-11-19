@@ -16,7 +16,7 @@ export function NavbarView({ stars }: { stars: number | null }) {
   const [scrolled, setScrolled] = React.useState(false)
 
   const navItems = [
-    { href: '/#positioning', label: t('whyMrTick') },
+    { href: '/#positioning', label: t('whyRastro') },
     { href: '/#integrations', label: t('integrations') },
     { href: '/#offline', label: t('architecture') },
     { href: '/license', label: t('license') },
@@ -47,23 +47,20 @@ export function NavbarView({ stars }: { stars: number | null }) {
           href="/"
           className="group flex items-center gap-3 transition-opacity hover:opacity-90"
         >
-          <div className="flex h-9 w-auto shrink-0 items-center justify-center transition-transform duration-300 group-hover:scale-105">
-            <Image
-              src="/logo-icon.svg"
-              alt="Logo Mr-tick"
-              width={48}
-              height={48}
-              className="h-8 w-auto object-contain dark:invert"
-              priority
-            />
-          </div>
-
           <Image
-            src="/logo-text.svg"
-            alt="Mr-tick"
-            width={124}
-            height={26}
-            className="h-auto w-[124px] object-contain dark:invert"
+            src="/logo.svg"
+            alt="Rastro Kit"
+            width={963}
+            height={222}
+            className="h-auto w-40 object-contain transition-transform duration-300 group-hover:scale-105 dark:hidden"
+            priority
+          />
+          <Image
+            src="/logo-dark.svg"
+            alt="Rastro Kit"
+            width={963}
+            height={222}
+            className="hidden h-auto w-40 object-contain transition-transform duration-300 group-hover:scale-105 dark:block"
             priority
           />
         </Link>
@@ -104,13 +101,13 @@ export function NavbarView({ stars }: { stars: number | null }) {
           <Separator orientation="vertical" className="mx-2 !h-4 self-center" />
 
           <a
-            href="https://github.com/gustavohps10/mr-tick"
+            href="https://github.com/gustavohps10/rastro"
             target="_blank"
             rel="noreferrer"
             className="group text-muted-foreground hover:text-foreground flex items-center gap-2 rounded-md px-2 py-1 text-sm font-medium transition-all"
           >
             <Github className="size-4" />
-            <span className="text-foreground/90">gustavohps10/mr-tick</span>
+            <span className="text-foreground/90">GitHub</span>
             <div className="ml-0.5 flex items-center gap-1">
               <Star className="size-3.5 transition-transform duration-200 group-hover:scale-110" />
               <span className="text-xs tabular-nums opacity-80">

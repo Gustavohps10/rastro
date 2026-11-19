@@ -4,7 +4,7 @@
     "openMarkdown": "Open Markdown"
   },
   "navbar": {
-    "whyMrTick": "Why Mr. Tick",
+    "whyRastro": "Why Rastro",
     "integrations": "Integrations",
     "architecture": "Architecture",
     "pricing": "Pricing",
@@ -33,8 +33,8 @@
   },
   "pricing": {
     "badge": "Simple, Transparent Pricing",
-    "title": "Start free. Upgrade to Mr. Tick Plus anytime.",
-    "subtitle": "Mr. Tick is Open Core. Free forever for local individual use, with Mr. Tick Plus for official addons and multi-device sync.",
+    "title": "Start free. Upgrade to Rastro Plus anytime.",
+    "subtitle": "Rastro is Open Core. Free forever for local individual use, with Rastro Plus for official addons and multi-device sync.",
     "currency": "Currency",
     "forDevelopers": "For Developers",
     "forTeams": "For Engineering Teams",
@@ -43,8 +43,8 @@
     "upgradePlus": "Upgrade to Plus",
     "comingSoon": "Coming Soon",
     "checkoutError": "Could not start checkout session right now. Please try again in a moment.",
-    "alreadySubscribed": "Already subscribed to Mr. Tick Plus or need to recover/manage your key?",
-    "goToLicenseCenter": "Manage Mr. Tick Plus Subscription",
+    "alreadySubscribed": "Already subscribed to Rastro Plus or need to recover/manage your key?",
+    "goToLicenseCenter": "Manage Rastro Plus Subscription",
     "freePlan": {
       "name": "Free (Open Core)",
       "period": "/forever",
@@ -55,7 +55,7 @@
         "shortcuts": "Global keyboard shortcuts & quick timer bar",
         "summaries": "Basic daily time & activity summaries",
         "community": "Community & Open Core integrations",
-        "addonsBlock": "Official Mr. Tick Plus Addons catalog",
+        "addonsBlock": "Official Rastro Plus Addons catalog",
         "teamsBlock": "Team coordination & squad dashboards"
       }
     },
@@ -63,7 +63,7 @@
       "period": "/month",
       "badge": "Popular",
       "features": {
-        "addons": "Official Mr. Tick Plus Addons catalog access",
+        "addons": "Official Rastro Plus Addons catalog access",
         "integrations": "Multiple integrations (Redmine, Jira, GitHub, YouTrack)",
         "devices": "Up to 2 simultaneous activated desktop devices",
         "sync": "Advanced synchronization & effort correlation",
@@ -104,7 +104,7 @@
     "unavailableCurrency": "Unavailable in this currency",
     "verifyModal": {
       "title": "Email Confirmation for Subscription",
-      "description": "We will send a 6-digit verification code to ensure your license key and Mr. Tick Plus access are delivered to your correct email.",
+      "description": "We will send a 6-digit verification code to ensure your license key and Rastro Plus access are delivered to your correct email.",
       "emailLabel": "Your Work or Personal Email",
       "emailPlaceholder": "you@company.com",
       "sendCode": "Send Verification Code",
@@ -120,12 +120,12 @@
       "invalidCode": "Invalid or expired code. Please try again.",
       "rateLimit": "Too many attempts. Please wait a moment before trying again.",
       "genericError": "An error occurred while processing. Please try again.",
-      "alreadySubscribedError": "This email already has an active Mr. Tick Plus subscription."
+      "alreadySubscribedError": "This email already has an active Rastro Plus subscription."
     },
     "recoverModal": {
       "triggerButton": "Recover License",
       "title": "Recover License Keys",
-      "description": "Lost your Mr. Tick Plus key? Enter your purchase email. We will send a verification code to validate your identity and show your active keys.",
+      "description": "Lost your Rastro Plus key? Enter your purchase email. We will send a verification code to validate your identity and show your active keys.",
       "emailLabel": "Email registered on subscription",
       "emailPlaceholder": "your-email@domain.com",
       "sendCode": "Send Code",
@@ -140,7 +140,7 @@
       "keyLabel": "Activation Key",
       "copyKey": "Copy",
       "copied": "Copied!",
-      "activateInApp": "Activate in Mr. Tick Desktop",
+      "activateInApp": "Activate in Rastro Desktop",
       "rotateKey": "Generate New Key (Compromised / Leaked)",
       "rotateConfirmTitle": "Revoke old key and disconnect devices?",
       "rotateConfirmDesc": "This action immediately invalidates the previous key and disconnects all active desktop installations. A fresh key will be generated.",
@@ -151,10 +151,10 @@
     }
   },
   "licensePage": {
-    "title": "Mr. Tick Plus",
+    "title": "Rastro Plus",
     "subtitle": "Monthly subscription for official addons, advanced sync, and activation on up to 2 simultaneous devices.",
     "checkout": {
-      "cardTitle": "Subscribe to Mr. Tick Plus",
+      "cardTitle": "Subscribe to Rastro Plus",
       "cardDesc": "Receive your activation key immediately upon payment confirmation.",
       "currencyLabel": "Currency:",
       "features": {
@@ -196,7 +196,7 @@
       "keyLabel": "Activation Key",
       "copy": "Copy",
       "copied": "Copied!",
-      "activateDesktop": "Activate in Mr. Tick Desktop",
+      "activateDesktop": "Activate in Rastro Desktop",
       "emailSent": "We also sent a backup copy to your email."
     },
     "rotateSection": {
@@ -218,7 +218,7 @@
       "newKeyLabel": "Your New Activation Key",
       "copy": "Copy",
       "copied": "Copied!",
-      "activateDesktop": "Activate in Mr. Tick Desktop"
+      "activateDesktop": "Activate in Rastro Desktop"
     },
     "errors": {
       "invalidEmail": "Please provide a valid email address.",
@@ -229,20 +229,20 @@
     }
   },
   "success": {
-    "title": "Welcome to Mr. Tick Plus! 🎉",
+    "title": "Welcome to Rastro Plus! 🎉",
     "subtitle": "Your subscription is active. Your activation key has been generated and sent to your checkout email.",
     "keyTitle": "Your Activation Key",
     "keyHelp": "We also sent this key to your checkout email. Keep it safe!",
     "copyKey": "Copy Key",
     "copied": "Copied to clipboard!",
-    "activateOneClick": "Activate in Mr. Tick Desktop",
+    "activateOneClick": "Activate in Rastro Desktop",
     "step1Title": "Download the App",
     "step1Desc": "Install the stable release for your OS (Windows, macOS, or Linux).",
     "step2Title": "Open Global Settings",
     "step2Desc": "In the bottom-left rail, click the gear icon ⚙ and select the \"License\" tab.",
     "step3Title": "Paste & Activate",
     "step3Desc": "Paste the key from your email (mrtick_live_...). Discord Presence and Plus addons unlock instantly!",
-    "downloadDesktop": "Download Mr. Tick Desktop",
+    "downloadDesktop": "Download Rastro Desktop",
     "backHome": "Back to Home",
     "confirmed": "Payment Confirmed",
     "activateTitle": "How to Activate in the App"
@@ -252,7 +252,7 @@
     "subtitle": "The checkout process was cancelled or could not be processed. No charges were made.",
     "status": "Operation Cancelled",
     "tryAgainTitle": "Want to try again?",
-    "tryAgainDesc": "You can return to the License Center at any time to complete your Mr. Tick Plus subscription.",
+    "tryAgainDesc": "You can return to the License Center at any time to complete your Rastro Plus subscription.",
     "retryCheckout": "Try Again",
     "backHome": "Back to Home",
     "supportHelp": "If you have questions or encountered an issue during checkout, you can retry with another method or check with your bank."
@@ -267,7 +267,7 @@
     "linkGithubAndGitlabPullRequests": "Link GitHub and GitLab Pull Requests directly to active work items and track review effort and branch activity with precision.",
     "meetingsCalendarAgenda": "Meetings & Calendar Agenda",
     "importScheduledMeetingsAndDailyCalendar": "Import scheduled meetings and daily calendar events to convert meeting hours into logged time entries in a single click.",
-    "whatMrTickIsNot": "What Mr. Tick is NOT",
+    "whatRastroIsNot": "What Rastro is NOT",
     "weDonTAddBloatOr": "We don't add bloat or replace your team's source of truth",
     "notAReplacementForYourIssue": "Not a replacement for your issue tracker:",
     "yourTeamKeepsUsingJiraRedmine": "Your team keeps using Jira, Redmine, or GitHub as the source of truth.",
@@ -276,7 +276,7 @@
     "notCloudSurveillance": "Not cloud surveillance:",
     "zeroEmployeeMonitoringZeroKeystrokeLogging": "Zero employee monitoring, zero keystroke logging, and zero data sent to third-party telemetry servers.",
     "zeroClutterZeroFriction100Focused": "Zero clutter · Zero friction · 100% focused on execution",
-    "whatMrTickDoes": "What Mr. Tick DOES",
+    "whatRastroDoes": "What Rastro DOES",
     "localFirstExecutionAndUnifiedWorkflow": "Local-first execution and unified workflow cockpit",
     "localDataConsolidation": "Local data consolidation:",
     "everythingIsSavedLocallyOnYour": "Everything is saved locally on your computer. Unify Jira & Redmine issues, private local tasks, meetings, and time entries in one single, responsive dashboard.",
@@ -295,7 +295,7 @@
     "trackMergeRequestsPipelinesAndNative": "Track Merge Requests, pipelines, and native time logs through the GitLab REST API v4.",
     "integrationsExtensibility": "Integrations & Extensibility",
     "plugYourExistingToolsNeverBreak": "Plug your existing tools. Never break your flow.",
-    "connectToTheIssueTrackersAnd": "Connect to the issue trackers and version control platforms you already use. Mr. Tick aggregates them into a unified desktop cockpit.",
+    "connectToTheIssueTrackersAnd": "Connect to the issue trackers and version control platforms you already use. Rastro aggregates them into a unified desktop cockpit.",
     "available": "AVAILABLE",
     "comingSoon": "COMING SOON",
     "biDirectionalSync": "Bi-directional sync",
@@ -317,11 +317,11 @@
     "yourWorkLogsNeverTravelThrough": "Your work logs never travel through third-party telemetry servers. Full export capability at any time.",
     "localFirstArchitecture": "Local-First Architecture",
     "yourProductivityShouldnTDependOn": "Your productivity shouldn't depend on external servers.",
-    "whileWebSaasToolsSufferFrom": "While web SaaS tools suffer from downtime, spinners, and lag, Mr. Tick is instant. Offline is the default, not an afterthought."
+    "whileWebSaasToolsSufferFrom": "While web SaaS tools suffer from downtime, spinners, and lag, Rastro is instant. Offline is the default, not an afterthought."
   },
   "footer": {
     "product": "Product",
-    "whyMrTick": "Why Mr. Tick",
+    "whyRastro": "Why Rastro",
     "integrationsSdk": "Integrations & SDK",
     "architecture": "Architecture",
     "pricing": "Pricing",
@@ -338,7 +338,7 @@
     "privacyPolicy": "Privacy Policy",
     "localFirstSecurity": "Local-First Security",
     "theLocalFirstWorkflowObservabilityToolkit": "The local-first workflow observability toolkit for software engineering. Track hours with precision, unify tickets, and protect your technical flow state.",
-    "2026MrTickReleasedUnderThe": "© 2026 Mr. Tick. Released under the MIT License.",
+    "2026RastroReleasedUnderThe": "© 2026 Rastro. Released under the MIT License.",
     "allSystemsOperationalLocalFirst": "All systems operational · Local-First"
   },
   "download": {
@@ -399,7 +399,7 @@
     "betaGroup": "Pre-releases / Beta"
   },
   "metadata": {
-    "title": "Mr. Tick — The Local-First Workflow Observability Toolkit",
+    "title": "Rastro — The Local-First Workflow Observability Toolkit",
     "description": "An instant local-first cockpit unifying tasks, time tracking, and workflow observability with zero friction."
   },
   "docsUi": {

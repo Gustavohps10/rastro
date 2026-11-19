@@ -4,7 +4,7 @@ description: Entenda como tarefas e apontamentos são sincronizados e como lidar
 icon: RefreshCw
 ---
 
-O Mr. Tick mantém os apontamentos no dispositivo e os sincroniza com a ferramenta conectada. O addon fornece o código que lê e grava nesse serviço externo. O aplicativo coordena as alterações pendentes e a recuperação após falhas.
+O Rastro mantém os apontamentos no dispositivo e os sincroniza com a ferramenta conectada. O addon fornece o código que lê e grava nesse serviço externo. O aplicativo coordena as alterações pendentes e a recuperação após falhas.
 
 O executor local cuida das alterações de timer e apontamentos; a interface lê os dados salvos. `core.tasks.list` e `core.tasks.get` leem o cache local. `core.tasks.search` consulta explicitamente o provedor e persiste os resultados pelo mesmo executor. Informe `workspaceId`, `connectionInstanceId`, `limit` (1–100) e, opcionalmente, `search`. Trate o `Either` retornado; falhas do provedor permanecem visíveis.
 
@@ -16,7 +16,7 @@ Escolha a origem antes de confirmar um ID manual. A ausência no cache não impe
 
 Para tarefas, `pull` retorna `Either<AppError, TaskDTO[]>`. Para apontamentos, retorna `Either<AppError, TimeEntryPullPageDTO>` com `items`, `checkpoint`, `hasMore` e `snapshotId`. Dependendo do serviço externo, a integração pode receber apenas as mudanças ou precisar consultar uma cópia completa dos dados, dividida em páginas.
 
-Valide cada resposta HTTP antes de convertê-la para os tipos do SDK. Não trate uma consulta incompleta ou inconsistente como uma cópia completa dos dados. Preserve os identificadores originais do serviço externo e mantenha os identificadores internos do Mr. Tick dentro do aplicativo.
+Valide cada resposta HTTP antes de convertê-la para os tipos do SDK. Não trate uma consulta incompleta ou inconsistente como uma cópia completa dos dados. Preserve os identificadores originais do serviço externo e mantenha os identificadores internos do Rastro dentro do aplicativo.
 
 ## Enviando alterações e recuperando falhas
 

@@ -63,14 +63,14 @@ export default async function OAuthCallbackPage({
               Autenticação Concluída
             </h1>
             <p className="text-muted-foreground mb-6 text-sm">
-              Retornando ao aplicativo Mr-tick Desktop. Se o aplicativo não
-              abrir automaticamente, clique no botão abaixo.
+              Retornando ao aplicativo Rastro Desktop. Se o aplicativo não abrir
+              automaticamente, clique no botão abaixo.
             </p>
             <a
               href={deepLinkUrl}
               className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex w-full items-center justify-center rounded-lg px-4 py-2.5 text-sm font-medium shadow-sm transition-colors"
             >
-              Abrir no Mr-tick Desktop
+              Abrir no Rastro Desktop
             </a>
             <script
               dangerouslySetInnerHTML={{

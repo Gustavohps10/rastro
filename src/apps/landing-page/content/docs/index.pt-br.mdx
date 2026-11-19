@@ -1,16 +1,16 @@
 ---
 title: "SDK"
-description: Entenda como o SDK permite criar integrações, ações e temas para o Mr. Tick.
+description: Entenda como o SDK permite criar integrações, ações e temas para o Rastro.
 icon: BookOpen
 ---
 
-O SDK é um conjunto de ferramentas para criar extensões para o Mr. Tick. Com ele, você pode adicionar integrações, ações e personalizações visuais sem precisar alterar o aplicativo.
+O SDK é um conjunto de ferramentas para criar extensões para o Rastro. Com ele, você pode adicionar integrações, ações e personalizações visuais sem precisar alterar o aplicativo.
 
 Essas extensões são chamadas de **addons**. Cada addon oferece uma funcionalidade que o usuário pode instalar conforme sua necessidade, como conectar uma ferramenta de trabalho ou sugerir apontamentos após uma reunião.
 
 ## O que você pode estender?
 
-- **Conectar ferramentas de trabalho:** trazer tarefas para o Mr. Tick e enviar apontamentos para o sistema de origem. O addon do Redmine é um exemplo.
+- **Conectar ferramentas de trabalho:** trazer tarefas para o Rastro e enviar apontamentos para o sistema de origem. O addon do Redmine é um exemplo.
 - **Criar observadores de atividade:** detectar chamadas de voz ou outras atividades e oferecer sugestões de apontamento, como faz o addon do Discord.
 - **Adicionar ações e atalhos:** registrar comandos e itens nos menus laterais ou na barra do timer.
 - **Personalizar a interface:** criar temas com suas próprias cores e identidade visual.
@@ -20,7 +20,7 @@ Um addon pode combinar essas funcionalidades. Integrações de calendário ou po
 
 ## Como funciona?
 
-Seu addon descreve as funcionalidades que oferece e as registra no Mr. Tick. O aplicativo disponibiliza suas funções suportadas e cuida da ligação com a interface. Você implementa o comportamento específico da sua integração.
+Seu addon descreve as funcionalidades que oferece e as registra no Rastro. O aplicativo disponibiliza suas funções suportadas e cuida da ligação com a interface. Você implementa o comportamento específico da sua integração.
 
 O SDK também fornece os contratos para conexão de contas, configurações, armazenamento privado e eventos do aplicativo. Eles ajudam cada addon a usar a conta e o workspace corretos.
 
@@ -36,6 +36,6 @@ Esta documentação descreve o contrato da próxima linha do SDK, 0.11. Para usa
 
 ## Desenvolvendo com o SDK
 
-Instale o pacote publicado `@mr-tick/sdk` no seu projeto. Você não precisa dos pacotes privados usados para construir o Mr. Tick. Os guias apresentam os tipos e métodos quando eles forem necessários para a implementação.
+Instale o pacote publicado `@mr-tick/sdk` no seu projeto. Você não precisa dos pacotes privados usados para construir o Rastro. Os guias apresentam os tipos e métodos quando eles forem necessários para a implementação.
 
 Addons executam código dentro do aplicativo. Instale extensões de autores em quem você confia: o SDK não isola esse código para impedir ações maliciosas. Salvar um apontamento localmente também não significa que um serviço externo já o aceitou.

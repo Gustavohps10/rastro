@@ -81,7 +81,7 @@ export function Positioning() {
 
         {/* Comparison Cards Grid */}
         <div className="mt-10 grid gap-8 md:grid-cols-2">
-          {/* Card 1: What Mr. Tick is NOT */}
+          {/* Card 1: What Rastro is NOT */}
           <div className="border-destructive/20 bg-destructive/5 hover:border-destructive/30 relative flex flex-col justify-between rounded-lg border p-8 backdrop-blur-sm transition-all">
             <div>
               <div className="mb-6 flex items-center gap-3">
@@ -90,7 +90,7 @@ export function Positioning() {
                 </div>
                 <div>
                   <h3 className="text-foreground text-lg font-bold">
-                    {t('whatMrTickIsNot')}
+                    {t('whatRastroIsNot')}
                   </h3>
                   <p className="text-muted-foreground text-xs">
                     {t('weDonTAddBloatOr')}
@@ -138,7 +138,7 @@ export function Positioning() {
             </div>
           </div>
 
-          {/* Card 2: What Mr. Tick DOES */}
+          {/* Card 2: What Rastro DOES */}
           <div className="border-primary/25 bg-card/80 hover:border-primary/40 relative flex flex-col justify-between rounded-lg border p-8 shadow-sm backdrop-blur-sm transition-all hover:shadow-md">
             <div>
               <div className="mb-6 flex items-center gap-3">
@@ -147,7 +147,7 @@ export function Positioning() {
                 </div>
                 <div>
                   <h3 className="text-foreground text-lg font-bold">
-                    {t('whatMrTickDoes')}
+                    {t('whatRastroDoes')}
                   </h3>
                   <p className="text-muted-foreground text-xs">
                     {t('localFirstExecutionAndUnifiedWorkflow')}

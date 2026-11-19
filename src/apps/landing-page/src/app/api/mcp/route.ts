@@ -6,7 +6,7 @@ import { docsLlms, source } from '@/lib/source'
 
 const handler = createMcpHandler(() => {
   const server = new McpServer({
-    name: 'mr-tick-docs',
+    name: 'rastro-docs',
     version: '1.0.0',
   })
 

@@ -188,14 +188,14 @@ export async function fetchLatestDesktopReleases(): Promise<{
   try {
     const headers: HeadersInit = {
       Accept: 'application/vnd.github.v3+json',
-      'User-Agent': 'Mr-Tick-Landing',
+      'User-Agent': 'Rastro-Landing',
       ...(process.env.GITHUB_TOKEN
         ? { Authorization: `token ${process.env.GITHUB_TOKEN}` }
         : {}),
     }
 
     const releases = await fetchGithubJson<GitHubRelease[]>(
-      'https://api.github.com/repos/Gustavohps10/mr-tick/releases',
+      'https://api.github.com/repos/Gustavohps10/rastro/releases',
       headers,
     )
 
@@ -258,7 +258,7 @@ export async function fetchLatestDesktopReleases(): Promise<{
       try {
         // Resolve commit details directly from the release tag
         const commitData = await fetchGithubJson<GitHubCommit>(
-          `https://api.github.com/repos/Gustavohps10/mr-tick/commits/${encodeURIComponent(release.tag_name)}`,
+          `https://api.github.com/repos/Gustavohps10/rastro/commits/${encodeURIComponent(release.tag_name)}`,
           headers,
         )
 
@@ -271,7 +271,7 @@ export async function fetchLatestDesktopReleases(): Promise<{
               shortSha: commitData.sha.substring(0, 7),
               url:
                 commitData.html_url ||
-                `https://github.com/Gustavohps10/mr-tick/commit/${commitData.sha}`,
+                `https://github.com/Gustavohps10/rastro/commit/${commitData.sha}`,
               author: author
                 ? {
                     login: author.login,
@@ -297,7 +297,7 @@ export async function fetchLatestDesktopReleases(): Promise<{
           } else if (commitData.sha) {
             // 2. Query GitHub pulls associated with the release commit
             const pulls = await fetchGithubJson<GitHubPullRequest[]>(
-              `https://api.github.com/repos/Gustavohps10/mr-tick/commits/${commitData.sha}/pulls`,
+              `https://api.github.com/repos/Gustavohps10/rastro/commits/${commitData.sha}/pulls`,
               headers,
             )
             if (pulls && Array.isArray(pulls) && pulls.length > 0) {
@@ -329,7 +329,7 @@ export async function fetchLatestDesktopReleases(): Promise<{
         if (fallbackSha) {
           try {
             const commitData = await fetchGithubJson<GitHubCommit>(
-              `https://api.github.com/repos/Gustavohps10/mr-tick/commits/${fallbackSha}`,
+              `https://api.github.com/repos/Gustavohps10/rastro/commits/${fallbackSha}`,
               headers,
             )
             if (commitData) {
@@ -364,7 +364,7 @@ export async function fetchLatestDesktopReleases(): Promise<{
       const pr = resolvedPrNumber
         ? {
             number: resolvedPrNumber,
-            url: `https://github.com/Gustavohps10/mr-tick/pull/${resolvedPrNumber}`,
+            url: `https://github.com/Gustavohps10/rastro/pull/${resolvedPrNumber}`,
           }
         : null
 

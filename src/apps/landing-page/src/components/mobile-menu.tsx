@@ -36,7 +36,7 @@ export function MobileMenu({ stars }: { stars: number | null }) {
             {/* Links */}
             <div className="flex flex-col gap-4">
               {[
-                { href: '/#positioning', label: t('whyMrTick') },
+                { href: '/#positioning', label: t('whyRastro') },
                 { href: '/#integrations', label: t('integrations') },
                 { href: '/#offline', label: t('architecture') },
                 { href: '/license', label: t('license') },
@@ -78,14 +78,14 @@ export function MobileMenu({ stars }: { stars: number | null }) {
 
             {/* Github */}
             <a
-              href="https://github.com/gustavohps10/mr-tick"
+              href="https://github.com/gustavohps10/rastro"
               target="_blank"
               rel="noreferrer"
               className="text-muted-foreground hover:text-foreground flex items-center justify-between text-sm font-medium"
             >
               <div className="flex items-center gap-2">
                 <Github className="size-4" />
-                gustavohps10/mr-tick
+                GitHub
               </div>
 
               <div className="flex items-center gap-1">

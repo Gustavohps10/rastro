@@ -33,7 +33,7 @@ export function Hero() {
       <div className="relative z-10 container mx-auto px-6 text-center lg:px-8">
         {/* Eyebrow Badge */}
         <div className="border-border/80 bg-muted/50 text-muted-foreground hover:text-foreground mb-6 inline-flex items-center gap-2 rounded-lg border px-3.5 py-1 text-xs font-medium shadow-xs backdrop-blur-md transition-colors">
-          <span className="text-foreground font-semibold">Mr. Tick</span>
+          <span className="text-foreground font-semibold">Rastro</span>
           <span className="opacity-40">&middot;</span>
           <span>{t('badge')}</span>
           <ArrowRight className="size-3 opacity-60" />
@@ -71,7 +71,7 @@ export function Hero() {
             className="border-border text-foreground hover:bg-muted h-10 gap-2 px-5 text-sm backdrop-blur-sm"
           >
             <a
-              href="https://github.com/gustavohps10/mr-tick"
+              href="https://github.com/gustavohps10/rastro"
               target="_blank"
               rel="noreferrer"
             >

@@ -6,7 +6,7 @@ import { isDataSource, VALID_ADDON_CAPABILITIES } from '../contracts/manifest'
 import { writeYaml } from '../utils/yaml'
 
 export async function runInitWizard(targetDirName?: string) {
-  console.log('\n🚀 Bem-vindo ao inicializador de plugins do Mr-tick!\n')
+  console.log('\n🚀 Bem-vindo ao inicializador de plugins do Rastro!\n')
 
   const answers = await inquirer.prompt([
     {
@@ -26,7 +26,7 @@ export async function runInitWizard(targetDirName?: string) {
       type: 'input',
       name: 'name',
       message: 'Nome legível do plugin (ex: Redmine Integration):',
-      default: 'Meu Plugin Mr-tick',
+      default: 'Meu Plugin Rastro',
     },
     {
       type: 'checkbox',
@@ -47,19 +47,19 @@ export async function runInitWizard(targetDirName?: string) {
       type: 'input',
       name: 'author',
       message: 'Autor ou organização:',
-      default: 'Mr-tick Community',
+      default: 'Rastro Community',
     },
     {
       type: 'input',
       name: 'shortDescription',
       message: 'Descrição curta (1 linha):',
-      default: 'Integração oficial para o Mr-tick',
+      default: 'Integração oficial para o Rastro',
     },
     {
       type: 'input',
       name: 'description',
       message: 'Descrição detalhada:',
-      default: 'Extensão para integração e sincronização com o Mr-tick.',
+      default: 'Extensão para integração e sincronização com o Rastro.',
     },
   ])
 

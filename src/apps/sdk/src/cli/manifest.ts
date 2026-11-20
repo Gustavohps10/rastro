@@ -33,7 +33,7 @@ export async function runManifestWizard(addonDir: string) {
   let defaultVersion = '0.1.0'
   if (pkg.version) defaultVersion = pkg.version
   if (existingManifest.version) defaultVersion = existingManifest.version
-  let defaultAuthor = 'Mr-tick Community'
+  let defaultAuthor = 'Rastro Community'
   if (pkg.author) defaultAuthor = pkg.author
   if (existingManifest.author) defaultAuthor = existingManifest.author
   let defaultShortDesc = pkg.description

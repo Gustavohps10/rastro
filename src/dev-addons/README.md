@@ -1,8 +1,8 @@
-# 🛠️ Mr-tick Dev Addons
+# 🛠️ Rastro Dev Addons
 
 > **Ei, desenvolva seu addon aqui neste diretório!**
 
-Esta pasta foi projetada para criação, teste e desenvolvimento isolado de addons para o **Mr-tick**, completamente desacoplada do código central do monorepo.
+Esta pasta foi projetada para criação, teste e desenvolvimento isolado de addons para o **Rastro**, completamente desacoplada do código central do monorepo.
 
 Addons locais seguem as regras de ignore do monorepo. As fixtures canônicas `datasource-fake`, `fake-watcher-for-tests` e `datasource-alpha-for-tests`, além das documentações, são versionadas; não presuma que toda a pasta é ignorada.
 
@@ -23,7 +23,7 @@ Execute os comandos na raiz do monorepo com o **Yarn 4** configurado no projeto:
 # 1. Listar status de todos os addons locais:
 yarn addon:list
 
-# 2. Conectar seu addon ao runtime do Mr-tick (via symlink/junction):
+# 2. Conectar seu addon ao runtime do Rastro (via symlink/junction):
 yarn addon:link meu-addon
 
 # 3. Desenvolver com compilação em tempo real e Source Maps:

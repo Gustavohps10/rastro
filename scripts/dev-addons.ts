@@ -506,7 +506,7 @@ export function listAddons(): void {
   const targetDir = resolveMrTickAddonsDir()
 
   console.log('\n========================================================')
-  console.log('📦 Mr-tick Dev Addons Manager')
+  console.log('📦 Rastro Dev Addons Manager')
   console.log('========================================================')
   console.log(`📍 Diretório Dev:    ${devAddonsDir}`)
   console.log(`🎯 Destino Mr-tick:  ${targetDir}\n`)

@@ -1,7 +1,7 @@
 {
   "name": "@mr-tick/sdk",
   "version": "0.15.0",
-  "description": "Toolkit para o ecossistema Mr-tick.",
+  "description": "Toolkit para o ecossistema Rastro.",
   "repository": {
     "type": "git",
     "url": "https://github.com/mr-tick-community/mr-tick.git"

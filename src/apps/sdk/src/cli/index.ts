@@ -23,7 +23,7 @@ function parseCliTier(rawTier: string | undefined): AddonTier | undefined {
 
 program
   .name('mr-tick')
-  .description('CLI do Mr-tick SDK para criar, validar e empacotar plugins')
+  .description('CLI do Rastro SDK para criar, validar e empacotar plugins')
   .version(__SDK_VERSION__)
 
 program

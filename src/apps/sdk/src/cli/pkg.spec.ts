@@ -60,7 +60,7 @@ function createAddon(tier: 'free' | 'plus' | undefined): string {
     'version: 0.1.0',
     'capabilities:',
     '  - watcher',
-    'author: Mister Tick',
+    'author: Rastro',
     'shortDescription: Discord IPC',
     'description: Discord IPC integration',
   ]

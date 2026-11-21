@@ -1,5 +1,15 @@
 ﻿# @mr-tick/desktop
 
+## 0.16.1
+
+### Patch Changes
+
+- 6daa2e5: Adota a marca Rastro no aplicativo, no instalador e no atualizador. Atualiza as imagens, os ícones e os textos do produto. Preserva os nomes dos pacotes, os domínios e os identificadores usados por integrações existentes.
+- Updated dependencies [6daa2e5]
+  - @mr-tick/ui@1.15.1
+  - @mr-tick/adapters@1.5.2
+  - @mr-tick/application@2.4.1
+
 ## 0.16.0
 
 ### Minor Changes

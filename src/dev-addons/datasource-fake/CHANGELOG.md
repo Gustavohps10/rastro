@@ -1,5 +1,12 @@
 ﻿# @mr-tick/datasource-fake
 
+## 1.3.1
+
+### Patch Changes
+
+- Updated dependencies [6daa2e5]
+  - @mr-tick/sdk@0.15.1
+
 ## 1.3.0
 
 ### Minor Changes

@@ -6,7 +6,7 @@ Aprovado
 
 ## Contexto
 
-Historicamente, o ecossistema Mr. Tick utilizava conceitos duplicados e ambíguos para classificar addons:
+Historicamente, o ecossistema Rastro utilizava conceitos duplicados e ambíguos para classificar addons:
 
 - Existiam simultaneamente campos como `category` (singular), `categories` (plural) e `capabilities` em manifestos e DTOs.
 - Em alguns locais, foi introduzida uma tentativa de microversionamento granular por capacidade (`contractVersion`), que gerava complexidade desnecessária visto que o ecossistema já possui o campo `requiredApiVersion` para determinar a compatibilidade global com a API/SDK do Core.

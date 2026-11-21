@@ -1,6 +1,6 @@
 # Guia de Publicação e Versionamento com Changesets
 
-Este documento explica o fluxo simples e passo a passo para versionar e publicar pacotes do monorepo Mr-tick no **NPM** usando o **Changesets**.
+Este documento explica o fluxo simples e passo a passo para versionar e publicar pacotes do monorepo Rastro no **NPM** usando o **Changesets**.
 
 ---
 

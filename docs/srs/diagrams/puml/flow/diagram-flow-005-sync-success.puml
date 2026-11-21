@@ -1,5 +1,5 @@
 @startuml SyncSuccessFlow
-title MR-TICK - Sincronização Pull - Sucesso (RF004, RF005 - UC001)
+title Rastro - Sincronização Pull - Sucesso (RF004, RF005 - UC001)
 participant UI
 participant SyncEngine
 participant Plugin

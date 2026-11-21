@@ -1,6 +1,6 @@
 # Limitações de OAuth 2.0 e Arquitetura de Autenticação para Addons
 
-Este documento detalha o modelo de segurança de autenticação do Mr. Tick, explicando as restrições arquiteturais para clientes desktop (clientes públicos), o funcionamento específico de integrações como Discord e Jira, e as diretrizes para desenvolvimento de addons oficiais e de terceiros.
+Este documento detalha o modelo de segurança de autenticação do Rastro, explicando as restrições arquiteturais para clientes desktop (clientes públicos), o funcionamento específico de integrações como Discord e Jira, e as diretrizes para desenvolvimento de addons oficiais e de terceiros.
 
 ---
 
@@ -12,7 +12,7 @@ No protocolo OAuth 2.0 (RFC 6749), existem dois tipos fundamentais de clientes:
 2. **Public Clients (Clientes Públicos):** Aplicações que executam no dispositivo do usuário final (aplicativos desktop Electron, apps mobile, Single Page Applications no navegador). **É impossível proteger segredos em clientes públicos**, pois qualquer binário distribuído, bundle JavaScript ou requisição de rede local pode ser descompilado, inspecionado e extraído.
 
 > [!CAUTION] Regra Inegociável de Segurança
-> **NUNCA** incorpore `client_secret` ou credenciais confidenciais no código do aplicativo desktop Mr. Tick ou no bundle de qualquer addon distribuído. Se uma `client_secret` for distribuída na máquina do cliente, ela é considerada pública e comprometida.
+> **NUNCA** incorpore `client_secret` ou credenciais confidenciais no código do aplicativo desktop Rastro ou no bundle de qualquer addon distribuído. Se uma `client_secret` for distribuída na máquina do cliente, ela é considerada pública e comprometida.
 
 ---
 
@@ -22,7 +22,7 @@ O addon do Discord (`@mr-tick/discord-addon` ou `mistertick-discord`) opera de f
 
 - **Comunicação por IPC Local (Named Pipe):** O addon comunica-se diretamente com o aplicativo Discord Desktop em execução na mesma máquina através de um Named Pipe do sistema operacional (`\\.\pipe\discord-ipc-0` no Windows ou `/tmp/discord-ipc-0` em sistemas Unix/Linux/macOS).
 - **Rich Presence RPC:** O protocolo de Rich Presence local do Discord requer apenas o `client_id` público da aplicação registrada no portal de desenvolvedores para realizar o handshake local. O usuário já está autenticado no aplicativo Discord Desktop instalado no seu sistema operacional.
-- **Autorização sem segredo de servidor:** Não há necessidade de comunicação servidor-a-servidor entre o Mr. Tick e a API de nuvem do Discord para exibição de status e presença rica. O socket local valida o contexto e a sessão do usuário ativo na máquina.
+- **Autorização sem segredo de servidor:** Não há necessidade de comunicação servidor-a-servidor entre o Rastro e a API de nuvem do Discord para exibição de status e presença rica. O socket local valida o contexto e a sessão do usuário ativo na máquina.
 
 ---
 
@@ -39,7 +39,7 @@ Ao integrar com a Atlassian via OAuth 2.0 para acessar dados da API REST do Jira
    - `code: ...`
    - `redirect_uri: ...`
 
-Como o Mr. Tick Desktop é um cliente público, ele não pode armazenar a `client_secret` da Atlassian. Uma tentativa de realizar essa troca diretamente no processo do Electron exporia a chave do desenvolvedor a todos os usuários da aplicação.
+Como o Rastro Desktop é um cliente público, ele não pode armazenar a `client_secret` da Atlassian. Uma tentativa de realizar essa troca diretamente no processo do Electron exporia a chave do desenvolvedor a todos os usuários da aplicação.
 
 ---
 
@@ -50,12 +50,12 @@ Para garantir escalabilidade, segurança e independência entre criadores da com
 ```mermaid
 flowchart TD
     subgraph LocalMachine["Máquina do Usuário (Cliente Público)"]
-        MrTick["Mr. Tick Desktop (Electron)"]
-        OfficialAddon["Addon Oficial (Ex: Mr. Tick Plus Jira)"]
+        MrTick["Rastro Desktop (Electron)"]
+        OfficialAddon["Addon Oficial (Ex: Rastro Plus Jira)"]
         ThirdPartyAddon["Addon de Terceiro (Ex: Acme Gitlab)"]
     end
 
-    subgraph CoreCloud["Infraestrutura Oficial Mr. Tick"]
+    subgraph CoreCloud["Infraestrutura Oficial Rastro"]
         MisterTickApi["mistertick-api (Confidential Backend)"]
         OfficialSecret[("Client Secrets Oficiais")]
     end
@@ -81,9 +81,9 @@ flowchart TD
     ThirdPartyAddon -.->|Opção C: PKCE Direto (Sem Secret)| ThirdPartyProvider
 ```
 
-### 4.1. Addons Oficiais do Ecossistema Mr. Tick (`mistertick-api`)
+### 4.1. Addons Oficiais do Ecossistema Rastro (`mistertick-api`)
 
-Para addons desenvolvidos e mantidos oficialmente pela equipe do Mr. Tick:
+Para addons desenvolvidos e mantidos oficialmente pela equipe do Rastro:
 
 - A `mistertick-api` atua como o backend confidencial oficial.
 - As `client_secret` de aplicativos oficiais registrados (ex: Atlassian, Google Workspace, Microsoft 365) ficam armazenadas exclusivamente nas variáveis de ambiente seguras da `mistertick-api`.
@@ -100,7 +100,7 @@ Para desenvolver um addon de terceiro, o autor possui três caminhos arquitetura
 #### Estratégia 1: API Tokens / Personal Access Tokens (PAT) — Recomendada
 
 - O usuário gera seu próprio token de acesso na interface do serviço (ex: Jira API Token, Redmine API Key, GitLab Access Token).
-- O usuário informa o token diretamente nas configurações da conexão no Mr. Tick Desktop.
+- O usuário informa o token diretamente nas configurações da conexão no Rastro Desktop.
 - **Vantagens:**
   - Zero necessidade de backend para o desenvolvedor do addon.
   - Segurança total: a credencial pertence ao usuário e fica armazenada no cofre seguro local da máquina do usuário (`safeStorage`).
@@ -109,7 +109,7 @@ Para desenvolver um addon de terceiro, o autor possui três caminhos arquitetura
 #### Estratégia 2: OAuth 2.0 com PKCE Nativo (sem secret)
 
 - Provedores modernos permitem clientes públicos através de OAuth 2.0 Authorization Code Grant com **PKCE (Proof Key for Code Exchange - RFC 7636)** sem exigir `client_secret` (ex: GitHub, Azure AD com Public Client, GitLab, Auth0).
-- O Mr. Tick Core fornece via SDK os utilitários `context.host.oauth.generatePKCE()` e `context.host.oauth.authorize()`.
+- O Rastro Core fornece via SDK os utilitários `context.host.oauth.generatePKCE()` e `context.host.oauth.authorize()`.
 - O próprio aplicativo desktop realiza a autorização e a troca direta de código com o provedor, com segurança criptográfica garantida pelo `code_verifier` e `code_challenge`.
 
 #### Estratégia 3: Backend Broker Próprio do Desenvolvedor do Addon
@@ -130,15 +130,15 @@ Para desenvolver um addon de terceiro, o autor possui três caminhos arquitetura
 | **API Token / PAT**                  |          **Não**           | Alta (cofre local do OS) | Média (copiar/colar token)  | Quase todos (Jira, Redmine, GitLab, GitHub) |
 | **IPC Local (Named Pipe)**           |          **Não**           |  Alta (processo local)   |  Baixíssima (transparente)  | Apenas apps desktop com RPC (Discord)       |
 | **OAuth 2.0 + PKCE Nativo**          |          **Não**           |   Alta (S256 verifier)   | Baixa (login no navegador)  | Provedores que aceitam Public Clients       |
-| **OAuth 2.0 via Broker Oficial**     |   Sim (`mistertick-api`)   |  Alta (servidor seguro)  | Baixa (login no navegador)  | Exclusivo para Addons Oficiais do Mr. Tick  |
+| **OAuth 2.0 via Broker Oficial**     |   Sim (`mistertick-api`)   |  Alta (servidor seguro)  | Baixa (login no navegador)  | Exclusivo para Addons Oficiais do Rastro  |
 | **OAuth 2.0 via Broker de Terceiro** |  Sim (Cloudflare/Lambda)   | Alta (servidor do autor) | Baixa (login no navegador)  | Qualquer provedor que exija `client_secret` |
 
 ---
 
-## 6. Diretrizes Técnicas no SDK do Mr. Tick
+## 6. Diretrizes Técnicas no SDK do Rastro
 
 Ao implementar qualquer autenticador em um addon:
 
 1. **Uso do Cliente HTTP Nativo do Host:** Nunca inclua dependências pesadas de HTTP (como `axios`) no bundle do addon. Utilize o cliente nativo disponibilizado pelo host em `context.http` ou `context.host.http` (implementado com zero dependências externas sobre o `fetch` ou `net` do Electron).
 2. **Tratamento Funcional de Erros (`Either`):** Utilize sempre `Either.success` e `Either.failure`. Erros de autorização ou indisponibilidade devem devolver a mensagem real fornecida pelo servidor externo, sem suposições heurísticas baseadas em strings.
-3. **Persistência Segura:** Credenciais retornadas por fluxos de autenticação devem ser devolvidas via contrato `completeAuthentication`, permitindo que o Mr. Tick armazene os segredos no cofre de credenciais nativo do sistema operacional.
+3. **Persistência Segura:** Credenciais retornadas por fluxos de autenticação devem ser devolvidas via contrato `completeAuthentication`, permitindo que o Rastro armazene os segredos no cofre de credenciais nativo do sistema operacional.

@@ -1,12 +1,12 @@
-# 🗺️ Mr. Tick — Roadmap Estratégico & Visão de Futuro
+# 🗺️ Rastro — Roadmap Estratégico & Visão de Futuro
 
-Este documento consolida a evolução de produto, arquitetura e marcos técnicos do ecossistema **Mr. Tick**.
+Este documento consolida a evolução de produto, arquitetura e marcos técnicos do ecossistema **Rastro**.
 
 ---
 
 ## 🎯 Proposta de Valor
 
-O Mr. Tick é o **cockpit de produtividade e time tracking local-first** para desenvolvedores e equipes técnicas:
+O Rastro é o **cockpit de produtividade e time tracking local-first** para desenvolvedores e equipes técnicas:
 
 - **Zero Context-Switching:** Centraliza tarefas de múltiplos gerenciadores (Redmine, Jira, GitHub Issues) e calendário em uma timeline rápida e unificada.
 - **100% Offline-First:** Toda a persistência é local (RxDB), permitindo resposta instantânea com zero latência mesmo com APIs externas lentas ou indisponíveis.
@@ -64,7 +64,7 @@ O Mr. Tick é o **cockpit de produtividade e time tracking local-first** para de
 
 ### 🏢 Fase 4: On-Premise & Enterprise Hub (Visão de Longo Prazo)
 
-- [ ] **Mr. Tick Server (Enterprise Container):**
+- [ ] **Rastro Server (Enterprise Container):**
   - Imagem Docker oficial para execução on-premise em servidores corporativos ou redes VPN.
   - Acesso 100% via navegador web para equipes que não podem instalar software local.
 - [ ] **Integração com Diretórios Corporativos (SSO):**

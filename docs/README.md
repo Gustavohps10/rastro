@@ -1,4 +1,4 @@
-# Documentação técnica do Mr. Tick
+# Documentação técnica do Rastro
 
 ## Onde começar
 

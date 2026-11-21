@@ -3,7 +3,7 @@ title Time Tracking Use Cases
 left to right direction
 actor "User" as U
 
-rectangle "Mr-tick System" {
+rectangle "Rastro System" {
     usecase "Selecionar Tarefa" as UC1
     usecase "Iniciar Timer" as UC2
     usecase "Pausar Timer" as UC3

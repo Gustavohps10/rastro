@@ -1,12 +1,12 @@
 # Fluxo de Desenvolvimento e Releases (Git & Changesets)
 
-Este documento é o guia oficial de padronização para desenvolvedores e revisores do projeto **Mr. Tick**.
+Este documento é o guia oficial de padronização para desenvolvedores e revisores do projeto **Rastro**.
 
 ---
 
 ## 🎯 Filosofia: Trunk-Based Development com Changesets
 
-No **Mr. Tick**, adotamos o modelo **Trunk-Based** assistido por **Changesets**:
+No **Rastro**, adotamos o modelo **Trunk-Based** assistido por **Changesets**:
 
 - A branch de integração contínua é a **`main`**.
 - **Nenhum desenvolvedor edita manualmente o `package.json` ou o `CHANGELOG.md`** ao desenvolver uma funcionalidade.

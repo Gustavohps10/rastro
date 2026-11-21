@@ -414,7 +414,7 @@ if (response.ok && response.value.overlap && response.value.overlap.hasOverlap) 
 
 - **Repositórios Externos:** Addons independentes como o `discord-addon` residem em seus próprios repositórios e utilizam o portal local (`portal:../metric/src/apps/sdk`) durante o desenvolvimento.
 - **Fixtures Internas:** Addons de teste como `fake-watcher-for-tests` e `datasource-alpha-for-tests` residem em `src/dev-addons/` no monorepo e são vinculados no ambiente de testes Electron via junctions no diretório isolado do worker.
-- **Sem Bump Manual:** É terminantemente proibido editar campos `"version"` em `package.json` ou manipular `CHANGELOG.md` manualmente. A publicação e controle semântico seguem estritamente o pipeline de **Changesets** (`.changeset/`) e a CLI do Mr. Tick.
+- **Sem Bump Manual:** É terminantemente proibido editar campos `"version"` em `package.json` ou manipular `CHANGELOG.md` manualmente. A publicação e controle semântico seguem estritamente o pipeline de **Changesets** (`.changeset/`) e a CLI do Rastro.
 
 ### Controle genérico de fuso horário
 

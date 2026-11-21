@@ -1,7 +1,7 @@
 @startuml ComponentCustomExtensions
-title MR-TICK - SDK (@mr-tick/sdk)
+title Rastro - SDK (@mr-tick/sdk)
 
-package "Mr-tick Addon Core" {
+package "Rastro Addon Core" {
     interface "IAddon" as IAddon
     interface "AddonContext" as AddonCtx
     component [AddonLoader] as Loader

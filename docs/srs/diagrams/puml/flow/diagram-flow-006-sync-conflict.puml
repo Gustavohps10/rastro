@@ -1,5 +1,5 @@
 ﻿@startuml SyncConflict
-title MR-TICK - Resolução de Conflitos
+title Rastro - Resolução de Conflitos
 participant LocalDB
 participant SyncEngine
 participant RemoteAPI

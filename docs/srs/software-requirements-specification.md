@@ -1,4 +1,4 @@
-# Mr-tick
+# Rastro
 
 > Referência de requisitos e evolução. Para contratos executáveis atuais de SDK, autenticação e manifesto, consulte o [índice técnico](../README.md), o [guia de addons](../sdk.md) e a [ADR-008](../adr/008-addon-capabilities-canon.md). Fluxos antigos de timer não substituem a autoridade do runtime descrita em [SDK e runtime local](../sdk-local-runtime.md).
 
@@ -26,15 +26,15 @@
 
 ## 1.1 Finalidade
 
-O **Mr-tick** é um sistema desktop extensível e focado em produtividade para desenvolvedores e equipes de tecnologia.
+O **Rastro** é um sistema desktop extensível e focado em produtividade para desenvolvedores e equipes de tecnologia.
 
 O sistema atua como um **hub local e agnóstico** que se conecta diretamente a ferramentas de gestão externas (Redmine, Jira, etc.) através de um **SDK**, gerenciando o tempo investido com operação **100% offline-first e privacidade absoluta (Zero-Cloud)**.
 
 ## 1.2 Política de Privacidade Estrita (Zero-Cloud Data Policy)
 
-O Mr-tick adota uma política rigorosa de **não exfiltração de dados operacionais**:
+O Rastro adota uma política rigorosa de **não exfiltração de dados operacionais**:
 
-- **Nenhum dado de tarefas, títulos de janelas, apontamentos de horas ou informações de clientes trafega para servidores em nuvem do Mr-tick ou de terceiros.**
+- **Nenhum dado de tarefas, títulos de janelas, apontamentos de horas ou informações de clientes trafega para servidores em nuvem do Rastro ou de terceiros.**
 - Todas as conexões com DataSources acontecem **diretamente da máquina do usuário para o servidor da empresa/ferramenta**.
 - Recursos de inteligência e automação (Window Observer, Git Tracker, OCR, Idle Resolver) executam **100% localmente** na CPU do usuário.
 
@@ -50,7 +50,7 @@ O Mr-tick adota uma política rigorosa de **não exfiltração de dados operacio
 
 ## 2.2 Modelo de Distribuição do Core
 
-O **Mr-tick Core** é 100% gratuito, de código aberto e extensível:
+O **Rastro Core** é 100% gratuito, de código aberto e extensível:
 
 - **Local-First & Offline-First:** Toda a computação e persistência rodam na máquina do usuário.
 - **Multi-Workspace & Múltiplas Conexões:** Conectar simultaneamente múltiplos DataSources (ex: Jira + Redmine + GitHub) sem travas artificiais.
@@ -63,7 +63,7 @@ O **Mr-tick Core** é 100% gratuito, de código aberto e extensível:
 
 # 3. Ecossistema e SDK
 
-O Mr-tick possui uma arquitetura orientada a **Addons Multicapacidade**. Um único pacote de addon pode fornecer simultaneamente:
+O Rastro possui uma arquitetura orientada a **Addons Multicapacidade**. Um único pacote de addon pode fornecer simultaneamente:
 
 1. **DataSources:** Adaptadores de comunicação com APIs externas (Redmine, Jira, GitLab, Mock).
 2. **Navegação & Menus:** Injeção de itens de navegação na Sidebar e subitens.
@@ -333,7 +333,7 @@ Diferente das coleções sincronizáveis com provedores externos (que utilizam `
 
 # 7. Arquitetura em Camadas
 
-O Mr-tick é estruturado em quatro camadas com responsabilidades bem delimitadas, consistentes com os princípios de DDD e com o modelo desktop offline-first.
+O Rastro é estruturado em quatro camadas com responsabilidades bem delimitadas, consistentes com os princípios de DDD e com o modelo desktop offline-first.
 
 ## 7.1 Domain
 
@@ -817,7 +817,7 @@ App abre
 
 ### Objetivo
 
-Instalar e ativar extensões multicapacidade (DataSources, Watchers, Menus e Temas) através do SDK do Mr. Tick.
+Instalar e ativar extensões multicapacidade (DataSources, Watchers, Menus e Temas) através do SDK do Rastro.
 
 ### Fluxo
 
@@ -988,18 +988,18 @@ flowchart TB
 
 **Contexto:** Ferramentas extensíveis costumam sofrer de fragmentação ou acoplamento forte quando cada tipo de plugin (tema, conector, atalho) exige uma arquitetura isolada.
 
-**Decisão:** O Mr-tick adota um contrato de **Addon Multicapacidade** no `@mr-tick/sdk`. Um único Addon pode registrar simultaneamente DataSources, Menus de Sidebar, Botões e Popovers na Timerbar, Comandos, Watchers e Temas Visuais.
+**Decisão:** O Rastro adota um contrato de **Addon Multicapacidade** no `@mr-tick/sdk`. Um único Addon pode registrar simultaneamente DataSources, Menus de Sidebar, Botões e Popovers na Timerbar, Comandos, Watchers e Temas Visuais.
 
 **Consequências:**
 
 - Facilidade para a comunidade e empresas desenvolverem extensões completas.
-- O Core do Mr-tick e a UI permanecem 100% agnósticos aos detalhes das ferramentas externas.
+- O Core do Rastro e a UI permanecem 100% agnósticos aos detalhes das ferramentas externas.
 
 ## ADR-005 — Modelo Local-First e Licença Apache 2.0 (Zero Cloud / Zero Auth)
 
-**Contexto:** O projeto Mr. Tick é uma ferramenta para desenvolvedores e equipes de engenharia que prezam por privacidade absoluta e autonomia. Criar um backend SaaS de autenticação (Magic Links, senhas, banco de usuários e chaves de licença) introduziria custos de infraestrutura, latência desnecessária e riscos de vazamento de dados de compliance corporativo.
+**Contexto:** O projeto Rastro é uma ferramenta para desenvolvedores e equipes de engenharia que prezam por privacidade absoluta e autonomia. Criar um backend SaaS de autenticação (Magic Links, senhas, banco de usuários e chaves de licença) introduziria custos de infraestrutura, latência desnecessária e riscos de vazamento de dados de compliance corporativo.
 
-**Decisão:** O Core do Mr. Tick é software livre distribuído sob os termos da licença **Apache 2.0**, sendo 100% gratuito e expansível via SDK. O aplicativo desktop opera no modelo **Local-First**, persistindo dados no RxDB local e se comunicando diretamente com os datasources do usuário sem qualquer obrigatoriedade de login, telemetria ou validação de chave de licença externa.
+**Decisão:** O Core do Rastro é software livre distribuído sob os termos da licença **Apache 2.0**, sendo 100% gratuito e expansível via SDK. O aplicativo desktop opera no modelo **Local-First**, persistindo dados no RxDB local e se comunicando diretamente com os datasources do usuário sem qualquer obrigatoriedade de login, telemetria ou validação de chave de licença externa.
 
 **Consequências:**
 

@@ -1,5 +1,5 @@
 @startuml TaskCreationFlow
-title MR-TICK - Criação de Tarefa (UC005 - SRS)
+title Rastro - Criação de Tarefa (UC005 - SRS)
 actor User
 participant UI
 participant SyncEngine

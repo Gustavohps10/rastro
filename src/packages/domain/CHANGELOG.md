@@ -1,5 +1,11 @@
 # @mr-tick/domain
 
+## 2.0.3
+
+### Patch Changes
+
+- 6daa2e5: Adota a marca Rastro no aplicativo, no instalador e no atualizador. Atualiza as imagens, os ícones e os textos do produto. Preserva os nomes dos pacotes, os domínios e os identificadores usados por integrações existentes.
+
 ## 2.0.2
 
 ### Patch Changes

@@ -1,5 +1,20 @@
 ﻿# @rastrokit/ui
 
+## 1.15.1
+
+### Patch Changes
+
+- 81e59c5: Unifica o protocolo do desktop empacotado em `rastro:` para OAuth, ativação e avatares. O retorno de OAuth em desenvolvimento usa `electron:`. Os endereços HTTPS cadastrados nos provedores continuam iguais.
+
+  Restaura a entrega do retorno OAuth à instância do desktop em desenvolvimento no Windows. Usa um UUID como `state` padrão e remove referências a integrações específicas das configurações do core.
+
+- 6daa2e5: Adota a marca Rastro no aplicativo, no instalador e no atualizador. Atualiza as imagens, os ícones e os textos do produto. Preserva os nomes dos pacotes, os domínios e os identificadores usados por integrações existentes.
+- Updated dependencies [81e59c5]
+- Updated dependencies [6daa2e5]
+- Updated dependencies [56dc873]
+  - @rastrokit/application@2.4.1
+  - @rastrokit/sdk@0.15.1
+
 ## 1.15.0
 
 ### Minor Changes

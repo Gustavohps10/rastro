@@ -21,7 +21,6 @@ env:
 
 jobs:
   test:
-    name: Test & Typecheck
     runs-on: ubuntu-latest
     env:
       # Pula o download do binário desktop pesado no runner Linux de testes
@@ -214,6 +213,7 @@ jobs:
           version: yarn changeset version
           title: 'chore: release packages'
           commit: 'chore: version packages'
+          commitMode: github-api
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

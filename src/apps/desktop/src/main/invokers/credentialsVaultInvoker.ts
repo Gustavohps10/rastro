@@ -1,4 +1,4 @@
-﻿import { ICredentialsVaultAPI } from '@mr-tick/application'
+﻿import { ICredentialsVaultAPI } from '@rastrokit/application'
 
 import { IpcInvoker } from '@/main/adapters/IpcInvoker'
 

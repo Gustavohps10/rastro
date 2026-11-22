@@ -4,8 +4,8 @@ import { join } from 'node:path'
 import type {
   IAddonAccessService,
   ICoreAddonCapabilities,
-} from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
 export const unavailableCore: ICoreAddonCapabilities = {
   runtime: {

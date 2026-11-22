@@ -1,4 +1,6 @@
-﻿import { FileData, IFileStorage } from '@mr-tick/application'
+﻿import { pathToFileURL } from 'node:url'
+
+import { FileData, IFileStorage } from '@rastrokit/application'
 import fs from 'fs'
 import path, { dirname, resolve } from 'path'
 
@@ -94,12 +96,14 @@ export class HardDiskStorage implements IFileStorage {
   }
 
   getPublicUrl(filePath: string): string {
-    const fullPath = this.getAbsolutePath(filePath)
+    if (this.urlPrefix === 'file://') {
+      return pathToFileURL(this.getAbsolutePath(filePath)).href
+    }
 
-    const sanitizedPrefix = this.urlPrefix.endsWith('/')
-      ? this.urlPrefix.slice(0, -1)
-      : this.urlPrefix
-
-    return `${sanitizedPrefix}${fullPath.startsWith('/') ? '' : '/'}${fullPath}`
+    const relativeUrl = filePath
+      .split(/[\\/]/)
+      .map(encodeURIComponent)
+      .join('/')
+    return new URL(relativeUrl, this.urlPrefix).href
   }
 }

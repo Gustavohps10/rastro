@@ -1,5 +1,5 @@
-import { ILicensingAPI } from '@mr-tick/application'
-import { IRequest } from '@mr-tick/shared/transport'
+import { ILicensingAPI } from '@rastrokit/application'
+import { IRequest } from '@rastrokit/shared/transport'
 
 import { IpcInvoker } from '@/main/adapters/IpcInvoker'
 

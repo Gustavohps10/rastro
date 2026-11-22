@@ -4,8 +4,8 @@ import type {
   ListTasksInput,
   PagedResultDTO,
   TaskDTO,
-} from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
 type LookupResult = Either<AppError, PagedResultDTO<TaskDTO>>
 

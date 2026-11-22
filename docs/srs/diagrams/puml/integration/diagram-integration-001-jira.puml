@@ -1,12 +1,12 @@
 @startuml IntegrationJira
 title Jira Integration Flow
-participant MrTick
+participant Rastro
 participant JiraAdapter
 participant JiraAPI
 
-MrTick -> JiraAdapter: Request Sync (LastCheckpoint)
+Rastro -> JiraAdapter: Request Sync (LastCheckpoint)
 JiraAdapter -> JiraAPI: GET /rest/api/2/search (jql=updated>checkpoint)
 JiraAPI -> JiraAdapter: Return JSON (Issues)
 JiraAdapter -> JiraAdapter: Map JiraIssue -> Task
-JiraAdapter -> MrTick: Return Normalized Data
+JiraAdapter -> Rastro: Return Normalized Data
 @enduml

@@ -1,4 +1,4 @@
-import type { ConfiguredFieldMapping } from '@mr-tick/sdk'
+import type { ConfiguredFieldMapping } from '@rastrokit/sdk'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import {

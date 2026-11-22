@@ -1,4 +1,4 @@
-import { AppError } from '@mr-tick/shared/helpers'
+import { AppError } from '@rastrokit/shared/helpers'
 
 export type SyncDocumentDTO<T> = T & {
   originalId?: string

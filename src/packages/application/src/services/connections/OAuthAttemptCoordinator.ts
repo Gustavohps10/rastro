@@ -1,4 +1,4 @@
-import { AppError, Either, isNonEmptyString } from '@mr-tick/shared/helpers'
+import { AppError, Either, isNonEmptyString } from '@rastrokit/shared/helpers'
 import crypto from 'crypto'
 
 import type {
@@ -77,7 +77,7 @@ export class OAuthAttemptCoordinator implements IOAuthAttemptCoordinator {
     }
 
     const { codeVerifier, codeChallenge } = generatePKCEPair()
-    const state = `${input.addonId}_${crypto.randomUUID()}`
+    const state = crypto.randomUUID()
     const timeoutMs =
       input.timeoutMs !== undefined && input.timeoutMs > 0
         ? input.timeoutMs

@@ -28,7 +28,7 @@ async function openWorkspace(page: Page): Promise<void> {
 
   const fakeWorkspace = seedWorkspaces.workspaces.find((workspace) =>
     workspace.connections.some(
-      (connection) => connection.addonId === 'mr-tick-datasource-fake',
+      (connection) => connection.addonId === 'rastro-datasource-fake',
     ),
   )
   expect(fakeWorkspace).toBeDefined()
@@ -158,7 +158,7 @@ test.describe('Timerbar Native Win32 Click-Through & Focus Contract', () => {
       y: transparentY - 100,
       width: 400,
       height: 300,
-      title: 'MrTick-Native-Underlay-Target',
+      title: 'Rastro-Native-Underlay-Target',
       show: true,
     })
     expect(testWin.status).toBe('ok')

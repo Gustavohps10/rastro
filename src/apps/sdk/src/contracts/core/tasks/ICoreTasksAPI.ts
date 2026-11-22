@@ -4,4 +4,4 @@ export type {
   CoreTaskPage,
   CoreTaskReference,
   ICoreTasksAPI,
-} from '@mr-tick/application'
+} from '@rastrokit/application'

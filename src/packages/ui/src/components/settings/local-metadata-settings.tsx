@@ -1,4 +1,4 @@
-import type { MetadataDTO, MetadataItem } from '@mr-tick/application'
+import type { MetadataDTO, MetadataItem } from '@rastrokit/application'
 import { Check, Loader2, Pencil, Plus, Trash2 } from 'lucide-react'
 import { useState } from 'react'
 

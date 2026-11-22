@@ -66,7 +66,7 @@ jobs:
           turbo-scope: desktop
 
       - name: Build Desktop App
-        run: yarn turbo run build --concurrency=100% --filter=@mr-tick/desktop --filter=@mr-tick/datasource-fake --summarize
+        run: yarn turbo run build --concurrency=100% --filter=@rastrokit/desktop --filter=@rastrokit/datasource-fake --summarize
 
       - name: Build Observer Test Fixtures
         run: |
@@ -130,6 +130,7 @@ jobs:
         if: failure()
         with:
           name: playwright-report-branch-shard-${{ matrix.shard }}
-          path: src/apps/desktop/playwright-report/
+          path: .temps/playwright/report/
+          include-hidden-files: true
           retention-days: 7
           compression-level: 1

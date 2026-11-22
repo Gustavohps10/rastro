@@ -8,7 +8,7 @@ import type {
   AnalyticsColumnSchema,
   AnalyticsDatasetRow,
   AnalyticsPlanNode,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import {
   Columns2,
   Columns3,

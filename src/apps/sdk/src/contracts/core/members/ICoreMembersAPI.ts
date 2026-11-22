@@ -1,1 +1,1 @@
-export type { CoreMember, ICoreMembersAPI } from '@mr-tick/application'
+export type { CoreMember, ICoreMembersAPI } from '@rastrokit/application'

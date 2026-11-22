@@ -1,4 +1,7 @@
-import { TimeEntryDTO, TimeEntryPullCheckpointDTO } from '@mr-tick/application'
+import {
+  TimeEntryDTO,
+  TimeEntryPullCheckpointDTO,
+} from '@rastrokit/application'
 import { describe, expect, it } from 'vitest'
 
 import { createTimeEntrySnapshotPage } from './createTimeEntrySnapshotPage'

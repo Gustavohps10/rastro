@@ -2,8 +2,8 @@ import type {
   ConnectionIdentity,
   ConnectionProfileDescriptor,
   Workspace,
-} from '@mr-tick/domain'
-import type { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/domain'
+import type { AppError, Either } from '@rastrokit/shared/helpers'
 
 import type {
   ConnectionCredentialOperation,

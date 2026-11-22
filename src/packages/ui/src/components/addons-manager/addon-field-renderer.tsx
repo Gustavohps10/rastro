@@ -9,7 +9,7 @@ import {
   type AddonTaskReferenceValue,
   type AddonVaultScope,
   type ConfiguredFieldMapping,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { useQueryClient } from '@tanstack/react-query'
 import { Folder, Loader2, SlidersHorizontal } from 'lucide-react'
 import { ReactNode, useState } from 'react'

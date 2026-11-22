@@ -1,0 +1,30 @@
+diff --git a/dist/chunks/lib-D9_OPmIh.cjs b/dist/chunks/lib-D9_OPmIh.cjs
+index 7e535b654bf4db51e4ec09e168dc86de7973505a..9dc74e227a6b0b03150dbe63673e03dc7aa90418 100644
+--- a/dist/chunks/lib-D9_OPmIh.cjs
++++ b/dist/chunks/lib-D9_OPmIh.cjs
+@@ -1165,7 +1165,9 @@ async function bundleConfigFile(fileName, isESM) {
+ const _require = node_module.createRequire((typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === 'SCRIPT' && _documentCurrentScript.src || new URL('chunks/lib-D9_OPmIh.cjs', document.baseURI).href)));
+ async function loadConfigFormBundledFile(configRoot, configFile, bundledCode, isESM) {
+     if (isESM) {
+-        const fileNameTmp = path.resolve(configRoot, `${CONFIG_FILE_NAME}.${Date.now()}.mjs`);
++        const temporaryDirectory = path.resolve(configRoot, '.temps');
++        fs.mkdirSync(temporaryDirectory, { recursive: true });
++        const fileNameTmp = path.resolve(temporaryDirectory, `${CONFIG_FILE_NAME}.${Date.now()}.mjs`);
+         fs.writeFileSync(fileNameTmp, bundledCode);
+         const fileUrl = node_url.pathToFileURL(fileNameTmp);
+         try {
+diff --git a/dist/chunks/lib-DyJQBCfr.mjs b/dist/chunks/lib-DyJQBCfr.mjs
+index 0da83c7b3ffadb904822d148a7fce9ef50b3885c..2b19e33b0b31cbb0e5d91efce47a6d003acb0d70 100644
+--- a/dist/chunks/lib-DyJQBCfr.mjs
++++ b/dist/chunks/lib-DyJQBCfr.mjs
+@@ -1162,7 +1162,9 @@ async function bundleConfigFile(fileName, isESM) {
+ const _require = createRequire(import.meta.url);
+ async function loadConfigFormBundledFile(configRoot, configFile, bundledCode, isESM) {
+     if (isESM) {
+-        const fileNameTmp = path.resolve(configRoot, `${CONFIG_FILE_NAME}.${Date.now()}.mjs`);
++        const temporaryDirectory = path.resolve(configRoot, '.temps');
++        fs.mkdirSync(temporaryDirectory, { recursive: true });
++        const fileNameTmp = path.resolve(temporaryDirectory, `${CONFIG_FILE_NAME}.${Date.now()}.mjs`);
+         fs.writeFileSync(fileNameTmp, bundledCode);
+         const fileUrl = pathToFileURL(fileNameTmp);
+         try {

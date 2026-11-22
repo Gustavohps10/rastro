@@ -1,4 +1,4 @@
-import type { LicensingStatusViewModel } from '@mr-tick/shared/view-models'
+import type { LicensingStatusViewModel } from '@rastrokit/shared/view-models'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import {
   CheckCircle2,
@@ -299,7 +299,7 @@ export function LicenseSettingsTab() {
                   <Input
                     id="license-key-input"
                     type="password"
-                    placeholder="mrtick_live_..."
+                    placeholder="rastro_live_..."
                     className="pl-9 font-mono text-xs"
                     value={licenseKeyInput}
                     onChange={(event) => setLicenseKeyInput(event.target.value)}
@@ -350,9 +350,8 @@ export function LicenseSettingsTab() {
               </a>
             </div>
             <p className="text-muted-foreground text-[11px] leading-relaxed">
-              Desbloqueie observadores de chamadas (Discord Presence),
-              sincronização avançada e suporte com garantia de ativação em até 2
-              dispositivos.
+              Desbloqueie addons Plus, sincronização avançada e suporte com
+              garantia de ativação em até 2 dispositivos.
             </p>
             <div className="border-border/60 flex items-center justify-between border-t pt-2 text-[11px]">
               <span className="text-muted-foreground">

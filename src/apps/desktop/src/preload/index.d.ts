@@ -1,5 +1,5 @@
 import { ElectronAPI } from '@electron-toolkit/preload'
-import type { IHostBridge } from '@mr-tick/application'
+import type { IHostBridge } from '@rastrokit/application'
 
 declare global {
   interface Window {

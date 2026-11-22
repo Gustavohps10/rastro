@@ -9,16 +9,18 @@ export default defineConfig([
     },
     format: ['esm', 'cjs'],
     dts: {
-      resolve: [/^@mr-tick\/(application|shared|domain)(\/.*)?$/],
+      resolve: [/^@rastro\/(application|shared|domain)(\/.*)?$/],
       compilerOptions: {
         baseUrl: '.',
         paths: {
-          '@mr-tick/application': [
+          '@rastrokit/application': [
             '../../packages/application/dist/index.d.ts',
           ],
-          '@mr-tick/application/*': ['../../packages/application/dist/*.d.ts'],
-          '@mr-tick/domain': ['../../packages/domain/dist/index.d.ts'],
-          '@mr-tick/shared/*': ['../../packages/shared/dist/*/index.d.ts'],
+          '@rastrokit/application/*': [
+            '../../packages/application/dist/*.d.ts',
+          ],
+          '@rastrokit/domain': ['../../packages/domain/dist/index.d.ts'],
+          '@rastrokit/shared/*': ['../../packages/shared/dist/*/index.d.ts'],
         },
       },
     },
@@ -26,7 +28,11 @@ export default defineConfig([
     sourcemap: true,
     splitting: false,
     tsconfig: './tsconfig.build.json',
-    noExternal: ['@mr-tick/application', '@mr-tick/shared', '@mr-tick/domain'],
+    noExternal: [
+      '@rastrokit/application',
+      '@rastrokit/shared',
+      '@rastrokit/domain',
+    ],
     define: {
       __SDK_VERSION__: JSON.stringify(pkg.version),
     },
@@ -46,9 +52,9 @@ export default defineConfig([
     splitting: false,
     tsconfig: './tsconfig.build.json',
     noExternal: [
-      '@mr-tick/application',
-      '@mr-tick/shared',
-      '@mr-tick/domain',
+      '@rastrokit/application',
+      '@rastrokit/shared',
+      '@rastrokit/domain',
       'commander',
       'inquirer',
       'js-yaml',

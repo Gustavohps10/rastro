@@ -1,5 +1,5 @@
-import { IHostBridge } from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+import { IHostBridge } from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import { RxCollection } from 'rxdb'
 
 import { SyncTimeEntryRxDBDTO } from '@/local-db/schemas/time-entries-sync-schema'

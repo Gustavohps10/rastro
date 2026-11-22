@@ -1,5 +1,5 @@
-import type { CoreCacheValue, MetadataDTO } from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+import type { CoreCacheValue, MetadataDTO } from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import type { MangoQuerySelector } from 'rxdb'
 
 import type { SyncTaskRxDBDTO } from '@/local-db/schemas/tasks-sync-schema'

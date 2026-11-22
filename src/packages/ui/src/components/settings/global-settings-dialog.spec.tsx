@@ -383,7 +383,7 @@ describe('GlobalSettingsDialog (Obsidian Style)', () => {
       isSuccess: true,
       data: [
         {
-          id: 'mistertick-discord',
+          id: 'rastro-discord',
           name: 'Discord Presence',
           version: '0.2.0',
           creator: 'Rastro',
@@ -398,7 +398,7 @@ describe('GlobalSettingsDialog (Obsidian Style)', () => {
     fireEvent.click(screen.getByTestId('settings-nav-tab-addons-installed'))
 
     const configureBtn = await screen.findByTestId(
-      'addon-configure-btn-mistertick-discord',
+      'addon-configure-btn-rastro-discord',
     )
     fireEvent.click(configureBtn)
 
@@ -411,7 +411,7 @@ describe('GlobalSettingsDialog (Obsidian Style)', () => {
     // alternar para Observador
     fireEvent.click(watcherCapBtn)
     expect(
-      screen.queryByTestId('addon-workspace-auth-section-mistertick-discord'),
+      screen.queryByTestId('addon-workspace-auth-section-rastro-discord'),
     ).toBeNull()
   })
 })

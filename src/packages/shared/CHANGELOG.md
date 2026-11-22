@@ -1,4 +1,4 @@
-# @mr-tick/shared
+# @rastrokit/shared
 
 ## 1.7.0
 
@@ -53,11 +53,11 @@
 
 ### Minor Changes
 
-- 6d14757: Padronização canônica das capacidades de addons em todo o ecossistema Mr. Tick:
+- 6d14757: Padronização canônica das capacidades de addons em todo o ecossistema Rastro:
   - Substituição integral de categorias (`category`/`categories`) e descritores legados por `capabilities: AddonCapability[]` (`'dataSource' | 'watcher' | 'calendar' | 'punch' | 'theme'`).
   - Remoção definitiva de união de tipos (`AddonCapability | AddonCapabilityDescriptor`) mantendo uma única fonte da verdade estrita.
   - Simplificação do versionamento de contratos centralizado na compatibilidade SemVer do SDK, eliminando micro-versionamento per-capability (`contractVersion`).
-  - Helpers canônicos centralizados em `@mr-tick/shared/helpers` e reexportados pelo SDK (`hasCapability`, `isDataSource`, `isWatcher`, `isTheme`).
+  - Helpers canônicos centralizados em `@rastrokit/shared/helpers` e reexportados pelo SDK (`hasCapability`, `isDataSource`, `isWatcher`, `isTheme`).
   - Limpeza de fallbacks cegos PascalCase e categorias legadas nos utilitários da CLI (`manifest`, `sync`, `pkg`, `validate`).
   - Atualização e alinhamento dos serviços de aplicação (`ImportAddonService`, `UpdateAddonService`), adaptadores (`AddonsFacade`), UI (`SyncProvider`, modais e componentes de tarefas) e runtime desktop (`AddonLoader`, ciclo de vida e dispatch de provedores).
 - 24d3de8: Arquitetura de conexões e capacidades dos addons: perfis de conexão com cardinalidade (`single`/`multi`) validada no domínio e na persistência, fábrica de HTTP por conexão, ciclo de vida de conexão com credenciais em cofre (distinguindo ausência, indisponibilidade e payload inválido), tentativas OAuth controladas pelo host com refresh compartilhado por autorização, configurações e segredos de addons separados por escopo, persistência de workspaces em SQLite e UI de conexões agrupada por workspace.
@@ -68,7 +68,7 @@
 
 ### Patch Changes
 
-- 46475ba: Adiciona ecossistema Mr. Tick Plus fim a fim: suporte ao tier `plus`, hash `sha256`, `size` e assinatura Ed25519 de pacotes `.tladdon` no `@mr-tick/sdk`, verificação offline/online de licença (`lic-2026-01`) e pacotes assinados (`cat-2026-01`), download autenticado no Cloudflare R2 com validação SHA-256, deep link `mistertick://activate?key=...` no Electron e interface de ativação e badges Plus na loja e página de addons.
+- 46475ba: Adiciona ecossistema Rastro Plus fim a fim: suporte ao tier `plus`, hash `sha256`, `size` e assinatura Ed25519 de pacotes `.tladdon` no `@rastrokit/sdk`, verificação offline/online de licença (`lic-2026-01`) e pacotes assinados (`cat-2026-01`), download autenticado no Cloudflare R2 com validação SHA-256, deep link `rastro://activate?key=...` no Electron e interface de ativação e badges Plus na loja e página de addons.
 
 ## 1.3.0
 

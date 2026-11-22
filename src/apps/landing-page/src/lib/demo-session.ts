@@ -1,4 +1,4 @@
-import type { IHostBridge, WorkspaceViewModel } from '@mr-tick/application'
+import type { IHostBridge, WorkspaceViewModel } from '@rastrokit/application'
 
 export function createDemoWorkspace(
   template: WorkspaceViewModel,

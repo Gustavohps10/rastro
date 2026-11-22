@@ -8,7 +8,7 @@ import { syncManifest } from './sync'
 
 describe('syncManifest', () => {
   it('should synchronize version from package.json into manifest.yaml', () => {
-    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'mr-tick-test-sync-'))
+    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'rastro-test-sync-'))
     const manifestPath = path.join(tempDir, 'manifest.yaml')
     const packageJsonPath = path.join(tempDir, 'package.json')
 
@@ -27,7 +27,7 @@ describe('syncManifest', () => {
     fs.writeFileSync(
       packageJsonPath,
       JSON.stringify({
-        name: '@mr-tick/test-addon',
+        name: '@rastrokit/test-addon',
         version: '0.2.0',
       }),
     )

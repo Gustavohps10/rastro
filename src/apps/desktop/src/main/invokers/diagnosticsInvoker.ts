@@ -1,4 +1,4 @@
-import type { IDiagnosticsAPI } from '@mr-tick/application'
+import type { IDiagnosticsAPI } from '@rastrokit/application'
 
 import { IpcInvoker } from '@/main/adapters/IpcInvoker'
 

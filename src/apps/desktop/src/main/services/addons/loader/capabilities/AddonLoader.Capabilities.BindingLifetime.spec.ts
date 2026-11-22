@@ -6,9 +6,9 @@ import {
   PagedResultDTO,
   TaskDTO,
   UpdatedTaskResult,
-} from '@mr-tick/application'
-import { IAddon, IAddonManifest } from '@mr-tick/sdk'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { IAddon, IAddonManifest } from '@rastrokit/sdk'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import { describe, expect, it, vi } from 'vitest'
 
 import { unavailableCore } from '../../core/addon-core-test-fixture'

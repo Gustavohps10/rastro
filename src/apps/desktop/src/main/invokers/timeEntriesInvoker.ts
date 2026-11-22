@@ -1,4 +1,4 @@
-import { IHostTimeEntriesAPI } from '@mr-tick/application'
+import { IHostTimeEntriesAPI } from '@rastrokit/application'
 
 import { IpcInvoker } from '@/main/adapters/IpcInvoker'
 

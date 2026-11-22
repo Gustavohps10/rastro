@@ -1,5 +1,5 @@
-import { AddonManifestDTO, ILicensingFacade } from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+import { AddonManifestDTO, ILicensingFacade } from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import axios from 'axios'
 import crypto from 'crypto'
 import { describe, expect, it, vi } from 'vitest'
@@ -37,7 +37,7 @@ describe('AddonsFacade', () => {
       createMockLicensingFacade(),
     )
     const yamlContent = `
-id: mistertick-discord
+id: rastro-discord
 name: Discord Integration
 version: 0.1.0
 tier: plus
@@ -49,11 +49,11 @@ author: Rastro Official
 shortDescription: Integração com Discord
 description: Plugin oficial Plus do Discord
 iconUrl: https://example.com/icon.png
-sourceUrl: https://github.com/mistertick/discord-addon
+sourceUrl: https://github.com/rastrokit/discord-addon
 screenshots:
   - url: https://example.com/screen1.png
     caption: Tela 1
-downloadUrl: https://mistertick-api.rastrokit.workers.dev/catalog/plus-addons/mistertick-discord/versions/0.1.0/download
+downloadUrl: https://rastro-api.rastrokit.workers.dev/catalog/plus-addons/rastro-discord/versions/0.1.0/download
 requiredApiVersion: '>=0.8.0'
 releaseDate: '2026-10-12'
 changelog:
@@ -63,7 +63,7 @@ changelog:
 
     expect(result.isSuccess()).toBe(true)
     if (result.isSuccess()) {
-      expect(result.success.id).toBe('mistertick-discord')
+      expect(result.success.id).toBe('rastro-discord')
       expect(result.success.tier).toBe('plus')
       expect(result.success.sha256).toBe(
         '0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef',
@@ -100,17 +100,17 @@ changelog:
     )
 
     const result = await facade.downloadFile(
-      'https://mistertick-api.rastrokit.workers.dev/catalog/plus-addons/mistertick-discord/versions/0.1.0/download',
+      'https://rastro-api.rastrokit.workers.dev/catalog/plus-addons/rastro-discord/versions/0.1.0/download',
     )
 
     expect(result.isSuccess()).toBe(true)
     expect(licensingFacade.downloadPlusPackage).toHaveBeenCalledWith(
-      'mistertick-discord',
+      'rastro-discord',
       '0.1.0',
     )
 
     const badShaResult = await facade.downloadFile(
-      'https://mistertick-api.rastrokit.workers.dev/catalog/plus-addons/mistertick-discord/versions/0.1.0/download',
+      'https://rastro-api.rastrokit.workers.dev/catalog/plus-addons/rastro-discord/versions/0.1.0/download',
       undefined,
       'f'.repeat(64),
     )
@@ -127,7 +127,7 @@ changelog:
       createMockLicensingFacade(),
     )
     const manifestYaml = `
-id: mr-tick-test
+id: rastro-test
 name: Test Addon
 version: 0.9.0
 author: Dev
@@ -140,7 +140,7 @@ iconUrl: https://example.com/icon.png
 
     expect(result.isSuccess()).toBe(true)
     if (result.isSuccess()) {
-      expect(result.success.id).toBe('mr-tick-test')
+      expect(result.success.id).toBe('rastro-test')
       expect(result.success.name).toBe('Test Addon')
       expect(result.success.version).toBe('0.9.0')
       expect(result.success.creator).toBe('Dev')
@@ -156,7 +156,7 @@ iconUrl: https://example.com/icon.png
     )
     const mockConsolidatedCatalog = [
       {
-        id: 'mr-tick-datasource-redmine',
+        id: 'rastro-datasource-redmine',
         name: 'Redmine',
         version: '1.0.0',
         capabilities: ['dataSource'],
@@ -165,7 +165,7 @@ iconUrl: https://example.com/icon.png
         downloadUrl: 'https://example.com/redmine.tladdon',
       },
       {
-        id: 'mr-tick-watcher-discord',
+        id: 'rastro-watcher-discord',
         name: 'Discord Presence',
         version: '1.0.0',
         capabilities: ['watcher'],
@@ -188,11 +188,11 @@ iconUrl: https://example.com/icon.png
     )
     if (result.isSuccess()) {
       expect(result.success).toHaveLength(2)
-      expect(result.success[0].id).toBe('mr-tick-datasource-redmine')
+      expect(result.success[0].id).toBe('rastro-datasource-redmine')
       expect(result.success[0].downloadUrl).toBe(
         'https://example.com/redmine.tladdon',
       )
-      expect(result.success[1].id).toBe('mr-tick-watcher-discord')
+      expect(result.success[1].id).toBe('rastro-watcher-discord')
     }
   })
 
@@ -204,7 +204,7 @@ iconUrl: https://example.com/icon.png
       )
       const installed: AddonManifestDTO[] = [
         {
-          id: 'mr-tick-datasource-redmine',
+          id: 'rastro-datasource-redmine',
           name: 'Redmine',
           version: '0.7.0',
           capabilities: ['dataSource'],
@@ -212,7 +212,7 @@ iconUrl: https://example.com/icon.png
           description: 'Plugin Redmine',
           downloadUrl: 'https://example.com/redmine-0.7.0.tladdon',
           installed: true,
-          path: '/addons/mr-tick-datasource-redmine/0.7.0',
+          path: '/addons/rastro-datasource-redmine/0.7.0',
           logo: '',
           downloads: 10,
           stars: 5,
@@ -221,7 +221,7 @@ iconUrl: https://example.com/icon.png
 
       const available: AddonManifestDTO[] = [
         {
-          id: 'mr-tick-datasource-redmine',
+          id: 'rastro-datasource-redmine',
           name: 'Redmine',
           version: '0.8.0',
           requiredApiVersion: '>=0.8.0',
@@ -256,7 +256,7 @@ iconUrl: https://example.com/icon.png
       )
       const installed: AddonManifestDTO[] = [
         {
-          id: 'mr-tick-datasource-redmine',
+          id: 'rastro-datasource-redmine',
           name: 'Redmine',
           version: '0.7.0',
           capabilities: ['dataSource'],
@@ -264,7 +264,7 @@ iconUrl: https://example.com/icon.png
           description: 'Plugin Redmine',
           downloadUrl: 'https://example.com/redmine-0.7.0.tladdon',
           installed: true,
-          path: '/addons/mr-tick-datasource-redmine/0.7.0',
+          path: '/addons/rastro-datasource-redmine/0.7.0',
           logo: '',
           downloads: 10,
           stars: 5,
@@ -273,7 +273,7 @@ iconUrl: https://example.com/icon.png
 
       const available: AddonManifestDTO[] = [
         {
-          id: 'mr-tick-datasource-redmine',
+          id: 'rastro-datasource-redmine',
           name: 'Redmine',
           version: '1.0.0',
           requiredApiVersion: '>=2.0.0',

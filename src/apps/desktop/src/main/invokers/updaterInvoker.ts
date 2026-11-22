@@ -1,4 +1,4 @@
-import { IUpdaterAPI } from '@mr-tick/application'
+import { IUpdaterAPI } from '@rastrokit/application'
 
 import { IpcInvoker } from '@/main/adapters/IpcInvoker'
 

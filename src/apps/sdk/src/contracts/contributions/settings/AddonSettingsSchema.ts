@@ -43,4 +43,4 @@ export type {
   AddonSettingsTimezoneField,
   ConfiguredFieldMapping,
   DataSourceConfigPreset,
-} from '@mr-tick/application'
+} from '@rastrokit/application'

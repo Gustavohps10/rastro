@@ -1,8 +1,8 @@
 import {
   type IConnectionCredentialsVault,
   type ICredentialsVault,
-} from '@mr-tick/application'
-import { generateOAuthState } from '@mr-tick/sdk'
+} from '@rastrokit/application'
+import { generateOAuthState } from '@rastrokit/sdk'
 import { shell } from 'electron'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
@@ -10,6 +10,7 @@ import { AddonLoader } from '../AddonLoader'
 import { createOAuthTestSetup } from './AddonLoader.OAuth.fixture'
 
 vi.mock('electron', () => ({
+  app: { isPackaged: true },
   shell: {
     openExternal: vi.fn(),
   },
@@ -51,11 +52,13 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - State & Authority', () => {
       const generatedState = parsedUrl.searchParams.get('state')
 
       expect(generatedState).toBeDefined()
-      expect(generatedState).toMatch(/^test-addon_[0-9a-f-]{36}$/)
+      expect(generatedState).toMatch(
+        /^[\da-f]{8}-(?:[\da-f]{4}-){3}[\da-f]{12}$/,
+      )
 
       // Clean up
       addonLoader.handleOAuthCallbackUrl(
-        `mr-tick://oauth/callback?code=abc&state=${generatedState}`,
+        `rastro://oauth/callback?code=abc&state=${generatedState}`,
       )
       await authPromise
     })
@@ -75,7 +78,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - State & Authority', () => {
       expect(parsedUrl.searchParams.get('state')).toBe(customState)
 
       addonLoader.handleOAuthCallbackUrl(
-        `mr-tick://oauth/callback?code=auth-code-123&state=${customState}`,
+        `rastro://oauth/callback?code=auth-code-123&state=${customState}`,
       )
       const result = await authPromise
       expect(result.code).toBe('auth-code-123')
@@ -110,7 +113,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - State & Authority', () => {
 
       expect(shell.openExternal).toHaveBeenCalledTimes(1)
       addonLoader.handleOAuthCallbackUrl(
-        `mr-tick://oauth/callback?code=code-ok&state=${matchingState}`,
+        `rastro://oauth/callback?code=code-ok&state=${matchingState}`,
       )
       const result = await authPromise
       expect(result.code).toBe('code-ok')
@@ -143,7 +146,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - State & Authority', () => {
 
       expect(shell.openExternal).toHaveBeenCalledTimes(1)
       addonLoader.handleOAuthCallbackUrl(
-        'mr-tick://oauth/callback?code=ok&state=https-state',
+        'rastro://oauth/callback?code=ok&state=https-state',
       )
       await authPromise
     })
@@ -172,7 +175,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - State & Authority', () => {
 
       expect(shell.openExternal).toHaveBeenCalledTimes(1)
       addonLoader.handleOAuthCallbackUrl(
-        'mr-tick://oauth/callback?code=ok&state=localhost-state',
+        'rastro://oauth/callback?code=ok&state=localhost-state',
       )
       await authPromise
     })
@@ -188,7 +191,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - State & Authority', () => {
 
       expect(shell.openExternal).toHaveBeenCalledTimes(1)
       addonLoader.handleOAuthCallbackUrl(
-        'mr-tick://oauth/callback?code=ok&state=ip-state',
+        'rastro://oauth/callback?code=ok&state=ip-state',
       )
       await authPromise
     })

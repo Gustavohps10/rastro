@@ -1,6 +1,6 @@
-import { ICredentialsVault } from '@mr-tick/application'
-import { IRequest } from '@mr-tick/shared/transport'
-import { ViewModel } from '@mr-tick/shared/view-models'
+import { ICredentialsVault } from '@rastrokit/application'
+import { IRequest } from '@rastrokit/shared/transport'
+import { ViewModel } from '@rastrokit/shared/view-models'
 
 import { HandlerBase } from '@/main/handlers/HandlerBase'
 

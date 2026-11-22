@@ -3,7 +3,7 @@ import 'fake-indexeddb/auto'
 import type {
   LocalTimeEntrySnapshot,
   TimeEntryRemoteState,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { createRxDatabase, type RxCollection, type RxDatabase } from 'rxdb'
 import { getRxStorageDexie } from 'rxdb/plugins/storage-dexie'
 import { wrappedValidateAjvStorage } from 'rxdb/plugins/validate-ajv'

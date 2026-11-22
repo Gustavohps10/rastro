@@ -1,4 +1,4 @@
-import { AppError, Either, FieldErrors } from '@mr-tick/shared/helpers'
+import { AppError, Either, FieldErrors } from '@rastrokit/shared/helpers'
 import z from 'zod'
 
 import { ConnectionProfileDescriptor } from '@/entities/ConnectionProfileDescriptor'
@@ -77,29 +77,20 @@ const avatarUrlSchema = z
     (val) => {
       if (!val) return true
 
-      const isBlob = val.startsWith('blob:')
-      if (isBlob) return true
+      if (val.startsWith('blob:')) return true
+      if (!URL.canParse(val)) return false
 
-      const hasValidExtension = /\.(png|jpg|jpeg|gif|svg)(\?.*)?$/i.test(val)
+      const url = new URL(val)
+      if (!url.hostname) return false
+      const isWebUrl = url.protocol === 'https:' || url.protocol === 'http:'
+      if (url.origin !== 'null' && !isWebUrl) return false
+      if (['data:', 'file:', 'javascript:'].includes(url.protocol)) return false
 
-      if (val.startsWith('mr-tick-app://')) {
-        return hasValidExtension
-      }
-
-      try {
-        const url = new URL(val)
-        const isHttp = url.protocol === 'http:' || url.protocol === 'https:'
-
-        if (!isHttp) return false
-
-        return /\.(png|jpg|jpeg|gif|svg)(\?.*)?$/i.test(url.pathname)
-      } catch {
-        return false
-      }
+      return /\.(png|jpe?g|gif|svg|webp)$/i.test(url.pathname)
     },
     {
       message:
-        'Avatar deve ser uma URL válida (http/https) ou mr-tick-app:// e apontar para uma imagem (png, jpg, jpeg, gif, svg)',
+        'Avatar deve ser uma URL válida de imagem (png, jpg, jpeg, gif, svg, webp)',
     },
   )
 

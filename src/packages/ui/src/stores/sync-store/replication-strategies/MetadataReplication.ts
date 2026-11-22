@@ -1,4 +1,4 @@
-import { IHostBridge } from '@mr-tick/application'
+import { IHostBridge } from '@rastrokit/application'
 
 import { SyncMetadataRxDBDTO } from '@/local-db/schemas/metadata-sync-schema'
 

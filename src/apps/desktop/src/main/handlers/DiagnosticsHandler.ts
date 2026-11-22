@@ -2,9 +2,9 @@ import type {
   AnalyticsOrphanRemovalResult,
   DiagnosticSnapshot,
   SanitizedDiagnosticReport,
-} from '@mr-tick/application'
-import { createResponseViewModel } from '@mr-tick/shared/helpers'
-import type { ViewModel } from '@mr-tick/shared/view-models'
+} from '@rastrokit/application'
+import { createResponseViewModel } from '@rastrokit/shared/helpers'
+import type { ViewModel } from '@rastrokit/shared/view-models'
 
 import type { DiagnosticsService } from '../services/diagnostics/DiagnosticsService'
 import type { HandlerBase } from './HandlerBase'

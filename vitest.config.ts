@@ -7,30 +7,40 @@ if (!process.env.ELECTRON_OVERRIDE_DIST_PATH) {
   process.env.ELECTRON_OVERRIDE_DIST_PATH = process.cwd()
 }
 
+const testExclude = [
+  ...configDefaults.exclude,
+  '**/.temps/**',
+  '**/e2e/**',
+  '**/*.e2e.spec.ts',
+]
+
 export default defineConfig({
   resolve: {
     tsconfigPaths: true,
     alias: {
-      '@mr-tick/sdk': path.resolve(import.meta.dirname, './src/apps/sdk/src'),
-      '@mr-tick/application': path.resolve(
+      '@rastrokit/sdk': path.resolve(import.meta.dirname, './src/apps/sdk/src'),
+      '@rastrokit/application': path.resolve(
         import.meta.dirname,
         './src/packages/application/src',
       ),
-      '@mr-tick/adapters': path.resolve(
+      '@rastrokit/adapters': path.resolve(
         import.meta.dirname,
         './src/packages/adapters/src',
       ),
-      '@mr-tick/shared': path.resolve(
+      '@rastrokit/shared': path.resolve(
         import.meta.dirname,
         './src/packages/shared/src',
       ),
-      '@mr-tick/domain': path.resolve(
+      '@rastrokit/domain': path.resolve(
         import.meta.dirname,
         './src/packages/domain/src',
       ),
     },
   },
   test: {
+    coverage: {
+      reportsDirectory: path.resolve(import.meta.dirname, '.temps/coverage'),
+    },
     projects: [
       {
         extends: true,
@@ -45,9 +55,7 @@ export default defineConfig({
             'src/dev-addons/**/*.spec.ts',
           ],
           exclude: [
-            ...configDefaults.exclude,
-            '**/e2e/**',
-            '**/*.e2e.spec.ts',
+            ...testExclude,
             'src/packages/ui/**',
             'src/apps/desktop/test-results*/**',
           ],
@@ -61,7 +69,7 @@ export default defineConfig({
           environment: 'jsdom',
           setupFiles: ['./vitest.setup.ts'],
           include: ['src/packages/ui/**/*.spec.{ts,tsx}'],
-          exclude: [...configDefaults.exclude, '**/e2e/**', '**/*.e2e.spec.ts'],
+          exclude: testExclude,
         },
       },
     ],

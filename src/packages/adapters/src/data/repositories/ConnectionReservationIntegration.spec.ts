@@ -10,9 +10,9 @@ import {
   IConnectionCredentialsVault,
   IWorkspacesRepository,
   LinkConnectionService,
-} from '@mr-tick/application'
-import { ConnectionProfileDescriptor, Workspace } from '@mr-tick/domain'
-import { Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { ConnectionProfileDescriptor, Workspace } from '@rastrokit/domain'
+import { Either } from '@rastrokit/shared/helpers'
 import { afterEach, describe, expect, it } from 'vitest'
 
 import { SQLiteConnectionLifecycleRepository } from './SQLiteConnectionLifecycleRepository'

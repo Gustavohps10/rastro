@@ -3,7 +3,7 @@ import {
   Either,
   isNonEmptyString,
   isRecord,
-} from '@mr-tick/shared/helpers'
+} from '@rastrokit/shared/helpers'
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios'
 
 import {

@@ -1,4 +1,4 @@
-import { EMPTY_HTTP_CONFIG } from '@mr-tick/adapters/contracts'
+import { EMPTY_HTTP_CONFIG } from '@rastrokit/adapters/contracts'
 import {
   AddonAuthenticatorRegistry,
   type AddonConnectionAuthenticator,
@@ -19,11 +19,11 @@ import {
   OAuthAttemptCoordinator,
   toWorkspaceConnectionDTO,
   type WorkspaceDTO,
-} from '@mr-tick/application'
-import type { ConnectionProfileDescriptor } from '@mr-tick/domain'
-import { Workspace } from '@mr-tick/domain'
-import { AppError, Either } from '@mr-tick/shared/helpers'
-import { NoOpSystemEventEmitter } from '@mr-tick/shared/transport'
+} from '@rastrokit/application'
+import type { ConnectionProfileDescriptor } from '@rastrokit/domain'
+import { Workspace } from '@rastrokit/domain'
+import { AppError, Either } from '@rastrokit/shared/helpers'
+import { NoOpSystemEventEmitter } from '@rastrokit/shared/transport'
 import { describe, expect, it, vi } from 'vitest'
 
 import {
@@ -244,6 +244,7 @@ function setupIntegrationFixture() {
       execute: async () =>
         Either.success({ items: [], total: 0, page: 1, pageSize: 50 }),
     },
+    'rastro://oauth/callback',
   )
 
   return {
@@ -429,7 +430,7 @@ describe('M07 host unit: addon connection auth via registry', () => {
     const core = new AddonCoreCapabilities(
       repository,
       transport,
-      'mistertick-discord',
+      'rastro-discord',
       coordinator,
       linkService,
       connectService,
@@ -443,6 +444,7 @@ describe('M07 host unit: addon connection auth via registry', () => {
         execute: async () =>
           Either.success({ items: [], total: 0, page: 1, pageSize: 50 }),
       },
+      'rastro://oauth/callback',
     )
 
     const fakeCredentialsVault = emptyAddonCredentialsVault()
@@ -472,8 +474,8 @@ describe('M07 host unit: addon connection auth via registry', () => {
       NoOpLoadFailuresNotifier,
     )
 
-    addonLoader.registerManifestCapabilities('mistertick-discord', ['auth'])
-    const addonContext = addonLoader.createContext('mistertick-discord')
+    addonLoader.registerManifestCapabilities('rastro-discord', ['auth'])
+    const addonContext = addonLoader.createContext('rastro-discord')
 
     addonContext.contributions.connections.registerProfiles([
       {
@@ -524,7 +526,7 @@ describe('M07 host unit: addon connection auth via registry', () => {
     addonContext.contributions.connections.registerAuthenticator(authenticator)
 
     const resolvedProfiles =
-      await profilesResolver.getConnectionProfiles('mistertick-discord')
+      await profilesResolver.getConnectionProfiles('rastro-discord')
     expect(resolvedProfiles.isSuccess()).toBe(true)
     if (resolvedProfiles.isFailure()) {
       return expect.fail(resolvedProfiles.failure.messageKey)
@@ -544,7 +546,7 @@ describe('M07 host unit: addon connection auth via registry', () => {
     }
     const createdConn = createResult.success
     expect(createdConn.connectionProfileId).toBe('discord-presence')
-    expect(createdConn.addonId).toBe('mistertick-discord')
+    expect(createdConn.addonId).toBe('rastro-discord')
 
     const authScope = {
       workspaceId: workspace.id,
@@ -591,7 +593,7 @@ describe('M07 host unit: addon connection auth via registry', () => {
 
     addonContext.contributions.connections.unregisterProfiles()
     const afterUnregister =
-      await profilesResolver.getConnectionProfiles('mistertick-discord')
+      await profilesResolver.getConnectionProfiles('rastro-discord')
     expect(afterUnregister.isFailure()).toBe(true)
     if (afterUnregister.isSuccess()) {
       return expect.fail('esperava falha após desregistro')
@@ -686,7 +688,7 @@ describe('M07 host unit: addon connection auth via registry', () => {
     const core = new AddonCoreCapabilities(
       repository,
       transport,
-      'mistertick-discord',
+      'rastro-discord',
       coordinator,
       linkService,
       connectService,
@@ -700,6 +702,7 @@ describe('M07 host unit: addon connection auth via registry', () => {
         execute: async () =>
           Either.success({ items: [], total: 0, page: 1, pageSize: 50 }),
       },
+      'rastro://oauth/callback',
     )
 
     const fakeCredentialsVault = emptyAddonCredentialsVault()
@@ -729,8 +732,8 @@ describe('M07 host unit: addon connection auth via registry', () => {
       NoOpLoadFailuresNotifier,
     )
 
-    addonLoader.registerManifestCapabilities('mistertick-discord', ['auth'])
-    const addonContext = addonLoader.createContext('mistertick-discord')
+    addonLoader.registerManifestCapabilities('rastro-discord', ['auth'])
+    const addonContext = addonLoader.createContext('rastro-discord')
     addonContext.contributions.connections.registerProfiles([
       {
         connectionProfileId: 'discord-presence',
@@ -793,7 +796,7 @@ describe('M07 host unit: addon connection auth via registry', () => {
     const returnedState = url.searchParams.get('state')!
 
     // AddonLoader desativa o addon (deactivateAddon)
-    await addonLoader.deactivateAddon('mistertick-discord')
+    await addonLoader.deactivateAddon('rastro-discord')
 
     // Callback recebido apos deactivate DEVE ser recusado porque o coordenador compartilhado foi invalidado
     const completeResult = await core.connections.completeAuthentication(
@@ -893,7 +896,7 @@ describe('M07 host unit: addon connection auth via registry', () => {
     const core = new AddonCoreCapabilities(
       repository,
       transport,
-      'mistertick-discord',
+      'rastro-discord',
       coordinator,
       linkService,
       connectService,
@@ -907,6 +910,7 @@ describe('M07 host unit: addon connection auth via registry', () => {
         execute: async () =>
           Either.success({ items: [], total: 0, page: 1, pageSize: 50 }),
       },
+      'rastro://oauth/callback',
     )
 
     const fakeCredentialsVault = emptyAddonCredentialsVault()
@@ -936,8 +940,8 @@ describe('M07 host unit: addon connection auth via registry', () => {
       NoOpLoadFailuresNotifier,
     )
 
-    addonLoader.registerManifestCapabilities('mistertick-discord', ['auth'])
-    const addonContext = addonLoader.createContext('mistertick-discord')
+    addonLoader.registerManifestCapabilities('rastro-discord', ['auth'])
+    const addonContext = addonLoader.createContext('rastro-discord')
     addonContext.contributions.connections.registerProfiles([
       {
         connectionProfileId: 'discord-presence',
@@ -1183,7 +1187,7 @@ describe('M07 host unit: addon connection auth via registry', () => {
     const core = new AddonCoreCapabilities(
       repository,
       transport,
-      'mistertick-discord',
+      'rastro-discord',
       coordinator,
       linkService,
       connectService,
@@ -1197,6 +1201,7 @@ describe('M07 host unit: addon connection auth via registry', () => {
         execute: async () =>
           Either.success({ items: [], total: 0, page: 1, pageSize: 50 }),
       },
+      'rastro://oauth/callback',
     )
 
     const fakeCredentialsVault = emptyAddonCredentialsVault()
@@ -1226,8 +1231,8 @@ describe('M07 host unit: addon connection auth via registry', () => {
       NoOpLoadFailuresNotifier,
     )
 
-    addonLoader.registerManifestCapabilities('mistertick-discord', ['auth'])
-    const addonContext = addonLoader.createContext('mistertick-discord')
+    addonLoader.registerManifestCapabilities('rastro-discord', ['auth'])
+    const addonContext = addonLoader.createContext('rastro-discord')
     addonContext.contributions.connections.registerProfiles([
       {
         connectionProfileId: 'discord-presence',

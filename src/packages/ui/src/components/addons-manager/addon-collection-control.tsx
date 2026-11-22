@@ -5,7 +5,7 @@ import type {
   AddonSettingsValues,
   AddonSettingValue,
   AddonVaultScope,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { ChevronDown, ChevronUp, Copy, Plus, Trash2 } from 'lucide-react'
 import { useState } from 'react'
 

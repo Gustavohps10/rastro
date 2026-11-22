@@ -6,7 +6,7 @@ import {
   type MemberDTO,
   type PagedResultDTO,
   type PaginationOptionsDTO,
-} from '@mr-tick/sdk'
+} from '@rastrokit/sdk'
 
 import { FakeDatabaseStore } from './FakeDatabaseStore'
 

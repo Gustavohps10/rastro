@@ -1,6 +1,6 @@
 ﻿'use client'
 
-import { Button } from '@mr-tick/ui/button'
+import { Button } from '@rastrokit/ui/button'
 import { Moon, Sun } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useTheme } from 'next-themes'

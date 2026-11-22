@@ -1,4 +1,4 @@
-import type { AddonSettingsField, AddonSettingsTab } from '@mr-tick/sdk'
+import type { AddonSettingsField, AddonSettingsTab } from '@rastrokit/sdk'
 
 function isEditable(field: AddonSettingsField): boolean {
   if (

@@ -11,22 +11,22 @@
       "description": "",
       "connections": [
         {
-          "id": "mr-tick-datasource-fake-c3f15587",
+          "id": "rastro-datasource-fake-c3f15587",
           "status": "connected",
-          "addonId": "mr-tick-datasource-fake",
+          "addonId": "rastro-datasource-fake",
           "connectionProfileId": "fake-main",
           "cardinality": "multi",
           "generation": 1,
-          "authorizationId": "seed-auth-mr-tick-datasource-fake-c3f15587",
+          "authorizationId": "seed-auth-rastro-datasource-fake-c3f15587",
           "identity": {
             "kind": "human",
             "providerId": "fake",
-            "tenantId": "fake.mr-tick-app.local",
+            "tenantId": "fake.rastro-app.local",
             "providerSubjectId": "1",
             "displayName": "Alex Silva"
           },
           "config": {
-            "serverUrl": "https://fake.mr-tick-app.local",
+            "serverUrl": "https://fake.rastro-app.local",
             "username": "Admin",
             "password": "123"
           }

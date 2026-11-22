@@ -1,8 +1,8 @@
 'use client'
 
-import { AddonInstaller, AddonManifest } from '@mr-tick/application'
-import { isApiVersionCompatible } from '@mr-tick/shared/helpers'
-import { IJobEvent } from '@mr-tick/shared/transport'
+import { AddonInstaller, AddonManifest } from '@rastrokit/application'
+import { isApiVersionCompatible } from '@rastrokit/shared/helpers'
+import { IJobEvent } from '@rastrokit/shared/transport'
 import { useQuery } from '@tanstack/react-query'
 import { motion } from 'framer-motion'
 import {

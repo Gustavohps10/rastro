@@ -10,7 +10,6 @@ interface TimerSettingsState {
   widgetPosition: WidgetPosition
   selectedDisplayId: number | null
   selectedWorkspaceId: string | null // <-- NOVO: Guarda o último workspace utilizado
-  discordRpc: boolean
   antiBurnout: boolean
   activeWindowTracking: boolean
   hiddenBlocks: string[]
@@ -25,7 +24,6 @@ interface TimerSettingsState {
   setMainWindowWidgetPosition: (val: WidgetPosition) => void
   setSelectedDisplayId: (val: number | null) => void
   setSelectedWorkspaceId: (val: string | null) => void // <-- NOVO
-  setDiscordRpc: (val: boolean) => void
   setAntiBurnout: (val: boolean) => void
   setActiveWindowTracking: (val: boolean) => void
   setStartMinimized: (val: boolean) => void
@@ -42,7 +40,6 @@ export const useTimerSettings = create<TimerSettingsState>()(
       widgetPosition: 'bottom',
       selectedDisplayId: null,
       selectedWorkspaceId: null,
-      discordRpc: false,
       antiBurnout: true,
       activeWindowTracking: false,
       hiddenBlocks: [],
@@ -58,7 +55,6 @@ export const useTimerSettings = create<TimerSettingsState>()(
         set({ mainWindowWidgetPosition: val }),
       setSelectedDisplayId: (val) => set({ selectedDisplayId: val }),
       setSelectedWorkspaceId: (val) => set({ selectedWorkspaceId: val }),
-      setDiscordRpc: (val) => set({ discordRpc: val }),
       setAntiBurnout: (val) => set({ antiBurnout: val }),
       setActiveWindowTracking: (val) => set({ activeWindowTracking: val }),
       setStartMinimized: (val) => set({ startMinimized: val }),
@@ -80,7 +76,7 @@ export const useTimerSettings = create<TimerSettingsState>()(
     }),
 
     {
-      name: 'mr-tick-timer-preferences',
+      name: 'rastro-timer-preferences',
     },
   ),
 )

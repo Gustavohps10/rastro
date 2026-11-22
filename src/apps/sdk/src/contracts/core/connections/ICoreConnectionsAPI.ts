@@ -7,4 +7,4 @@ export type {
   CoreConnectionCreateInput,
   CoreConnectionScope,
   ICoreConnectionsAPI,
-} from '@mr-tick/application'
+} from '@rastrokit/application'

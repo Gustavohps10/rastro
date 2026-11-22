@@ -8,7 +8,7 @@ import {
 import { tmpdir } from 'node:os'
 import { join, resolve } from 'node:path'
 
-import { EMPTY_HTTP_CONFIG } from '@mr-tick/adapters/contracts'
+import { EMPTY_HTTP_CONFIG } from '@rastrokit/adapters/contracts'
 import {
   AddonAuthenticatorRegistry,
   AddonConnectionProfilesResolver,
@@ -16,7 +16,7 @@ import {
   type ICredentialsVault,
   type ILocalRuntimeAPI,
   OAuthAttemptCoordinator,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import {
@@ -93,7 +93,7 @@ describe('AddonLoader - Version Locking & Compatibility at Runtime', () => {
     // Cria diretório temporário para simular addon no disco
     testAddonDir = join(
       tmpdir(),
-      `mr-tick-test-addon-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`,
+      `rastro-test-addon-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`,
     )
     mkdirSync(testAddonDir, { recursive: true })
     mkdirSync(join(testAddonDir, 'dist'), { recursive: true })
@@ -153,7 +153,7 @@ capabilities: [theme]
 requiredApiVersion: '>=0.11.0'
 `,
       )
-      const dependencies = join(testAddonDir, 'node_modules', '@mr-tick')
+      const dependencies = join(testAddonDir, 'node_modules', '@rastrokit')
       mkdirSync(dependencies, { recursive: true })
       let sdkPath = resolve('src/apps/sdk')
 

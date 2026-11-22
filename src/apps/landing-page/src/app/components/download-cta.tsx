@@ -1,12 +1,12 @@
 'use client'
 
-import { Button } from '@mr-tick/ui/button'
+import { Button } from '@rastrokit/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@mr-tick/ui/dropdown-menu'
+} from '@rastrokit/ui/dropdown-menu'
 import { ChevronDown } from 'lucide-react'
 import type { ComponentProps } from 'react'
 import React from 'react'

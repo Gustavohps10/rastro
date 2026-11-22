@@ -1,6 +1,6 @@
 ﻿'use client'
 
-import { AddonManifest } from '@mr-tick/application'
+import { AddonManifest } from '@rastrokit/application'
 import { Check } from 'lucide-react'
 
 import { Badge, Button, ScrollArea } from '@/components/ui'

@@ -1,5 +1,5 @@
-import { ConnectionProfileDescriptor } from '@mr-tick/domain'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+import { ConnectionProfileDescriptor } from '@rastrokit/domain'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
 export type ConnectionSlotReservation = ConnectionProfileDescriptor & {
   reservationId: string

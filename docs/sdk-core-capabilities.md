@@ -1,6 +1,6 @@
 # SDK: consultas do Core, escopo e lifecycle
 
-Esta entrega complementa [timer, apontamentos e sugestões](sdk-local-runtime.md). Os contratos públicos pertencem à Application e são reexportados pelo SDK; o addon importa somente `@mr-tick/sdk`. O host implementa adaptadores. O addon não recebe HostBridge, IPC, repositórios, configurações de outros addons ou documentos RxDB.
+Esta entrega complementa [timer, apontamentos e sugestões](sdk-local-runtime.md). Os contratos públicos pertencem à Application e são reexportados pelo SDK; o addon importa somente `@rastrokit/sdk`. O host implementa adaptadores. O addon não recebe HostBridge, IPC, repositórios, configurações de outros addons ou documentos RxDB.
 
 ## Organização do contexto
 

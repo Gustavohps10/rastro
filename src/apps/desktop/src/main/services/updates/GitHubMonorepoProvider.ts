@@ -34,8 +34,8 @@ interface UpdateInfoWithTag extends UpdateInfo {
 
 /**
  * Official Custom Provider for electron-updater that natively understands
- * Changesets monorepo release tags: '@mr-tick/desktop@<version>' and
- * URL-encoded '%40mr-tick%2Fdesktop%40<version>', as well as standard 'v<version>'.
+ * Changesets monorepo release tags: '@rastrokit/desktop@<version>' and
+ * URL-encoded '%40rastro%2Fdesktop%40<version>', as well as standard 'v<version>'.
  */
 export class GitHubMonorepoProvider extends Provider<UpdateInfo> {
   private readonly owner: string
@@ -53,7 +53,7 @@ export class GitHubMonorepoProvider extends Provider<UpdateInfo> {
     const opts = options as GitHubMonorepoProviderOptions
     this.owner = opts.owner || 'Gustavohps10'
     this.repo = opts.repo || 'rastro'
-    this.packageName = opts.packageName || '@mr-tick/desktop'
+    this.packageName = opts.packageName || '@rastrokit/desktop'
     this.baseUrl = new URL('https://github.com')
     this.basePath = `/${this.owner}/${this.repo}/releases`
   }
@@ -61,10 +61,10 @@ export class GitHubMonorepoProvider extends Provider<UpdateInfo> {
   /**
    * Parses a raw tag from the releases feed.
    * Accepts:
-   *   - '@mr-tick/desktop@0.3.0-beta.3'
-   *   - '%40mr-tick%2Fdesktop%400.3.0-beta.3'
+   *   - '@rastrokit/desktop@0.3.0-beta.3'
+   *   - '%40rastro%2Fdesktop%400.3.0-beta.3'
    *   - 'v0.3.0-beta.3' or '0.3.0-beta.3'
-   * Ignores tags for other monorepo packages (e.g. '@mr-tick/sdk@...').
+   * Ignores tags for other monorepo packages (e.g. '@rastrokit/sdk@...').
    */
   public parseTag(rawTag: string): ReleaseTagInfo | null {
     const decoded = decodeURIComponent(rawTag)

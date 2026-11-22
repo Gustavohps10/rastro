@@ -1,4 +1,4 @@
-import type { IHostBridge } from '@mr-tick/application'
+import type { IHostBridge } from '@rastrokit/application'
 import { RxCollection, RxDatabase, RxError } from 'rxdb'
 
 import { ConnectionInstanceId } from '@/contexts/DataSourceConnectionsContext'

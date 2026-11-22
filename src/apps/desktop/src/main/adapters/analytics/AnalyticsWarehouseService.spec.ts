@@ -12,16 +12,16 @@ import type {
   AnalyticsQueryInput,
   IAnalyticsProvider,
   IAnalyticsResolver,
-} from '@mr-tick/application'
-import { AnalyticsWarehouseService } from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AnalyticsWarehouseService } from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import type {
   AnalyticsLoadProgressEvent,
   AnalyticsStorageErrorEvent,
   AnalyticsStorageResetEvent,
   ISystemEventEmitter,
   ISystemEvents,
-} from '@mr-tick/shared/transport'
+} from '@rastrokit/shared/transport'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { DuckDBAnalyticsEngine } from './DuckDBAnalyticsEngine'

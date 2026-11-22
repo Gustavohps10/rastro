@@ -1,4 +1,4 @@
-﻿# @mr-tick/desktop
+﻿# @rastrokit/desktop
 
 ## 0.16.0
 
@@ -53,10 +53,10 @@
 - Updated dependencies [9463fa9]
 - Updated dependencies [9463fa9]
 - Updated dependencies [9463fa9]
-  - @mr-tick/ui@1.15.0
-  - @mr-tick/application@2.4.0
-  - @mr-tick/shared@1.7.0
-  - @mr-tick/adapters@1.5.1
+  - @rastrokit/ui@1.15.0
+  - @rastrokit/application@2.4.0
+  - @rastrokit/shared@1.7.0
+  - @rastrokit/adapters@1.5.1
 
 ## 0.15.0
 
@@ -120,10 +120,10 @@
 - Updated dependencies [ef28f1f]
 - Updated dependencies [60d1ec1]
 - Updated dependencies [413089d]
-  - @mr-tick/shared@1.6.0
-  - @mr-tick/application@2.3.0
-  - @mr-tick/ui@1.14.0
-  - @mr-tick/adapters@1.5.0
+  - @rastrokit/shared@1.6.0
+  - @rastrokit/application@2.3.0
+  - @rastrokit/ui@1.14.0
+  - @rastrokit/adapters@1.5.0
 
 ## 0.14.0
 
@@ -135,9 +135,9 @@
 
 - Updated dependencies [0c86ca4]
 - Updated dependencies [790e624]
-  - @mr-tick/ui@1.13.0
-  - @mr-tick/application@2.2.0
-  - @mr-tick/adapters@1.4.3
+  - @rastrokit/ui@1.13.0
+  - @rastrokit/application@2.2.0
+  - @rastrokit/adapters@1.4.3
 
 ## 0.13.1
 
@@ -148,9 +148,9 @@
   Render connection forms for auth-only addons, separate credential/configuration values by field scope, and use the declared default authenticator rather than assuming its ID matches the connection profile. Rename the shared connection form and manager to reflect their independent role. IDataSource.getConnectionSchema and the previous form export are removed; addon sources must migrate with the matching SDK and desktop release.
 
 - Updated dependencies [4733f0b]
-  - @mr-tick/application@2.1.0
-  - @mr-tick/ui@1.12.0
-  - @mr-tick/adapters@1.4.2
+  - @rastrokit/application@2.1.0
+  - @rastrokit/ui@1.12.0
+  - @rastrokit/adapters@1.4.2
 
 ## 0.13.0
 
@@ -169,10 +169,10 @@
 ### Patch Changes
 
 - Updated dependencies [a0bd5ef]
-  - @mr-tick/shared@1.5.0
-  - @mr-tick/application@2.0.0
-  - @mr-tick/ui@1.11.0
-  - @mr-tick/adapters@1.4.1
+  - @rastrokit/shared@1.5.0
+  - @rastrokit/application@2.0.0
+  - @rastrokit/ui@1.11.0
+  - @rastrokit/adapters@1.4.1
 
 ## 0.12.1
 
@@ -183,17 +183,17 @@
   Keep the widget empty until a workspace is explicitly selected from the main window, instead of rendering a centered workspace catalog on the desktop.
 
 - Updated dependencies [da9d22f]
-  - @mr-tick/ui@1.10.1
+  - @rastrokit/ui@1.10.1
 
 ## 0.12.0
 
 ### Minor Changes
 
-- 6d14757: Padronização canônica das capacidades de addons em todo o ecossistema Mr. Tick:
+- 6d14757: Padronização canônica das capacidades de addons em todo o ecossistema Rastro:
   - Substituição integral de categorias (`category`/`categories`) e descritores legados por `capabilities: AddonCapability[]` (`'dataSource' | 'watcher' | 'calendar' | 'punch' | 'theme'`).
   - Remoção definitiva de união de tipos (`AddonCapability | AddonCapabilityDescriptor`) mantendo uma única fonte da verdade estrita.
   - Simplificação do versionamento de contratos centralizado na compatibilidade SemVer do SDK, eliminando micro-versionamento per-capability (`contractVersion`).
-  - Helpers canônicos centralizados em `@mr-tick/shared/helpers` e reexportados pelo SDK (`hasCapability`, `isDataSource`, `isWatcher`, `isTheme`).
+  - Helpers canônicos centralizados em `@rastrokit/shared/helpers` e reexportados pelo SDK (`hasCapability`, `isDataSource`, `isWatcher`, `isTheme`).
   - Limpeza de fallbacks cegos PascalCase e categorias legadas nos utilitários da CLI (`manifest`, `sync`, `pkg`, `validate`).
   - Atualização e alinhamento dos serviços de aplicação (`ImportAddonService`, `UpdateAddonService`), adaptadores (`AddonsFacade`), UI (`SyncProvider`, modais e componentes de tarefas) e runtime desktop (`AddonLoader`, ciclo de vida e dispatch de provedores).
 - 24d3de8: Arquitetura de conexões e capacidades dos addons: perfis de conexão com cardinalidade (`single`/`multi`) validada no domínio e na persistência, fábrica de HTTP por conexão, ciclo de vida de conexão com credenciais em cofre (distinguindo ausência, indisponibilidade e payload inválido), tentativas OAuth controladas pelo host com refresh compartilhado por autorização, configurações e segredos de addons separados por escopo, persistência de workspaces em SQLite e UI de conexões agrupada por workspace.
@@ -202,15 +202,15 @@
 
 ### Patch Changes
 
-- 68b8dc5: Receive OAuth callbacks through electron:// in development and mr-tick:// in production, matching the environment-specific web callback page and packaged protocol registration.
+- 68b8dc5: Receive OAuth callbacks through electron:// in development and rastro:// in production, matching the environment-specific web callback page and packaged protocol registration.
 - Updated dependencies [6d14757]
 - Updated dependencies [24d3de8]
 - Updated dependencies [5da988f]
 - Updated dependencies [70120fb]
-  - @mr-tick/application@1.8.0
-  - @mr-tick/adapters@1.4.0
-  - @mr-tick/shared@1.4.0
-  - @mr-tick/ui@1.10.0
+  - @rastrokit/application@1.8.0
+  - @rastrokit/adapters@1.4.0
+  - @rastrokit/shared@1.4.0
+  - @rastrokit/ui@1.10.0
 
 ## 0.11.1
 
@@ -222,7 +222,7 @@
   - Badges dinâmicos com ícones oficiais de addons (Discord e genéricos) na tabela e no banner de sugestões.
   - Ajuste de espaçamentos nas colunas e no popover de seleção de tarefa na tabela de apontamentos.
 - Updated dependencies [02d6479]
-  - @mr-tick/ui@1.9.1
+  - @rastrokit/ui@1.9.1
 
 ## 0.11.0
 
@@ -238,20 +238,20 @@
 - Updated dependencies [0638cbb]
 - Updated dependencies [e4c7f21]
 - Updated dependencies [83efe1e]
-  - @mr-tick/ui@1.9.0
-  - @mr-tick/application@1.7.0
-  - @mr-tick/adapters@1.3.2
+  - @rastrokit/ui@1.9.0
+  - @rastrokit/application@1.7.0
+  - @rastrokit/adapters@1.3.2
 
 ## 0.10.1
 
 ### Patch Changes
 
-- 46475ba: Adiciona ecossistema Mr. Tick Plus fim a fim: suporte ao tier `plus`, hash `sha256`, `size` e assinatura Ed25519 de pacotes `.tladdon` no `@mr-tick/sdk`, verificação offline/online de licença (`lic-2026-01`) e pacotes assinados (`cat-2026-01`), download autenticado no Cloudflare R2 com validação SHA-256, deep link `mistertick://activate?key=...` no Electron e interface de ativação e badges Plus na loja e página de addons.
+- 46475ba: Adiciona ecossistema Rastro Plus fim a fim: suporte ao tier `plus`, hash `sha256`, `size` e assinatura Ed25519 de pacotes `.tladdon` no `@rastrokit/sdk`, verificação offline/online de licença (`lic-2026-01`) e pacotes assinados (`cat-2026-01`), download autenticado no Cloudflare R2 com validação SHA-256, deep link `rastro://activate?key=...` no Electron e interface de ativação e badges Plus na loja e página de addons.
 - Updated dependencies [46475ba]
-  - @mr-tick/shared@1.3.1
-  - @mr-tick/application@1.6.1
-  - @mr-tick/adapters@1.3.1
-  - @mr-tick/ui@1.8.1
+  - @rastrokit/shared@1.3.1
+  - @rastrokit/application@1.6.1
+  - @rastrokit/adapters@1.3.1
+  - @rastrokit/ui@1.8.1
 
 ## 0.10.0
 
@@ -274,9 +274,9 @@
 ### Patch Changes
 
 - Updated dependencies [0e0d20d]
-  - @mr-tick/application@1.6.0
-  - @mr-tick/adapters@1.3.0
-  - @mr-tick/ui@1.8.0
+  - @rastrokit/application@1.6.0
+  - @rastrokit/adapters@1.3.0
+  - @rastrokit/ui@1.8.0
 
 ## 0.9.0
 
@@ -295,10 +295,10 @@
 - Updated dependencies [f44420a]
 - Updated dependencies [8b6f3e4]
 - Updated dependencies [e0bb8ca]
-  - @mr-tick/application@1.5.0
-  - @mr-tick/adapters@1.2.0
-  - @mr-tick/shared@1.3.0
-  - @mr-tick/ui@1.7.0
+  - @rastrokit/application@1.5.0
+  - @rastrokit/adapters@1.2.0
+  - @rastrokit/shared@1.3.0
+  - @rastrokit/ui@1.7.0
 
 ## 0.8.4
 
@@ -309,7 +309,7 @@
   Atualiza o desktop para consumir os novos imports de UI e reconhecer os subpaths publicados no Vite.
 
 - Updated dependencies [d2f85f1]
-  - @mr-tick/ui@1.6.0
+  - @rastrokit/ui@1.6.0
 
 ## 0.8.3
 
@@ -339,10 +339,10 @@
 - Updated dependencies [df0ddc8]
 - Updated dependencies [df0ddc8]
 - Updated dependencies [df0ddc8]
-  - @mr-tick/ui@1.5.1
-  - @mr-tick/application@1.4.0
-  - @mr-tick/adapters@1.1.5
-  - @mr-tick/shared@1.2.0
+  - @rastrokit/ui@1.5.1
+  - @rastrokit/application@1.4.0
+  - @rastrokit/adapters@1.1.5
+  - @rastrokit/shared@1.2.0
 
 ## 0.8.2
 
@@ -356,9 +356,9 @@
 - Updated dependencies [f91a79c]
 - Updated dependencies [165229a]
 - Updated dependencies [9afb4a1]
-  - @mr-tick/ui@1.5.0
-  - @mr-tick/application@1.3.0
-  - @mr-tick/adapters@1.1.4
+  - @rastrokit/ui@1.5.0
+  - @rastrokit/application@1.3.0
+  - @rastrokit/adapters@1.1.4
 
 ## 0.8.1
 
@@ -366,9 +366,9 @@
 
 - 0c03498: Adicionar suporte a comments nulos e fuso horário noturno na entidade TimeEntry e suíte E2E automatizada de sincronização e cenários caóticos com DataSource Fake
 - Updated dependencies [0c03498]
-  - @mr-tick/ui@1.4.1
-  - @mr-tick/adapters@1.1.3
-  - @mr-tick/application@1.2.2
+  - @rastrokit/ui@1.4.1
+  - @rastrokit/adapters@1.1.3
+  - @rastrokit/application@1.2.2
 
 ## 0.8.0
 
@@ -385,7 +385,7 @@
 ### Patch Changes
 
 - Updated dependencies [5925d4c]
-  - @mr-tick/ui@1.4.0
+  - @rastrokit/ui@1.4.0
 
 ## 0.7.0
 
@@ -404,17 +404,17 @@
 ### Patch Changes
 
 - Updated dependencies [2e336c8]
-  - @mr-tick/ui@1.3.2
+  - @rastrokit/ui@1.3.2
 
 ## 0.6.1
 
 ### Patch Changes
 
-- fca1bd6: Desacopla a verificação de compatibilidade de addons da versão do executável Desktop, introduzindo a rota `bridge.system.getSdkVersion()` que resolve dinamicamente a versão da API suportada a partir do `@mr-tick/sdk`.
+- fca1bd6: Desacopla a verificação de compatibilidade de addons da versão do executável Desktop, introduzindo a rota `bridge.system.getSdkVersion()` que resolve dinamicamente a versão da API suportada a partir do `@rastrokit/sdk`.
 - Updated dependencies [fca1bd6]
-  - @mr-tick/application@1.2.1
-  - @mr-tick/ui@1.3.1
-  - @mr-tick/adapters@1.1.2
+  - @rastrokit/application@1.2.1
+  - @rastrokit/ui@1.3.1
+  - @rastrokit/adapters@1.1.2
 
 ## 0.6.0
 
@@ -448,7 +448,7 @@
 
 - Updated dependencies [96c4dec]
 - Updated dependencies [f124a75]
-  - @mr-tick/ui@1.3.0
+  - @rastrokit/ui@1.3.0
 
 ## 0.5.1
 
@@ -468,22 +468,22 @@
 - Updated dependencies [82f3d48]
 - Updated dependencies [82f3d48]
 - Updated dependencies [909bcc6]
-  - @mr-tick/application@1.2.0
-  - @mr-tick/ui@1.2.0
-  - @mr-tick/adapters@1.1.1
+  - @rastrokit/application@1.2.0
+  - @rastrokit/ui@1.2.0
+  - @rastrokit/adapters@1.1.1
 
 ## 0.4.3
 
 ### Patch Changes
 
 - Updated dependencies [9b79109]
-  - @mr-tick/ui@1.1.3
+  - @rastrokit/ui@1.1.3
 
 ## 0.4.2
 
 ### Patch Changes
 
-- @mr-tick/ui@1.1.2
+- @rastrokit/ui@1.1.2
 
 ## 0.4.1
 
@@ -491,7 +491,7 @@
 
 - 250dbe7: fix: prevent fatal RxDB DB9 error in production database initialization and stabilize E2E test suites
 - Updated dependencies [250dbe7]
-  - @mr-tick/ui@1.1.1
+  - @rastrokit/ui@1.1.1
 
 ## 0.4.0
 
@@ -504,10 +504,10 @@
 - 91537fb: Fix RxDB DB9 error on workspace sync and database initialization
 - 394905d: Standardize addon lifecycle contracts, add dynamic settings schema provider, declarative field scopes, and command auto-scoping
 - Updated dependencies [00bc018]
-  - @mr-tick/application@1.1.0
-  - @mr-tick/adapters@1.1.0
-  - @mr-tick/shared@1.1.0
-  - @mr-tick/ui@1.1.0
+  - @rastrokit/application@1.1.0
+  - @rastrokit/adapters@1.1.0
+  - @rastrokit/shared@1.1.0
+  - @rastrokit/ui@1.1.0
 
 ## 0.3.0
 
@@ -524,10 +524,10 @@
 - 2a73915: fix: upload update manifest yml files and handle updater errors gracefully
 - 01bd6eb: fix(desktop): support monorepo release tags and dynamic dev updater mock
 - 0496e88: feat(updater): background updater notifications, auto-popup, refreshed ui, and native win32 portable updater with progress bar
-  - @mr-tick/adapters@1.0.1
-  - @mr-tick/application@1.0.1
-  - @mr-tick/shared@1.0.1
-  - @mr-tick/ui@1.0.4
+  - @rastrokit/adapters@1.0.1
+  - @rastrokit/application@1.0.1
+  - @rastrokit/shared@1.0.1
+  - @rastrokit/ui@1.0.4
 
 ## 0.3.0-beta.6
 
@@ -587,10 +587,10 @@
 
 ### Patch Changes
 
-- @mr-tick/ui@1.0.1
-- @mr-tick/datasource-fake@1.0.1
-- @mr-tick/fake-watcher-for-tests@1.0.1
-- @mr-tick/mr-tick-ai-for-tests@1.0.1
-- @mr-tick/purple-theme@1.0.1
-- @mr-tick/redmine-for-tests@1.0.4
-- @mr-tick/supabase-theme@1.0.1
+- @rastrokit/ui@1.0.1
+- @rastrokit/datasource-fake@1.0.1
+- @rastrokit/fake-watcher-for-tests@1.0.1
+- @rastrokit/rastro-ai-for-tests@1.0.1
+- @rastrokit/purple-theme@1.0.1
+- @rastrokit/redmine-for-tests@1.0.4
+- @rastrokit/supabase-theme@1.0.1

@@ -1,14 +1,17 @@
 import {
   type IConnectionCredentialsVault,
   type ICredentialsVault,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { shell } from 'electron'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { AddonLoader } from '../AddonLoader'
 import { createOAuthTestSetup } from './AddonLoader.OAuth.fixture'
 
+const electronApp = vi.hoisted(() => ({ isPackaged: true }))
+
 vi.mock('electron', () => ({
+  app: electronApp,
   shell: {
     openExternal: vi.fn(),
   },
@@ -24,6 +27,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - Callbacks & Concurrency', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     vi.useFakeTimers()
+    electronApp.isPackaged = true
 
     const setup = createOAuthTestSetup()
     addonLoader = setup.addonLoader
@@ -36,9 +40,13 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - Callbacks & Concurrency', () => {
   })
 
   describe('3. Callback Processing, Deep Linking & Replay Protection', () => {
-    it.each(['electron', 'mr-tick'])(
-      'resolve Promise em callback %s com code e state',
-      async (protocol) => {
+    it.each([
+      { protocol: 'rastro', isPackaged: true },
+      { protocol: 'electron', isPackaged: false },
+    ])(
+      'conclui uma tentativa ativa com callback $protocol',
+      async ({ protocol, isPackaged }) => {
+        electronApp.isPackaged = isPackaged
         const context = addonLoader.createContext('test-addon')
         vi.mocked(shell.openExternal).mockResolvedValue(undefined)
 
@@ -71,7 +79,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - Callbacks & Concurrency', () => {
       })
 
       const handled = addonLoader.handleOAuthCallbackUrl(
-        'mr-tick://oauth/callback?code=some-code',
+        'rastro://oauth/callback?code=some-code',
       )
       expect(handled).toBe(false)
 
@@ -92,7 +100,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - Callbacks & Concurrency', () => {
       })
 
       const handled = addonLoader.handleOAuthCallbackUrl(
-        'mr-tick://oauth/callback?code=attacker-code&state=unknown-state',
+        'rastro://oauth/callback?code=attacker-code&state=unknown-state',
       )
       expect(handled).toBe(false)
 
@@ -113,7 +121,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - Callbacks & Concurrency', () => {
       })
 
       const handled = addonLoader.handleOAuthCallbackUrl(
-        `mr-tick://oauth/callback?error=access_denied&error_description=User+denied+access&state=${state}`,
+        `rastro://oauth/callback?error=access_denied&error_description=User+denied+access&state=${state}`,
       )
       expect(handled).toBe(true)
 
@@ -133,7 +141,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - Callbacks & Concurrency', () => {
       })
 
       const handled = addonLoader.handleOAuthCallbackUrl(
-        `mr-tick://oauth/callback?state=${state}`,
+        `rastro://oauth/callback?state=${state}`,
       )
       expect(handled).toBe(true)
 
@@ -153,12 +161,12 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - Callbacks & Concurrency', () => {
       })
 
       const firstHandled = addonLoader.handleOAuthCallbackUrl(
-        `mr-tick://oauth/callback?code=valid-code&state=${state}`,
+        `rastro://oauth/callback?code=valid-code&state=${state}`,
       )
       expect(firstHandled).toBe(true)
 
       const secondHandled = addonLoader.handleOAuthCallbackUrl(
-        `mr-tick://oauth/callback?code=valid-code&state=${state}`,
+        `rastro://oauth/callback?code=valid-code&state=${state}`,
       )
       expect(secondHandled).toBe(false)
 
@@ -179,19 +187,19 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - Callbacks & Concurrency', () => {
 
       expect(
         addonLoader.handleOAuthCallbackUrl(
-          `https://mr-tickapp.com.br/oauth/callback?code=abc&state=${state}`,
+          `https://mistertick.com/oauth/callback?code=abc&state=${state}`,
         ),
       ).toBe(false)
 
       expect(
         addonLoader.handleOAuthCallbackUrl(
-          `mr-tick-app://outro-endpoint?code=abc&state=${state}`,
+          `rastro://outro-endpoint?code=abc&state=${state}`,
         ),
       ).toBe(false)
 
       expect(
         addonLoader.handleOAuthCallbackUrl(
-          `mr-tick-app://oauth/outro?code=abc&state=${state}`,
+          `rastro://oauth/outro?code=abc&state=${state}`,
         ),
       ).toBe(false)
 
@@ -219,7 +227,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - Callbacks & Concurrency', () => {
       )
 
       const handled = addonLoader.handleOAuthCallbackUrl(
-        `mr-tick://oauth/callback?code=late-code&state=${state}`,
+        `rastro://oauth/callback?code=late-code&state=${state}`,
       )
       expect(handled).toBe(false)
     })
@@ -236,7 +244,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - Callbacks & Concurrency', () => {
       })
 
       addonLoader.handleOAuthCallbackUrl(
-        `mr-tick://oauth/callback?code=code-123&state=${state}`,
+        `rastro://oauth/callback?code=code-123&state=${state}`,
       )
       const result = await authPromise
       expect(result.code).toBe('code-123')
@@ -260,7 +268,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - Callbacks & Concurrency', () => {
       )
 
       addonLoader.handleOAuthCallbackUrl(
-        'mr-tick://oauth/callback?code=123&state=my-state-open',
+        'rastro://oauth/callback?code=123&state=my-state-open',
       )
       await authPromise
     })
@@ -282,7 +290,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - Callbacks & Concurrency', () => {
       )
 
       const handled = addonLoader.handleOAuthCallbackUrl(
-        `mr-tick://oauth/callback?code=code-123&state=${state}`,
+        `rastro://oauth/callback?code=code-123&state=${state}`,
       )
       expect(handled).toBe(false)
     })
@@ -304,7 +312,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - Callbacks & Concurrency', () => {
       )
 
       const handled = addonLoader.handleOAuthCallbackUrl(
-        `mr-tick://oauth/callback?code=123&state=${state}`,
+        `rastro://oauth/callback?code=123&state=${state}`,
       )
       expect(handled).toBe(false)
     })
@@ -330,7 +338,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - Callbacks & Concurrency', () => {
 
       // Resolve addon 2 first
       addonLoader.handleOAuthCallbackUrl(
-        `mr-tick://oauth/callback?code=code-for-2&state=${state2}`,
+        `rastro://oauth/callback?code=code-for-2&state=${state2}`,
       )
       const result2 = await authPromise2
       expect(result2.code).toBe('code-for-2')
@@ -338,7 +346,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - Callbacks & Concurrency', () => {
 
       // Resolve addon 1 second
       addonLoader.handleOAuthCallbackUrl(
-        `mr-tick://oauth/callback?code=code-for-1&state=${state1}`,
+        `rastro://oauth/callback?code=code-for-1&state=${state1}`,
       )
       const result1 = await authPromise1
       expect(result1.code).toBe('code-for-1')

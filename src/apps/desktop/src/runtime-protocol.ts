@@ -12,7 +12,7 @@ import type {
   LocalRuntimeResult,
   LocalSyncRequest,
   LocalSyncResponse,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 
 export interface RuntimeRequestPacket<T = LocalRuntimeRequest> {
   requestId: string

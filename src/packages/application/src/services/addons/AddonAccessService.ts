@@ -1,4 +1,4 @@
-import { AppError, Either } from '@mr-tick/shared/helpers'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
 import { ILicensingFacade } from '@/contracts/facades/ILicensingFacade'
 import { IAddonConsentRepository } from '@/contracts/infra/IAddonConsentRepository'

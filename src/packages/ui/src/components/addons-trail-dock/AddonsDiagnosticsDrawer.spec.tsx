@@ -43,10 +43,10 @@ vi.mock('@/stores/syncStore', () => ({
     },
     {
       connectionId: 'conn-jira-1',
-      dataSourceId: 'mistertick-jira',
+      dataSourceId: 'rastro-jira',
       status: 'connected',
       addon: {
-        id: 'mistertick-jira',
+        id: 'rastro-jira',
         name: 'Jira',
         logo: 'jira-logo.svg',
         capabilities: ['dataSource'],
@@ -108,9 +108,9 @@ describe('AddonsDiagnosticsDrawer', () => {
       />,
     )
 
-    // Não deve exibir "gustavohps10-redmine" ou "mistertick-jira" como texto visível
+    // Não deve exibir "gustavohps10-redmine" ou "rastro-jira" como texto visível
     expect(screen.queryByText('gustavohps10-redmine')).toBeNull()
-    expect(screen.queryByText('mistertick-jira')).toBeNull()
+    expect(screen.queryByText('rastro-jira')).toBeNull()
   })
 
   it('renders source logos for both connections in cards and checkboxes', () => {

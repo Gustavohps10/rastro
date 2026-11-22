@@ -1,4 +1,4 @@
-import type { ViewModel } from '@mr-tick/shared/view-models'
+import type { ViewModel } from '@rastrokit/shared/view-models'
 
 import type { SanitizedDiagnosticReport } from './DiagnosticReport'
 import type { DiagnosticSnapshot } from './DiagnosticSnapshot'

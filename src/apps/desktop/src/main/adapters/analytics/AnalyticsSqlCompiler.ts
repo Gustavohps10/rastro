@@ -14,8 +14,8 @@ import type {
   AnalyticsPlanNode,
   AnalyticsQueryInput,
   JsonValue,
-} from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
 import { jsonValueSchema } from '../../validation/analyticsWarehouse'
 

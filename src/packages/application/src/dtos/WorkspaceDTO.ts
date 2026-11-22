@@ -1,4 +1,4 @@
-import type { ConnectionIdentity } from '@mr-tick/domain'
+import type { ConnectionIdentity } from '@rastrokit/domain'
 
 export interface ConnectionAuthorizationDTO {
   readonly authorizationId: string

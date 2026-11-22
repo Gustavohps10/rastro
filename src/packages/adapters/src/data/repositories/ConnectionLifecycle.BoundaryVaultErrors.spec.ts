@@ -3,13 +3,13 @@ import {
   CredentialReferenceFactory,
   type IConnectionPendingWorkGuard,
   RecoverConnectionLifecycleService,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import {
   type ConnectionIdentity,
   ConnectionProfileDescriptor,
   Workspace,
-} from '@mr-tick/domain'
-import { AppError, Either, TokenRefreshError } from '@mr-tick/shared/helpers'
+} from '@rastrokit/domain'
+import { AppError, Either, TokenRefreshError } from '@rastrokit/shared/helpers'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import {
@@ -72,7 +72,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
     const wsCreated = await coordinator.create({
       workspaceId: ws.id,
       connectionInstanceId: 'conn-real-1',
-      addonId: 'mistertick-discord',
+      addonId: 'rastro-discord',
       profile,
     })
     expect(wsCreated.isSuccess()).toBe(true)
@@ -85,7 +85,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
     const connectResult = await coordinator.connect({
       workspaceId: ws.id,
       connectionInstanceId: 'conn-real-1',
-      addonId: 'mistertick-discord',
+      addonId: 'rastro-discord',
       profile,
       method: 'authorized',
       authorizationRole: 'primary',
@@ -120,7 +120,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
     // 2. Registra authenticator no registry:
     // O provedor consome o refresh token mas a resposta se perde por timeout incerto (504 remoteOutcomeUncertain)
     let networkCallCount = 0
-    authRegistry.register('mistertick-discord', {
+    authRegistry.register('rastro-discord', {
       method: 'oauth',
       authProfileId: 'discord-oauth',
       supportsRefresh: true,
@@ -154,7 +154,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
 
     // 4. Executa refresh: falha de grava+�+�o N+�O pode ser silenciada (Either tratado e propagado)
     const refreshResult = await coordinator.refresh({
-      addonId: 'mistertick-discord',
+      addonId: 'rastro-discord',
       scope: {
         workspaceId: ws.id,
         connectionInstanceId: 'conn-real-1',
@@ -167,7 +167,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
 
     // 5. Nova chamada na mesma sess+�o DEVE ser barrada pela quarentena em mem+�ria sem chamar rede
     const secondCall = await coordinator.refresh({
-      addonId: 'mistertick-discord',
+      addonId: 'rastro-discord',
       scope: {
         workspaceId: ws.id,
         connectionInstanceId: 'conn-real-1',
@@ -211,7 +211,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
     )
 
     const thirdCall = await restartedCoordinator.refresh({
-      addonId: 'mistertick-discord',
+      addonId: 'rastro-discord',
       scope: {
         workspaceId: ws.id,
         connectionInstanceId: 'conn-real-1',
@@ -232,7 +232,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
     const workspace = created.success
 
     const connInstanceId = 'conn-multi-gen-1'
-    workspace.createConnection(connInstanceId, 'mistertick-discord', profile)
+    workspace.createConnection(connInstanceId, 'rastro-discord', profile)
     await repository.create(workspace)
 
     const authId = 'auth-discord-multi-1'
@@ -247,7 +247,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
     let prevRefId = ''
     for (let index = 1; index <= 5; index += 1) {
       const ref = CredentialReferenceFactory.create({
-        ownerId: 'mistertick-discord',
+        ownerId: 'rastro-discord',
         workspaceId: workspace.id,
         connectionId: connInstanceId,
         authorizationId: `${authId}-v${index}`,
@@ -294,7 +294,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
 
     const refreshOpId = 'refresh-op-gen5-1'
     const candidateRef = CredentialReferenceFactory.createConnectionCandidate({
-      ownerId: 'mistertick-discord',
+      ownerId: 'rastro-discord',
       workspaceId: workspace.id,
       connectionId: connInstanceId,
       authorizationId: authId,
@@ -378,7 +378,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
     const wsA = createdA.success
 
     const connIdA = 'conn-absent-1'
-    wsA.createConnection(connIdA, 'mistertick-discord', profile)
+    wsA.createConnection(connIdA, 'rastro-discord', profile)
     await repository.create(wsA)
 
     const authIdA = 'auth-absent-1'
@@ -390,7 +390,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
       displayName: 'User Absent 123',
     }
     const secretRefA = CredentialReferenceFactory.create({
-      ownerId: 'mistertick-discord',
+      ownerId: 'rastro-discord',
       workspaceId: wsA.id,
       connectionId: connIdA,
       authorizationId: authIdA,
@@ -411,7 +411,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
 
     const refreshOpA = 'refresh-op-absent-1'
     const candidateRefA = CredentialReferenceFactory.createConnectionCandidate({
-      ownerId: 'mistertick-discord',
+      ownerId: 'rastro-discord',
       workspaceId: wsA.id,
       connectionId: connIdA,
       authorizationId: authIdA,
@@ -471,7 +471,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
     const wsB = createdB.success
 
     const connIdB = 'conn-unavail-1'
-    wsB.createConnection(connIdB, 'mistertick-discord', profile)
+    wsB.createConnection(connIdB, 'rastro-discord', profile)
     await repository.create(wsB)
 
     const authIdB = 'auth-unavail-1'
@@ -483,7 +483,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
       displayName: 'User Unavail 123',
     }
     const secretRefB = CredentialReferenceFactory.create({
-      ownerId: 'mistertick-discord',
+      ownerId: 'rastro-discord',
       workspaceId: wsB.id,
       connectionId: connIdB,
       authorizationId: authIdB,
@@ -504,7 +504,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
 
     const refreshOpB = 'refresh-op-unavail-1'
     const candidateRefB = CredentialReferenceFactory.createConnectionCandidate({
-      ownerId: 'mistertick-discord',
+      ownerId: 'rastro-discord',
       workspaceId: wsB.id,
       connectionId: connIdB,
       authorizationId: authIdB,
@@ -572,7 +572,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
     const workspace = created.success
 
     const connInstanceId = 'conn-forward-fail-1'
-    workspace.createConnection(connInstanceId, 'mistertick-discord', profile)
+    workspace.createConnection(connInstanceId, 'rastro-discord', profile)
     await repository.create(workspace)
 
     const authId = 'auth-forward-fail-1'
@@ -584,7 +584,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
       displayName: 'User Fail 123',
     }
     const secretRef = CredentialReferenceFactory.create({
-      ownerId: 'mistertick-discord',
+      ownerId: 'rastro-discord',
       workspaceId: workspace.id,
       connectionId: connInstanceId,
       authorizationId: authId,
@@ -605,7 +605,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
 
     const refreshOpId = 'refresh-op-forward-fail-1'
     const candidateRef = CredentialReferenceFactory.createConnectionCandidate({
-      ownerId: 'mistertick-discord',
+      ownerId: 'rastro-discord',
       workspaceId: workspace.id,
       connectionId: connInstanceId,
       authorizationId: authId,
@@ -666,7 +666,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
     const workspace = created.success
 
     const connInstanceId = 'conn-discard-unavail-1'
-    workspace.createConnection(connInstanceId, 'mistertick-discord', profile)
+    workspace.createConnection(connInstanceId, 'rastro-discord', profile)
     await repository.create(workspace)
 
     const authId = 'auth-discard-unavail-1'
@@ -678,7 +678,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
       displayName: 'User Discard 123',
     }
     const secretRef = CredentialReferenceFactory.create({
-      ownerId: 'mistertick-discord',
+      ownerId: 'rastro-discord',
       workspaceId: workspace.id,
       connectionId: connInstanceId,
       authorizationId: authId,
@@ -700,7 +700,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
 
     const refreshOpId = 'refresh-op-discard-unavail-1'
     const candidateRef = CredentialReferenceFactory.createConnectionCandidate({
-      ownerId: 'mistertick-discord',
+      ownerId: 'rastro-discord',
       workspaceId: workspace.id,
       connectionId: connInstanceId,
       authorizationId: authId,
@@ -769,7 +769,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
     const workspace = created.success
 
     const connInstanceId = 'conn-concurrent-1'
-    workspace.createConnection(connInstanceId, 'mistertick-discord', profile)
+    workspace.createConnection(connInstanceId, 'rastro-discord', profile)
     await repository.create(workspace)
 
     const authId = 'auth-concurrent-1'
@@ -781,7 +781,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
       displayName: 'User Concurrent 123',
     }
     const secretRef = CredentialReferenceFactory.create({
-      ownerId: 'mistertick-discord',
+      ownerId: 'rastro-discord',
       workspaceId: workspace.id,
       connectionId: connInstanceId,
       authorizationId: authId,
@@ -802,7 +802,7 @@ describe('Deterministic Database/Vault Boundary - Vault Errors & Quarantine', ()
 
     const refreshOpId = 'refresh-op-concurrent-1'
     const candidateRef = CredentialReferenceFactory.createConnectionCandidate({
-      ownerId: 'mistertick-discord',
+      ownerId: 'rastro-discord',
       workspaceId: workspace.id,
       connectionId: connInstanceId,
       authorizationId: authId,

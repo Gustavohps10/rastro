@@ -1,7 +1,7 @@
 import type {
   AddonResolveOptionsResponse,
   AddonSettingsSelectField,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 

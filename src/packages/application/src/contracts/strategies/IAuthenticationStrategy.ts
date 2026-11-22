@@ -1,7 +1,7 @@
-import type { ConnectionIdentity } from '@mr-tick/domain'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+import type { ConnectionIdentity } from '@rastrokit/domain'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
-export type { ConnectionIdentity } from '@mr-tick/domain'
+export type { ConnectionIdentity } from '@rastrokit/domain'
 
 export type ConnectionCredentialPayload = Readonly<
   Record<string, string | number | boolean>

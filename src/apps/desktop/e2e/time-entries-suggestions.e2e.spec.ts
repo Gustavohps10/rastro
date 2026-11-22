@@ -23,7 +23,7 @@ const workspace = seedWorkspaces.workspaces.find(
 )
 if (!workspace) throw new Error('SDK_FIXTURE_WORKSPACE_NOT_FOUND')
 const connection = workspace.connections.find(
-  (candidate) => candidate.addonId === 'mr-tick-datasource-fake',
+  (candidate) => candidate.addonId === 'rastro-datasource-fake',
 )
 if (!connection) throw new Error('SDK_FIXTURE_CONNECTION_NOT_FOUND')
 

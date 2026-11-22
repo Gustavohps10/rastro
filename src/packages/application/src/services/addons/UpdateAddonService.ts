@@ -4,8 +4,8 @@ import {
   Either,
   isApiVersionCompatible,
   parseSemVer,
-} from '@mr-tick/shared/helpers'
-import { IJobEvent } from '@mr-tick/shared/transport'
+} from '@rastrokit/shared/helpers'
+import { IJobEvent } from '@rastrokit/shared/transport'
 
 import {
   IAddonReloader,

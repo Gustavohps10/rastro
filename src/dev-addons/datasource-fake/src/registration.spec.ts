@@ -1,4 +1,4 @@
-import { type AddonContext, AppError, Either } from '@mr-tick/sdk'
+import { type AddonContext, AppError, Either } from '@rastrokit/sdk'
 import { describe, expect, it, vi } from 'vitest'
 
 import FakeDataSourceAddon from './index'

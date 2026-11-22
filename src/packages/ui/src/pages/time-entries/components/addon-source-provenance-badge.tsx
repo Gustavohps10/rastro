@@ -1,4 +1,4 @@
-import type { AddonSourceInfo } from '@mr-tick/application'
+import type { AddonSourceInfo } from '@rastrokit/application'
 import { Sparkles } from 'lucide-react'
 
 import {

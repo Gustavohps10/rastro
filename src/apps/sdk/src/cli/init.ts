@@ -12,8 +12,8 @@ export async function runInitWizard(targetDirName?: string) {
     {
       type: 'input',
       name: 'id',
-      message: 'ID único do plugin (ex: mr-tick-datasource-redmine):',
-      default: targetDirName || 'mr-tick-plugin-sample',
+      message: 'ID único do plugin (ex: seuusuario-datasource-redmine):',
+      default: targetDirName || 'rastro-plugin-sample',
       validate: (input: string) => {
         if (!input.trim()) return 'O ID não pode ser vazio.'
         if (!/^[a-z0-9-_@/]+$/i.test(input.trim())) {
@@ -85,12 +85,12 @@ export async function runInitWizard(targetDirName?: string) {
     types: './dist/index.d.ts',
     scripts: {
       build: 'tsup src/index.ts --format esm,cjs --dts --clean',
-      manifest: 'mr-tick manifest .',
-      validate: 'mr-tick validate .',
-      pack: 'mr-tick pack .',
+      manifest: 'rastro manifest .',
+      validate: 'rastro validate .',
+      pack: 'rastro pack .',
     },
     devDependencies: {
-      '@mr-tick/sdk': `^${__SDK_VERSION__}`,
+      '@rastrokit/sdk': `^${__SDK_VERSION__}`,
       tsup: '^8.5.0',
       typescript: '^5.8.0',
     },
@@ -128,7 +128,7 @@ export async function runInitWizard(targetDirName?: string) {
     author: answers.author,
     shortDescription: answers.shortDescription,
     description: answers.description,
-    tags: [...answers.capabilities, 'mr-tick'],
+    tags: [...answers.capabilities, 'rastro'],
     screenshots: [],
     requiredApiVersion: `^${__SDK_VERSION__}`,
     releaseDate: new Date().toISOString().split('T')[0],
@@ -138,7 +138,7 @@ export async function runInitWizard(targetDirName?: string) {
 
   // 4. src/index.ts boilerplate
   const hasDataSource = isDataSource(answers.capabilities)
-  const indexTsContent = `import { AddonContext, IAddon } from '@mr-tick/sdk'
+  const indexTsContent = `import { AddonContext, IAddon } from '@rastrokit/sdk'
 
 export default class ${toPascalCase(answers.name)}Plugin implements IAddon {
   public async activate(context: AddonContext): Promise<void> {

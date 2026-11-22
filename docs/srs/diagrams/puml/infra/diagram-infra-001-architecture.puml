@@ -9,7 +9,7 @@ node "Client Desktop (Electron)" {
     component "Native Floating Widget" as Widget
 }
 
-node "Addon Ecosystem (@mr-tick/sdk)" {
+node "Addon Ecosystem (@rastrokit/sdk)" {
     [DataSources (Redmine, Jira...)] as DS
     [Themes (CSS Injected)] as Themes
     [Watchers (Window, Git, Idle)] as Watchers

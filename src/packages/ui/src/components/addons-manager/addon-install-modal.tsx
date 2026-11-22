@@ -1,6 +1,6 @@
 'use client'
 
-import { isApiVersionCompatible, isString } from '@mr-tick/shared/helpers'
+import { isApiVersionCompatible, isString } from '@rastrokit/shared/helpers'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { CheckCircle2, Loader2, Terminal, XCircle } from 'lucide-react'
 import React, { useEffect, useRef, useState } from 'react'

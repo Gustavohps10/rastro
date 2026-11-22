@@ -1,4 +1,4 @@
-id: mr-tick-datasource-fake
+id: rastro-datasource-fake
 name: DataSource Fake (Testes)
 version: 1.2.4
 requiredApiVersion: '-1'

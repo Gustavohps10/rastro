@@ -1,11 +1,11 @@
-import { EMPTY_HTTP_CONFIG } from '@mr-tick/adapters/contracts'
+import { EMPTY_HTTP_CONFIG } from '@rastrokit/adapters/contracts'
 import {
   AddonAuthenticatorRegistry,
   AddonConnectionProfilesResolver,
   type ILocalRuntimeAPI,
   OAuthAttemptCoordinator,
-} from '@mr-tick/application'
-import type { AddonContext, IAddon, IDataSource } from '@mr-tick/sdk'
+} from '@rastrokit/application'
+import type { AddonContext, IAddon, IDataSource } from '@rastrokit/sdk'
 import { describe, expect, it, vi } from 'vitest'
 
 import {
@@ -149,12 +149,12 @@ describe('Addon ownership and lifecycle', () => {
 it('releases availability subscriptions and registrations even when deactivate fails', async () => {
   const unsubscribe = vi.fn()
   const onStateChanged = vi.fn<
-    import('@mr-tick/application').ICoreRuntimeAPI['onStateChanged']
+    import('@rastrokit/application').ICoreRuntimeAPI['onStateChanged']
   >((listener) => {
     listener('starting')
     return unsubscribe
   })
-  const core: import('@mr-tick/application').ICoreAddonCapabilities = {
+  const core: import('@rastrokit/application').ICoreAddonCapabilities = {
     ...unavailableCore,
     runtime: { getState: () => 'starting', onStateChanged },
   }
@@ -203,7 +203,7 @@ it('keeps reused datasource definitions owned by distinct addons without mutatin
   const source: IDataSource = {
     createInstance: vi.fn<IDataSource['createInstance']>(),
   }
-  const dsCapabilities: import('@mr-tick/sdk').AddonCapability[] = [
+  const dsCapabilities: import('@rastrokit/sdk').AddonCapability[] = [
     'dataSource',
   ]
   loader.registerManifestCapabilities('first', dsCapabilities)
@@ -337,7 +337,7 @@ describe('AddonBindingLifetime granular lifecycle', () => {
     const binding = parent.getBinding('conn-events')
 
     const listeners = new Map<string, Array<(data?: unknown) => void>>()
-    const rawEvents: import('@mr-tick/sdk').IAddonEventsAPI = {
+    const rawEvents: import('@rastrokit/sdk').IAddonEventsAPI = {
       on: (channel: string, handler: (data: unknown) => void) => {
         const list = listeners.get(channel) ?? []
         list.push(handler)

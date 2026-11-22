@@ -6,10 +6,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@mr-tick/IoC": ["../../packages/IoC.ts"],
-      "@mr-tick/application/*": ["../../packages/application/src/*"],
-      "@mr-tick/shared/*": ["../../packages/shared/src/*"],
-      "@mr-tick/adapters/*": ["../../packages/adapters/src/*"]
+      "@rastrokit/IoC": ["../../packages/IoC.ts"],
+      "@rastrokit/application/*": ["../../packages/application/src/*"],
+      "@rastrokit/shared/*": ["../../packages/shared/src/*"],
+      "@rastrokit/adapters/*": ["../../packages/adapters/src/*"]
     },
     "types": ["electron-vite/node", "node"]
   },

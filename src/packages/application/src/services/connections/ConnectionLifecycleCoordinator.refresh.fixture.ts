@@ -1,9 +1,9 @@
 import type {
   ConnectionIdentity,
   ConnectionProfileDescriptor,
-} from '@mr-tick/domain'
-import { Workspace } from '@mr-tick/domain'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/domain'
+import { Workspace } from '@rastrokit/domain'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
 import type {
   AddonConnectionAuthenticator,

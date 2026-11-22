@@ -22,7 +22,7 @@ function parseCliTier(rawTier: string | undefined): AddonTier | undefined {
 }
 
 program
-  .name('mr-tick')
+  .name('rastro')
   .description('CLI do Rastro SDK para criar, validar e empacotar plugins')
   .version(__SDK_VERSION__)
 
@@ -68,7 +68,7 @@ program
   .option('--changelog <items...>', 'Notas e mudanças desta versão')
   .addHelpText(
     'after',
-    '\nAssinatura opcional: defina MR_TICK_CATALOG_SIGNING_KEY (JWK privada Ed25519 em JSON) e MR_TICK_CATALOG_KEY_ID. Gera catalog-version.json no pacote e um recibo <pacote>.manifest.json ao lado do arquivo .tladdon.',
+    '\nAssinatura opcional: defina RASTRO_CATALOG_SIGNING_KEY (JWK privada Ed25519 em JSON) e RASTRO_CATALOG_KEY_ID. Gera catalog-version.json no pacote e um recibo <pacote>.manifest.json ao lado do arquivo .tladdon.',
   )
   .action(
     async (

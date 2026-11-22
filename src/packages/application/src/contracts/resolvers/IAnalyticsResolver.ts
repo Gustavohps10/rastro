@@ -1,5 +1,5 @@
-import type { ConnectionIdentity } from '@mr-tick/domain'
-import type { AppError, Either } from '@mr-tick/shared/helpers'
+import type { ConnectionIdentity } from '@rastrokit/domain'
+import type { AppError, Either } from '@rastrokit/shared/helpers'
 
 import type { AnalyticsQueryAuthorization } from '../data/providers/IAnalyticsEngine'
 import type { IAnalyticsProvider } from '../data/providers/IAnalyticsProvider'

@@ -17,9 +17,9 @@ import type {
   LocalRuntimeResponse,
   LocalSyncRequest,
   LocalSyncResponse,
-} from '@mr-tick/application'
-import { validateCoreCacheQuery } from '@mr-tick/application'
-import { AppError, Either, isRecord } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { validateCoreCacheQuery } from '@rastrokit/application'
+import { AppError, Either, isRecord } from '@rastrokit/shared/helpers'
 import { BrowserWindow, ipcMain } from 'electron'
 
 import type {

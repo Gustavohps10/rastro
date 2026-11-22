@@ -1,6 +1,6 @@
 'use client'
 
-import type { MetadataDTO } from '@mr-tick/application'
+import type { MetadataDTO } from '@rastrokit/application'
 import {
   useInfiniteQuery,
   useQuery,

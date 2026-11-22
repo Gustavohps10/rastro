@@ -1,4 +1,4 @@
-import type { SidebarMenuItem as AddonSidebarMenuItem } from '@mr-tick/sdk'
+import type { SidebarMenuItem as AddonSidebarMenuItem } from '@rastrokit/sdk'
 import {
   Brain,
   CalendarDays,

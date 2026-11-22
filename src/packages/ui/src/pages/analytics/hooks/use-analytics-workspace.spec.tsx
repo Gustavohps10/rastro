@@ -2,8 +2,8 @@ import type {
   AnalyticsDatasetQueryInput,
   AnalyticsSyncStrategy,
   IHostBridge,
-} from '@mr-tick/application'
-import type { AnalyticsLoadProgressEvent } from '@mr-tick/shared/transport'
+} from '@rastrokit/application'
+import type { AnalyticsLoadProgressEvent } from '@rastrokit/shared/transport'
 import { act, renderHook, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
@@ -1370,7 +1370,7 @@ describe('Phase 3 offline hydration, polling, deduplication and progress UI hook
     expect(sentPayload).toBeDefined()
     if (sentPayload === undefined) return
 
-    const { analyticsSelectionKey } = await import('@mr-tick/application')
+    const { analyticsSelectionKey } = await import('@rastrokit/application')
     const selectionKey = await analyticsSelectionKey(sentPayload.body.query)
 
     await waitFor(() =>

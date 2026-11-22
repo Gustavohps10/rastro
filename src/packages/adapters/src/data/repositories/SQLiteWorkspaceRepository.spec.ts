@@ -2,8 +2,8 @@ import { promises as fs } from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 
-import { ListWorkspacesService } from '@mr-tick/application'
-import { Workspace } from '@mr-tick/domain'
+import { ListWorkspacesService } from '@rastrokit/application'
+import { Workspace } from '@rastrokit/domain'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { SQLiteWorkspacesRepository } from './SQLiteWorkspaceRepository'

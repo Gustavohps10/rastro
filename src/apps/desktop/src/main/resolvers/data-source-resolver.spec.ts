@@ -7,15 +7,15 @@ import {
   ICredentialsVault,
   IWorkspacesRepository,
   PagedResultDTO,
-} from '@mr-tick/application'
-import { ConnectionIdentity, Workspace } from '@mr-tick/domain'
+} from '@rastrokit/application'
+import { ConnectionIdentity, Workspace } from '@rastrokit/domain'
 import {
   DataSourceContext,
   Either,
   IDataSource,
   IDataSourceInstance,
-} from '@mr-tick/sdk'
-import { AppError } from '@mr-tick/shared/helpers'
+} from '@rastrokit/sdk'
+import { AppError } from '@rastrokit/shared/helpers'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 import {
@@ -93,7 +93,7 @@ function connectPrimary(
 function testIdentity(
   tenantId: string,
   providerSubjectId: string,
-): Extract<import('@mr-tick/domain').ConnectionIdentity, { kind: 'human' }> {
+): Extract<import('@rastrokit/domain').ConnectionIdentity, { kind: 'human' }> {
   return {
     kind: 'human',
     providerId: 'test-addon',

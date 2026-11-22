@@ -1,4 +1,4 @@
-import type { SyncFailureViewModel } from '@mr-tick/shared/view-models'
+import type { SyncFailureViewModel } from '@rastrokit/shared/view-models'
 export interface TimerJournalEntry {
   id: string
   action: 'start' | 'pause' | 'resume' | 'stop' | 'adjust'

@@ -3849,295 +3849,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mr-tick/adapters@workspace:*, @mr-tick/adapters@workspace:src/packages/adapters":
-  version: 0.0.0-use.local
-  resolution: "@mr-tick/adapters@workspace:src/packages/adapters"
-  dependencies:
-    "@mr-tick/application": "workspace:*"
-    "@mr-tick/domain": "workspace:*"
-    "@mr-tick/sdk": "workspace:*"
-    "@mr-tick/shared": "workspace:*"
-    "@types/archiver": "npm:^6.0.3"
-    "@types/better-sqlite3": "npm:^9.6.0"
-    "@types/jsonwebtoken": "npm:^9.0.6"
-    "@types/unzipper": "npm:^0"
-    ajv: "npm:^8.17.1"
-    archiver: "npm:^7.0.1"
-    axios: "npm:^1.7.9"
-    better-sqlite3: "npm:^12.6.2"
-    file-type: "npm:^22.0.1"
-    js-yaml: "npm:^4.1.0"
-    jsonwebtoken: "npm:^9.0.2"
-    keytar: "npm:^7.9.0"
-    knex: "npm:^3.3.0"
-    rxjs: "npm:^7.8.2"
-    typescript: "npm:^5.8.3"
-    unzipper: "npm:^0.12.3"
-    zod: "npm:^3.23.8"
-  languageName: unknown
-  linkType: soft
-
-"@mr-tick/application@workspace:*, @mr-tick/application@workspace:src/packages/application":
-  version: 0.0.0-use.local
-  resolution: "@mr-tick/application@workspace:src/packages/application"
-  dependencies:
-    "@mr-tick/domain": "workspace:*"
-    "@mr-tick/shared": "workspace:*"
-    typescript: "npm:^5.8.3"
-  languageName: unknown
-  linkType: soft
-
-"@mr-tick/datasource-fake@workspace:src/dev-addons/datasource-fake":
-  version: 0.0.0-use.local
-  resolution: "@mr-tick/datasource-fake@workspace:src/dev-addons/datasource-fake"
-  dependencies:
-    "@mr-tick/sdk": "workspace:*"
-    tsup: "npm:^8.5.0"
-    typescript: "npm:^5.8.3"
-    zod: "npm:^3.24.2"
-  languageName: unknown
-  linkType: soft
-
-"@mr-tick/desktop@workspace:src/apps/desktop":
-  version: 0.0.0-use.local
-  resolution: "@mr-tick/desktop@workspace:src/apps/desktop"
-  dependencies:
-    "@duckdb/node-api": "npm:2.0.0-r.1"
-    "@electron-toolkit/preload": "npm:^3.0.1"
-    "@electron-toolkit/tsconfig": "npm:^1.0.1"
-    "@electron-toolkit/utils": "npm:^3.0.0"
-    "@mr-tick/adapters": "workspace:*"
-    "@mr-tick/application": "workspace:*"
-    "@mr-tick/shared": "workspace:*"
-    "@mr-tick/ui": "workspace:*"
-    "@playwright/test": "npm:^1.63.0"
-    "@rollup/plugin-image": "npm:^3.0.3"
-    "@tailwindcss/postcss": "npm:^4.1.11"
-    "@tailwindcss/typography": "npm:^0.5.16"
-    "@tailwindcss/vite": "npm:^4.0.6"
-    "@types/better-sqlite3": "npm:^7.6.13"
-    "@types/js-yaml": "npm:^4.0.9"
-    "@types/lokijs": "npm:^1"
-    "@types/node": "npm:^20.17.18"
-    "@types/react": "npm:^19.1.0"
-    "@types/react-dom": "npm:^19.1.0"
-    "@types/semver": "npm:^7.8.0"
-    "@vitejs/plugin-react": "npm:^4.3.1"
-    "@welldone-software/why-did-you-render": "npm:^10.0.1"
-    "@xyflow/react": "npm:^12.12.1"
-    better-sqlite3: "npm:^12.6.2"
-    cross-env: "npm:^10.1.0"
-    electron: "npm:31.0.2"
-    electron-builder: "npm:26.18.1"
-    electron-devtools-installer: "npm:^4.0.0"
-    electron-updater: "npm:^6.1.7"
-    electron-vite: "npm:^3.1.0"
-    fake-indexeddb: "npm:^6.2.5"
-    js-yaml: "npm:^4.1.0"
-    keytar: "npm:^7.9.0"
-    knex: "npm:^3.3.0"
-    lokijs: "npm:^1.5.12"
-    node-addon-api: "npm:^8.9.2"
-    node-gyp: "npm:^13.0.1"
-    nuqs: "npm:^2.7.2"
-    postcss: "npm:^8.5.6"
-    prebuildify: "npm:^6.0.1"
-    react: "npm:^19.1.0"
-    react-dom: "npm:^19.1.0"
-    react-router-dom: "npm:^6.29.0"
-    rxdb: "npm:^16.21.1"
-    sqlite3: "npm:^5.1.7"
-    tailwind-merge: "npm:^3.0.1"
-    tailwindcss: "npm:^4.1.11"
-    tailwindcss-animate: "npm:^1.0.7"
-    typescript: "npm:^5.8.3"
-    vite: "npm:^6.3.5"
-    vite-plugin-static-copy: "npm:^3.2.0"
-  languageName: unknown
-  linkType: soft
-
-"@mr-tick/domain@workspace:*, @mr-tick/domain@workspace:src/packages/domain":
-  version: 0.0.0-use.local
-  resolution: "@mr-tick/domain@workspace:src/packages/domain"
-  dependencies:
-    "@mr-tick/shared": "workspace:*"
-    tsup: "npm:^8.2.3"
-    typescript: "npm:^5.8.3"
-    zod: "npm:^3.24.2"
-  languageName: unknown
-  linkType: soft
-
-"@mr-tick/landing-page@workspace:src/apps/landing-page":
-  version: 0.0.0-use.local
-  resolution: "@mr-tick/landing-page@workspace:src/apps/landing-page"
-  dependencies:
-    "@modelcontextprotocol/server": "npm:^2.3.1"
-    "@mr-tick/application": "workspace:*"
-    "@mr-tick/ui": "workspace:*"
-    "@tailwindcss/postcss": "npm:^4"
-    "@tailwindcss/typography": "npm:^0.5.16"
-    "@tanstack/react-query": "npm:^5.77.2"
-    "@types/node": "npm:^20"
-    "@types/react": "npm:^19"
-    "@types/react-dom": "npm:^19"
-    "@types/semver": "npm:^7.5.8"
-    babel-plugin-react-compiler: "npm:1.0.0"
-    eslint: "npm:^9"
-    eslint-config-next: "npm:16.2.1"
-    fumadocs-core: "npm:^16.15.0"
-    fumadocs-mdx: "npm:^15.3.1"
-    fumadocs-ui: "npm:^16.15.0"
-    lucide-react: "npm:^0.548.0"
-    motion: "npm:^13.1.1"
-    next: "npm:16.2.1"
-    next-intl: "npm:^4.14.9"
-    next-themes: "npm:^0.4.6"
-    react: "npm:19.2.4"
-    react-dom: "npm:19.2.4"
-    react-hook-form: "npm:^7.54.2"
-    react-router-dom: "npm:^6.29.0"
-    semver: "npm:^7.7.1"
-    tailwind-merge: "npm:^3.0.1"
-    tailwindcss: "npm:^4"
-    tailwindcss-animate: "npm:^1.0.7"
-    typescript: "npm:^5"
-    zod: "npm:^4.6.7"
-  languageName: unknown
-  linkType: soft
-
-"@mr-tick/sdk@workspace:*, @mr-tick/sdk@workspace:src/apps/sdk":
-  version: 0.0.0-use.local
-  resolution: "@mr-tick/sdk@workspace:src/apps/sdk"
-  dependencies:
-    "@mr-tick/application": "workspace:*"
-    "@mr-tick/domain": "workspace:*"
-    "@mr-tick/shared": "workspace:*"
-    "@types/adm-zip": "npm:^0"
-    "@types/js-yaml": "npm:^4.0.9"
-    "@types/turndown": "npm:^5.0.5"
-    adm-zip: "npm:^0.5.16"
-    commander: "npm:^14.0.0"
-    highlight.js: "npm:^11.11.1"
-    inquirer: "npm:^12.9.4"
-    js-yaml: "npm:^4.1.0"
-    textile-js: "npm:^2.1.1"
-    tsup: "npm:^8.5.0"
-    turndown: "npm:^7.2.1"
-    typescript: "npm:^5.8.3"
-    zod: "npm:4.6.6"
-  bin:
-    mr-tick: ./dist/cli.cjs
-  languageName: unknown
-  linkType: soft
-
-"@mr-tick/shared@workspace:*, @mr-tick/shared@workspace:src/packages/shared":
-  version: 0.0.0-use.local
-  resolution: "@mr-tick/shared@workspace:src/packages/shared"
-  dependencies:
-    typescript: "npm:^5.8.3"
-  languageName: unknown
-  linkType: soft
-
-"@mr-tick/ui@workspace:*, @mr-tick/ui@workspace:src/packages/ui":
-  version: 0.0.0-use.local
-  resolution: "@mr-tick/ui@workspace:src/packages/ui"
-  dependencies:
-    "@atlaskit/pragmatic-drag-and-drop": "npm:^1.7.7"
-    "@atlaskit/pragmatic-drag-and-drop-auto-scroll": "npm:^2.1.2"
-    "@atlaskit/pragmatic-drag-and-drop-hitbox": "npm:^1.1.0"
-    "@atlaskit/pragmatic-drag-and-drop-react-indicator": "npm:^0.18.0"
-    "@dnd-kit/core": "npm:^6.3.1"
-    "@dnd-kit/modifiers": "npm:^9.0.0"
-    "@dnd-kit/sortable": "npm:^10.0.0"
-    "@faker-js/faker": "npm:^10.1.0"
-    "@hello-pangea/dnd": "npm:^18.0.1"
-    "@hookform/resolvers": "npm:^4.1.3"
-    "@maskito/core": "npm:^4.0.0"
-    "@maskito/react": "npm:^4.0.0"
-    "@mr-tick/application": "workspace:*"
-    "@mr-tick/sdk": "workspace:*"
-    "@mr-tick/shared": "workspace:*"
-    "@radix-ui/react-accordion": "npm:^1.2.2"
-    "@radix-ui/react-alert-dialog": "npm:^1.1.14"
-    "@radix-ui/react-avatar": "npm:^1.1.10"
-    "@radix-ui/react-checkbox": "npm:^1.3.1"
-    "@radix-ui/react-collapsible": "npm:^1.1.3"
-    "@radix-ui/react-dialog": "npm:^1.1.15"
-    "@radix-ui/react-dropdown-menu": "npm:^2.1.6"
-    "@radix-ui/react-label": "npm:^2.1.2"
-    "@radix-ui/react-menubar": "npm:^1.1.15"
-    "@radix-ui/react-popover": "npm:^1.1.13"
-    "@radix-ui/react-portal": "npm:^1.1.9"
-    "@radix-ui/react-progress": "npm:^1.1.7"
-    "@radix-ui/react-scroll-area": "npm:^1.2.9"
-    "@radix-ui/react-select": "npm:^2.2.4"
-    "@radix-ui/react-separator": "npm:^1.1.2"
-    "@radix-ui/react-slider": "npm:^1.3.6"
-    "@radix-ui/react-slot": "npm:^1.2.3"
-    "@radix-ui/react-switch": "npm:^1.2.5"
-    "@radix-ui/react-tabs": "npm:^1.1.12"
-    "@radix-ui/react-toggle": "npm:^1.1.9"
-    "@radix-ui/react-toggle-group": "npm:^1.1.10"
-    "@radix-ui/react-tooltip": "npm:^1.2.6"
-    "@stepperize/react": "npm:^6.1.0"
-    "@tanstack/react-query": "npm:^5.77.2"
-    "@tanstack/react-table": "npm:^8.21.3"
-    "@tanstack/react-virtual": "npm:^3.13.12"
-    "@tiptap/core": "npm:^2.11.5"
-    "@tiptap/pm": "npm:^2.11.5"
-    "@tiptap/react": "npm:^2.11.5"
-    "@tiptap/starter-kit": "npm:^2.11.5"
-    "@types/react": "npm:^19.0.0"
-    "@types/react-dom": "npm:^19.0.0"
-    "@types/react-input-mask": "npm:^2"
-    "@vitejs/plugin-react": "npm:^4.3.1"
-    "@xyflow/react": "npm:^12.12.1"
-    autoprefixer: "npm:^10.4.20"
-    awilix: "npm:^12.0.5"
-    axios: "npm:^1.7.9"
-    class-variance-authority: "npm:^0.7.1"
-    clsx: "npm:^2.1.1"
-    cmdk: "npm:^1.1.1"
-    date-fns: "npm:^3.6.0"
-    dexie: "npm:^4.2.0"
-    electron-updater: "npm:^6.1.7"
-    glob: "npm:^10.4.5"
-    immer: "npm:^10.1.1"
-    jsonwebtoken: "npm:^9.0.2"
-    keytar: "npm:^7.9.0"
-    lucide-react: "npm:^0.548.0"
-    marked: "npm:^15.0.7"
-    motion: "npm:^12.23.24"
-    nuqs: "npm:^2.7.2"
-    postcss: "npm:^8.5.2"
-    radix-ui: "npm:^1.6.7"
-    react-day-picker: "npm:9.11.1"
-    react-hook-form: "npm:^7.54.2"
-    react-icons: "npm:^5.5.0"
-    react-markdown: "npm:^10.0.0"
-    recharts: "npm:^2.15.1"
-    remark-gfm: "npm:^4.0.1"
-    rxdb: "npm:^16.19.0"
-    sonner: "npm:^2.0.6"
-    tailwind-merge: "npm:^3.0.1"
-    tailwindcss-animate: "npm:^1.0.7"
-    typescript: "npm:^5.8.3"
-    use-debounce: "npm:^10.1.0"
-    vaul: "npm:^1.1.2"
-    vite: "npm:^6.3.5"
-    vite-plugin-dts: "npm:^4.5.4"
-    vite-plugin-static-copy: "npm:^3.1.0"
-    vite-tsconfig-paths: "npm:^5.1.4"
-    zod: "npm:^3.24.2"
-    zustand: "npm:^5.0.8"
-  peerDependencies:
-    react: ^19.1.0
-    react-dom: ^19.1.0
-    react-router: ^6.29.0
-    react-router-dom: ^6.29.0
-  languageName: unknown
-  linkType: soft
-
 "@mswjs/interceptors@npm:^0.41.3":
   version: 0.41.9
   resolution: "@mswjs/interceptors@npm:0.41.9"
@@ -6044,6 +5755,295 @@ __metadata:
   checksum: 10c0/9396d6c4dbd8da51c0bef7481e1e46e7f371e27cc6a55c1079e854f3aa9f7dd89e02d98cc36e861e8d43fbb775eb76b06bdf5879fa12f25116bea676af2926da
   languageName: node
   linkType: hard
+
+"@rastrokit/adapters@workspace:*, @rastrokit/adapters@workspace:src/packages/adapters":
+  version: 0.0.0-use.local
+  resolution: "@rastrokit/adapters@workspace:src/packages/adapters"
+  dependencies:
+    "@rastrokit/application": "workspace:*"
+    "@rastrokit/domain": "workspace:*"
+    "@rastrokit/sdk": "workspace:*"
+    "@rastrokit/shared": "workspace:*"
+    "@types/archiver": "npm:^6.0.3"
+    "@types/better-sqlite3": "npm:^9.6.0"
+    "@types/jsonwebtoken": "npm:^9.0.6"
+    "@types/unzipper": "npm:^0"
+    ajv: "npm:^8.17.1"
+    archiver: "npm:^7.0.1"
+    axios: "npm:^1.7.9"
+    better-sqlite3: "npm:^12.6.2"
+    file-type: "npm:^22.0.1"
+    js-yaml: "npm:^4.1.0"
+    jsonwebtoken: "npm:^9.0.2"
+    keytar: "npm:^7.9.0"
+    knex: "npm:^3.3.0"
+    rxjs: "npm:^7.8.2"
+    typescript: "npm:^5.8.3"
+    unzipper: "npm:^0.12.3"
+    zod: "npm:^3.23.8"
+  languageName: unknown
+  linkType: soft
+
+"@rastrokit/application@workspace:*, @rastrokit/application@workspace:src/packages/application":
+  version: 0.0.0-use.local
+  resolution: "@rastrokit/application@workspace:src/packages/application"
+  dependencies:
+    "@rastrokit/domain": "workspace:*"
+    "@rastrokit/shared": "workspace:*"
+    typescript: "npm:^5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@rastrokit/datasource-fake@workspace:src/dev-addons/datasource-fake":
+  version: 0.0.0-use.local
+  resolution: "@rastrokit/datasource-fake@workspace:src/dev-addons/datasource-fake"
+  dependencies:
+    "@rastrokit/sdk": "workspace:*"
+    tsup: "npm:^8.5.0"
+    typescript: "npm:^5.8.3"
+    zod: "npm:^3.24.2"
+  languageName: unknown
+  linkType: soft
+
+"@rastrokit/desktop@workspace:src/apps/desktop":
+  version: 0.0.0-use.local
+  resolution: "@rastrokit/desktop@workspace:src/apps/desktop"
+  dependencies:
+    "@duckdb/node-api": "npm:2.0.0-r.1"
+    "@electron-toolkit/preload": "npm:^3.0.1"
+    "@electron-toolkit/tsconfig": "npm:^1.0.1"
+    "@electron-toolkit/utils": "npm:^3.0.0"
+    "@playwright/test": "npm:^1.63.0"
+    "@rastrokit/adapters": "workspace:*"
+    "@rastrokit/application": "workspace:*"
+    "@rastrokit/shared": "workspace:*"
+    "@rastrokit/ui": "workspace:*"
+    "@rollup/plugin-image": "npm:^3.0.3"
+    "@tailwindcss/postcss": "npm:^4.1.11"
+    "@tailwindcss/typography": "npm:^0.5.16"
+    "@tailwindcss/vite": "npm:^4.0.6"
+    "@types/better-sqlite3": "npm:^7.6.13"
+    "@types/js-yaml": "npm:^4.0.9"
+    "@types/lokijs": "npm:^1"
+    "@types/node": "npm:^20.17.18"
+    "@types/react": "npm:^19.1.0"
+    "@types/react-dom": "npm:^19.1.0"
+    "@types/semver": "npm:^7.8.0"
+    "@vitejs/plugin-react": "npm:^4.3.1"
+    "@welldone-software/why-did-you-render": "npm:^10.0.1"
+    "@xyflow/react": "npm:^12.12.1"
+    better-sqlite3: "npm:^12.6.2"
+    cross-env: "npm:^10.1.0"
+    electron: "npm:31.0.2"
+    electron-builder: "npm:26.18.1"
+    electron-devtools-installer: "npm:^4.0.0"
+    electron-updater: "npm:^6.1.7"
+    electron-vite: "patch:electron-vite@npm%3A3.1.0#~/.yarn/patches/electron-vite-npm-3.1.0-1c6e3cf570.patch"
+    fake-indexeddb: "npm:^6.2.5"
+    js-yaml: "npm:^4.1.0"
+    keytar: "npm:^7.9.0"
+    knex: "npm:^3.3.0"
+    lokijs: "npm:^1.5.12"
+    node-addon-api: "npm:^8.9.2"
+    node-gyp: "npm:^13.0.1"
+    nuqs: "npm:^2.7.2"
+    postcss: "npm:^8.5.6"
+    prebuildify: "npm:^6.0.1"
+    react: "npm:^19.1.0"
+    react-dom: "npm:^19.1.0"
+    react-router-dom: "npm:^6.29.0"
+    rxdb: "npm:^16.21.1"
+    sqlite3: "npm:^5.1.7"
+    tailwind-merge: "npm:^3.0.1"
+    tailwindcss: "npm:^4.1.11"
+    tailwindcss-animate: "npm:^1.0.7"
+    typescript: "npm:^5.8.3"
+    vite: "npm:^6.3.5"
+    vite-plugin-static-copy: "npm:^3.2.0"
+  languageName: unknown
+  linkType: soft
+
+"@rastrokit/domain@workspace:*, @rastrokit/domain@workspace:src/packages/domain":
+  version: 0.0.0-use.local
+  resolution: "@rastrokit/domain@workspace:src/packages/domain"
+  dependencies:
+    "@rastrokit/shared": "workspace:*"
+    tsup: "npm:^8.2.3"
+    typescript: "npm:^5.8.3"
+    zod: "npm:^3.24.2"
+  languageName: unknown
+  linkType: soft
+
+"@rastrokit/landing-page@workspace:src/apps/landing-page":
+  version: 0.0.0-use.local
+  resolution: "@rastrokit/landing-page@workspace:src/apps/landing-page"
+  dependencies:
+    "@modelcontextprotocol/server": "npm:^2.3.1"
+    "@rastrokit/application": "workspace:*"
+    "@rastrokit/ui": "workspace:*"
+    "@tailwindcss/postcss": "npm:^4"
+    "@tailwindcss/typography": "npm:^0.5.16"
+    "@tanstack/react-query": "npm:^5.77.2"
+    "@types/node": "npm:^20"
+    "@types/react": "npm:^19"
+    "@types/react-dom": "npm:^19"
+    "@types/semver": "npm:^7.5.8"
+    babel-plugin-react-compiler: "npm:1.0.0"
+    eslint: "npm:^9"
+    eslint-config-next: "npm:16.2.1"
+    fumadocs-core: "npm:^16.15.0"
+    fumadocs-mdx: "npm:^15.3.1"
+    fumadocs-ui: "npm:^16.15.0"
+    lucide-react: "npm:^0.548.0"
+    motion: "npm:^13.1.1"
+    next: "npm:16.2.1"
+    next-intl: "npm:^4.14.9"
+    next-themes: "npm:^0.4.6"
+    react: "npm:19.2.4"
+    react-dom: "npm:19.2.4"
+    react-hook-form: "npm:^7.54.2"
+    react-router-dom: "npm:^6.29.0"
+    semver: "npm:^7.7.1"
+    tailwind-merge: "npm:^3.0.1"
+    tailwindcss: "npm:^4"
+    tailwindcss-animate: "npm:^1.0.7"
+    typescript: "npm:^5"
+    zod: "npm:^4.6.7"
+  languageName: unknown
+  linkType: soft
+
+"@rastrokit/sdk@workspace:*, @rastrokit/sdk@workspace:src/apps/sdk":
+  version: 0.0.0-use.local
+  resolution: "@rastrokit/sdk@workspace:src/apps/sdk"
+  dependencies:
+    "@rastrokit/application": "workspace:*"
+    "@rastrokit/domain": "workspace:*"
+    "@rastrokit/shared": "workspace:*"
+    "@types/adm-zip": "npm:^0"
+    "@types/js-yaml": "npm:^4.0.9"
+    "@types/turndown": "npm:^5.0.5"
+    adm-zip: "npm:^0.5.16"
+    commander: "npm:^14.0.0"
+    highlight.js: "npm:^11.11.1"
+    inquirer: "npm:^12.9.4"
+    js-yaml: "npm:^4.1.0"
+    textile-js: "npm:^2.1.1"
+    tsup: "npm:^8.5.0"
+    turndown: "npm:^7.2.1"
+    typescript: "npm:^5.8.3"
+    zod: "npm:4.6.6"
+  bin:
+    rastro: ./dist/cli.cjs
+  languageName: unknown
+  linkType: soft
+
+"@rastrokit/shared@workspace:*, @rastrokit/shared@workspace:src/packages/shared":
+  version: 0.0.0-use.local
+  resolution: "@rastrokit/shared@workspace:src/packages/shared"
+  dependencies:
+    typescript: "npm:^5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@rastrokit/ui@workspace:*, @rastrokit/ui@workspace:src/packages/ui":
+  version: 0.0.0-use.local
+  resolution: "@rastrokit/ui@workspace:src/packages/ui"
+  dependencies:
+    "@atlaskit/pragmatic-drag-and-drop": "npm:^1.7.7"
+    "@atlaskit/pragmatic-drag-and-drop-auto-scroll": "npm:^2.1.2"
+    "@atlaskit/pragmatic-drag-and-drop-hitbox": "npm:^1.1.0"
+    "@atlaskit/pragmatic-drag-and-drop-react-indicator": "npm:^0.18.0"
+    "@dnd-kit/core": "npm:^6.3.1"
+    "@dnd-kit/modifiers": "npm:^9.0.0"
+    "@dnd-kit/sortable": "npm:^10.0.0"
+    "@faker-js/faker": "npm:^10.1.0"
+    "@hello-pangea/dnd": "npm:^18.0.1"
+    "@hookform/resolvers": "npm:^4.1.3"
+    "@maskito/core": "npm:^4.0.0"
+    "@maskito/react": "npm:^4.0.0"
+    "@radix-ui/react-accordion": "npm:^1.2.2"
+    "@radix-ui/react-alert-dialog": "npm:^1.1.14"
+    "@radix-ui/react-avatar": "npm:^1.1.10"
+    "@radix-ui/react-checkbox": "npm:^1.3.1"
+    "@radix-ui/react-collapsible": "npm:^1.1.3"
+    "@radix-ui/react-dialog": "npm:^1.1.15"
+    "@radix-ui/react-dropdown-menu": "npm:^2.1.6"
+    "@radix-ui/react-label": "npm:^2.1.2"
+    "@radix-ui/react-menubar": "npm:^1.1.15"
+    "@radix-ui/react-popover": "npm:^1.1.13"
+    "@radix-ui/react-portal": "npm:^1.1.9"
+    "@radix-ui/react-progress": "npm:^1.1.7"
+    "@radix-ui/react-scroll-area": "npm:^1.2.9"
+    "@radix-ui/react-select": "npm:^2.2.4"
+    "@radix-ui/react-separator": "npm:^1.1.2"
+    "@radix-ui/react-slider": "npm:^1.3.6"
+    "@radix-ui/react-slot": "npm:^1.2.3"
+    "@radix-ui/react-switch": "npm:^1.2.5"
+    "@radix-ui/react-tabs": "npm:^1.1.12"
+    "@radix-ui/react-toggle": "npm:^1.1.9"
+    "@radix-ui/react-toggle-group": "npm:^1.1.10"
+    "@radix-ui/react-tooltip": "npm:^1.2.6"
+    "@rastrokit/application": "workspace:*"
+    "@rastrokit/sdk": "workspace:*"
+    "@rastrokit/shared": "workspace:*"
+    "@stepperize/react": "npm:^6.1.0"
+    "@tanstack/react-query": "npm:^5.77.2"
+    "@tanstack/react-table": "npm:^8.21.3"
+    "@tanstack/react-virtual": "npm:^3.13.12"
+    "@tiptap/core": "npm:^2.11.5"
+    "@tiptap/pm": "npm:^2.11.5"
+    "@tiptap/react": "npm:^2.11.5"
+    "@tiptap/starter-kit": "npm:^2.11.5"
+    "@types/react": "npm:^19.0.0"
+    "@types/react-dom": "npm:^19.0.0"
+    "@types/react-input-mask": "npm:^2"
+    "@vitejs/plugin-react": "npm:^4.3.1"
+    "@xyflow/react": "npm:^12.12.1"
+    autoprefixer: "npm:^10.4.20"
+    awilix: "npm:^12.0.5"
+    axios: "npm:^1.7.9"
+    class-variance-authority: "npm:^0.7.1"
+    clsx: "npm:^2.1.1"
+    cmdk: "npm:^1.1.1"
+    date-fns: "npm:^3.6.0"
+    dexie: "npm:^4.2.0"
+    electron-updater: "npm:^6.1.7"
+    glob: "npm:^10.4.5"
+    immer: "npm:^10.1.1"
+    jsonwebtoken: "npm:^9.0.2"
+    keytar: "npm:^7.9.0"
+    lucide-react: "npm:^0.548.0"
+    marked: "npm:^15.0.7"
+    motion: "npm:^12.23.24"
+    nuqs: "npm:^2.7.2"
+    postcss: "npm:^8.5.2"
+    radix-ui: "npm:^1.6.7"
+    react-day-picker: "npm:9.11.1"
+    react-hook-form: "npm:^7.54.2"
+    react-icons: "npm:^5.5.0"
+    react-markdown: "npm:^10.0.0"
+    recharts: "npm:^2.15.1"
+    remark-gfm: "npm:^4.0.1"
+    rxdb: "npm:^16.19.0"
+    sonner: "npm:^2.0.6"
+    tailwind-merge: "npm:^3.0.1"
+    tailwindcss-animate: "npm:^1.0.7"
+    typescript: "npm:^5.8.3"
+    use-debounce: "npm:^10.1.0"
+    vaul: "npm:^1.1.2"
+    vite: "npm:^6.3.5"
+    vite-plugin-dts: "npm:^4.5.4"
+    vite-plugin-static-copy: "npm:^3.1.0"
+    vite-tsconfig-paths: "npm:^5.1.4"
+    zod: "npm:^3.24.2"
+    zustand: "npm:^5.0.8"
+  peerDependencies:
+    react: ^19.1.0
+    react-dom: ^19.1.0
+    react-router: ^6.29.0
+    react-router-dom: ^6.29.0
+  languageName: unknown
+  linkType: soft
 
 "@react-aria/focus@npm:^3.20.2":
   version: 3.22.1
@@ -10234,7 +10234,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bundle-require@npm:^5.1.0":
+"bundle-require@npm:5.1.0":
   version: 5.1.0
   resolution: "bundle-require@npm:5.1.0"
   dependencies:
@@ -10242,6 +10242,17 @@ __metadata:
   peerDependencies:
     esbuild: ">=0.18"
   checksum: 10c0/8bff9df68eb686f05af952003c78e70ffed2817968f92aebb2af620cc0b7428c8154df761d28f1b38508532204278950624ef86ce63644013dc57660a9d1810f
+  languageName: node
+  linkType: hard
+
+"bundle-require@patch:bundle-require@npm%3A5.1.0#~/.yarn/patches/bundle-require-npm-5.1.0-022b2c8e1b.patch":
+  version: 5.1.0
+  resolution: "bundle-require@patch:bundle-require@npm%3A5.1.0#~/.yarn/patches/bundle-require-npm-5.1.0-022b2c8e1b.patch::version=5.1.0&hash=6cb19f"
+  dependencies:
+    load-tsconfig: "npm:^0.2.3"
+  peerDependencies:
+    esbuild: ">=0.18"
+  checksum: 10c0/04836cbe1ebfde750a1858f8969de330992c72d4593b85251cf24bafc5713fbd5d235346fd902878b08c0c9fa8c8557e89c088ac6d40e72a8dc4a2b31aacced8
   languageName: node
   linkType: hard
 
@@ -12011,7 +12022,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron-vite@npm:^3.1.0":
+"electron-vite@npm:3.1.0":
   version: 3.1.0
   resolution: "electron-vite@npm:3.1.0"
   dependencies:
@@ -12030,6 +12041,28 @@ __metadata:
   bin:
     electron-vite: bin/electron-vite.js
   checksum: 10c0/c5efacf83c869a933d7da390b3312beb47c145339e630f9d3ebbedbe3301ec2b070e4d05668dad28088284bad25c8044736b2339a341b1d89242a4489b0807c8
+  languageName: node
+  linkType: hard
+
+"electron-vite@patch:electron-vite@npm%3A3.1.0#~/.yarn/patches/electron-vite-npm-3.1.0-1c6e3cf570.patch":
+  version: 3.1.0
+  resolution: "electron-vite@patch:electron-vite@npm%3A3.1.0#~/.yarn/patches/electron-vite-npm-3.1.0-1c6e3cf570.patch::version=3.1.0&hash=0b92db"
+  dependencies:
+    "@babel/core": "npm:^7.26.10"
+    "@babel/plugin-transform-arrow-functions": "npm:^7.25.9"
+    cac: "npm:^6.7.14"
+    esbuild: "npm:^0.25.1"
+    magic-string: "npm:^0.30.17"
+    picocolors: "npm:^1.1.1"
+  peerDependencies:
+    "@swc/core": ^1.0.0
+    vite: ^4.0.0 || ^5.0.0 || ^6.0.0
+  peerDependenciesMeta:
+    "@swc/core":
+      optional: true
+  bin:
+    electron-vite: bin/electron-vite.js
+  checksum: 10c0/98f2040e3aeabee6e0f88ca63683dc96a347cefd8cbe38efe04354e87d1c7933d10fe33c973d922a3cb9034d5df91be57a4b819538d6a11ee8a1d1f0a1553505
   languageName: node
   linkType: hard
 
@@ -17918,58 +17951,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mr-tick-monorepo@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "mr-tick-monorepo@workspace:."
-  dependencies:
-    "@changesets/cli": "npm:^2.29.6"
-    "@commitlint/cli": "npm:^19.8.0"
-    "@commitlint/config-conventional": "npm:^19.8.0"
-    "@eslint/js": "npm:^9.25.0"
-    "@mermaid-js/mermaid-cli": "npm:^11.12.0"
-    "@swc/core": "npm:^1.12.11"
-    "@swc/helpers": "npm:^0.5.17"
-    "@testing-library/dom": "npm:^10.4.2"
-    "@testing-library/jest-dom": "npm:^6.9.1"
-    "@testing-library/react": "npm:^16.3.2"
-    "@types/js-yaml": "npm:^4.0.9"
-    "@types/node": "npm:^25.6.0"
-    "@typescript-eslint/eslint-plugin": "npm:^8.30.1"
-    "@typescript-eslint/parser": "npm:^8.30.1"
-    "@vitest/coverage-v8": "npm:4.1.4"
-    "@vitest/ui": "npm:^4.1.4"
-    awilix: "npm:^12.0.5"
-    changeset: "npm:^0.2.6"
-    cross-env: "npm:^10.1.0"
-    eslint: "npm:^9.25.0"
-    eslint-config-prettier: "npm:^10.1.2"
-    eslint-plugin-import: "npm:^2.31.0"
-    eslint-plugin-jsx-a11y: "npm:^6.10.2"
-    eslint-plugin-prettier: "npm:^5.2.6"
-    eslint-plugin-react: "npm:^7.37.5"
-    eslint-plugin-react-hooks: "npm:^5.2.0"
-    eslint-plugin-simple-import-sort: "npm:^12.1.1"
-    eslint-plugin-unused-imports: "npm:^4.1.4"
-    fs-extra: "npm:^11.3.4"
-    globals: "npm:^16.0.0"
-    husky: "npm:^8.0.0"
-    jsdom: "npm:^29.0.2"
-    lint-staged: "npm:^15.5.1"
-    msw: "npm:^2.13.3"
-    pako: "npm:^2.1.0"
-    prettier: "npm:^3.5.3"
-    prettier-plugin-tailwindcss: "npm:^0.6.11"
-    rimraf: "npm:^6.0.1"
-    ts-node: "npm:^10.9.2"
-    tsup: "npm:^8.5.0"
-    tsx: "npm:^4.23.13"
-    turbo: "npm:2.11.7"
-    typescript: "npm:^5.8.3"
-    typescript-eslint: "npm:^8.30.1"
-    vitest: "npm:^4.1.4"
-  languageName: unknown
-  linkType: soft
-
 "mri@npm:^1.2.0":
   version: 1.2.0
   resolution: "mri@npm:1.2.0"
@@ -19825,6 +19806,58 @@ __metadata:
   checksum: 10c0/50395efda7a8c94f5dffab564f9ff89736064d32addf0cc7e8bf5e4166f09f8ded7a0849ca6c2d2a59478f7d90f78f20d8048bca3cdf8be09d8e8a10790388f3
   languageName: node
   linkType: hard
+
+"rastro-monorepo@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "rastro-monorepo@workspace:."
+  dependencies:
+    "@changesets/cli": "npm:^2.29.6"
+    "@commitlint/cli": "npm:^19.8.0"
+    "@commitlint/config-conventional": "npm:^19.8.0"
+    "@eslint/js": "npm:^9.25.0"
+    "@mermaid-js/mermaid-cli": "npm:^11.12.0"
+    "@swc/core": "npm:^1.12.11"
+    "@swc/helpers": "npm:^0.5.17"
+    "@testing-library/dom": "npm:^10.4.2"
+    "@testing-library/jest-dom": "npm:^6.9.1"
+    "@testing-library/react": "npm:^16.3.2"
+    "@types/js-yaml": "npm:^4.0.9"
+    "@types/node": "npm:^25.6.0"
+    "@typescript-eslint/eslint-plugin": "npm:^8.30.1"
+    "@typescript-eslint/parser": "npm:^8.30.1"
+    "@vitest/coverage-v8": "npm:4.1.4"
+    "@vitest/ui": "npm:^4.1.4"
+    awilix: "npm:^12.0.5"
+    changeset: "npm:^0.2.6"
+    cross-env: "npm:^10.1.0"
+    eslint: "npm:^9.25.0"
+    eslint-config-prettier: "npm:^10.1.2"
+    eslint-plugin-import: "npm:^2.31.0"
+    eslint-plugin-jsx-a11y: "npm:^6.10.2"
+    eslint-plugin-prettier: "npm:^5.2.6"
+    eslint-plugin-react: "npm:^7.37.5"
+    eslint-plugin-react-hooks: "npm:^5.2.0"
+    eslint-plugin-simple-import-sort: "npm:^12.1.1"
+    eslint-plugin-unused-imports: "npm:^4.1.4"
+    fs-extra: "npm:^11.3.4"
+    globals: "npm:^16.0.0"
+    husky: "npm:^8.0.0"
+    jsdom: "npm:^29.0.2"
+    lint-staged: "npm:^15.5.1"
+    msw: "npm:^2.13.3"
+    pako: "npm:^2.1.0"
+    prettier: "npm:^3.5.3"
+    prettier-plugin-tailwindcss: "npm:^0.6.11"
+    rimraf: "npm:^6.0.1"
+    ts-node: "npm:^10.9.2"
+    tsup: "npm:^8.5.0"
+    tsx: "npm:^4.23.13"
+    turbo: "npm:2.11.7"
+    typescript: "npm:^5.8.3"
+    typescript-eslint: "npm:^8.30.1"
+    vitest: "npm:^4.1.4"
+  languageName: unknown
+  linkType: soft
 
 "rc@npm:^1.2.7":
   version: 1.2.8

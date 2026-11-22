@@ -9,7 +9,7 @@ import {
   Either,
   type IAddon,
   type IDataSource,
-} from '@mr-tick/sdk'
+} from '@rastrokit/sdk'
 import { z } from 'zod'
 
 import { FakeAnalyticsProvider } from './FakeAnalyticsProvider'
@@ -36,8 +36,8 @@ const configFields: {
           scope: 'configuration',
           type: 'text',
           label: 'URL do Servidor',
-          placeholder: 'https://fake.mr-tick-app.local',
-          defaultValue: 'https://fake.mr-tick-app.local',
+          placeholder: 'https://fake.rastro-app.local',
+          defaultValue: 'https://fake.rastro-app.local',
         },
         {
           id: 'username',
@@ -141,7 +141,7 @@ export default class FakeDataSourceAddon implements IAddon {
             identity: {
               kind: 'human',
               providerId: 'fake',
-              tenantId: 'fake.mr-tick-app.local',
+              tenantId: 'fake.rastro-app.local',
               providerSubjectId: String(FAKE_MEMBER.id),
               displayName: `${FAKE_MEMBER.firstname} ${FAKE_MEMBER.lastname}`,
             },
@@ -173,7 +173,7 @@ export default class FakeDataSourceAddon implements IAddon {
 
     const connectedWatchersByWorkspace = new Set<string>()
     let currentActiveWorkspaceId =
-      process.env.MR_TICK_RUNTIME_PROBE_WORKSPACE || ''
+      process.env.RASTRO_RUNTIME_PROBE_WORKSPACE || ''
 
     context.host.events.on<{ currentWorkspaceId: string }>(
       'workspace:changed',
@@ -290,7 +290,7 @@ export default class FakeDataSourceAddon implements IAddon {
     }
 
     context.contributions.commands.register(
-      'mr-tick-datasource-fake:fake-watcher:connect',
+      'rastro-datasource-fake:fake-watcher:connect',
       handleConnect,
     )
     context.contributions.commands.register(
@@ -299,7 +299,7 @@ export default class FakeDataSourceAddon implements IAddon {
     )
 
     context.contributions.commands.register(
-      'mr-tick-datasource-fake:fake-watcher:disconnect',
+      'rastro-datasource-fake:fake-watcher:disconnect',
       handleDisconnect,
     )
     context.contributions.commands.register(
@@ -505,11 +505,11 @@ export default class FakeDataSourceAddon implements IAddon {
 
           let workspaceId = arg.workspaceId
           if (!workspaceId) {
-            workspaceId = process.env.MR_TICK_RUNTIME_PROBE_WORKSPACE
+            workspaceId = process.env.RASTRO_RUNTIME_PROBE_WORKSPACE
           }
           let connectionInstanceId = arg.connectionInstanceId
           if (!connectionInstanceId) {
-            connectionInstanceId = process.env.MR_TICK_RUNTIME_PROBE_CONNECTION
+            connectionInstanceId = process.env.RASTRO_RUNTIME_PROBE_CONNECTION
           }
           if (workspaceId === undefined || connectionInstanceId === undefined)
             return { ok: false, error: 'PROBE_SCOPE_REQUIRED' }
@@ -586,9 +586,9 @@ export default class FakeDataSourceAddon implements IAddon {
       context.contributions.commands.register(
         'fake-db:runtime-create-entry',
         async () => {
-          const workspaceId = process.env.MR_TICK_RUNTIME_PROBE_WORKSPACE
+          const workspaceId = process.env.RASTRO_RUNTIME_PROBE_WORKSPACE
           const connectionInstanceId =
-            process.env.MR_TICK_RUNTIME_PROBE_CONNECTION
+            process.env.RASTRO_RUNTIME_PROBE_CONNECTION
           if (
             workspaceId === undefined ||
             workspaceId.length === 0 ||
@@ -645,7 +645,7 @@ export default class FakeDataSourceAddon implements IAddon {
       context.contributions.commands.register(
         'fake-db:runtime-get-entry',
         async () => {
-          const workspaceId = process.env.MR_TICK_RUNTIME_PROBE_WORKSPACE
+          const workspaceId = process.env.RASTRO_RUNTIME_PROBE_WORKSPACE
           if (workspaceId === undefined || workspaceId.length === 0)
             return { ok: false, error: 'RUNTIME_PROBE_SCOPE_REQUIRED' }
           const result = await context.core.timeEntries.getById(
@@ -664,9 +664,9 @@ export default class FakeDataSourceAddon implements IAddon {
       context.contributions.commands.register(
         'fake-db:runtime-quick-timer',
         async (taskId, expectedTitle) => {
-          const workspaceId = process.env.MR_TICK_RUNTIME_PROBE_WORKSPACE
+          const workspaceId = process.env.RASTRO_RUNTIME_PROBE_WORKSPACE
           const connectionInstanceId =
-            process.env.MR_TICK_RUNTIME_PROBE_CONNECTION
+            process.env.RASTRO_RUNTIME_PROBE_CONNECTION
           if (
             workspaceId === undefined ||
             workspaceId.length === 0 ||
@@ -1139,7 +1139,7 @@ export default class FakeDataSourceAddon implements IAddon {
       if (targetWs === 'global' || !targetWs) {
         targetWs =
           currentActiveWorkspaceId ||
-          process.env.MR_TICK_RUNTIME_PROBE_WORKSPACE ||
+          process.env.RASTRO_RUNTIME_PROBE_WORKSPACE ||
           ''
       }
       if (!targetWs) {
@@ -1156,19 +1156,18 @@ export default class FakeDataSourceAddon implements IAddon {
         return { ok: false, error: 'NO_ACTIVE_WORKSPACE' }
       }
 
-      let targetConnectionId =
-        process.env.MR_TICK_RUNTIME_PROBE_CONNECTION || ''
+      let targetConnectionId = process.env.RASTRO_RUNTIME_PROBE_CONNECTION || ''
       if (!targetConnectionId) {
         const connsResult = await context.core.connections.list(targetWs)
         if (connsResult.isSuccess()) {
           const found =
             connsResult.success.find(
               (c) =>
-                c.addonId === 'mr-tick-datasource-fake' &&
+                c.addonId === 'rastro-datasource-fake' &&
                 c.status === 'connected',
             ) ||
             connsResult.success.find(
-              (c) => c.addonId === 'mr-tick-datasource-fake',
+              (c) => c.addonId === 'rastro-datasource-fake',
             )
           if (found) targetConnectionId = found.connectionInstanceId
         }
@@ -1257,7 +1256,7 @@ export default class FakeDataSourceAddon implements IAddon {
     }
 
     context.contributions.commands.register(
-      'mr-tick-datasource-fake:fake-db:suggest-today',
+      'rastro-datasource-fake:fake-db:suggest-today',
       handleSuggestToday,
     )
     context.contributions.commands.register(

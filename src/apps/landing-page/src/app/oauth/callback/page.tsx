@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { createOAuthDesktopCallbackUrl } from '@/lib/oauth-callback'
+import { createOAuthDesktopCallbackUrl } from '@/lib/desktop-links'
 
 export default async function OAuthCallbackPage({
   searchParams,

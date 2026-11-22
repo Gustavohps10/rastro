@@ -42,7 +42,7 @@ describe.skipIf(process.platform !== 'win32')(
         y: 200,
         width: 400,
         height: 300,
-        title: 'MrTick-Harness-Validation-Window',
+        title: 'Rastro-Harness-Validation-Window',
         show: true,
       })
       expect(winRes.status).toBe('ok')

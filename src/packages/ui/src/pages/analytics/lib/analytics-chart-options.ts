@@ -1,4 +1,4 @@
-import type { AnalyticsDatasetRow } from '@mr-tick/application'
+import type { AnalyticsDatasetRow } from '@rastrokit/application'
 
 import type { AnalyticsTooltipField, WidgetId } from './analytics-types'
 

@@ -1,7 +1,10 @@
 'use client'
 
-import type { IHostBridge, LocalRuntimeSyncStatus } from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+import type {
+  IHostBridge,
+  LocalRuntimeSyncStatus,
+} from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import { type QueryFilters, useQueryClient } from '@tanstack/react-query'
 import {
   createContext,

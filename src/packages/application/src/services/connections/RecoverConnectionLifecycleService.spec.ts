@@ -1,5 +1,5 @@
-import type { Workspace } from '@mr-tick/domain'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+import type { Workspace } from '@rastrokit/domain'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import type {

@@ -6,17 +6,17 @@ import {
   PaginatedViewModel,
   ViewModel,
   WorkspaceViewModel,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import {
   AppRail,
   Header,
   PageHeaderBreadcrumb,
   TitleBar,
   UltimateTimeTracker,
-} from '@mr-tick/ui/components'
-import { useCurrentWidgetPosition } from '@mr-tick/ui/hooks'
-import { queryClient } from '@mr-tick/ui/lib'
-import { Metrics, TimeEntries } from '@mr-tick/ui/pages'
+} from '@rastrokit/ui/components'
+import { useCurrentWidgetPosition } from '@rastrokit/ui/hooks'
+import { queryClient } from '@rastrokit/ui/lib'
+import { Metrics, TimeEntries } from '@rastrokit/ui/pages'
 import {
   DataSourceConnectionsProvider,
   EnvironmentProvider,
@@ -26,9 +26,9 @@ import {
   TimeEntryProvider,
   TooltipProvider,
   WorkspaceProvider,
-} from '@mr-tick/ui/providers'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@mr-tick/ui/tooltip'
-import { cn } from '@mr-tick/ui/utils'
+} from '@rastrokit/ui/providers'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@rastrokit/ui/tooltip'
+import { cn } from '@rastrokit/ui/utils'
 import { QueryClientProvider } from '@tanstack/react-query'
 import {
   CalendarDays,

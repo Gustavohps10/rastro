@@ -16,16 +16,16 @@ import type {
   LocalSyncRequest,
   LocalSyncResponse,
   LocalTimeEntrySnapshot,
-} from '@mr-tick/application'
-import { validateCoreCacheQuery } from '@mr-tick/application'
-import { LocalRuntime } from '@mr-tick/application/local-runtime'
+} from '@rastrokit/application'
+import { validateCoreCacheQuery } from '@rastrokit/application'
+import { LocalRuntime } from '@rastrokit/application/local-runtime'
 import {
   AppError,
   Either,
   isDataSource,
   isNonEmptyString,
   isRecord,
-} from '@mr-tick/shared/helpers'
+} from '@rastrokit/shared/helpers'
 import {
   normalizeMangoQuery,
   prepareQuery,

@@ -31,7 +31,7 @@ test.describe('E2E - Seleção e Alternância de Temas Visuais (Rastro Core & Ad
     await expect(themeSelectBtn).toContainText('Default')
 
     // Certifica que não há tag de tema customizado injetada inicialmente
-    const initialThemeStyle = await page.$('#mr-tick-addon-active-theme')
+    const initialThemeStyle = await page.$('#rastro-addon-active-theme')
     expect(initialThemeStyle).toBeNull()
 
     // 5. Clica no seletor para abrir o popover com a lista de temas
@@ -50,7 +50,7 @@ test.describe('E2E - Seleção e Alternância de Temas Visuais (Rastro Core & Ad
     await matrixOption.click()
 
     // 6. Valida aplicação imediata do CSS no DOM via AddonThemeBridge
-    const injectedStyle = page.locator('#mr-tick-addon-active-theme')
+    const injectedStyle = page.locator('#rastro-addon-active-theme')
     await expect(injectedStyle).toBeAttached({ timeout: 10000 })
     const styleContent = await injectedStyle.textContent()
     expect(styleContent).toContain('--primary:')
@@ -61,7 +61,7 @@ test.describe('E2E - Seleção e Alternância de Temas Visuais (Rastro Core & Ad
 
     // 8. Clica em "Restaurar Nativo" e valida remoção do estilo customizado
     await restoreBtn.click()
-    await expect(page.locator('#mr-tick-addon-active-theme')).not.toBeAttached({
+    await expect(page.locator('#rastro-addon-active-theme')).not.toBeAttached({
       timeout: 10000,
     })
     await expect(restoreBtn).not.toBeVisible()
@@ -69,7 +69,7 @@ test.describe('E2E - Seleção e Alternância de Temas Visuais (Rastro Core & Ad
     // 9. Aplica novamente o tema Matrix Neon para testar persistência
     await themeSelectBtn.click()
     await matrixOption.click()
-    await expect(page.locator('#mr-tick-addon-active-theme')).toBeAttached({
+    await expect(page.locator('#rastro-addon-active-theme')).toBeAttached({
       timeout: 10000,
     })
 
@@ -78,7 +78,7 @@ test.describe('E2E - Seleção e Alternância de Temas Visuais (Rastro Core & Ad
     await page.waitForLoadState('domcontentloaded')
 
     // Após recarga, AddonThemeBridge deve restaurar a tag de estilo com o tema persistido
-    const reloadedStyle = page.locator('#mr-tick-addon-active-theme')
+    const reloadedStyle = page.locator('#rastro-addon-active-theme')
     await expect(reloadedStyle).toBeAttached({ timeout: 15000 })
 
     // 11. Limpa o estado voltando ao tema nativo
@@ -89,7 +89,7 @@ test.describe('E2E - Seleção e Alternância de Temas Visuais (Rastro Core & Ad
     })
     await expect(finalRestoreBtn).toBeVisible({ timeout: 10000 })
     await finalRestoreBtn.click()
-    await expect(page.locator('#mr-tick-addon-active-theme')).not.toBeAttached({
+    await expect(page.locator('#rastro-addon-active-theme')).not.toBeAttached({
       timeout: 10000,
     })
   })

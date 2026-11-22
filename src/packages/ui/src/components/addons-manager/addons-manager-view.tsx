@@ -2,13 +2,13 @@ import type {
   AddonCapability,
   AddonManifestViewModel,
   AddonPackageViewModel,
-} from '@mr-tick/sdk'
-import { hasCapability } from '@mr-tick/shared/helpers'
+} from '@rastrokit/sdk'
+import { hasCapability } from '@rastrokit/shared/helpers'
 import {
   compareSemVer,
   isApiVersionCompatible,
   parseSemVer,
-} from '@mr-tick/shared/helpers'
+} from '@rastrokit/shared/helpers'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   ArrowUpCircle,

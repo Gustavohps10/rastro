@@ -88,7 +88,7 @@ export default defineConfig((options) => ({
     /^date-fns\//,
     /^zustand\//,
     /^react-icons\//,
-    /^@mr-tick\//,
+    /^@rastro\//,
   ],
 
   loader: {

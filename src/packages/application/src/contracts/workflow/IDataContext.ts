@@ -1,4 +1,4 @@
-﻿import { Entity } from '@mr-tick/domain'
+﻿import { Entity } from '@rastrokit/domain'
 
 import { IQueryBase } from '@/contracts/data'
 import { IRepositoryBase } from '@/contracts/data'

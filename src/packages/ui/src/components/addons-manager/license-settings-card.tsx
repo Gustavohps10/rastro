@@ -1,6 +1,6 @@
 'use client'
 
-import type { LicensingStatusViewModel } from '@mr-tick/shared/view-models'
+import type { LicensingStatusViewModel } from '@rastrokit/shared/view-models'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   CheckCircle2,
@@ -170,9 +170,9 @@ export function LicenseActivationDialog({
         >
           <div className="min-h-0 flex-1 space-y-4 overflow-y-auto px-6 py-4">
             <div className="space-y-2">
-              <Label htmlFor="mr-tick-plus-license-key">Chave de Licença</Label>
+              <Label htmlFor="rastro-plus-license-key">Chave de Licença</Label>
               <Input
-                id="mr-tick-plus-license-key"
+                id="rastro-plus-license-key"
                 placeholder="MTPLUS-XXXX-XXXX-XXXX-XXXX"
                 value={licenseKey}
                 onChange={(event) => setLicenseKey(event.target.value)}
@@ -331,8 +331,8 @@ export function LicenseSettingsCard() {
                   </Badge>
                 </div>
                 <CardDescription className="text-xs">
-                  Acesso aos addons oficiais Plus (como Discord Rich Presence &
-                  Voice Tracker) e até 2 dispositivos simultâneos.
+                  Acesso aos addons oficiais Plus e até 2 dispositivos
+                  simultâneos.
                 </CardDescription>
               </div>
             </div>

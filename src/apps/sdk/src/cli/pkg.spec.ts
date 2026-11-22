@@ -31,7 +31,7 @@ const inventorySchema = z.strictObject({
 })
 
 function createAddon(tier: 'free' | 'plus' | undefined): string {
-  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'mr-tick-test-pkg-'))
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'rastro-test-pkg-'))
   fs.mkdirSync(path.join(directory, 'dist', 'chunks'), { recursive: true })
   fs.mkdirSync(path.join(directory, 'dist', 'assets'), { recursive: true })
   fs.writeFileSync(
@@ -49,13 +49,13 @@ function createAddon(tier: 'free' | 'plus' | undefined): string {
   fs.writeFileSync(
     path.join(directory, 'package.json'),
     JSON.stringify({
-      name: '@mr-tick/discord-addon',
+      name: '@rastrokit/discord-addon',
       version: '0.1.0',
       main: 'dist/index.js',
     }),
   )
   const lines = [
-    'id: mistertick-discord',
+    'id: rastro-discord',
     'name: Discord Presence',
     'version: 0.1.0',
     'capabilities:',
@@ -72,7 +72,7 @@ function cleanupAddon(directory: string): void {
   const absolute = path.resolve(directory)
   if (
     path.dirname(absolute) !== path.resolve(os.tmpdir()) ||
-    !path.basename(absolute).startsWith('mr-tick-test-pkg-')
+    !path.basename(absolute).startsWith('rastro-test-pkg-')
   )
     throw new Error('SDK_TEST_CLEANUP_PATH_INVALID')
   fs.rmSync(absolute, { recursive: true, force: true })
@@ -89,7 +89,7 @@ function signingFixture() {
   }
 }
 
-describe('buildAddon (mr-tick pkg)', () => {
+describe('buildAddon (rastro pack)', () => {
   it('calcula sha256/size reais e preserva layout dist e metadados Plus', () => {
     const directory = createAddon('plus')
     try {
@@ -105,7 +105,7 @@ describe('buildAddon (mr-tick pkg)', () => {
       )
       expect(result.size).toBe(fs.statSync(result.outFile).size)
       expect(result.downloadUrl).toBe(
-        'https://mistertick-api.rastrokit.workers.dev/catalog/plus-addons/mistertick-discord/versions/0.1.0/download',
+        'https://rastro-api.rastrokit.workers.dev/catalog/plus-addons/rastro-discord/versions/0.1.0/download',
       )
       const zip = new AdmZip(result.outFile)
       expect(zip.getEntry('dist/index.js')).not.toBeNull()
@@ -295,18 +295,18 @@ describe('buildAddon (mr-tick pkg)', () => {
     const { signing } = signingFixture()
     expect(readCatalogSigningEnvironment({})).toBeUndefined()
     expect(() =>
-      readCatalogSigningEnvironment({ MR_TICK_CATALOG_KEY_ID: signing.keyId }),
+      readCatalogSigningEnvironment({ RASTRO_CATALOG_KEY_ID: signing.keyId }),
     ).toThrow('CATALOG_SIGNING_CONFIGURATION_INCOMPLETE')
     expect(() =>
       readCatalogSigningEnvironment({
-        MR_TICK_CATALOG_SIGNING_KEY: 'not-json',
-        MR_TICK_CATALOG_KEY_ID: signing.keyId,
+        RASTRO_CATALOG_SIGNING_KEY: 'not-json',
+        RASTRO_CATALOG_KEY_ID: signing.keyId,
       }),
     ).toThrow('CATALOG_SIGNING_KEY_INVALID')
     expect(
       readCatalogSigningEnvironment({
-        MR_TICK_CATALOG_SIGNING_KEY: JSON.stringify(signing.privateKeyJwk),
-        MR_TICK_CATALOG_KEY_ID: signing.keyId,
+        RASTRO_CATALOG_SIGNING_KEY: JSON.stringify(signing.privateKeyJwk),
+        RASTRO_CATALOG_KEY_ID: signing.keyId,
       }),
     ).toEqual({ privateKeyJwk: signing.privateKeyJwk, keyId: signing.keyId })
   })

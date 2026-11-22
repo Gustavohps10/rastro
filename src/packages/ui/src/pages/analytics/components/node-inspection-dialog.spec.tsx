@@ -1,4 +1,4 @@
-import type { AnalyticsColumnSchema } from '@mr-tick/application'
+import type { AnalyticsColumnSchema } from '@rastrokit/application'
 import { fireEvent, render, screen, within } from '@testing-library/react'
 import type { ComponentProps } from 'react'
 import { beforeAll, describe, expect, it, vi } from 'vitest'

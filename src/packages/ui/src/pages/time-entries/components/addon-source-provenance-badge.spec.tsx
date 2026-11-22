@@ -1,4 +1,4 @@
-import type { AddonSourceInfo } from '@mr-tick/application'
+import type { AddonSourceInfo } from '@rastrokit/application'
 import { render, screen } from '@testing-library/react'
 import { beforeEach, describe, expect, it } from 'vitest'
 

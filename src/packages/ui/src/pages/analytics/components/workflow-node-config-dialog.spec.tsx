@@ -1,4 +1,4 @@
-import type { AnalyticsDatasetManifest } from '@mr-tick/application'
+import type { AnalyticsDatasetManifest } from '@rastrokit/application'
 import { fireEvent, render, screen } from '@testing-library/react'
 import type { ComponentProps } from 'react'
 import { beforeAll, describe, expect, it, vi } from 'vitest'

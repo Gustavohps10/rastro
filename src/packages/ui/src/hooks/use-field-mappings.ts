@@ -1,6 +1,6 @@
 'use client'
 
-import type { ConfiguredFieldMapping } from '@mr-tick/sdk'
+import type { ConfiguredFieldMapping } from '@rastrokit/sdk'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useMemo } from 'react'
 

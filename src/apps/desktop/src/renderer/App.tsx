@@ -1,16 +1,16 @@
 import '@/renderer/index.css'
 
-import type { EnvironmentInfo } from '@mr-tick/application'
-import { AddonThemeBridge, AddonToastBridge } from '@mr-tick/ui/components'
-import { queryClient } from '@mr-tick/ui/lib'
+import type { EnvironmentInfo } from '@rastrokit/application'
+import { AddonThemeBridge, AddonToastBridge } from '@rastrokit/ui/components'
+import { queryClient } from '@rastrokit/ui/lib'
 import {
   EnvironmentProvider,
   HostBridgeProvider,
   SidebarProvider,
   ThemeProvider,
   TooltipProvider,
-} from '@mr-tick/ui/providers'
-import { Toaster } from '@mr-tick/ui/sonner'
+} from '@rastrokit/ui/providers'
+import { Toaster } from '@rastrokit/ui/sonner'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { NuqsAdapter } from 'nuqs/adapters/react-router/v6'
 import { useEffect, useState } from 'react'

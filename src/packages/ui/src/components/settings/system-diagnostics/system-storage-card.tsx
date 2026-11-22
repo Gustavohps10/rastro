@@ -3,7 +3,7 @@ import type {
   DiagnosticStorageCoverage,
   DiagnosticStorageItem,
   DiagnosticStorageRole,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { Database, HardDrive } from 'lucide-react'
 import React from 'react'
 

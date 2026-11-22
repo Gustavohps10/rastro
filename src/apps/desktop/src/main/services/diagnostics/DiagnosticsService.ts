@@ -11,9 +11,9 @@ import type {
   IAnalyticsDiagnosticAdapter,
   IMetadataDiagnosticAdapter,
   SanitizedDiagnosticReport,
-} from '@mr-tick/application'
-import { AppError, Either, type FieldErrors } from '@mr-tick/shared/helpers'
-import type { AnalyticsStorageErrorEvent } from '@mr-tick/shared/transport'
+} from '@rastrokit/application'
+import { AppError, Either, type FieldErrors } from '@rastrokit/shared/helpers'
+import type { AnalyticsStorageErrorEvent } from '@rastrokit/shared/transport'
 import { BrowserWindow, shell } from 'electron'
 
 import type { LocalRuntimeDispatcher } from '../local-runtime/LocalRuntimeDispatcher'

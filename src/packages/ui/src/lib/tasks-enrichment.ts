@@ -1,6 +1,6 @@
-import type { CoreTask } from '@mr-tick/application'
-import { IHostBridge } from '@mr-tick/application'
-import { StatusChange, TaskViewModel } from '@mr-tick/shared/view-models'
+import type { CoreTask } from '@rastrokit/application'
+import { IHostBridge } from '@rastrokit/application'
+import { StatusChange, TaskViewModel } from '@rastrokit/shared/view-models'
 
 import {
   SyncParticipantsRxDBDTO,

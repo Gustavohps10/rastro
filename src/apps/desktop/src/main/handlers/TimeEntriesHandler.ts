@@ -5,15 +5,15 @@ import {
   PushTimeEntriesInput,
   TimeEntryPullCheckpointDTO,
   TimeEntryPullPageDTO,
-} from '@mr-tick/application'
-import { createResponseViewModel } from '@mr-tick/shared/helpers'
-import { IRequest } from '@mr-tick/shared/transport'
+} from '@rastrokit/application'
+import { createResponseViewModel } from '@rastrokit/shared/helpers'
+import { IRequest } from '@rastrokit/shared/transport'
 import {
   PaginatedViewModel,
   SyncDocumentViewModel,
   TimeEntryViewModel,
   ViewModel,
-} from '@mr-tick/shared/view-models'
+} from '@rastrokit/shared/view-models'
 import { IpcMainInvokeEvent } from 'electron'
 
 import { HandlerBase } from '@/main/handlers/HandlerBase'

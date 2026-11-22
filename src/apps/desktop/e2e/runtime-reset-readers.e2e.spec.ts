@@ -58,7 +58,7 @@ test('reset espera lease remoto, fecha reader real e reabre CRUD/cache no novo s
   )
   if (!workspace) throw new Error('RESET_FIXTURE_WORKSPACE_NOT_FOUND')
   const connection = workspace.connections.find(
-    (candidate) => candidate.addonId === 'mr-tick-datasource-fake',
+    (candidate) => candidate.addonId === 'rastro-datasource-fake',
   )
   if (!connection) throw new Error('RESET_FIXTURE_CONNECTION_NOT_FOUND')
   await page

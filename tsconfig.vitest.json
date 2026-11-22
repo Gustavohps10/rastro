@@ -1,6 +1,7 @@
 {
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
+    "tsBuildInfoFile": "./.temps/typescript/vitest.tsbuildinfo",
       "types": ["vitest/globals", "node"]
     },
     "include": [

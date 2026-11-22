@@ -1,10 +1,10 @@
-import type { AddonCapability, AddonManifestViewModel } from '@mr-tick/sdk'
+import type { AddonCapability, AddonManifestViewModel } from '@rastrokit/sdk'
 import {
   hasCapability,
   isDataSource,
   isTheme,
   isWatcher,
-} from '@mr-tick/shared/helpers'
+} from '@rastrokit/shared/helpers'
 import {
   AlertTriangle,
   Calendar,

@@ -9,9 +9,9 @@ import type {
   ICredentialsVault,
   IHttpClientFactory,
   IWorkspacesRepository,
-} from '@mr-tick/application'
-import { CredentialReferenceFactory } from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { CredentialReferenceFactory } from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
 import { parseConnectionCredentialPayload } from '@/main/utils/credentialPayload'
 import { selectPrimaryAuthorization } from '@/main/utils/selectPrimaryAuthorization'

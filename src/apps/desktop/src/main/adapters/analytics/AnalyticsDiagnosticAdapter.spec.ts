@@ -4,8 +4,8 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
 import { DuckDBInstance } from '@duckdb/node-api'
-import type { IWorkspacesRepository } from '@mr-tick/application'
-import { Either } from '@mr-tick/shared/helpers'
+import type { IWorkspacesRepository } from '@rastrokit/application'
+import { Either } from '@rastrokit/shared/helpers'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { AnalyticsDiagnosticAdapter } from './AnalyticsDiagnosticAdapter'

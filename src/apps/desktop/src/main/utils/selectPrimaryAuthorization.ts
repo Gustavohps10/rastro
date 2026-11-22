@@ -1,8 +1,8 @@
 import type {
   ConnectionAuthorizationRecord,
   DataSourceConnection,
-} from '@mr-tick/domain'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/domain'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
 const PRIMARY_AUTHORIZATION_ROLE = 'primary'
 

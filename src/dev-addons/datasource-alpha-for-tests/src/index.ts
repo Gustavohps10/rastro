@@ -26,7 +26,7 @@ import {
   type TimeEntryPullPageDTO,
   type UpdatedTaskResult,
   type UpdatedTimeEntryResult,
-} from '@mr-tick/sdk'
+} from '@rastrokit/sdk'
 
 const palette = {
   purple: {

@@ -6,10 +6,10 @@ import type {
   AnalyticsDatasetManifest,
   IAnalyticsProvider,
   IAnalyticsResolver,
-} from '@mr-tick/application'
-import { AnalyticsWarehouseService } from '@mr-tick/application'
-import { Either } from '@mr-tick/shared/helpers'
-import { NoOpSystemEventEmitter } from '@mr-tick/shared/transport'
+} from '@rastrokit/application'
+import { AnalyticsWarehouseService } from '@rastrokit/application'
+import { Either } from '@rastrokit/shared/helpers'
+import { NoOpSystemEventEmitter } from '@rastrokit/shared/transport'
 import { expect, it } from 'vitest'
 import { z } from 'zod'
 

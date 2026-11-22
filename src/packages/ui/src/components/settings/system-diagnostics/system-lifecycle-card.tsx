@@ -2,7 +2,7 @@ import type {
   DiagnosticCheckResult,
   DiagnosticDispatcherState,
   DiagnosticStartupFailureKind,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import {
   Activity,
   AlertCircle,

@@ -1,7 +1,7 @@
 import type {
   AddonLoadFailuresSnapshot,
   AddonLoadFailureViewModel,
-} from '@mr-tick/shared/view-models'
+} from '@rastrokit/shared/view-models'
 import { useEffect, useRef, useState } from 'react'
 
 import { useHostBridge } from '@/hooks/use-host-bridge'

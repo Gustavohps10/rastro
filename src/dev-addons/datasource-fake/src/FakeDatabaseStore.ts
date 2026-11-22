@@ -10,7 +10,7 @@ import type {
   PaginationOptionsDTO,
   TaskDTO,
   TimeEntryDTO,
-} from '@mr-tick/sdk'
+} from '@rastrokit/sdk'
 
 import {
   FAKE_MEMBER,
@@ -191,9 +191,9 @@ function getDatabaseFilePath(): string {
   const appData = process.env.APPDATA
   const baseDirectory =
     appData && appData.length > 0
-      ? join(appData, 'mr-tick')
-      : join(homedir(), '.mr-tick')
-  const storageDirectory = join(baseDirectory, 'mr-tick-datasource-fake')
+      ? join(appData, 'rastro')
+      : join(homedir(), '.rastro')
+  const storageDirectory = join(baseDirectory, 'rastro-datasource-fake')
   return join(storageDirectory, 'fake-remote-db.json')
 }
 

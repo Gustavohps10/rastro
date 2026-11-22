@@ -198,7 +198,7 @@ LRESULT CALLBACK TestWndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             SetTextColor(hdc, RGB(220, 220, 220));
             RECT rc;
             GetClientRect(hwnd, &rc);
-            DrawTextA(hdc, "Mr. Tick Native Test Harness Window (Background Target)", -1, &rc, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+            DrawTextA(hdc, "Rastro Native Test Harness Window (Background Target)", -1, &rc, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 
             EndPaint(hwnd, &ps);
             return 0;
@@ -225,7 +225,7 @@ DWORD WINAPI MessageLoopThread(LPVOID lpParam) {
     wc.cbSize = sizeof(wc);
     wc.lpfnWndProc = TestWndProc;
     wc.hInstance = GetModuleHandle(NULL);
-    wc.lpszClassName = "MrTickTestBackgroundWindowClass";
+    wc.lpszClassName = "RastroTestBackgroundWindowClass";
     wc.hCursor = LoadCursor(NULL, IDC_ARROW);
     wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
     RegisterClassExA(&wc);
@@ -247,7 +247,7 @@ DWORD WINAPI MessageLoopThread(LPVOID lpParam) {
 
             g_TestHwnd = CreateWindowExA(
                 WS_EX_TOPMOST | WS_EX_TOOLWINDOW,
-                "MrTickTestBackgroundWindowClass",
+                "RastroTestBackgroundWindowClass",
                 p->title.c_str(),
                 WS_POPUP | WS_VISIBLE,
                 p->x, p->y, p->width, p->height,
@@ -466,7 +466,7 @@ int main(int argc, char* argv[]) {
             params.width = ExtractJsonInt(line, "width", 800);
             params.height = ExtractJsonInt(line, "height", 600);
             params.title = ExtractJsonString(line, "title");
-            if (params.title.empty()) params.title = "Mr. Tick Test Background Window";
+            if (params.title.empty()) params.title = "Rastro Test Background Window";
             params.show = ExtractJsonBool(line, "show", true);
             params.hDoneEvent = CreateEvent(NULL, FALSE, FALSE, NULL);
 

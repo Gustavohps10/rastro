@@ -1,7 +1,7 @@
 import type {
   AnalyticsColumnSchema,
   AnalyticsDatasetRow,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { useVirtualizer } from '@tanstack/react-virtual'
 import { memo, useEffect, useRef } from 'react'
 

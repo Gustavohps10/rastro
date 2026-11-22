@@ -18,7 +18,7 @@ No protocolo OAuth 2.0 (RFC 6749), existem dois tipos fundamentais de clientes:
 
 ## 2. Por que o Discord funciona sem `client_secret`?
 
-O addon do Discord (`@mr-tick/discord-addon` ou `mistertick-discord`) opera de forma diferente de um fluxo web tradicional:
+O addon do Discord (`@rastrokit/discord-addon` ou `rastro-discord`) opera de forma diferente de um fluxo web tradicional:
 
 - **Comunicação por IPC Local (Named Pipe):** O addon comunica-se diretamente com o aplicativo Discord Desktop em execução na mesma máquina através de um Named Pipe do sistema operacional (`\\.\pipe\discord-ipc-0` no Windows ou `/tmp/discord-ipc-0` em sistemas Unix/Linux/macOS).
 - **Rich Presence RPC:** O protocolo de Rich Presence local do Discord requer apenas o `client_id` público da aplicação registrada no portal de desenvolvedores para realizar o handshake local. O usuário já está autenticado no aplicativo Discord Desktop instalado no seu sistema operacional.
@@ -50,13 +50,13 @@ Para garantir escalabilidade, segurança e independência entre criadores da com
 ```mermaid
 flowchart TD
     subgraph LocalMachine["Máquina do Usuário (Cliente Público)"]
-        MrTick["Rastro Desktop (Electron)"]
+        Rastro["Rastro Desktop (Electron)"]
         OfficialAddon["Addon Oficial (Ex: Rastro Plus Jira)"]
         ThirdPartyAddon["Addon de Terceiro (Ex: Acme Gitlab)"]
     end
 
     subgraph CoreCloud["Infraestrutura Oficial Rastro"]
-        MisterTickApi["mistertick-api (Confidential Backend)"]
+        RastroApi["rastro-api (Confidential Backend)"]
         OfficialSecret[("Client Secrets Oficiais")]
     end
 
@@ -70,9 +70,9 @@ flowchart TD
         ThirdPartyProvider["OAuth Server Terceiro"]
     end
 
-    OfficialAddon -->|1. Solicita troca| MisterTickApi
-    MisterTickApi -->|2. Injeta secret & troca| AtlassianAuth
-    MisterTickApi -->|3. Retorna tokens| OfficialAddon
+    OfficialAddon -->|1. Solicita troca| RastroApi
+    RastroApi -->|2. Injeta secret & troca| AtlassianAuth
+    RastroApi -->|3. Retorna tokens| OfficialAddon
 
     ThirdPartyAddon -->|Opção A: Troca via Broker próprio| ThirdPartyBroker
     ThirdPartyBroker -->|Injeta secret do dev| ThirdPartyProvider
@@ -81,19 +81,19 @@ flowchart TD
     ThirdPartyAddon -.->|Opção C: PKCE Direto (Sem Secret)| ThirdPartyProvider
 ```
 
-### 4.1. Addons Oficiais do Ecossistema Rastro (`mistertick-api`)
+### 4.1. Addons Oficiais do Ecossistema Rastro (`rastro-api`)
 
 Para addons desenvolvidos e mantidos oficialmente pela equipe do Rastro:
 
-- A `mistertick-api` atua como o backend confidencial oficial.
-- As `client_secret` de aplicativos oficiais registrados (ex: Atlassian, Google Workspace, Microsoft 365) ficam armazenadas exclusivamente nas variáveis de ambiente seguras da `mistertick-api`.
-- O addon oficial solicita a troca de código à `mistertick-api`, que executa o handshake autenticado com o provedor e devolve os tokens seguros ao aplicativo local do usuário.
+- A `rastro-api` atua como o backend confidencial oficial.
+- As `client_secret` de aplicativos oficiais registrados (ex: Atlassian, Google Workspace, Microsoft 365) ficam armazenadas exclusivamente nas variáveis de ambiente seguras da `rastro-api`.
+- O addon oficial solicita a troca de código à `rastro-api`, que executa o handshake autenticado com o provedor e devolve os tokens seguros ao aplicativo local do usuário.
 
 ### 4.2. Addons de Terceiros e Comunidade
 
-Addons desenvolvidos por autores externos ou empresas parceiras **não têm acesso de escrita nem podem injetar credenciais confidenciais na `mistertick-api`**.
+Addons desenvolvidos por autores externos ou empresas parceiras **não têm acesso de escrita nem podem injetar credenciais confidenciais na `rastro-api`**.
 
-A `mistertick-api` não atua como broker arbitrário para chaves de terceiros, pois isso criaria riscos de segurança, custos de infraestrutura não gerenciados e problemas de responsabilidade legal sobre abusos de API.
+A `rastro-api` não atua como broker arbitrário para chaves de terceiros, pois isso criaria riscos de segurança, custos de infraestrutura não gerenciados e problemas de responsabilidade legal sobre abusos de API.
 
 Para desenvolver um addon de terceiro, o autor possui três caminhos arquiteturais canônicos:
 
@@ -130,7 +130,7 @@ Para desenvolver um addon de terceiro, o autor possui três caminhos arquitetura
 | **API Token / PAT**                  |          **Não**           | Alta (cofre local do OS) | Média (copiar/colar token)  | Quase todos (Jira, Redmine, GitLab, GitHub) |
 | **IPC Local (Named Pipe)**           |          **Não**           |  Alta (processo local)   |  Baixíssima (transparente)  | Apenas apps desktop com RPC (Discord)       |
 | **OAuth 2.0 + PKCE Nativo**          |          **Não**           |   Alta (S256 verifier)   | Baixa (login no navegador)  | Provedores que aceitam Public Clients       |
-| **OAuth 2.0 via Broker Oficial**     |   Sim (`mistertick-api`)   |  Alta (servidor seguro)  | Baixa (login no navegador)  | Exclusivo para Addons Oficiais do Rastro  |
+| **OAuth 2.0 via Broker Oficial**     |   Sim (`rastro-api`)   |  Alta (servidor seguro)  | Baixa (login no navegador)  | Exclusivo para Addons Oficiais do Rastro  |
 | **OAuth 2.0 via Broker de Terceiro** |  Sim (Cloudflare/Lambda)   | Alta (servidor do autor) | Baixa (login no navegador)  | Qualquer provedor que exija `client_secret` |
 
 ---

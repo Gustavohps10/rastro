@@ -28,7 +28,7 @@ test.describe('E2E - Criação de Instâncias de Data Source com Schema Dinâmic
 
     // 4. Clica em "Configurar" no addon fake instalado
     const configureFakeAddonBtn = page.locator(
-      '[data-testid="addon-configure-btn-mr-tick-datasource-fake"]',
+      '[data-testid="addon-configure-btn-rastro-datasource-fake"]',
     )
     await expect(configureFakeAddonBtn).toBeVisible({ timeout: 10000 })
     await configureFakeAddonBtn.click()
@@ -67,7 +67,7 @@ test.describe('E2E - Criação de Instâncias de Data Source com Schema Dinâmic
       '[data-testid="addon-field-input-serverUrl"]',
     )
     await expect(serverUrlInput).toBeVisible({ timeout: 5000 })
-    await expect(serverUrlInput).toHaveValue('https://fake.mr-tick-app.local')
+    await expect(serverUrlInput).toHaveValue('https://fake.rastro-app.local')
 
     const usernameInput = page.locator(
       '[data-testid="addon-field-input-username"]',

@@ -1,4 +1,4 @@
-import type { AnalyticsColumnSchema } from '@mr-tick/application'
+import type { AnalyticsColumnSchema } from '@rastrokit/application'
 
 import { isRemoteAggregateUnsupportedVisual } from './analytics-plan'
 import type { SpaceWidgetConfig, WidgetId } from './analytics-types'

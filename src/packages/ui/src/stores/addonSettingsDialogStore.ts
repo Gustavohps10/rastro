@@ -1,4 +1,4 @@
-import type { AddonManifestViewModel } from '@mr-tick/shared/view-models'
+import type { AddonManifestViewModel } from '@rastrokit/shared/view-models'
 import { create } from 'zustand'
 
 interface AddonSettingsDialogState {

@@ -1,4 +1,4 @@
-﻿import type { EnvironmentInfo } from '@mr-tick/application'
+﻿import type { EnvironmentInfo } from '@rastrokit/application'
 import { useContext } from 'react'
 
 import { EnvironmentContext } from '@/contexts/EnvironmentContext'

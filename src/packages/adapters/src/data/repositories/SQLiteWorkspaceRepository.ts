@@ -3,9 +3,9 @@ import {
   PagedResultDTO,
   PaginationOptionsDTO,
   WorkspaceFilterDTO,
-} from '@mr-tick/application'
-import { ConnectionIdentity, Workspace } from '@mr-tick/domain'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { ConnectionIdentity, Workspace } from '@rastrokit/domain'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import { Knex } from 'knex'
 import { z } from 'zod'
 

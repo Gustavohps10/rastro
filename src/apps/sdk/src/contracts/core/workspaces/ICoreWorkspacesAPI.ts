@@ -1,1 +1,1 @@
-export type { CoreWorkspace, ICoreWorkspacesAPI } from '@mr-tick/application'
+export type { CoreWorkspace, ICoreWorkspacesAPI } from '@rastrokit/application'

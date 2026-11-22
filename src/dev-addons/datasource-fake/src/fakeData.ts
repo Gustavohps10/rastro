@@ -4,7 +4,7 @@ import type {
   MetadataItem,
   TaskDTO,
   TimeEntryDTO,
-} from '@mr-tick/sdk'
+} from '@rastrokit/sdk'
 
 import { CORE_SDK_PROBE_TASK_ID } from './runtime-probe-fixture'
 

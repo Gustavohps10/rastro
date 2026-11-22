@@ -2,8 +2,8 @@ import {
   AppError,
   createResponseViewModel,
   Either,
-} from '@mr-tick/shared/helpers'
-import { ViewModel } from '@mr-tick/shared/view-models'
+} from '@rastrokit/shared/helpers'
+import { ViewModel } from '@rastrokit/shared/view-models'
 import { IpcMainInvokeEvent } from 'electron'
 
 import { HandlerBase } from '@/main/handlers/HandlerBase'

@@ -1,5 +1,5 @@
-import { TimeEntry } from '@mr-tick/domain'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+import { TimeEntry } from '@rastrokit/domain'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
 import {
   IDataSourceResolver,

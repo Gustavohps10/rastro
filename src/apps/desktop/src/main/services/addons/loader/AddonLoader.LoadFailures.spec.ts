@@ -2,7 +2,7 @@ import { mkdirSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
-import { EMPTY_HTTP_CONFIG } from '@mr-tick/adapters/contracts'
+import { EMPTY_HTTP_CONFIG } from '@rastrokit/adapters/contracts'
 import {
   AddonAuthenticatorRegistry,
   AddonConnectionProfilesResolver,
@@ -10,9 +10,9 @@ import {
   ILocalRuntimeAPI,
   OAuthAttemptCoordinator,
   VerifiedAddonPackage,
-} from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
-import { AddonLoadFailuresSnapshot } from '@mr-tick/shared/view-models'
+} from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
+import { AddonLoadFailuresSnapshot } from '@rastrokit/shared/view-models'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import {

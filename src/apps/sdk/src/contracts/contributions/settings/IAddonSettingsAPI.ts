@@ -1,4 +1,4 @@
-import type { AppError, Either } from '@mr-tick/shared/helpers'
+import type { AppError, Either } from '@rastrokit/shared/helpers'
 
 import type { IAddonEventsAPI } from '../../host/events/IAddonEventsAPI'
 import type {
@@ -32,7 +32,7 @@ export type {
   AddonSettingsSchemaProvider,
   AddonSettingsValidateHandler,
   AddonValidateSettingsRequest,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 
 import type {
   AddonSettingsContext,
@@ -42,7 +42,7 @@ import type {
   AddonSettingsOptionsProviderHandler,
   AddonSettingsSchemaProvider,
   AddonSettingsValidateHandler,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 
 export interface AddonSettingsApplyContext {
   readonly scope: AddonVaultScope

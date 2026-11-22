@@ -4,8 +4,8 @@ import type {
   DiagnosticStorageItem,
   IAnalyticsDiagnosticAdapter,
   IWorkspacesRepository,
-} from '@mr-tick/application'
-import { AppError, Either, type FieldErrors } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AppError, Either, type FieldErrors } from '@rastrokit/shared/helpers'
 
 import type {
   AnalyticsStorageDirectoryEntry,

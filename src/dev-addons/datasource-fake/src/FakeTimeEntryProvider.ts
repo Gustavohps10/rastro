@@ -12,7 +12,7 @@ import {
   type TimeEntryPullCheckpointDTO,
   type TimeEntryPullPageDTO,
   type UpdatedTimeEntryResult,
-} from '@mr-tick/sdk'
+} from '@rastrokit/sdk'
 
 import { FakeDatabaseStore } from './FakeDatabaseStore'
 

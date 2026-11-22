@@ -5,7 +5,7 @@ import {
   HttpResponseValidator,
   IHttpRequestOptions,
   JsonValue,
-} from '@mr-tick/adapters/contracts'
+} from '@rastrokit/adapters/contracts'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import {
@@ -416,7 +416,7 @@ describe('T01 / T21 / Seção 8.1: Isolamento HTTP por Conexão, Origem Cruzada,
       headers: {
         'X-Connection-Secret': 'leak-sensitive-key-A',
         Cookie: 'session=sensitive-cookie-A',
-        'X-Public-App': 'mr-tick-desktop',
+        'X-Public-App': 'rastro-desktop',
       },
       sensitiveHeaders: ['X-Connection-Secret'],
     })
@@ -444,7 +444,7 @@ describe('T01 / T21 / Seção 8.1: Isolamento HTTP por Conexão, Origem Cruzada,
     expect(reqB.headers['cookie']).toBeUndefined()
 
     // Headers comuns permitidos foram preservados
-    expect(reqB.headers['x-public-app']).toBe('mr-tick-desktop')
+    expect(reqB.headers['x-public-app']).toBe('rastro-desktop')
   })
 
   it('deve impedir vazamento de headers auth/cookies passados via requestHeaders para outra origem em URL absoluta e redirect 302 cross-origin (Seção 8.1)', async () => {

@@ -1,4 +1,4 @@
-import { AddonCapability, IAddon, IAddonManifest } from '@mr-tick/sdk'
+import { AddonCapability, IAddon, IAddonManifest } from '@rastrokit/sdk'
 import { describe, expect, it, vi } from 'vitest'
 
 import { createLoader } from './AddonLoader.Capabilities.fixture'

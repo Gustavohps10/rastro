@@ -1,4 +1,4 @@
-import type { DataSourceContext } from '@mr-tick/sdk'
+import type { DataSourceContext } from '@rastrokit/sdk'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { FakeTaskProvider } from './FakeTaskProvider'

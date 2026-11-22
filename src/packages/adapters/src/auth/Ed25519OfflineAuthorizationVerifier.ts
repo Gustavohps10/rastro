@@ -1,9 +1,9 @@
-import { IOfflineAuthorizationVerifier } from '@mr-tick/application'
+import { IOfflineAuthorizationVerifier } from '@rastrokit/application'
 import {
   OfflineAuthorizationClaims,
   offlineAuthorizationClaimsSchema,
-} from '@mr-tick/domain'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/domain'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import crypto from 'crypto'
 
 export interface OfflineAuthorizationPublicKey {

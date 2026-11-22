@@ -6,7 +6,7 @@ import type {
   AddonSettingsFieldDependency,
   AddonSettingsValues,
   AddonSettingValue,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 
 export function serializeFieldAddress(address: AddonFieldAddress): string {
   if (address.path.length === 0) return ''

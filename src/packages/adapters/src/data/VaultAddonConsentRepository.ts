@@ -1,15 +1,15 @@
 import {
   IAddonConsentRepository,
   ICredentialsVault,
-} from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
 export class VaultAddonConsentRepository implements IAddonConsentRepository {
   constructor(private readonly credentialsVault: ICredentialsVault) {}
   async isApproved(fingerprint: string): Promise<Either<AppError, boolean>> {
     try {
       const result = await this.credentialsVault.getToken(
-        'MrTick-App',
+        'Rastro-App',
         'addon-consent:' + fingerprint,
       )
       if (result.kind === 'unavailable')
@@ -27,7 +27,7 @@ export class VaultAddonConsentRepository implements IAddonConsentRepository {
   async approve(fingerprint: string): Promise<Either<AppError, void>> {
     try {
       await this.credentialsVault.saveToken(
-        'MrTick-App',
+        'Rastro-App',
         'addon-consent:' + fingerprint,
         fingerprint,
       )

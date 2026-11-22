@@ -27,8 +27,8 @@ export interface AddonCatalogSigningOptions {
 }
 
 interface CatalogSigningEnvironment {
-  readonly MR_TICK_CATALOG_SIGNING_KEY?: string
-  readonly MR_TICK_CATALOG_KEY_ID?: string
+  readonly RASTRO_CATALOG_SIGNING_KEY?: string
+  readonly RASTRO_CATALOG_KEY_ID?: string
 }
 
 const privateKeySchema = z.object({
@@ -41,8 +41,8 @@ const privateKeySchema = z.object({
 export function readCatalogSigningEnvironment(
   environment: CatalogSigningEnvironment,
 ): AddonCatalogSigningOptions | undefined {
-  const serializedKey = environment.MR_TICK_CATALOG_SIGNING_KEY
-  const keyId = environment.MR_TICK_CATALOG_KEY_ID
+  const serializedKey = environment.RASTRO_CATALOG_SIGNING_KEY
+  const keyId = environment.RASTRO_CATALOG_KEY_ID
   if (serializedKey === undefined && keyId === undefined) return undefined
   if (!serializedKey || !keyId || !keyId.trim())
     throw new Error('CATALOG_SIGNING_CONFIGURATION_INCOMPLETE')

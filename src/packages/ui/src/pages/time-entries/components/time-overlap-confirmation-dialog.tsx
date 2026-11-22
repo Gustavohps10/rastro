@@ -1,4 +1,4 @@
-import type { ConflictingTimeEntry, TimeInterval } from '@mr-tick/application'
+import type { ConflictingTimeEntry, TimeInterval } from '@rastrokit/application'
 import { AlertTriangle, Clock, Loader2 } from 'lucide-react'
 
 import { Badge } from '@/components/ui/badge'

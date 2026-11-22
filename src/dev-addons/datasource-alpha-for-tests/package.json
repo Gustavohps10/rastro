@@ -1,5 +1,5 @@
 {
-  "name": "@mr-tick/datasource-alpha",
+  "name": "@rastrokit/datasource-alpha",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -16,7 +16,7 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@mr-tick/sdk": "workspace:*"
+    "@rastrokit/sdk": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^24.3.0",

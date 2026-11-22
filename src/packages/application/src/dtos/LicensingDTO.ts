@@ -2,7 +2,7 @@ import {
   AddonTier,
   OfflineAuthorizationClaims,
   PlusLicenseEvalState,
-} from '@mr-tick/domain'
+} from '@rastrokit/domain'
 
 export interface LicensingActivationRequestDTO {
   activationKey: string

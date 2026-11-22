@@ -10,10 +10,10 @@ import {
   IHttpClientFactory,
   IWorkspacesRepository,
   ResolvedConnection,
-} from '@mr-tick/application'
-import { type ConnectionIdentity } from '@mr-tick/domain'
-import { AppError, Either, type IDataSource } from '@mr-tick/sdk'
-import { isNonEmptyString } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { type ConnectionIdentity } from '@rastrokit/domain'
+import { AppError, Either, type IDataSource } from '@rastrokit/sdk'
+import { isNonEmptyString } from '@rastrokit/shared/helpers'
 import { existsSync } from 'fs'
 import { resolve } from 'path'
 import { pathToFileURL } from 'url'

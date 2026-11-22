@@ -368,7 +368,7 @@ test('hydrates offline analytics state, runs incremental changes upsert/delete a
   if (!workspace) return
 
   const connection = workspace.connections.find(
-    (item) => item.addonId === 'mr-tick-datasource-fake',
+    (item) => item.addonId === 'rastro-datasource-fake',
   )
   expect(connection).toBeDefined()
   if (!connection) return

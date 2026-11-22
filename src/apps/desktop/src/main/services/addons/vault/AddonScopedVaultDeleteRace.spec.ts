@@ -7,20 +7,20 @@ import {
   SQLiteConnectionLifecycleRepository,
   SQLiteWorkspaceCredentialReferenceRegistry,
   SQLiteWorkspacesRepository,
-} from '@mr-tick/adapters/data'
+} from '@rastrokit/adapters/data'
 import type {
   AddonVaultScope,
   IConnectionCredentialsVault,
   ICredentialsVault,
   IFileStorage,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import {
   CredentialReferenceFactory,
   DeleteWorkspaceService,
   RecoverAddonWorkspaceCredentialWritesService,
-} from '@mr-tick/application'
-import { Workspace } from '@mr-tick/domain'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { Workspace } from '@rastrokit/domain'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { AddonScopedVault } from './AddonScopedVault'

@@ -1,4 +1,5 @@
 out
+.temps/
 dist
 pnpm-lock.yaml
 LICENSE.md

@@ -35,13 +35,13 @@ test.describe('E2E - Configuração de Mapeamento Pós-Autenticação em Instân
 
     // 4. Clica em "Configurar" no addon fake instalado
     const configureFakeAddonBtn = page.locator(
-      '[data-testid="addon-configure-btn-mr-tick-datasource-fake"]',
+      '[data-testid="addon-configure-btn-rastro-datasource-fake"]',
     )
     await expect(configureFakeAddonBtn).toBeVisible({ timeout: 10000 })
     await configureFakeAddonBtn.click()
     const profiles = await page.evaluate(() =>
       window.api.addons.getConnectionProfiles({
-        body: { addonId: 'mr-tick-datasource-fake' },
+        body: { addonId: 'rastro-datasource-fake' },
       }),
     )
     expect(profiles).toMatchObject({
@@ -205,7 +205,7 @@ test.describe('E2E - Configuração de Mapeamento Pós-Autenticação em Instân
     await installedTabBtn.click()
 
     const configureFakeAddonBtn = page.locator(
-      '[data-testid="addon-configure-btn-mr-tick-datasource-fake"]',
+      '[data-testid="addon-configure-btn-rastro-datasource-fake"]',
     )
     await expect(configureFakeAddonBtn).toBeVisible({ timeout: 10000 })
     await configureFakeAddonBtn.click()

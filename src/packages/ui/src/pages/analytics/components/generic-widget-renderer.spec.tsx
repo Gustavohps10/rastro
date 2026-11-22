@@ -2,7 +2,7 @@ import type {
   AnalyticsQueryInput,
   AnalyticsQueryResult,
   IHostBridge,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { isValidElement, type ReactNode } from 'react'
 import type * as Recharts from 'recharts'

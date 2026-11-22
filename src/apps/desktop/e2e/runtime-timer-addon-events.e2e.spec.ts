@@ -10,7 +10,7 @@ const probeWorkspace = seedWorkspaces.workspaces.find(
 )
 if (!probeWorkspace) throw new Error('QUICK_TIMER_FIXTURE_WORKSPACE_NOT_FOUND')
 const probeConnection = probeWorkspace.connections.find(
-  (candidate) => candidate.addonId === 'mr-tick-datasource-fake',
+  (candidate) => candidate.addonId === 'rastro-datasource-fake',
 )
 if (!probeConnection)
   throw new Error('QUICK_TIMER_FIXTURE_CONNECTION_NOT_FOUND')

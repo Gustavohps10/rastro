@@ -9,16 +9,16 @@ import {
   AddonVaultScope,
   flattenSettingsFields,
   rebaseAddonSettings,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import type {
   AddonManifestViewModel,
   AddonSettingsTab,
   ConnectionProfileDescriptor,
   WorkspaceConnectionIdentityViewModel,
   WorkspaceViewModel,
-} from '@mr-tick/sdk'
-import { hasCapability, isDataSource } from '@mr-tick/shared/helpers'
-import { isString } from '@mr-tick/shared/helpers'
+} from '@rastrokit/sdk'
+import { hasCapability, isDataSource } from '@rastrokit/shared/helpers'
+import { isString } from '@rastrokit/shared/helpers'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   AlertCircle,

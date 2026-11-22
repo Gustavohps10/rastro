@@ -62,7 +62,7 @@ import { SyncTaskRxDBDTO } from '@/local-db/schemas/tasks-sync-schema'
 import { extractPureTaskId } from '@/pages/time-entries/lib/time-entries-utils'
 import { useConnectionsWithSync, useSyncStore } from '@/stores/syncStore'
 
-const PINNED_TASKS_STORAGE_KEY = 'mr-tick:pinned-task-ids'
+const PINNED_TASKS_STORAGE_KEY = 'rastro:pinned-task-ids'
 
 function getPinnedTaskIds(): string[] {
   if (typeof window === 'undefined') return []

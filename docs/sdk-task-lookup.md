@@ -5,7 +5,7 @@ O addon declara o campo no seu schema de configurações; não precisa construir
 um popup, consultar o RxDB nem importar componentes React internos.
 
 ```ts
-import type { AddonSettingsTaskReferenceField } from '@mr-tick/sdk'
+import type { AddonSettingsTaskReferenceField } from '@rastrokit/sdk'
 
 const targetTask: AddonSettingsTaskReferenceField = {
   id: 'targetTask',

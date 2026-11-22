@@ -6,7 +6,7 @@ import type {
   AnalyticsFilterDefinition,
   AnalyticsFilterOption,
   AnalyticsFilterValue,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import {
   ArrowRight,
   BarChart3,

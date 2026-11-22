@@ -1,7 +1,7 @@
 import type {
   DiagnosticEvent,
   DiagnosticEventLevel,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { ListFilter, Search } from 'lucide-react'
 import React, { useMemo, useState } from 'react'
 

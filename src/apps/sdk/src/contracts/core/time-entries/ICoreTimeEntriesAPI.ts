@@ -1,4 +1,4 @@
-export type { ICoreTimeEntriesAPI } from '@mr-tick/application'
+export type { ICoreTimeEntriesAPI } from '@rastrokit/application'
 export type {
   LocalEntryChanges,
   LocalEntryFilter,
@@ -6,4 +6,4 @@ export type {
   LocalOperationIdentity,
   TimeEntryRecordDTO as TimeEntryItemDTO,
   TimeEntryRecordDTO,
-} from '@mr-tick/application/local-runtime'
+} from '@rastrokit/application/local-runtime'

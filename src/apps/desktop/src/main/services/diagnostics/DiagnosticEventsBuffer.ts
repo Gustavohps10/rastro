@@ -3,7 +3,7 @@ import type {
   DiagnosticEventLevel,
   DiagnosticEventOrigin,
   DiagnosticScope,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 
 interface InternalDiagnosticEvent extends DiagnosticEvent {
   byteLength: number

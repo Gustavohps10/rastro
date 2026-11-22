@@ -1,5 +1,5 @@
-import { Workspace } from '@mr-tick/domain'
-import { Either } from '@mr-tick/shared/helpers'
+import { Workspace } from '@rastrokit/domain'
+import { Either } from '@rastrokit/shared/helpers'
 import type { Mocked } from 'vitest'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 

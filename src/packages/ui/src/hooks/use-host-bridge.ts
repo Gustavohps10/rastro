@@ -1,4 +1,4 @@
-import { IHostBridge } from '@mr-tick/application'
+import { IHostBridge } from '@rastrokit/application'
 import { useContext } from 'react'
 
 import { HostBridgeContext } from '@/contexts/HostBridgeContext'

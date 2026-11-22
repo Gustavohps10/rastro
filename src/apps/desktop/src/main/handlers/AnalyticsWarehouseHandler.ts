@@ -11,13 +11,13 @@ import type {
   AnalyticsWorkspaceState,
   IAnalyticsWarehouseUseCase,
   SaveAnalyticsWorkspaceStateInput,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import {
   createResponseViewModel,
   isNonEmptyString,
-} from '@mr-tick/shared/helpers'
-import type { IRequest } from '@mr-tick/shared/transport'
-import type { ViewModel } from '@mr-tick/shared/view-models'
+} from '@rastrokit/shared/helpers'
+import type { IRequest } from '@rastrokit/shared/transport'
+import type { ViewModel } from '@rastrokit/shared/view-models'
 import type { IpcMainInvokeEvent } from 'electron'
 
 import {

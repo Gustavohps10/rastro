@@ -8,16 +8,16 @@ import {
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
-import { EMPTY_HTTP_CONFIG } from '@mr-tick/adapters/contracts'
-import { JSONAddonSettingsRepository } from '@mr-tick/adapters/data'
+import { EMPTY_HTTP_CONFIG } from '@rastrokit/adapters/contracts'
+import { JSONAddonSettingsRepository } from '@rastrokit/adapters/data'
 import {
   AddonAuthenticatorRegistry,
   AddonConnectionProfilesResolver,
   IAddonAccessService,
   ILocalRuntimeAPI,
   OAuthAttemptCoordinator,
-} from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import {
@@ -112,7 +112,7 @@ describe('AddonLoader security', () => {
                 id: 'passwordSentinel',
                 type: 'password',
                 label: 'Password',
-              } as unknown as import('@mr-tick/sdk').AddonSettingsField,
+              } as unknown as import('@rastrokit/sdk').AddonSettingsField,
             ],
           },
         ]),
@@ -187,7 +187,7 @@ describe('AddonLoader security', () => {
                 id: 'passwordSentinel',
                 type: 'password',
                 label: 'Password',
-              } as unknown as import('@mr-tick/sdk').AddonSettingsField,
+              } as unknown as import('@rastrokit/sdk').AddonSettingsField,
             ],
           },
         ]),

@@ -1,8 +1,8 @@
 import {
   IAddonPackageVerificationConfiguration,
   OfflineAuthorizationVerificationConfiguration,
-} from '@mr-tick/adapters/auth'
-import { LicensingApiConfiguration } from '@mr-tick/adapters/http'
+} from '@rastrokit/adapters/auth'
+import { LicensingApiConfiguration } from '@rastrokit/adapters/http'
 
 // Trust anchors are distributed with the host, never supplied by an addon.
 export const offlineAuthorizationVerificationConfiguration: OfflineAuthorizationVerificationConfiguration =
@@ -32,5 +32,5 @@ export const addonPackageVerificationConfiguration: IAddonPackageVerificationCon
     ],
   }
 export const licensingApiConfiguration: LicensingApiConfiguration = {
-  baseUrl: 'https://mistertick-api.rastrokit.workers.dev',
+  baseUrl: 'https://rastro-api.rastrokit.workers.dev',
 }

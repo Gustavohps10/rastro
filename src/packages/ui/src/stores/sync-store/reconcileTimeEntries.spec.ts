@@ -1,5 +1,5 @@
-import { IHostBridge } from '@mr-tick/application'
-import { TimeEntryViewModel } from '@mr-tick/shared/view-models'
+import { IHostBridge } from '@rastrokit/application'
+import { TimeEntryViewModel } from '@rastrokit/shared/view-models'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { SyncTimeEntryRxDBDTO } from '@/local-db/schemas/time-entries-sync-schema'

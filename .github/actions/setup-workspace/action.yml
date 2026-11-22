@@ -60,7 +60,7 @@ runs:
       if: inputs.turbo-scope != '' && inputs.restore-only != 'true'
       uses: actions/cache@v4
       with:
-        path: .turbo/cache
+        path: .temps/turbo/cache
         key: ${{ runner.os }}-${{ runner.arch }}-node24-turbo-v2-${{ inputs.turbo-scope }}-${{ hashFiles('yarn.lock') }}-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
         restore-keys: |
           ${{ runner.os }}-${{ runner.arch }}-node24-turbo-v2-${{ inputs.turbo-scope }}-${{ hashFiles('yarn.lock') }}-
@@ -70,7 +70,7 @@ runs:
       if: inputs.turbo-scope != '' && inputs.restore-only == 'true'
       uses: actions/cache/restore@v4
       with:
-        path: .turbo/cache
+        path: .temps/turbo/cache
         key: ${{ runner.os }}-${{ runner.arch }}-node24-turbo-v2-${{ inputs.turbo-scope }}-${{ hashFiles('yarn.lock') }}-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
         restore-keys: |
           ${{ runner.os }}-${{ runner.arch }}-node24-turbo-v2-${{ inputs.turbo-scope }}-${{ hashFiles('yarn.lock') }}-

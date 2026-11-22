@@ -27,7 +27,7 @@ import { CSS } from '@dnd-kit/utilities'
 import type {
   AddonTimerbarMenuItem,
   AddonTimerbarPopoverSubItem,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { differenceInSeconds, isSameDay, isValid, parseISO } from 'date-fns'
 import {
   AlertCircle,
@@ -109,9 +109,9 @@ const mockActivities: Array<{
   { id: 'break', name: 'Break', icon: Coffee },
 ]
 
-const STORAGE_KEY = 'mr-tick:widget:block-order'
-const WIDGET_FREE_DRAG_STORAGE_KEY = 'mr-tick:widget:free-offset'
-const WORKSPACE_DOCK_DRAG_STORAGE_KEY = 'mr-tick:workspace:dock-offset'
+const STORAGE_KEY = 'rastro:widget:block-order'
+const WIDGET_FREE_DRAG_STORAGE_KEY = 'rastro:widget:free-offset'
+const WORKSPACE_DOCK_DRAG_STORAGE_KEY = 'rastro:workspace:dock-offset'
 
 type WidgetPosition = 'top' | 'bottom' | 'left' | 'right'
 type FreeOffset = { x: number; y: number }
@@ -2293,9 +2293,7 @@ function renderAddonIcon(
 
   if (
     icon.startsWith('data:image/') ||
-    icon.startsWith('http://') ||
-    icon.startsWith('https://') ||
-    icon.startsWith('mr-tick-app://')
+    (URL.canParse(icon) && new URL(icon).hostname.length > 0)
   ) {
     return (
       <img

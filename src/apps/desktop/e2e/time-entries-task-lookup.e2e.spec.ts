@@ -1,4 +1,4 @@
-import type { TimeEntryPullCheckpointDTO } from '@mr-tick/application'
+import type { TimeEntryPullCheckpointDTO } from '@rastrokit/application'
 import { z } from 'zod'
 
 import { expect, test } from './fixtures/electron-fixture'

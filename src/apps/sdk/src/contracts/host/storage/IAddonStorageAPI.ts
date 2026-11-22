@@ -4,4 +4,4 @@ export type {
   AddonStorageListPagination,
   AddonStorageListRequest,
   IAddonStorageAPI,
-} from '@mr-tick/application'
+} from '@rastrokit/application'

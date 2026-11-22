@@ -2,15 +2,15 @@ import {
   ICredentialsVault,
   ILicensingStateRepository,
   StoredLicensingStateDTO,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import {
   AppError,
   Either,
   isNonEmptyString,
   isRecord,
-} from '@mr-tick/shared/helpers'
+} from '@rastrokit/shared/helpers'
 
-const VAULT_SERVICE = 'MrTick-App'
+const VAULT_SERVICE = 'Rastro-App'
 const STATE_KEY = 'licensing:state:v1'
 const INSTALLATION_SEED_KEY = 'licensing:device-id:v1'
 

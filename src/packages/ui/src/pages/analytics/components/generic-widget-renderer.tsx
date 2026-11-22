@@ -4,7 +4,7 @@ import type {
   AnalyticsDatasetRow,
   AnalyticsPlanNode,
   AnalyticsQueryInput,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { CircleAlert, LoaderCircle } from 'lucide-react'
 import { memo, type ReactNode, useState } from 'react'
 import { useParams } from 'react-router-dom'

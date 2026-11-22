@@ -27,7 +27,7 @@ test('CRUD local permanece disponível enquanto forceSync aguarda o provedor', a
   )
   if (!workspace) throw new Error('LOCAL_FIRST_FIXTURE_WORKSPACE_NOT_FOUND')
   const connection = workspace.connections.find(
-    (candidate) => candidate.addonId === 'mr-tick-datasource-fake',
+    (candidate) => candidate.addonId === 'rastro-datasource-fake',
   )
   if (!connection) throw new Error('LOCAL_FIRST_FIXTURE_CONNECTION_NOT_FOUND')
   await expect

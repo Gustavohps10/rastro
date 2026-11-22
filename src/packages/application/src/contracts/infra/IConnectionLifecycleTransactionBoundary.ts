@@ -1,4 +1,4 @@
-import { AppError, Either } from '@mr-tick/shared/helpers'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
 import { IConnectionLifecycleRepository } from '../data/repositories/IConnectionLifecycleRepository'
 import { IWorkspacesRepository } from '../data/repositories/IWorkspacesRepository'

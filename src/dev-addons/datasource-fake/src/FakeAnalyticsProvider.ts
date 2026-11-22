@@ -11,7 +11,7 @@ import {
   Either,
   type IAnalyticsProvider,
   type TaskDTO,
-} from '@mr-tick/sdk'
+} from '@rastrokit/sdk'
 
 import { FAKE_MEMBER } from './fakeData'
 import {

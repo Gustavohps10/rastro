@@ -5,7 +5,7 @@ import {
   isNumber,
   isRecord,
   isString,
-} from '@mr-tick/shared/helpers'
+} from '@rastrokit/shared/helpers'
 
 import type {
   ILocalRuntimeAPI,

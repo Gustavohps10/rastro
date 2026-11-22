@@ -10,7 +10,7 @@ Historicamente, o ecossistema Rastro utilizava conceitos duplicados e ambíguos 
 
 - Existiam simultaneamente campos como `category` (singular), `categories` (plural) e `capabilities` em manifestos e DTOs.
 - Em alguns locais, foi introduzida uma tentativa de microversionamento granular por capacidade (`contractVersion`), que gerava complexidade desnecessária visto que o ecossistema já possui o campo `requiredApiVersion` para determinar a compatibilidade global com a API/SDK do Core.
-- Na camada de interface (`@mr-tick/ui`), todo vínculo de conta externa (`WorkspaceConnectionViewModel`) era tratado indistintamente como um `DataSource`, fazendo com que addons de captura e presença como o `mistertick-discord` fossem despachados para a esteira de sincronização de tarefas e apontamentos do RxDB/LocalRuntime, aparecendo erroneamente no popover do `Header`.
+- Na camada de interface (`@rastrokit/ui`), todo vínculo de conta externa (`WorkspaceConnectionViewModel`) era tratado indistintamente como um `DataSource`, fazendo com que addons de captura e presença como o `rastro-discord` fossem despachados para a esteira de sincronização de tarefas e apontamentos do RxDB/LocalRuntime, aparecendo erroneamente no popover do `Header`.
 
 ## Decisões
 
@@ -24,7 +24,7 @@ Historicamente, o ecossistema Rastro utilizava conceitos duplicados e ambíguos 
    - A compatibilidade de cada addon com o Core passa a ser regida estritamente por `requiredApiVersion`, dispensando `contractVersion` por item de capacidade.
 
 2. **Injeção Direta de Capacidades em Predicates Puros:**
-   - Tipos, constante e predicates possuem uma implementação única em `@mr-tick/shared/helpers` e são expostos pelo `@mr-tick/sdk`. As camadas inferiores consomem shared diretamente, evitando dependência circular com o SDK:
+   - Tipos, constante e predicates possuem uma implementação única em `@rastrokit/shared/helpers` e são expostos pelo `@rastrokit/sdk`. As camadas inferiores consomem shared diretamente, evitando dependência circular com o SDK:
      ```ts
      export function hasCapability(
        capabilities: readonly AddonCapability[] | undefined | null,
@@ -89,9 +89,9 @@ As provas desta refatoração cobrem registry/lifetime/handler, escopo explícit
 
 ### Validação com SDK 0.12 publicado — 24 de outubro de 2026
 
-Redmine, Discord e Dracula passaram a consumir `@mr-tick/sdk@^0.12.0` do npm com locks atualizados pelo Yarn e instalações imutáveis verificadas, sem resolução portal/local nesses três repositórios. A migração das contribuições de schema dos dois addons autenticados foi validada novamente contra esse pacote publicado: Redmine 91 testes, Discord 32 e Dracula 1, além de typecheck e build de cada addon. A fixture versionada datasource-fake continua usando o SDK pelo workspace, recompilada com sucesso e com 3 testes de registro aprovados.
+Redmine, Discord e Dracula passaram a consumir o SDK na faixa `^0.12.0` do npm com locks atualizados pelo Yarn e instalações imutáveis verificadas, sem resolução portal/local nesses três repositórios. A migração das contribuições de schema dos dois addons autenticados foi validada novamente contra esse pacote publicado: Redmine 91 testes, Discord 32 e Dracula 1, além de typecheck e build de cada addon. A fixture versionada datasource-fake continua usando o SDK pelo workspace, recompilada com sucesso e com 3 testes de registro aprovados.
 
-A CLI oficial 0.12 gerou os três pacotes em diretórios temporários; o manifesto dentro de cada arquivo `.tladdon` foi conferido com API mínima `>=0.12.0`, e os três manifestos passaram em `mr-tick validate`. Metadados das versões já publicadas permanecem preservados nos repositórios; as pipelines regeneram os manifestos das novas versões após os changesets minor. Esta rodada não executou autenticação OAuth real, a matriz Docker Redmine nem nova jornada Electron; não substitui essas provas por builds ou validação de manifesto.
+A CLI oficial 0.12 gerou os três pacotes em diretórios temporários; o manifesto dentro de cada arquivo `.tladdon` foi conferido com API mínima `>=0.12.0`, e os três manifestos passaram na validação da CLI. Metadados das versões já publicadas permanecem preservados nos repositórios; as pipelines regeneram os manifestos das novas versões após os changesets minor. Esta rodada não executou autenticação OAuth real, a matriz Docker Redmine nem nova jornada Electron; não substitui essas provas por builds ou validação de manifesto.
 
 ## Analytics como capacidade independente
 

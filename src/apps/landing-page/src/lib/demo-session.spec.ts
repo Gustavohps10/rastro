@@ -1,4 +1,4 @@
-import type { WorkspaceViewModel } from '@mr-tick/application'
+import type { WorkspaceViewModel } from '@rastrokit/application'
 import { createRxDatabase } from 'rxdb'
 import { getRxStorageMemory } from 'rxdb/plugins/storage-memory'
 import { wrappedValidateAjvStorage } from 'rxdb/plugins/validate-ajv'

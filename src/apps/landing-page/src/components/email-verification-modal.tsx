@@ -1,14 +1,14 @@
 'use client'
 
-import { Button } from '@mr-tick/ui/button'
+import { Button } from '@rastrokit/ui/button'
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from '@mr-tick/ui/dialog'
-import { Input } from '@mr-tick/ui/input'
+} from '@rastrokit/ui/dialog'
+import { Input } from '@rastrokit/ui/input'
 import {
   AlertCircle,
   ArrowRight,

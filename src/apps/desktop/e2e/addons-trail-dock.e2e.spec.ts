@@ -78,7 +78,7 @@ test.describe('Addons Dock: real Electron layout, input and IPC', () => {
 
         const addon = page
           .getByTestId('addons-trail-dock')
-          .locator('button[data-addon-id="mr-tick-datasource-fake"]')
+          .locator('button[data-addon-id="rastro-datasource-fake"]')
         await expect(addon).toHaveAttribute('aria-label', /DataSource Fake/)
         await addon.click()
         const settings = page.getByRole('dialog').filter({

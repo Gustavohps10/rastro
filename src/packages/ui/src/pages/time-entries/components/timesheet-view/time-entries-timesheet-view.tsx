@@ -1,7 +1,7 @@
 import { TimeEntriesColumnsProvider } from '@/pages/time-entries/components/time-entries-columns-context'
 ;('use client')
 
-import type { ConfiguredFieldMapping } from '@mr-tick/sdk'
+import type { ConfiguredFieldMapping } from '@rastrokit/sdk'
 import { useQueryClient } from '@tanstack/react-query'
 import { ExpandedState } from '@tanstack/react-table'
 import {

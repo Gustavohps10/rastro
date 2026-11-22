@@ -1,5 +1,8 @@
-import { EMPTY_HTTP_CONFIG, type JsonValue } from '@mr-tick/adapters/contracts'
-import type { AppError, Either } from '@mr-tick/shared/helpers'
+import {
+  EMPTY_HTTP_CONFIG,
+  type JsonValue,
+} from '@rastrokit/adapters/contracts'
+import type { AppError, Either } from '@rastrokit/shared/helpers'
 import { app, ipcMain, session, type WebContents } from 'electron'
 
 import {

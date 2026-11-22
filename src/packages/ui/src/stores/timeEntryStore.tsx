@@ -4,7 +4,7 @@ import type {
   IHostBridge,
   LocalRuntimeCommand,
   LocalTimerInput,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import {
   createContext,
   type ReactNode,

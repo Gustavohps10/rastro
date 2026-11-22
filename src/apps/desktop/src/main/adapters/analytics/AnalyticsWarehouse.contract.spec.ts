@@ -10,12 +10,12 @@ import type {
   IAnalyticsProvider,
   IAnalyticsResolver,
   JsonValue,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import {
   AnalyticsWarehouseService,
   createAnalyticsDatasetScope,
-} from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import { afterEach, describe, expect, it } from 'vitest'
 import { z } from 'zod'
 

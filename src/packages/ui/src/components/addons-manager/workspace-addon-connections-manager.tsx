@@ -4,8 +4,8 @@ import type {
   AddonManifestViewModel,
   ConnectionProfileDescriptor,
   WorkspaceViewModel,
-} from '@mr-tick/sdk'
-import { AppError, Either, isString } from '@mr-tick/shared/helpers'
+} from '@rastrokit/sdk'
+import { AppError, Either, isString } from '@rastrokit/shared/helpers'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   AlertTriangle,

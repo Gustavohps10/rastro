@@ -1,8 +1,8 @@
 import type {
   AnalyticsDatasetQueryInput,
   IAnalyticsUseCase,
-} from '@mr-tick/application'
-import { Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { Either } from '@rastrokit/shared/helpers'
 import type { IpcMainInvokeEvent } from 'electron'
 import { describe, expect, it, vi } from 'vitest'
 

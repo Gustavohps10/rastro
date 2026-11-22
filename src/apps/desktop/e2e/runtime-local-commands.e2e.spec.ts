@@ -1,8 +1,8 @@
+import type { Page } from '@playwright/test'
 import type {
   LocalRuntimeRequest,
   LocalRuntimeResponse,
-} from '@mr-tick/application'
-import type { Page } from '@playwright/test'
+} from '@rastrokit/application'
 
 import { expect, test } from './fixtures/electron-fixture'
 import seedWorkspaces from './fixtures/seed-workspaces.json' with { type: 'json' }
@@ -23,7 +23,7 @@ function fixtureScope() {
   )
   if (!workspace) throw new Error('CONNECTED_FIXTURE_WORKSPACE_NOT_FOUND')
   const connection = workspace.connections.find(
-    (candidate) => candidate.addonId === 'mr-tick-datasource-fake',
+    (candidate) => candidate.addonId === 'rastro-datasource-fake',
   )
   if (!connection) throw new Error('FAKE_FIXTURE_CONNECTION_NOT_FOUND')
   return { workspace, connection }

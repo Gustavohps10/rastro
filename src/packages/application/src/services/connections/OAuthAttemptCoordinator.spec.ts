@@ -11,7 +11,7 @@ describe('OAuthAttemptCoordinator', () => {
     authorizationRole: 'primary',
     generation: 1,
     authorizationGeneration: 1,
-    redirectUri: 'mr-tick-app://oauth/callback',
+    redirectUri: 'https://app.example.test/oauth/callback',
     timeoutMs: 60000,
   }
 
@@ -21,7 +21,9 @@ describe('OAuthAttemptCoordinator', () => {
 
     expect(result.isSuccess()).toBe(true)
     if (!result.isSuccess()) return
-    expect(result.success.state).toContain('discord-addon_')
+    expect(result.success.state).toMatch(
+      /^[\da-f]{8}-(?:[\da-f]{4}-){3}[\da-f]{12}$/,
+    )
     expect(result.success.codeChallengeMethod).toBe('S256')
     expect(result.success.codeChallenge.length).toBeGreaterThan(10)
     expect(result.success.redirectUri).toBe(baseInput.redirectUri)

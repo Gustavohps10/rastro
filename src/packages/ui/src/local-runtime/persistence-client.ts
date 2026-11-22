@@ -1,5 +1,8 @@
-import type { IHostBridge, LocalPersistenceCommand } from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+import type {
+  IHostBridge,
+  LocalPersistenceCommand,
+} from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
 import type { SyncTimeEntryRxDBDTO } from '@/local-db/schemas/time-entries-sync-schema'
 import type { AppDatabase } from '@/stores/sync-store/types'

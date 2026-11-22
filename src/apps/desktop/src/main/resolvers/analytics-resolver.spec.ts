@@ -6,9 +6,9 @@ import {
   type IAnalyticsProvider,
   type ICredentialsVault,
   type IWorkspacesRepository,
-} from '@mr-tick/application'
-import { Workspace } from '@mr-tick/domain'
-import { Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { Workspace } from '@rastrokit/domain'
+import { Either } from '@rastrokit/shared/helpers'
 import { describe, expect, it, vi } from 'vitest'
 
 import {

@@ -41,4 +41,4 @@ Gerencia o ciclo de vida completo de **Contas e Conexões Externas**, garantindo
 
 - Armazenamento de tarefas ou histórico de apontamentos (pertencem a `sync/` e RxDB).
 - Regras de contagem de tempo de timers (pertencem a `local-runtime/`).
-- Mapeamento de UI ou formulários React (pertencem a `@mr-tick/ui`).
+- Mapeamento de UI ou formulários React (pertencem a `@rastrokit/ui`).

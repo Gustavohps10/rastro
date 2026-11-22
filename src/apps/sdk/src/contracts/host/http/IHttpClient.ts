@@ -6,4 +6,4 @@ export type {
   IHttpClientFactory,
   IHttpRequestOptions,
   JsonValue,
-} from '@mr-tick/application'
+} from '@rastrokit/application'

@@ -1,5 +1,5 @@
-import { AddonConnectionProfilesResolver } from '@mr-tick/application'
-import type { AddonContext, AddonSettingsSchema } from '@mr-tick/sdk'
+import { AddonConnectionProfilesResolver } from '@rastrokit/application'
+import type { AddonContext, AddonSettingsSchema } from '@rastrokit/sdk'
 import { describe, expect, it } from 'vitest'
 
 import { createLoader } from './AddonLoader.Capabilities.fixture'

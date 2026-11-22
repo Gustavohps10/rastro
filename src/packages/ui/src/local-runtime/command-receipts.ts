@@ -3,8 +3,8 @@ import type {
   LocalRuntimeCommand,
   LocalRuntimeResult,
   LocalTimeEntrySnapshot,
-} from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
 export type BrowserCommand = LocalRuntimeCommand | LocalPersistenceCommand
 export interface CommandReceipt {
@@ -24,7 +24,7 @@ export class BrowserCommandReceipts {
   private readonly name: string
 
   constructor(workspaceId: string) {
-    this.name = `mr-tick-command-receipts-${workspaceId}`
+    this.name = `rastro-command-receipts-${workspaceId}`
     this.database = new Promise((resolve, reject) => {
       const request = indexedDB.open(this.name, 1)
       request.onupgradeneeded = () => {

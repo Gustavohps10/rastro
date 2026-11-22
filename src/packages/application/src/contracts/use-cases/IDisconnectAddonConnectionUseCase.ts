@@ -1,4 +1,4 @@
-import type { AppError, Either } from '@mr-tick/shared/helpers'
+import type { AppError, Either } from '@rastrokit/shared/helpers'
 
 export interface DisconnectAddonConnectionInput {
   workspaceId: string

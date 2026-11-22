@@ -1,4 +1,4 @@
-﻿import { IJWTService } from '@mr-tick/application'
+﻿import { IJWTService } from '@rastrokit/application'
 import jwt from 'jsonwebtoken'
 
 export class JwtService implements IJWTService {

@@ -1,6 +1,6 @@
-import type { ICoreRuntimeAPI } from '@mr-tick/application'
-import type { IAddonEventsAPI, IRegistry } from '@mr-tick/sdk'
-import type { ISystemEvents } from '@mr-tick/shared/transport'
+import type { ICoreRuntimeAPI } from '@rastrokit/application'
+import type { IAddonEventsAPI, IRegistry } from '@rastrokit/sdk'
+import type { ISystemEvents } from '@rastrokit/shared/transport'
 
 export class AddonBindingLifetime {
   private active = true

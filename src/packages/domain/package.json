@@ -1,5 +1,5 @@
 {
-  "name": "@mr-tick/domain",
+  "name": "@rastrokit/domain",
   "version": "2.0.2",
   "private": true,
   "description": "Contém as entidades, interfaces e regras de negócio principais do ecossistema Rastro.",
@@ -15,11 +15,11 @@
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
     "dev": "tsup src/index.ts --format esm,cjs --watch --no-dts",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit --tsBuildInfoFile ../../../.temps/typescript/domain.tsbuildinfo",
     "clean": "rimraf dist .turbo"
   },
   "dependencies": {
-    "@mr-tick/shared": "workspace:*",
+    "@rastrokit/shared": "workspace:*",
     "zod": "^3.24.2"
   },
   "devDependencies": {

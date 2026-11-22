@@ -1,4 +1,4 @@
-﻿import type { EnvironmentInfo } from '@mr-tick/application'
+﻿import type { EnvironmentInfo } from '@rastrokit/application'
 import { createContext, type ReactNode } from 'react'
 
 export const EnvironmentContext = createContext<EnvironmentInfo | null>(null)

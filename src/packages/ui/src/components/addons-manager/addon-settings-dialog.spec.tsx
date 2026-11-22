@@ -1,4 +1,4 @@
-import type { AddonManifestViewModel } from '@mr-tick/sdk'
+import type { AddonManifestViewModel } from '@rastrokit/sdk'
 import { fireEvent, render, screen } from '@testing-library/react'
 import React, { useState } from 'react'
 import { describe, expect, it, vi } from 'vitest'

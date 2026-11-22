@@ -1,4 +1,4 @@
-import type { AddonCapability } from '@mr-tick/sdk'
+import type { AddonCapability } from '@rastrokit/sdk'
 import { create } from 'zustand'
 
 export type SettingsTab =

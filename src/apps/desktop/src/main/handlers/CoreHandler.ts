@@ -13,15 +13,15 @@ import {
   type LocalMetadataSnapshot,
   type SaveLocalMetadataRequest,
   type TaskReferenceLookupRequest,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import {
   AppError,
   createResponseViewModel,
   Either,
   isNonEmptyString,
-} from '@mr-tick/shared/helpers'
-import { IRequest } from '@mr-tick/shared/transport'
-import { ViewModel } from '@mr-tick/shared/view-models'
+} from '@rastrokit/shared/helpers'
+import { IRequest } from '@rastrokit/shared/transport'
+import { ViewModel } from '@rastrokit/shared/view-models'
 
 import { HandlerBase } from '@/main/handlers/HandlerBase'
 import { AddonLoader } from '@/main/services/addons/loader/AddonLoader'

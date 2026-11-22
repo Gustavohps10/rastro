@@ -1,6 +1,6 @@
-import type { AddonConnectionAuthenticator } from '@mr-tick/application'
-import type { ConnectionProfileDescriptor } from '@mr-tick/domain'
-import type { AppError, Either } from '@mr-tick/shared/helpers'
+import type { AddonConnectionAuthenticator } from '@rastrokit/application'
+import type { ConnectionProfileDescriptor } from '@rastrokit/domain'
+import type { AppError, Either } from '@rastrokit/shared/helpers'
 
 import type { AddonSettingsSchema } from '../settings/AddonSettingsSchema'
 

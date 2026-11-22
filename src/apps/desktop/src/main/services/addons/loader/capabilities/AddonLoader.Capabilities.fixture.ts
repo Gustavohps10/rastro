@@ -1,4 +1,4 @@
-import { EMPTY_HTTP_CONFIG } from '@mr-tick/adapters/contracts'
+import { EMPTY_HTTP_CONFIG } from '@rastrokit/adapters/contracts'
 import {
   AddonAuthenticatorRegistry,
   AddonConnectionProfilesResolver,
@@ -23,8 +23,8 @@ import {
   TimeEntryPullPageDTO,
   UpdatedTaskResult,
   UpdatedTimeEntryResult,
-} from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
 import {
   ElectronHttpClientFactory,

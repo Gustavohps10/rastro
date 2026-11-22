@@ -1,1 +1,1 @@
-export type { ICoreAPI } from '@mr-tick/application'
+export type { ICoreAPI } from '@rastrokit/application'

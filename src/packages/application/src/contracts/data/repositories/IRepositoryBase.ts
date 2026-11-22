@@ -1,4 +1,4 @@
-﻿import { Entity } from '@mr-tick/domain'
+﻿import { Entity } from '@rastrokit/domain'
 
 export interface IRepositoryBase<T extends Entity> {
   create(entity: T): Promise<void>

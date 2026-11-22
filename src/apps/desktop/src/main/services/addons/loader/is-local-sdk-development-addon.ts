@@ -12,14 +12,14 @@ export function isLocalSdkDevelopmentAddon(
   const dependencyPath = join(
     addonFolderPath,
     'node_modules',
-    '@mr-tick',
+    '@rastrokit',
     'sdk',
   )
 
   if (!existsSync(dependencyPath)) return false
   if (!lstatSync(dependencyPath).isSymbolicLink()) return false
 
-  const hostSdkEntry = fileURLToPath(import.meta.resolve('@mr-tick/sdk'))
+  const hostSdkEntry = fileURLToPath(import.meta.resolve('@rastrokit/sdk'))
   const hostSdkPath = join(dirname(hostSdkEntry), '..')
 
   return realpathSync(dependencyPath) === realpathSync(hostSdkPath)

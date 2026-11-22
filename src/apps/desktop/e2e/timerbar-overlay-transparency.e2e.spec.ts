@@ -18,7 +18,7 @@ test('widget stays transparent without centered workspace buttons when no worksp
   if (!widget) return
 
   await widget.evaluate(() => {
-    localStorage.removeItem('mr-tick-timer-preferences')
+    localStorage.removeItem('rastro-timer-preferences')
     localStorage.setItem('vite-ui-theme', 'light')
     history.replaceState(null, '', '#/widgets/timer')
   })

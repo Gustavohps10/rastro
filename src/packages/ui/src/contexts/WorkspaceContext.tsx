@@ -1,5 +1,5 @@
-import { FileData } from '@mr-tick/application'
-import { WorkspaceViewModel } from '@mr-tick/shared/view-models'
+import { FileData } from '@rastrokit/application'
+import { WorkspaceViewModel } from '@rastrokit/shared/view-models'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { createContext, ReactNode, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router'

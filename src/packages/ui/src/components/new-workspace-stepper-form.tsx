@@ -1,12 +1,12 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { AddonManifest } from '@mr-tick/application'
+import { AddonManifest } from '@rastrokit/application'
 import type {
   AddonManifestViewModel,
   WorkspaceConnectionViewModel,
   WorkspaceViewModel,
-} from '@mr-tick/sdk'
+} from '@rastrokit/sdk'
 import { defineStepper } from '@stepperize/react'
 import { useStepItemContext } from '@stepperize/react/primitives'
 import { useQuery, useQueryClient } from '@tanstack/react-query'

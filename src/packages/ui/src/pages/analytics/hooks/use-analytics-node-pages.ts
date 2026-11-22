@@ -2,7 +2,7 @@ import type {
   AnalyticsPlanNode,
   AnalyticsQueryInput,
   AnalyticsQueryResult,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { useEffect, useMemo, useRef, useState } from 'react'
 
 import { useHostBridge } from '@/hooks'

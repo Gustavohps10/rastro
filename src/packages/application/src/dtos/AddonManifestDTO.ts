@@ -1,5 +1,5 @@
-import { AddonTier } from '@mr-tick/domain'
-import type { AddonCapability } from '@mr-tick/shared/helpers'
+import { AddonTier } from '@rastrokit/domain'
+import type { AddonCapability } from '@rastrokit/shared/helpers'
 
 export interface AddonScreenshotDTO {
   url: string

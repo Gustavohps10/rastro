@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
 
   reactCompiler: true,
 
-  transpilePackages: ['@mr-tick/ui', '@mr-tick/application'],
+  transpilePackages: ['@rastrokit/ui', '@rastrokit/application'],
 
   async rewrites() {
     return [

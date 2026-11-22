@@ -2,7 +2,7 @@ import type {
   AnalyticsAggregateMeasure,
   AnalyticsDatasetManifest,
   AnalyticsExecutionRequest,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { useState } from 'react'
 
 import { Button } from '@/components/ui/button'

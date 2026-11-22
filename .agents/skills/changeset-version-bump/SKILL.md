@@ -5,7 +5,7 @@ description: Orienta a criação correta de changesets e o ciclo de bump de vers
 
 # Fluxo de Versionamento e Changesets
 
-Esta skill define as regras obrigatórias para criação de registros de mudança (changesets), bumps de versão e releases no monorepo e nos plugins/addons do ecossistema Mr-tick.
+Esta skill define as regras obrigatórias para criação de registros de mudança (changesets), bumps de versão e releases no monorepo e nos plugins/addons do ecossistema Rastro.
 
 ---
 
@@ -30,15 +30,15 @@ Ao incluir um pacote ignorado em um changeset com outros pacotes, a esteira queb
 
 ```text
 🦋 error Error: Found mixed changeset <nome>
-🦋 error Found ignored packages: @mr-tick/landing-page
-🦋 error Found not ignored packages: @mr-tick/sdk @mr-tick/ui ...
+🦋 error Found ignored packages: @rastrokit/landing-page
+🦋 error Found not ignored packages: @rastrokit/sdk @rastrokit/ui ...
 🦋 error Mixed changesets that contain both ignored and not ignored packages are not allowed
 ```
 
 ### Regra
 
 1. **Sempre consultar `.changeset/config.json`**:
-   - Verifique a lista de pacotes no array `"ignore"` (ex: `"@mr-tick/landing-page"`).
+   - Verifique a lista de pacotes no array `"ignore"` (ex: `"@rastrokit/landing-page"`).
 2. **Nunca incluir pacotes ignorados no frontmatter**:
    - Nenhum pacote que conste no array `"ignore"` pode aparecer no cabeçalho YAML de um arquivo `.changeset/*.md`.
    - Se uma alteração afetou apenas a landing page ou outro pacote ignorado, **não** crie changeset para ele.
@@ -66,9 +66,9 @@ Os arquivos devem ser criados em `.changeset/<nome-claro-da-funcionalidade>.md` 
 
 ```markdown
 ---
-'@mr-tick/sdk': patch
-'@mr-tick/application': patch
-'@mr-tick/ui': patch
+'@rastrokit/sdk': patch
+'@rastrokit/application': patch
+'@rastrokit/ui': patch
 ---
 
 Descrição clara e objetiva do que foi corrigido, adicionado ou modificado.

@@ -1,9 +1,9 @@
 import type {
   ConnectionIdentity,
   ConnectionProfileDescriptor,
-} from '@mr-tick/domain'
-import { Workspace } from '@mr-tick/domain'
-import { Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/domain'
+import { Workspace } from '@rastrokit/domain'
+import { Either } from '@rastrokit/shared/helpers'
 import type { Mocked } from 'vitest'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 

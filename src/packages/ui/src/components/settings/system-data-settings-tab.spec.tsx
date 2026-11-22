@@ -2,8 +2,8 @@ import type {
   DiagnosticSnapshot,
   IHostBridge,
   SanitizedDiagnosticReport,
-} from '@mr-tick/application'
-import type { ViewModel } from '@mr-tick/shared/view-models'
+} from '@rastrokit/application'
+import type { ViewModel } from '@rastrokit/shared/view-models'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import React from 'react'
@@ -1516,7 +1516,7 @@ describe('SystemDataSettingsTab', () => {
           name: 'Analytics (Workspace Legacy)',
           role: 'analytics',
           technology: 'duckdb',
-          location: '<USER_HOME>/.mr-tick/analytics/ws-1.duckdb',
+          location: '<USER_HOME>/.rastro/analytics/ws-1.duckdb',
           workspaceId: 'ws-1',
           workspaceName: 'Workspace Legacy',
           canReset: true,

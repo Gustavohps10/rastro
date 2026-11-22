@@ -1,4 +1,4 @@
-import type { AnalyticsDatasetRow } from '@mr-tick/application'
+import type { AnalyticsDatasetRow } from '@rastrokit/application'
 
 export const SHADCN_PALETTE = [
   'var(--chart-1)',

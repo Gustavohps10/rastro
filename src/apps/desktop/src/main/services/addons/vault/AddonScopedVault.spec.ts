@@ -5,9 +5,9 @@ import type {
   ICredentialsVault,
   IWorkspaceCredentialReferenceRegistry,
   WorkspaceCredentialReference,
-} from '@mr-tick/application'
-import { CredentialReferenceFactory } from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { CredentialReferenceFactory } from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import { describe, expect, it, vi } from 'vitest'
 
 import { AddonScopedVault } from './AddonScopedVault'
@@ -207,7 +207,7 @@ async function registerActiveReference(
 describe('Explicit addon vault scopes', () => {
   it('keeps credentials separate while persisting configuration settings', async () => {
     const { vault } = fixture()
-    const scope: import('@mr-tick/application').AddonVaultScope = {
+    const scope: import('@rastrokit/application').AddonVaultScope = {
       kind: 'workspace',
       workspaceId: 'workspace-a',
     }
@@ -254,7 +254,7 @@ describe('Explicit addon vault scopes', () => {
       'addon-a',
       brokenReference.id,
     )
-    const broken: import('@mr-tick/application').AddonVaultScope = {
+    const broken: import('@rastrokit/application').AddonVaultScope = {
       kind: 'workspace',
       workspaceId: 'broken',
     }
@@ -404,7 +404,7 @@ describe('Explicit addon vault scopes', () => {
 
   it('preserves a token rotated after settings were read before saving stale settings', async () => {
     const { vault } = fixture()
-    const scope: import('@mr-tick/application').AddonVaultScope = {
+    const scope: import('@rastrokit/application').AddonVaultScope = {
       kind: 'workspace',
       workspaceId: 'settings-rotation',
     }
@@ -428,12 +428,12 @@ describe('Explicit addon vault scopes', () => {
 
   it('isolates two connections in the same workspace with the same fieldId', async () => {
     const { vault } = fixture()
-    const conn1: import('@mr-tick/application').AddonVaultScope = {
+    const conn1: import('@rastrokit/application').AddonVaultScope = {
       kind: 'connection',
       workspaceId: 'ws-multi',
       connectionInstanceId: 'conn-1',
     }
-    const conn2: import('@mr-tick/application').AddonVaultScope = {
+    const conn2: import('@rastrokit/application').AddonVaultScope = {
       kind: 'connection',
       workspaceId: 'ws-multi',
       connectionInstanceId: 'conn-2',
@@ -465,13 +465,13 @@ describe('Explicit addon vault scopes', () => {
 
   it('isolates two capabilities on the same connection with the same fieldId', async () => {
     const { vault } = fixture()
-    const cap1: import('@mr-tick/application').AddonVaultScope = {
+    const cap1: import('@rastrokit/application').AddonVaultScope = {
       kind: 'capability',
       workspaceId: 'ws-multi',
       connectionInstanceId: 'conn-1',
       capabilityId: 'watcher',
     }
-    const cap2: import('@mr-tick/application').AddonVaultScope = {
+    const cap2: import('@rastrokit/application').AddonVaultScope = {
       kind: 'capability',
       workspaceId: 'ws-multi',
       connectionInstanceId: 'conn-1',

@@ -1,4 +1,4 @@
-﻿# @mr-tick/ui
+﻿# @rastrokit/ui
 
 ## 1.15.0
 
@@ -51,9 +51,9 @@
 - Updated dependencies [9463fa9]
 - Updated dependencies [9463fa9]
 - Updated dependencies [9463fa9]
-  - @mr-tick/application@2.4.0
-  - @mr-tick/sdk@0.15.0
-  - @mr-tick/shared@1.7.0
+  - @rastrokit/application@2.4.0
+  - @rastrokit/sdk@0.15.0
+  - @rastrokit/shared@1.7.0
 
 ## 1.14.0
 
@@ -114,9 +114,9 @@
 - Updated dependencies [85fbcd6]
 - Updated dependencies [ef28f1f]
 - Updated dependencies [413089d]
-  - @mr-tick/shared@1.6.0
-  - @mr-tick/application@2.3.0
-  - @mr-tick/sdk@0.14.0
+  - @rastrokit/shared@1.6.0
+  - @rastrokit/application@2.3.0
+  - @rastrokit/sdk@0.14.0
 
 ## 1.13.0
 
@@ -128,8 +128,8 @@
 
 - 0c86ca4: Isolate activity metadata per datasource connection, enforce task selection prior to activity picking, reset activity when switching tasks or connections, and remove the disruptive layout-shifting sync banner.
 - Updated dependencies [790e624]
-  - @mr-tick/sdk@0.13.0
-  - @mr-tick/application@2.2.0
+  - @rastrokit/sdk@0.13.0
+  - @rastrokit/application@2.2.0
 
 ## 1.12.0
 
@@ -142,8 +142,8 @@
 ### Patch Changes
 
 - Updated dependencies [4733f0b]
-  - @mr-tick/sdk@0.12.0
-  - @mr-tick/application@2.1.0
+  - @rastrokit/sdk@0.12.0
+  - @rastrokit/application@2.1.0
 
 ## 1.11.0
 
@@ -162,9 +162,9 @@
 ### Patch Changes
 
 - Updated dependencies [a0bd5ef]
-  - @mr-tick/sdk@0.11.0
-  - @mr-tick/shared@1.5.0
-  - @mr-tick/application@2.0.0
+  - @rastrokit/sdk@0.11.0
+  - @rastrokit/shared@1.5.0
+  - @rastrokit/application@2.0.0
 
 ## 1.10.1
 
@@ -178,11 +178,11 @@
 
 ### Minor Changes
 
-- 6d14757: Padronização canônica das capacidades de addons em todo o ecossistema Mr. Tick:
+- 6d14757: Padronização canônica das capacidades de addons em todo o ecossistema Rastro:
   - Substituição integral de categorias (`category`/`categories`) e descritores legados por `capabilities: AddonCapability[]` (`'dataSource' | 'watcher' | 'calendar' | 'punch' | 'theme'`).
   - Remoção definitiva de união de tipos (`AddonCapability | AddonCapabilityDescriptor`) mantendo uma única fonte da verdade estrita.
   - Simplificação do versionamento de contratos centralizado na compatibilidade SemVer do SDK, eliminando micro-versionamento per-capability (`contractVersion`).
-  - Helpers canônicos centralizados em `@mr-tick/shared/helpers` e reexportados pelo SDK (`hasCapability`, `isDataSource`, `isWatcher`, `isTheme`).
+  - Helpers canônicos centralizados em `@rastrokit/shared/helpers` e reexportados pelo SDK (`hasCapability`, `isDataSource`, `isWatcher`, `isTheme`).
   - Limpeza de fallbacks cegos PascalCase e categorias legadas nos utilitários da CLI (`manifest`, `sync`, `pkg`, `validate`).
   - Atualização e alinhamento dos serviços de aplicação (`ImportAddonService`, `UpdateAddonService`), adaptadores (`AddonsFacade`), UI (`SyncProvider`, modais e componentes de tarefas) e runtime desktop (`AddonLoader`, ciclo de vida e dispatch de provedores).
 - 24d3de8: Arquitetura de conexões e capacidades dos addons: perfis de conexão com cardinalidade (`single`/`multi`) validada no domínio e na persistência, fábrica de HTTP por conexão, ciclo de vida de conexão com credenciais em cofre (distinguindo ausência, indisponibilidade e payload inválido), tentativas OAuth controladas pelo host com refresh compartilhado por autorização, configurações e segredos de addons separados por escopo, persistência de workspaces em SQLite e UI de conexões agrupada por workspace.
@@ -195,9 +195,9 @@
 - Updated dependencies [24d3de8]
 - Updated dependencies [5da988f]
 - Updated dependencies [70120fb]
-  - @mr-tick/sdk@0.10.0
-  - @mr-tick/application@1.8.0
-  - @mr-tick/shared@1.4.0
+  - @rastrokit/sdk@0.10.0
+  - @rastrokit/application@1.8.0
+  - @rastrokit/shared@1.4.0
 
 ## 1.9.1
 
@@ -223,18 +223,18 @@
 - Updated dependencies [9de4c25]
 - Updated dependencies [e4c7f21]
 - Updated dependencies [83efe1e]
-  - @mr-tick/application@1.7.0
-  - @mr-tick/sdk@0.9.0
+  - @rastrokit/application@1.7.0
+  - @rastrokit/sdk@0.9.0
 
 ## 1.8.1
 
 ### Patch Changes
 
-- 46475ba: Adiciona ecossistema Mr. Tick Plus fim a fim: suporte ao tier `plus`, hash `sha256`, `size` e assinatura Ed25519 de pacotes `.tladdon` no `@mr-tick/sdk`, verificação offline/online de licença (`lic-2026-01`) e pacotes assinados (`cat-2026-01`), download autenticado no Cloudflare R2 com validação SHA-256, deep link `mistertick://activate?key=...` no Electron e interface de ativação e badges Plus na loja e página de addons.
+- 46475ba: Adiciona ecossistema Rastro Plus fim a fim: suporte ao tier `plus`, hash `sha256`, `size` e assinatura Ed25519 de pacotes `.tladdon` no `@rastrokit/sdk`, verificação offline/online de licença (`lic-2026-01`) e pacotes assinados (`cat-2026-01`), download autenticado no Cloudflare R2 com validação SHA-256, deep link `rastro://activate?key=...` no Electron e interface de ativação e badges Plus na loja e página de addons.
 - Updated dependencies [46475ba]
-  - @mr-tick/sdk@0.8.1
-  - @mr-tick/shared@1.3.1
-  - @mr-tick/application@1.6.1
+  - @rastrokit/sdk@0.8.1
+  - @rastrokit/shared@1.3.1
+  - @rastrokit/application@1.6.1
 
 ## 1.8.0
 
@@ -257,8 +257,8 @@
 ### Patch Changes
 
 - Updated dependencies [0e0d20d]
-  - @mr-tick/sdk@0.8.0
-  - @mr-tick/application@1.6.0
+  - @rastrokit/sdk@0.8.0
+  - @rastrokit/application@1.6.0
 
 ## 1.7.0
 
@@ -277,9 +277,9 @@
 - Updated dependencies [f44420a]
 - Updated dependencies [9f5a4bf]
 - Updated dependencies [8b6f3e4]
-  - @mr-tick/application@1.5.0
-  - @mr-tick/shared@1.3.0
-  - @mr-tick/sdk@0.7.0
+  - @rastrokit/application@1.5.0
+  - @rastrokit/shared@1.3.0
+  - @rastrokit/sdk@0.7.0
 
 ## 1.6.0
 
@@ -317,9 +317,9 @@
 - Updated dependencies [df0ddc8]
 - Updated dependencies [df0ddc8]
 - Updated dependencies [df0ddc8]
-  - @mr-tick/application@1.4.0
-  - @mr-tick/sdk@0.6.0
-  - @mr-tick/shared@1.2.0
+  - @rastrokit/application@1.4.0
+  - @rastrokit/sdk@0.6.0
+  - @rastrokit/shared@1.2.0
 
 ## 1.5.0
 
@@ -333,16 +333,16 @@
 - f91a79c: fix(ui): adiciona subscription reativa no RxDB para o popover de tarefas, preserva tarefas recentes sem truncamento prematuro e expande suite e2e
 - 165229a: Corrige isolamento de identificadores (Regra 13) ao selecionar tarefas no widget e popover, otimiza busca de tarefas com ordenação em memória, adiciona indexação por conexão no RxDB para eliminar travamentos e suporta campos nulos (description, dueDate, etc.) no schema de tarefas do RxDB.
 - Updated dependencies [9afb4a1]
-  - @mr-tick/application@1.3.0
-  - @mr-tick/sdk@0.5.0
+  - @rastrokit/application@1.3.0
+  - @rastrokit/sdk@0.5.0
 
 ## 1.4.1
 
 ### Patch Changes
 
 - 0c03498: Adicionar suporte a comments nulos e fuso horário noturno na entidade TimeEntry e suíte E2E automatizada de sincronização e cenários caóticos com DataSource Fake
-  - @mr-tick/sdk@0.5.0
-  - @mr-tick/application@1.2.2
+  - @rastrokit/sdk@0.5.0
+  - @rastrokit/application@1.2.2
 
 ## 1.4.0
 
@@ -370,8 +370,8 @@
 
 ### Patch Changes
 
-- fca1bd6: Desacopla a verificação de compatibilidade de addons da versão do executável Desktop, introduzindo a rota `bridge.system.getSdkVersion()` que resolve dinamicamente a versão da API suportada a partir do `@mr-tick/sdk`.
-  - @mr-tick/sdk@0.5.0
+- fca1bd6: Desacopla a verificação de compatibilidade de addons da versão do executável Desktop, introduzindo a rota `bridge.system.getSdkVersion()` que resolve dinamicamente a versão da API suportada a partir do `@rastrokit/sdk`.
+  - @rastrokit/sdk@0.5.0
 
 ## 1.3.0
 
@@ -413,7 +413,7 @@
 
 - 909bcc6: Centraliza a renderização de campos de schema em AddonFieldRenderer reutilizável, elimina duplicidade de código de formulários e adiciona testes E2E com FakeDataSource.
 - Updated dependencies [82f3d48]
-  - @mr-tick/sdk@0.5.0
+  - @rastrokit/sdk@0.5.0
 
 ## 1.1.3
 
@@ -426,7 +426,7 @@
 ### Patch Changes
 
 - Updated dependencies [b6a306b]
-  - @mr-tick/sdk@0.4.1
+  - @rastrokit/sdk@0.4.1
 
 ## 1.1.1
 
@@ -444,7 +444,7 @@
 
 - Updated dependencies [00bc018]
 - Updated dependencies [394905d]
-  - @mr-tick/sdk@0.4.0
+  - @rastrokit/sdk@0.4.0
 
 ## 1.0.4
 
@@ -453,7 +453,7 @@
 ### Patch Changes
 
 - Updated dependencies
-  - @mr-tick/sdk@0.3.0
+  - @rastrokit/sdk@0.3.0
 
 ## 1.0.2
 
@@ -461,11 +461,11 @@
 
 - Updated dependencies [82941c8]
 - Updated dependencies
-  - @mr-tick/sdk@0.1.1
+  - @rastrokit/sdk@0.1.1
 
 ## 1.0.1
 
 ### Patch Changes
 
 - Updated dependencies
-  - @mr-tick/sdk@0.1.0
+  - @rastrokit/sdk@0.1.0

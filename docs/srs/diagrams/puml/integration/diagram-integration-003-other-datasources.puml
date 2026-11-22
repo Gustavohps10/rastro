@@ -1,22 +1,22 @@
 @startuml IntegrationOtherDataSources
 title Other Data Sources Integration Flow
-participant MrTick
+participant Rastro
 participant AddonLoader
 participant CustomAdapter
 participant ExternalAPI
 
-MrTick -> AddonLoader: getRegisteredDataSource()
+Rastro -> AddonLoader: getRegisteredDataSource()
 AddonLoader -> CustomAdapter: getAdapter()
 CustomAdapter -> CustomAdapter: Implementa IDataSource
 
-MrTick -> CustomAdapter: pull(checkpoint)
+Rastro -> CustomAdapter: pull(checkpoint)
 CustomAdapter -> ExternalAPI: GET /api/endpoint
 ExternalAPI -> CustomAdapter: JSON / API Response
 CustomAdapter -> CustomAdapter: Map ExternalFormat -> Task
-CustomAdapter -> MrTick: tasks[], metadata[]
+CustomAdapter -> Rastro: tasks[], metadata[]
 
 note over CustomAdapter
-  Addons customizados via @mr-tick/sdk
+  Addons customizados via @rastrokit/sdk
   Conversao para modelo canonico
 end note
 @enduml

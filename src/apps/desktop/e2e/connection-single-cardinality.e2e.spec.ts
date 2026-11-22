@@ -2,6 +2,7 @@ import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { dirname, join, resolve, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+import { electronUserDataRoot } from './fixtures/artifact-paths'
 import { expect, test } from './fixtures/electron-fixture'
 
 const addonId = 'connection-cardinality-e2e'
@@ -24,7 +25,7 @@ function prepareSingleProfileAddon(userDataPath: string): void {
     join(sourceAddonDirectory, 'dist', 'index.js'),
     'utf8',
   )
-  const originalId = 'id: mr-tick-datasource-fake'
+  const originalId = 'id: rastro-datasource-fake'
   const originalProfile =
     'connectionProfileId: "fake-main",\n        cardinality: "multi",\n        default: true'
   const targetProfile = `connectionProfileId: "${profileId}",\n        cardinality: "single",\n        default: true`
@@ -53,11 +54,7 @@ function prepareSingleProfileAddon(userDataPath: string): void {
 
 function removeSingleProfileAddon(userDataPath: string): void {
   const resolvedUserDataPath = resolve(userDataPath)
-  const expectedUserDataRoot = resolve(
-    currentDirectory,
-    '../test-results/electron-user-data',
-  )
-  const expectedUserDataPrefix = `${expectedUserDataRoot}${sep}`
+  const expectedUserDataPrefix = `${electronUserDataRoot}${sep}`
   const resolvedAddonDirectory = resolve(
     resolvedUserDataPath,
     'addons',

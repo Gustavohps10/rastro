@@ -9,7 +9,7 @@ import type {
   AddonSettingsSelectSource,
   AddonSettingsValues,
   AddonVaultScope,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import {
   AlertCircle,
   Check,

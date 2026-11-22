@@ -1,17 +1,13 @@
 import { appendFile, readFile } from 'node:fs/promises'
-import { dirname, join, resolve } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { join, resolve } from 'node:path'
 
 import type { ElectronApplication, Page } from '@playwright/test'
 
+import { getElectronUserDataPath } from './fixtures/artifact-paths'
 import { expect, test } from './fixtures/electron-fixture'
 import { fakeSyncDiagnostics } from './fixtures/fake-sync-observer'
 import seedWorkspaces from './fixtures/seed-workspaces.json' with { type: 'json' }
 import { syncStatusIndicator } from './fixtures/sync-status'
-
-const currentFilePath = fileURLToPath(import.meta.url)
-const currentDir = dirname(currentFilePath)
-const desktopRoot = resolve(currentDir, '..')
 
 async function findRuntimeWindow(
   electronApp: ElectronApplication,
@@ -33,7 +29,7 @@ function getTargetWorkspaceScope() {
     throw new Error('TARGET_TESTE_WORKSPACE_NOT_FOUND_IN_SEED')
   }
   const connection = workspace.connections.find(
-    (c) => c.addonId === 'mr-tick-datasource-fake',
+    (c) => c.addonId === 'rastro-datasource-fake',
   )
   if (!connection) {
     throw new Error('TARGET_FAKE_CONNECTION_NOT_FOUND_IN_SEED')
@@ -610,12 +606,7 @@ test.describe('E2E - Saúde do Sistema e Diagnóstico de Runtime (Bloco C)', () 
     const userData = await electronApp.evaluate(({ app }) =>
       app.getPath('userData'),
     )
-    const expectedUserData = resolve(
-      desktopRoot,
-      'test-results',
-      'electron-user-data',
-      `worker-${testInfo.workerIndex}`,
-    )
+    const expectedUserData = getElectronUserDataPath(testInfo.workerIndex)
     expect(resolve(userData)).toBe(expectedUserData)
 
     const diagnosticsDir = join(userData, 'diagnostics')

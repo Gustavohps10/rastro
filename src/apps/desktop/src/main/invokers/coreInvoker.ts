@@ -1,4 +1,4 @@
-import type { ICoreBridgeAPI } from '@mr-tick/application'
+import type { ICoreBridgeAPI } from '@rastrokit/application'
 
 import { IpcInvoker } from '@/main/adapters/IpcInvoker'
 

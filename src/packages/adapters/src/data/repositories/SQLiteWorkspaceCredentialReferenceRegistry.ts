@@ -4,8 +4,8 @@ import {
   WorkspaceCredentialReference,
   WorkspaceCredentialReferenceInput,
   WorkspaceCredentialWriteReservation,
-} from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import { Knex } from 'knex'
 
 import {

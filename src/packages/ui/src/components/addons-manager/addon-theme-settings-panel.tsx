@@ -1,7 +1,7 @@
 'use client'
 
-import type { AddonManifestViewModel } from '@mr-tick/sdk'
-import type { AddonThemeViewModel } from '@mr-tick/shared/view-models'
+import type { AddonManifestViewModel } from '@rastrokit/sdk'
+import type { AddonThemeViewModel } from '@rastrokit/shared/view-models'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   Check,

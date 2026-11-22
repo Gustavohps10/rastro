@@ -1,4 +1,4 @@
 provider: github
 owner: Gustavohps10
 repo: rastro
-updaterCacheDirName: mr-tick-updater
+updaterCacheDirName: rastro-updater

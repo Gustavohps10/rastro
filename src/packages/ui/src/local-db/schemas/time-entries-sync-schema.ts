@@ -1,4 +1,4 @@
-import type { LocalTimeEntrySnapshot } from '@mr-tick/application'
+import type { LocalTimeEntrySnapshot } from '@rastrokit/application'
 import type { RxJsonSchema } from 'rxdb'
 
 export type {
@@ -9,7 +9,7 @@ export type {
   TimeEntryRemoteState,
   TimerConfig,
   TimerJournalEntry,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 
 export type SyncTimeEntryRxDBDTO = LocalTimeEntrySnapshot
 

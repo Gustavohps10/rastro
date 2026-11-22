@@ -1,4 +1,4 @@
-import { ITaskAPI } from '@mr-tick/application'
+import { ITaskAPI } from '@rastrokit/application'
 
 import { IpcInvoker } from '@/main/adapters/IpcInvoker'
 

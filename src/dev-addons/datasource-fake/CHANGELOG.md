@@ -1,4 +1,4 @@
-﻿# @mr-tick/datasource-fake
+﻿# @rastrokit/datasource-fake
 
 ## 1.3.0
 
@@ -38,7 +38,7 @@
 - Updated dependencies [9463fa9]
 - Updated dependencies [9463fa9]
 - Updated dependencies [9463fa9]
-  - @mr-tick/sdk@0.15.0
+  - @rastrokit/sdk@0.15.0
 
 ## 1.2.4
 
@@ -53,14 +53,14 @@
 - Updated dependencies [db0d670]
 - Updated dependencies [c2606a8]
 - Updated dependencies [413089d]
-  - @mr-tick/sdk@0.14.0
+  - @rastrokit/sdk@0.14.0
 
 ## 1.2.3
 
 ### Patch Changes
 
 - Updated dependencies [790e624]
-  - @mr-tick/sdk@0.13.0
+  - @rastrokit/sdk@0.13.0
 
 ## 1.2.2
 
@@ -71,7 +71,7 @@
   Render connection forms for auth-only addons, separate credential/configuration values by field scope, and use the declared default authenticator rather than assuming its ID matches the connection profile. Rename the shared connection form and manager to reflect their independent role. IDataSource.getConnectionSchema and the previous form export are removed; addon sources must migrate with the matching SDK and desktop release.
 
 - Updated dependencies [4733f0b]
-  - @mr-tick/sdk@0.12.0
+  - @rastrokit/sdk@0.12.0
 
 ## 1.2.1
 
@@ -88,7 +88,7 @@
   Allow unreleased SDK testing in an unpackaged desktop only when the addon and its SDK dependency are development links pointing to the host's local SDK. Preserve production API version checks and surface connection profile loading errors in the settings screen.
 
 - Updated dependencies [a0bd5ef]
-  - @mr-tick/sdk@0.11.0
+  - @rastrokit/sdk@0.11.0
 
 ## 1.2.0
 
@@ -102,21 +102,21 @@
 
 - Updated dependencies [6d14757]
 - Updated dependencies [24d3de8]
-  - @mr-tick/sdk@0.10.0
+  - @rastrokit/sdk@0.10.0
 
 ## 1.1.2
 
 ### Patch Changes
 
 - Updated dependencies [83efe1e]
-  - @mr-tick/sdk@0.9.0
+  - @rastrokit/sdk@0.9.0
 
 ## 1.1.1
 
 ### Patch Changes
 
 - Updated dependencies [46475ba]
-  - @mr-tick/sdk@0.8.1
+  - @rastrokit/sdk@0.8.1
 
 ## 1.1.0
 
@@ -139,14 +139,14 @@
 ### Patch Changes
 
 - Updated dependencies [0e0d20d]
-  - @mr-tick/sdk@0.8.0
+  - @rastrokit/sdk@0.8.0
 
 ## 1.0.7
 
 ### Patch Changes
 
 - Updated dependencies [9f5a4bf]
-  - @mr-tick/sdk@0.7.0
+  - @rastrokit/sdk@0.7.0
 
 ## 1.0.6
 
@@ -175,7 +175,7 @@
 - Updated dependencies [df0ddc8]
 - Updated dependencies [df0ddc8]
 - Updated dependencies [df0ddc8]
-  - @mr-tick/sdk@0.6.0
+  - @rastrokit/sdk@0.6.0
 
 ## 1.0.5
 
@@ -188,14 +188,14 @@
 ### Patch Changes
 
 - Updated dependencies [82f3d48]
-  - @mr-tick/sdk@0.5.0
+  - @rastrokit/sdk@0.5.0
 
 ## 1.0.3
 
 ### Patch Changes
 
 - Updated dependencies [b6a306b]
-  - @mr-tick/sdk@0.4.1
+  - @rastrokit/sdk@0.4.1
 
 ## 1.0.2
 
@@ -203,11 +203,11 @@
 
 - Updated dependencies [00bc018]
 - Updated dependencies [394905d]
-  - @mr-tick/sdk@0.4.0
+  - @rastrokit/sdk@0.4.0
 
 ## 1.0.1
 
 ### Patch Changes
 
 - Updated dependencies
-  - @mr-tick/sdk@0.1.0
+  - @rastrokit/sdk@0.1.0

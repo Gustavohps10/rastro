@@ -13,34 +13,26 @@ import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import {
-  SQLiteConnectionReservationRepository,
-  SQLiteWorkspacesRepository,
-} from '@mr-tick/adapters/data'
-import { KeytarCredentialsVault } from '@mr-tick/adapters/tools'
-import { CredentialReferenceFactory } from '@mr-tick/application'
-import { Workspace } from '@mr-tick/domain'
-import {
   _electron as electronLauncher,
   type ElectronApplication,
   expect,
   type Page,
   test as baseTest,
 } from '@playwright/test'
+import {
+  SQLiteConnectionReservationRepository,
+  SQLiteWorkspacesRepository,
+} from '@rastrokit/adapters/data'
+import { KeytarCredentialsVault } from '@rastrokit/adapters/tools'
+import { CredentialReferenceFactory } from '@rastrokit/application'
+import { Workspace } from '@rastrokit/domain'
 
+import { getElectronUserDataPath } from './artifact-paths'
 import seedWorkspaces from './seed-workspaces.json' with { type: 'json' }
 
 const currentFilePath = fileURLToPath(import.meta.url)
 const currentDir = dirname(currentFilePath)
 const desktopRoot = resolve(currentDir, '../..')
-
-function getElectronUserDataPath(workerIndex: number): string {
-  return resolve(
-    desktopRoot,
-    'test-results',
-    'electron-user-data',
-    `worker-${workerIndex}`,
-  )
-}
 
 function cleanDirectoryIfExists(dirPath: string): void {
   if (!existsSync(dirPath)) return
@@ -120,7 +112,7 @@ async function ensureSeedWorkspaces(
                 identity: {
                   kind: 'human' as const,
                   providerId: 'fake',
-                  tenantId: 'fake.mr-tick-app.local',
+                  tenantId: 'fake.rastro-app.local',
                   providerSubjectId: '1',
                   displayName: 'Alex Silva',
                 },
@@ -137,7 +129,7 @@ async function ensureSeedWorkspaces(
             identity: {
               kind: 'human' as const,
               providerId: 'fake',
-              tenantId: 'fake.mr-tick-app.local',
+              tenantId: 'fake.rastro-app.local',
               providerSubjectId: '1',
               displayName: 'Alex Silva',
             },
@@ -150,10 +142,10 @@ async function ensureSeedWorkspaces(
       configurableObserversFixture &&
       rawWs.id === 'ws-15c9d402-b6da-48ac-9a75-1b948cd0ec92'
     ) {
-      const alphaConnId = 'mr-tick-datasource-alpha-c1'
+      const alphaConnId = 'rastro-datasource-alpha-c1'
       const alphaAuthId = `seed-auth-${alphaConnId}`
       const alphaCredRef = CredentialReferenceFactory.create({
-        ownerId: 'mr-tick-datasource-alpha',
+        ownerId: 'rastro-datasource-alpha',
         workspaceId: rawWs.id,
         connectionId: alphaConnId,
         authorizationId: alphaAuthId,
@@ -161,7 +153,7 @@ async function ensureSeedWorkspaces(
       connections.push({
         id: alphaConnId,
         status: 'connected',
-        addonId: 'mr-tick-datasource-alpha',
+        addonId: 'rastro-datasource-alpha',
         connectionProfileId: 'alpha-main',
         cardinality: 'multi',
         generation: 1,
@@ -195,10 +187,10 @@ async function ensureSeedWorkspaces(
         config: { serverUrl: 'https://alpha.corp', apiKey: 'sec_alpha_123' },
       })
 
-      const discordConnId = 'mistertick-discord-c1'
+      const discordConnId = 'rastro-discord-c1'
       const discordAuthId = `seed-auth-${discordConnId}`
       const discordCredRef = CredentialReferenceFactory.create({
-        ownerId: 'mistertick-discord',
+        ownerId: 'rastro-discord',
         workspaceId: rawWs.id,
         connectionId: discordConnId,
         authorizationId: discordAuthId,
@@ -206,7 +198,7 @@ async function ensureSeedWorkspaces(
       connections.push({
         id: discordConnId,
         status: 'connected',
-        addonId: 'mistertick-discord',
+        addonId: 'rastro-discord',
         connectionProfileId: 'discord-presence',
         cardinality: 'single',
         generation: 1,
@@ -260,7 +252,7 @@ async function ensureSeedWorkspaces(
         connectionProfileId: c.connectionProfileId,
         connectionId: c.id,
         cardinality: c.cardinality === 'single' ? 'single' : 'multi',
-        default: c.id === 'mr-tick-datasource-fake-c3f15587',
+        default: c.id === 'rastro-datasource-fake-c3f15587',
       })
       if (c.status === 'connected') {
         const credRef = CredentialReferenceFactory.create({
@@ -270,7 +262,7 @@ async function ensureSeedWorkspaces(
           authorizationId: `seed-auth-${c.id}`,
         })
         let credentialPayload = JSON.stringify({ apiKey: 'fake-api-key' })
-        if (c.addonId === 'mistertick-discord') {
+        if (c.addonId === 'rastro-discord') {
           credentialPayload = JSON.stringify({
             accessToken: 'test-discord-oauth-token',
             discordUser: JSON.stringify({
@@ -299,7 +291,7 @@ function ensureTestAddon(
   includeConfigurableObserversFixture: boolean = false,
 ): void {
   const addonsDir = join(userDataPath, 'addons')
-  const targetAddonDir = join(addonsDir, 'mr-tick-datasource-fake')
+  const targetAddonDir = join(addonsDir, 'rastro-datasource-fake')
   const sourceAddonDir = resolve(
     desktopRoot,
     '../../dev-addons/datasource-fake',
@@ -318,7 +310,7 @@ function ensureTestAddon(
       join(sourceAddonDir, 'dist', 'index.js'),
       'utf8',
     )
-    const addonIdLine = 'id: mr-tick-datasource-fake'
+    const addonIdLine = 'id: rastro-datasource-fake'
     const registrationAnchor =
       'console.log("\\u{1F7E2} [FakeDataSourceAddon] Registrando FakeDataSource...");'
     const probeCommand = `\n    context.contributions.commands.register("pending-work:archive-connection", async (scope) => {\n      const result = await context.core.connections.archive(scope);\n      if (result.isFailure()) return { ok: false, error: result.failure.messageKey, statusCode: result.failure.statusCode };\n      return { ok: true };\n    });`
@@ -349,7 +341,7 @@ function ensureTestAddon(
       join(sourceAddonDir, 'dist', 'index.js'),
       'utf8',
     )
-    const addonIdLine = 'id: mr-tick-datasource-fake'
+    const addonIdLine = 'id: rastro-datasource-fake'
     const originalProfile =
       'connectionProfileId: "fake-main",\n        cardinality: "multi",\n        default: true'
     const targetProfile = `connectionProfileId: "${probeProfileId}",\n        cardinality: "single",\n        default: true`
@@ -418,7 +410,7 @@ function ensureTestAddon(
         `CONFIGURABLE_OBSERVERS_FIXTURE_MISSING: fake-watcher-for-tests dist/index.js missing at ${watcherSourceDir}. Run tsup build first.`,
       )
     }
-    const targetWatcherDir = join(addonsDir, 'mr-tick-fake-watcher-for-tests')
+    const targetWatcherDir = join(addonsDir, 'rastro-fake-watcher-for-tests')
     if (existsSync(targetWatcherDir)) {
       try {
         const stat = lstatSync(targetWatcherDir)
@@ -454,7 +446,7 @@ function ensureTestAddon(
         `CONFIGURABLE_OBSERVERS_FIXTURE_MISSING: datasource-alpha-for-tests dist/index.js missing at ${alphaSourceDir}. Run tsup build first.`,
       )
     }
-    const targetAlphaDir = join(addonsDir, 'mr-tick-datasource-alpha')
+    const targetAlphaDir = join(addonsDir, 'rastro-datasource-alpha')
     if (existsSync(targetAlphaDir)) {
       try {
         const stat = lstatSync(targetAlphaDir)
@@ -476,7 +468,7 @@ function ensureTestAddon(
       existsSync(discordSourceDir) &&
       existsSync(join(discordSourceDir, 'dist', 'index.js'))
     ) {
-      const targetDiscordDir = join(addonsDir, 'mistertick-discord')
+      const targetDiscordDir = join(addonsDir, 'rastro-discord')
       cleanDirectoryIfExists(targetDiscordDir)
       mkdirSync(join(targetDiscordDir, 'dist'), { recursive: true })
       copyFileSync(
@@ -486,7 +478,7 @@ function ensureTestAddon(
       writeFileSync(
         join(targetDiscordDir, 'package.json'),
         JSON.stringify({
-          name: 'mistertick-discord',
+          name: 'rastro-discord',
           version: '0.5.1',
           type: 'module',
           main: 'dist/index.js',
@@ -568,25 +560,25 @@ export const test = baseTest.extend<ElectronTestFixtures>({
     const logs: string[] = []
     const defaultIsolatedDiscordPipe =
       process.platform === 'win32'
-        ? `\\\\.\\pipe\\mr-tick-discord-isolated-${testInfo.workerIndex}`
-        : `/tmp/mr-tick-discord-isolated-${testInfo.workerIndex}`
+        ? `\\\\.\\pipe\\rastro-discord-isolated-${testInfo.workerIndex}`
+        : `/tmp/rastro-discord-isolated-${testInfo.workerIndex}`
     const appEnv = {
       ...process.env,
       NODE_ENV: electronNodeEnv,
       FAKE_DB_IN_MEMORY: 'true',
       PLAYWRIGHT_TEST: '1',
-      MR_TICK_RUNTIME_PROBE_WORKSPACE: runtimeProbeWorkspaceId,
-      MR_TICK_RUNTIME_PROBE_CONNECTION: runtimeProbeConnectionId,
-      MR_TICK_TEST_USER_DATA_DIR: userDataPath,
-      MR_TICK_DISCORD_RPC_PIPE_OVERRIDE: defaultIsolatedDiscordPipe,
+      RASTRO_RUNTIME_PROBE_WORKSPACE: runtimeProbeWorkspaceId,
+      RASTRO_RUNTIME_PROBE_CONNECTION: runtimeProbeConnectionId,
+      RASTRO_TEST_USER_DATA_DIR: userDataPath,
+      RASTRO_DISCORD_RPC_PIPE_OVERRIDE: defaultIsolatedDiscordPipe,
     }
-    delete appEnv.MR_TICK_OPEN_WIDGET_IN_TEST
+    delete appEnv.RASTRO_OPEN_WIDGET_IN_TEST
     if (
       openWidgetInTest ||
       testInfo.file.includes('timerbar-') ||
       testInfo.file.includes('suggestions')
     )
-      appEnv.MR_TICK_OPEN_WIDGET_IN_TEST = 'true'
+      appEnv.RASTRO_OPEN_WIDGET_IN_TEST = 'true'
 
     const app = await electronLauncher.launch({
       args: ['.', '--window-size=1600,900', `--user-data-dir=${userDataPath}`],

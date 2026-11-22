@@ -113,8 +113,7 @@ describe('Workspace Entity', () => {
     ).toBe(true)
   })
 
-  const LOCAL_AVATAR_URL =
-    'mr-tick-app://C:\\Users\\Gustavo\\AppData\\Roaming\\mr-tick\\workspaces\\avatars\\ws-9ef4bd92-e595-478f-b150-976d5c38372a.png'
+  const LOCAL_AVATAR_URL = 'app-assets://images/workspaces/avatar.png'
 
   const BLOB_URL = 'blob:http://localhost:3000/mock-uuid'
 

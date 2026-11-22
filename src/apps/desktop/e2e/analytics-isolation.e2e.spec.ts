@@ -1,5 +1,5 @@
-import type { LocalRuntimeRequest } from '@mr-tick/application'
 import type { Page } from '@playwright/test'
+import type { LocalRuntimeRequest } from '@rastrokit/application'
 import { z } from 'zod'
 
 import { expect, test } from './fixtures/electron-fixture'
@@ -48,7 +48,7 @@ for (const outcome of ['success', 'failure', 'cancel'] as const) {
     )
     if (workspace === undefined) throw new Error('FIXTURE_WORKSPACE_REQUIRED')
     const connection = workspace.connections.find(
-      (item) => item.addonId === 'mr-tick-datasource-fake',
+      (item) => item.addonId === 'rastro-datasource-fake',
     )
     if (connection === undefined) throw new Error('FIXTURE_CONNECTION_REQUIRED')
     const scope = {

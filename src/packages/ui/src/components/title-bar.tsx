@@ -142,7 +142,6 @@ export function TitleBar({ title, children }: TitleBarProps) {
           {/* Indicador Canônico de Indisponibilidade do Motor */}
           <RuntimeStatusIndicator />
 
-          {/* Botão de Ajuda (Estilo Discord) */}
           <TooltipProvider delayDuration={300}>
             <Tooltip>
               <TooltipTrigger asChild>

@@ -1,4 +1,4 @@
-import type { ICoreAPI } from '@mr-tick/application'
+import type { ICoreAPI } from '@rastrokit/application'
 
 import type { IAddonContributionsAPI } from './contributions'
 import type { IAddonHostAPI } from './host'

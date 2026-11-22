@@ -1,4 +1,4 @@
-import type { AddonSettingsTab } from '@mr-tick/application'
+import type { AddonSettingsTab } from '@rastrokit/application'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import React from 'react'

@@ -63,7 +63,7 @@ async function run() {
       `❌ Não foi possível conectar ao Electron na porta ${options.port}.`,
     )
     console.error(
-      `💡 Certifique-se de que o app foi iniciado com "yarn dev:debug" ou com MR_TICK_DEBUG=1.`,
+      `💡 Certifique-se de que o app foi iniciado com "yarn dev:debug" ou com RASTRO_DEBUG=1.`,
     )
     console.error(`Detalhe do erro: ${err?.message || err}`)
     process.exit(1)
@@ -112,7 +112,7 @@ async function run() {
 
   switch (options.action) {
     case 'screenshot': {
-      const defaultDir = resolve(process.cwd(), '.screenshots')
+      const defaultDir = resolve(import.meta.dirname, '../.temps/screenshots')
       if (!existsSync(defaultDir)) {
         mkdirSync(defaultDir, { recursive: true })
       }

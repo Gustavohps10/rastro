@@ -1,5 +1,5 @@
-import { IHostBridge } from '@mr-tick/application'
-import { TaskViewModel } from '@mr-tick/shared/view-models'
+import { IHostBridge } from '@rastrokit/application'
+import { TaskViewModel } from '@rastrokit/shared/view-models'
 import { describe, expect, it, vi } from 'vitest'
 
 import {

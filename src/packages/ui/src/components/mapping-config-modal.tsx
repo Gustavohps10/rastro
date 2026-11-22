@@ -3,7 +3,7 @@
 import type {
   ConfiguredFieldMapping,
   MappingFieldDefinition,
-} from '@mr-tick/sdk'
+} from '@rastrokit/sdk'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   Check,

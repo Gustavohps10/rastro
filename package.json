@@ -1,5 +1,5 @@
 {
-  "name": "mr-tick-monorepo",
+  "name": "rastro-monorepo",
   "private": true,
   "version": "1.0.0",
   "author": "Gustavo Henrique",
@@ -32,13 +32,13 @@
     "test:watch:ui": "vitest --project ui",
     "test:dashboard": "vitest --ui",
     "test:coverage": "vitest run --coverage",
-    "dev:landing-page": "turbo watch dev --filter=@mr-tick/landing-page",
-    "dev:desktop": "turbo watch dev --filter=@mr-tick/desktop",
-    "dev:desktop:debug": "turbo watch dev:debug --filter=@mr-tick/desktop",
-    "dev": "turbo watch dev --filter=@mr-tick/desktop --filter=@mr-tick/landing-page",
-    "dev:debug": "cross-env MR_TICK_DEBUG=1 turbo watch dev:debug --filter=@mr-tick/desktop --filter=@mr-tick/landing-page",
-    "build:landing-page": "turbo run build --filter=@mr-tick/landing-page",
-    "build:desktop": "turbo run build --filter=@mr-tick/desktop",
+    "dev:landing-page": "turbo watch dev --filter=@rastrokit/landing-page",
+    "dev:desktop": "turbo watch dev --filter=@rastrokit/desktop",
+    "dev:desktop:debug": "turbo watch dev:debug --filter=@rastrokit/desktop",
+    "dev": "turbo watch dev --filter=@rastrokit/desktop --filter=@rastrokit/landing-page",
+    "dev:debug": "cross-env RASTRO_DEBUG=1 turbo watch dev:debug --filter=@rastrokit/desktop --filter=@rastrokit/landing-page",
+    "build:landing-page": "turbo run build --filter=@rastrokit/landing-page",
+    "build:desktop": "turbo run build --filter=@rastrokit/desktop",
     "build:desktop:dir": "yarn --cwd src/apps/desktop test:win",
     "test:win": "yarn --cwd src/apps/desktop test:win",
     "build": "turbo run build --concurrency=100%",
@@ -52,7 +52,7 @@
     "prepare": "husky install",
     "postinstall": "husky install",
     "shadcn": "yarn --cwd src/packages/ui dlx shadcn@canary ",
-    "puml": "tsup puml.ts --format esm --out-dir dist --clean && node --enable-source-maps dist/puml.js",
+    "puml": "tsup puml.ts --format esm --out-dir .temps/puml --clean && node --enable-source-maps .temps/puml/puml.js",
     "addon:list": "tsx scripts/dev-addons.ts list",
     "addon:link": "tsx scripts/dev-addons.ts link",
     "addon:unlink": "tsx scripts/dev-addons.ts unlink",
@@ -111,7 +111,8 @@
   },
   "resolutions": {
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "bundle-require@npm:^5.1.0": "patch:bundle-require@npm%3A5.1.0#~/.yarn/patches/bundle-require-npm-5.1.0-022b2c8e1b.patch"
   },
   "packageManager": "yarn@4.9.4"
 }

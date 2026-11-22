@@ -4,7 +4,7 @@ import {
   type IMetadataProvider,
   type MappingFieldDefinition,
   type MetadataDTO,
-} from '@mr-tick/sdk'
+} from '@rastrokit/sdk'
 
 import { FakeDatabaseStore } from './FakeDatabaseStore'
 

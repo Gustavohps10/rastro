@@ -71,7 +71,7 @@ jobs:
           turbo-scope: desktop
 
       - name: Build Desktop App
-        run: yarn turbo run build --concurrency=100% --filter=@mr-tick/desktop --filter=@mr-tick/datasource-fake --summarize
+        run: yarn turbo run build --concurrency=100% --filter=@rastrokit/desktop --filter=@rastrokit/datasource-fake --summarize
 
       - name: Build Observer Test Fixtures
         run: |
@@ -135,7 +135,8 @@ jobs:
         if: failure()
         with:
           name: playwright-report-shard-${{ matrix.shard }}
-          path: src/apps/desktop/playwright-report/
+          path: .temps/playwright/report/
+          include-hidden-files: true
           retention-days: 7
           compression-level: 1
 
@@ -166,11 +167,43 @@ jobs:
           turbo-scope: checks
           restore-only: 'true'
 
-      - name: Configure NPM Registry Auth
+      - name: Install npm with trusted publishing support
+        run: npm install --global npm@11.15.0
+
+      - name: Check whether the renamed SDK is published
+        id: sdk_registry
         run: |
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+          status=$(curl --silent --show-error --max-time 30 --output /dev/null --write-out '%{http_code}' \
+            'https://registry.npmjs.org/@rastrokit%2fsdk')
+          case "$status" in
+            200) echo 'first_release=false' >> "$GITHUB_OUTPUT" ;;
+            404) echo 'first_release=true' >> "$GITHUB_OUTPUT" ;;
+            *) echo "::error::npm returned HTTP $status while checking @rastrokit/sdk"; exit 1 ;;
+          esac
+
+      - name: Build the first Rastro SDK release
+        if: steps.sdk_registry.outputs.first_release == 'true'
+        run: yarn turbo run build --filter=@rastrokit/sdk
+
+      - name: Publish the first Rastro SDK release at 0.15.0
+        if: steps.sdk_registry.outputs.first_release == 'true'
+        working-directory: src/apps/sdk
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_USERCONFIG: ${{ runner.temp }}/rastro-sdk-bootstrap.npmrc
+        run: |
+          version=$(node -p "require('./package.json').version")
+          if [[ "$version" != '0.15.0' ]]; then
+            echo "::error::The first @rastrokit/sdk release must be 0.15.0, found $version"
+            exit 1
+          fi
+          if [[ -z "$NODE_AUTH_TOKEN" ]]; then
+            echo '::error::NPM_TOKEN is required for the first @rastrokit/sdk release'
+            exit 1
+          fi
+          trap 'rm -f -- "$NPM_CONFIG_USERCONFIG"' EXIT
+          printf '%s\n' '//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}' > "$NPM_CONFIG_USERCONFIG"
+          npm publish --access public --registry https://registry.npmjs.org
 
       - name: Changesets Action (Create PR or Publish NPM)
         id: changesets
@@ -182,15 +215,13 @@ jobs:
           commit: 'chore: version packages'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Check if Desktop Release Needed & Push Desktop Tag
         id: check_desktop
         if: steps.changesets.outputs.hasChangesets == 'false'
         run: |
           DESKTOP_VERSION=$(node -p "require('./src/apps/desktop/package.json').version")
-          DESKTOP_TAG="@mr-tick/desktop@$DESKTOP_VERSION"
+          DESKTOP_TAG="@rastrokit/desktop@$DESKTOP_VERSION"
 
           if [[ "$DESKTOP_VERSION" == *"-"* ]]; then
             echo "is_prerelease=true" >> $GITHUB_OUTPUT
@@ -238,7 +269,7 @@ jobs:
           cache-builder: 'true'
 
       - name: Build Desktop App
-        run: yarn turbo run build --concurrency=100% --filter=@mr-tick/desktop --summarize
+        run: yarn turbo run build --concurrency=100% --filter=@rastrokit/desktop --summarize
 
       - name: Package with Electron Builder
         run: |

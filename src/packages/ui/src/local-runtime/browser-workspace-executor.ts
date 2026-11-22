@@ -10,16 +10,16 @@ import type {
   LocalRuntimeResult,
   LocalTimeEntrySnapshot,
   TimeOverlapDetectionResult,
-} from '@mr-tick/application'
-import type { CoreTaskReference } from '@mr-tick/application'
+} from '@rastrokit/application'
+import type { CoreTaskReference } from '@rastrokit/application'
 import {
   detectTimeOverlap,
   emptyResult,
   planLocalRuntimeCommand,
   resultFor,
   toPublicRecord,
-} from '@mr-tick/application/local-runtime'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application/local-runtime'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import type { MangoQuery } from 'rxdb'
 import type { StoreApi } from 'zustand'
 
@@ -45,7 +45,7 @@ export class BrowserWorkspaceExecutor implements ILocalWorkspaceExecutor {
     private readonly receipts: BrowserCommandReceipts,
     private readonly authorize: (
       input: BrowserCommand,
-      before: import('@mr-tick/application').LocalTimeEntrySnapshot | null,
+      before: import('@rastrokit/application').LocalTimeEntrySnapshot | null,
     ) => Promise<Either<AppError, BrowserCommand>>,
   ) {}
 

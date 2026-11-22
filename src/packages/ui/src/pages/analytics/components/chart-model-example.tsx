@@ -1,4 +1,4 @@
-import type { AnalyticsQueryResult } from '@mr-tick/application'
+import type { AnalyticsQueryResult } from '@rastrokit/application'
 
 import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'

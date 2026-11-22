@@ -1,10 +1,10 @@
-import { ConnectionIdentity, Workspace } from '@mr-tick/domain'
+import { ConnectionIdentity, Workspace } from '@rastrokit/domain'
 import {
   AppError,
   Either,
   isNonEmptyString,
   isRecord,
-} from '@mr-tick/shared/helpers'
+} from '@rastrokit/shared/helpers'
 
 import {
   ConnectionCredentialOperation,

@@ -1,4 +1,9 @@
-import { AppError, DataSourceContext, Either, TimeEntryDTO } from '@mr-tick/sdk'
+import {
+  AppError,
+  DataSourceContext,
+  Either,
+  TimeEntryDTO,
+} from '@rastrokit/sdk'
 import {
   afterAll,
   beforeAll,

@@ -2,7 +2,7 @@
 
 O SDK reúne ferramentas para criar extensões do Rastro sem alterar o aplicativo. Ele permite conectar ferramentas de trabalho, consultar tarefas, registrar apontamentos e sugestões, adicionar ações e criar temas. Essas extensões são chamadas de addons.
 
-O pacote público `@mr-tick/sdk` é o ponto de entrada para addons. Os guias de schemas de conexão acompanham o SDK 0.12 publicado no npm e `requiredApiVersion: '>=0.12.0'`; o empacotamento deriva o intervalo da versão do SDK usado pela CLI.
+O pacote público `@rastrokit/sdk` é o ponto de entrada para addons. Os guias de schemas de conexão acompanham o SDK 0.12 publicado no npm e `requiredApiVersion: '>=0.12.0'`; o empacotamento deriva o intervalo da versão do SDK usado pela CLI.
 
 ## Conceitos
 
@@ -31,7 +31,7 @@ Uma conexão de watcher não é datasource e não entra na replicação de taref
 - [Timer e apontamentos locais](sdk-local-runtime.md)
 - [ADR-008](adr/008-addon-capabilities-canon.md)
 - [Addon Redmine](https://github.com/Gustavohps10/redmine-plugin)
-- [Addon Discord](https://github.com/mistertick/discord-addon)
+- [Addon Discord](https://github.com/rastrokit/discord-addon)
 
 Addons executam código confiável no main; as APIs com escopo não são sandbox de código de terceiros. Um sucesso local não comprova confirmação remota.
 

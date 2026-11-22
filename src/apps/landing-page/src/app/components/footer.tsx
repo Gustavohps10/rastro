@@ -1,6 +1,6 @@
 'use client'
 
-import { Separator } from '@mr-tick/ui/separator'
+import { Separator } from '@rastrokit/ui/separator'
 import { Github, Linkedin, Twitter } from 'lucide-react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'

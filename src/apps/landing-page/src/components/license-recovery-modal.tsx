@@ -1,14 +1,14 @@
 'use client'
 
-import { Button } from '@mr-tick/ui/button'
+import { Button } from '@rastrokit/ui/button'
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from '@mr-tick/ui/dialog'
-import { Input } from '@mr-tick/ui/input'
+} from '@rastrokit/ui/dialog'
+import { Input } from '@rastrokit/ui/input'
 import {
   AlertCircle,
   AlertTriangle,
@@ -33,6 +33,7 @@ import {
   sendEmailVerificationCode,
   verifyEmailVerificationCode,
 } from '@/lib/billing'
+import { createDesktopActivationUrl } from '@/lib/desktop-links'
 
 export interface LicenseRecoveryModalProps {
   open: boolean
@@ -377,7 +378,7 @@ export function LicenseRecoveryModal({
 
                       <div className="flex items-center justify-between pt-1">
                         <a
-                          href={`mistertick://activate?key=${encodeURIComponent(lic.activationKey)}`}
+                          href={createDesktopActivationUrl(lic.activationKey)}
                           className="text-primary inline-flex items-center gap-1 text-[11px] font-semibold hover:underline"
                         >
                           <ExternalLink className="size-3" />

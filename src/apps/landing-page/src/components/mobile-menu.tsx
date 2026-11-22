@@ -1,12 +1,12 @@
 'use client'
 
-import { Separator } from '@mr-tick/ui/separator'
+import { Separator } from '@rastrokit/ui/separator'
 import {
   Sheet,
   SheetContent,
   SheetTitle,
   SheetTrigger,
-} from '@mr-tick/ui/sheet'
+} from '@rastrokit/ui/sheet'
 import { BookOpenTextIcon, Github, Menu, Star } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'

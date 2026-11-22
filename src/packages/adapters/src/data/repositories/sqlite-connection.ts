@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import { AppError, Either } from '@mr-tick/shared/helpers'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import knex, { Knex } from 'knex'
 
 declare global {

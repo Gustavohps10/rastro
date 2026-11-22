@@ -23,7 +23,7 @@ export class CredentialReferenceFactory {
     ]
     const encoded = parts.map((part) => `${part.length}:${part}`).join('')
     return CredentialReferenceFactory.createNamed(
-      'mr-tick',
+      'rastro',
       `credential-v1:${encoded}`,
     )
   }
@@ -61,7 +61,7 @@ export class CredentialReferenceFactory {
     ]
     const encoded = parts.map((part) => `${part.length}:${part}`).join('')
     return CredentialReferenceFactory.createNamed(
-      'mr-tick',
+      'rastro',
       `credential_candidate-v1:${encoded}`,
     )
   }

@@ -1,4 +1,4 @@
-import { SyncFailureViewModel } from '@mr-tick/shared/view-models'
+import { SyncFailureViewModel } from '@rastrokit/shared/view-models'
 import { RxError } from 'rxdb'
 import { z } from 'zod'
 

@@ -2,7 +2,7 @@ import { promises as fs } from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 
-import { ConnectionSlotReservation } from '@mr-tick/application'
+import { ConnectionSlotReservation } from '@rastrokit/application'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 import { SQLiteConnectionReservationRepository } from './SQLiteConnectionReservationRepository'

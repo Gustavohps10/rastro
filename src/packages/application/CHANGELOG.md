@@ -1,4 +1,4 @@
-# @mr-tick/application
+# @rastrokit/application
 
 ## 2.4.0
 
@@ -42,8 +42,8 @@
 - Updated dependencies [b744b04]
 - Updated dependencies [6485090]
 - Updated dependencies [9463fa9]
-  - @mr-tick/shared@1.7.0
-  - @mr-tick/domain@2.0.2
+  - @rastrokit/shared@1.7.0
+  - @rastrokit/domain@2.0.2
 
 ## 2.3.0
 
@@ -88,8 +88,8 @@
 - Updated dependencies [db0d670]
 - Updated dependencies [9746084]
 - Updated dependencies [358dd86]
-  - @mr-tick/shared@1.6.0
-  - @mr-tick/domain@2.0.1
+  - @rastrokit/shared@1.6.0
+  - @rastrokit/domain@2.0.1
 
 ## 2.2.0
 
@@ -122,18 +122,18 @@
 ### Patch Changes
 
 - Updated dependencies [a0bd5ef]
-  - @mr-tick/shared@1.5.0
-  - @mr-tick/domain@2.0.0
+  - @rastrokit/shared@1.5.0
+  - @rastrokit/domain@2.0.0
 
 ## 1.8.0
 
 ### Minor Changes
 
-- 6d14757: Padronização canônica das capacidades de addons em todo o ecossistema Mr. Tick:
+- 6d14757: Padronização canônica das capacidades de addons em todo o ecossistema Rastro:
   - Substituição integral de categorias (`category`/`categories`) e descritores legados por `capabilities: AddonCapability[]` (`'dataSource' | 'watcher' | 'calendar' | 'punch' | 'theme'`).
   - Remoção definitiva de união de tipos (`AddonCapability | AddonCapabilityDescriptor`) mantendo uma única fonte da verdade estrita.
   - Simplificação do versionamento de contratos centralizado na compatibilidade SemVer do SDK, eliminando micro-versionamento per-capability (`contractVersion`).
-  - Helpers canônicos centralizados em `@mr-tick/shared/helpers` e reexportados pelo SDK (`hasCapability`, `isDataSource`, `isWatcher`, `isTheme`).
+  - Helpers canônicos centralizados em `@rastrokit/shared/helpers` e reexportados pelo SDK (`hasCapability`, `isDataSource`, `isWatcher`, `isTheme`).
   - Limpeza de fallbacks cegos PascalCase e categorias legadas nos utilitários da CLI (`manifest`, `sync`, `pkg`, `validate`).
   - Atualização e alinhamento dos serviços de aplicação (`ImportAddonService`, `UpdateAddonService`), adaptadores (`AddonsFacade`), UI (`SyncProvider`, modais e componentes de tarefas) e runtime desktop (`AddonLoader`, ciclo de vida e dispatch de provedores).
 - 24d3de8: Arquitetura de conexões e capacidades dos addons: perfis de conexão com cardinalidade (`single`/`multi`) validada no domínio e na persistência, fábrica de HTTP por conexão, ciclo de vida de conexão com credenciais em cofre (distinguindo ausência, indisponibilidade e payload inválido), tentativas OAuth controladas pelo host com refresh compartilhado por autorização, configurações e segredos de addons separados por escopo, persistência de workspaces em SQLite e UI de conexões agrupada por workspace.
@@ -146,8 +146,8 @@
 - 70120fb: refactor(application): subdivide sync services by entity (metadata, tasks, time-entries)
 - Updated dependencies [6d14757]
 - Updated dependencies [24d3de8]
-  - @mr-tick/shared@1.4.0
-  - @mr-tick/domain@1.1.0
+  - @rastrokit/shared@1.4.0
+  - @rastrokit/domain@1.1.0
 
 ## 1.7.0
 
@@ -164,10 +164,10 @@
 
 ### Patch Changes
 
-- 46475ba: Adiciona ecossistema Mr. Tick Plus fim a fim: suporte ao tier `plus`, hash `sha256`, `size` e assinatura Ed25519 de pacotes `.tladdon` no `@mr-tick/sdk`, verificação offline/online de licença (`lic-2026-01`) e pacotes assinados (`cat-2026-01`), download autenticado no Cloudflare R2 com validação SHA-256, deep link `mistertick://activate?key=...` no Electron e interface de ativação e badges Plus na loja e página de addons.
+- 46475ba: Adiciona ecossistema Rastro Plus fim a fim: suporte ao tier `plus`, hash `sha256`, `size` e assinatura Ed25519 de pacotes `.tladdon` no `@rastrokit/sdk`, verificação offline/online de licença (`lic-2026-01`) e pacotes assinados (`cat-2026-01`), download autenticado no Cloudflare R2 com validação SHA-256, deep link `rastro://activate?key=...` no Electron e interface de ativação e badges Plus na loja e página de addons.
 - Updated dependencies [46475ba]
-  - @mr-tick/shared@1.3.1
-  - @mr-tick/domain@1.0.6
+  - @rastrokit/shared@1.3.1
+  - @rastrokit/domain@1.0.6
 
 ## 1.6.0
 
@@ -201,8 +201,8 @@
 
 - 8b6f3e4: Resolução determinística de workspace no boot via busca por ID na seleção persistida sem limite de paginação (TB-003), ciclo de prontidão assíncrona nas views semanal e mensal prevenindo falso vazio (TB-004), tratamento de interrupções de arraste por pointercancel, lostpointercapture e blur com retenção do deslocamento (TB-005), overlay nativo Win32 não ativável com pré-build e harness C++/SendInput para auditoria de click-through, foco e hover; e testes E2E de paridade bi-janelar e performance (POP-01, POP-05, POP-06).
 - Updated dependencies [f44420a]
-  - @mr-tick/shared@1.3.0
-  - @mr-tick/domain@1.0.5
+  - @rastrokit/shared@1.3.0
+  - @rastrokit/domain@1.0.5
 
 ## 1.4.0
 
@@ -232,8 +232,8 @@
 
 - Updated dependencies [df0ddc8]
 - Updated dependencies [df0ddc8]
-  - @mr-tick/shared@1.2.0
-  - @mr-tick/domain@1.0.4
+  - @rastrokit/shared@1.2.0
+  - @rastrokit/domain@1.0.4
 
 ## 1.3.0
 
@@ -246,13 +246,13 @@
 ### Patch Changes
 
 - Updated dependencies [0c03498]
-  - @mr-tick/domain@1.0.3
+  - @rastrokit/domain@1.0.3
 
 ## 1.2.1
 
 ### Patch Changes
 
-- fca1bd6: Desacopla a verificação de compatibilidade de addons da versão do executável Desktop, introduzindo a rota `bridge.system.getSdkVersion()` que resolve dinamicamente a versão da API suportada a partir do `@mr-tick/sdk`.
+- fca1bd6: Desacopla a verificação de compatibilidade de addons da versão do executável Desktop, introduzindo a rota `bridge.system.getSdkVersion()` que resolve dinamicamente a versão da API suportada a partir do `@rastrokit/sdk`.
 
 ## 1.2.0
 
@@ -269,12 +269,12 @@
 ### Patch Changes
 
 - Updated dependencies [00bc018]
-  - @mr-tick/shared@1.1.0
-  - @mr-tick/domain@1.0.2
+  - @rastrokit/shared@1.1.0
+  - @rastrokit/domain@1.0.2
 
 ## 1.0.1
 
 ### Patch Changes
 
-- @mr-tick/domain@1.0.1
-- @mr-tick/shared@1.0.1
+- @rastrokit/domain@1.0.1
+- @rastrokit/shared@1.0.1

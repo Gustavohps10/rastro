@@ -2,6 +2,7 @@ node_modules
 **/coverage/
 src/apps/desktop/addons
 .temp
+.temps/
 temp
 dist
 out

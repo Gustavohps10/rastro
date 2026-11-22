@@ -17,9 +17,9 @@ import type {
   PagedResultDTO,
   UpdateWorkspaceIdentityInput,
   WorkspaceDTO,
-} from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
-import { NoOpSystemEventEmitter } from '@mr-tick/shared/transport'
+} from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
+import { NoOpSystemEventEmitter } from '@rastrokit/shared/transport'
 import { describe, expect, it } from 'vitest'
 
 import { WorkspacesHandler } from './WorkspacesHandler'

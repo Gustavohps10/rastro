@@ -2,13 +2,13 @@ import {
   IHostBridge,
   PullTimeEntriesInput,
   PushTimeEntriesInput,
-} from '@mr-tick/application'
-import { IRequest } from '@mr-tick/shared/transport'
+} from '@rastrokit/application'
+import { IRequest } from '@rastrokit/shared/transport'
 import {
   SyncDocumentViewModel,
   TimeEntryViewModel,
   ViewModel,
-} from '@mr-tick/shared/view-models'
+} from '@rastrokit/shared/view-models'
 import { replicateRxCollection } from 'rxdb/plugins/replication'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 

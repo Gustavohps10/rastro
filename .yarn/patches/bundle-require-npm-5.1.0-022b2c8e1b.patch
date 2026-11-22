@@ -1,0 +1,46 @@
+diff --git a/dist/index.cjs b/dist/index.cjs
+index 9158d1ed6439f296b9029f6a53fe5c60dea5f936..38b43f7fe18ff111fd105b70be63266226220b2e 100644
+--- a/dist/index.cjs
++++ b/dist/index.cjs
+@@ -91,10 +91,14 @@ function inferLoader(ext) {
+   return ext.slice(1);
+ }
+ var defaultReadFile = (filepath) => import_fs2.default.readFileSync(filepath, "utf-8");
+-var defaultGetOutputFile = (filepath, format) => filepath.replace(
+-  JS_EXT_RE,
+-  `.bundled_${getRandomId()}.${format === "esm" ? "mjs" : "cjs"}`
+-);
++var defaultGetOutputFile = (filepath, format) => {
++  const directory = import_path2.default.join(import_path2.default.dirname(filepath), ".temps");
++  import_fs2.default.mkdirSync(directory, { recursive: true });
++  return import_path2.default.join(directory, import_path2.default.basename(filepath).replace(
++    JS_EXT_RE,
++    `.bundled_${getRandomId()}.${format === "esm" ? "mjs" : "cjs"}`
++  ));
++};
+ var tsconfigPathsToRegExp = (paths) => {
+   return Object.keys(paths || {}).map((key) => {
+     return new RegExp(`^${key.replace(/\*/, ".*")}$`);
+diff --git a/dist/index.js b/dist/index.js
+index c163321544cba2c785fff8163025bf770d65784c..41e287361737a3fb9f80e15a3423e3ff58a1c8ae 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -58,10 +58,14 @@ function inferLoader(ext) {
+   return ext.slice(1);
+ }
+ var defaultReadFile = (filepath) => fs2.readFileSync(filepath, "utf-8");
+-var defaultGetOutputFile = (filepath, format) => filepath.replace(
+-  JS_EXT_RE,
+-  `.bundled_${getRandomId()}.${format === "esm" ? "mjs" : "cjs"}`
+-);
++var defaultGetOutputFile = (filepath, format) => {
++  const directory = path2.join(path2.dirname(filepath), ".temps");
++  fs2.mkdirSync(directory, { recursive: true });
++  return path2.join(directory, path2.basename(filepath).replace(
++    JS_EXT_RE,
++    `.bundled_${getRandomId()}.${format === "esm" ? "mjs" : "cjs"}`
++  ));
++};
+ var tsconfigPathsToRegExp = (paths) => {
+   return Object.keys(paths || {}).map((key) => {
+     return new RegExp(`^${key.replace(/\*/, ".*")}$`);

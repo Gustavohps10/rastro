@@ -11,7 +11,7 @@ describe('BootJournal', () => {
   let tempDir: string | undefined
 
   beforeEach(async () => {
-    tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'mr-tick-boot-journal-'))
+    tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'rastro-boot-journal-'))
   })
 
   afterEach(async () => {

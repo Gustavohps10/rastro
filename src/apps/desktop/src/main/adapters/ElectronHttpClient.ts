@@ -5,8 +5,8 @@ import {
   IHttpClientFactory,
   IHttpRequestOptions,
   JsonValue,
-} from '@mr-tick/adapters/contracts'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/adapters/contracts'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import { net } from 'electron'
 import { z } from 'zod'
 

@@ -2,21 +2,21 @@ import {
   IAddonPackageVerificationConfiguration,
   OfflineAuthorizationVerificationConfiguration,
   SignedAddonPackageVerifier,
-} from '@mr-tick/adapters/auth'
+} from '@rastrokit/adapters/auth'
 import {
   Ed25519OfflineAuthorizationVerifier,
   JwtService,
-} from '@mr-tick/adapters/auth'
-import { IHttpClient, IHttpClientFactory } from '@mr-tick/adapters/contracts'
+} from '@rastrokit/adapters/auth'
+import { IHttpClient, IHttpClientFactory } from '@rastrokit/adapters/contracts'
 import {
   VaultAddonConsentRepository,
   VaultLicensingStateRepository,
-} from '@mr-tick/adapters/data'
-import { AddonsFacade } from '@mr-tick/adapters/facades'
-import { LicensingApiConfiguration } from '@mr-tick/adapters/http'
-import { LicensingHttpClient } from '@mr-tick/adapters/http'
-import { FileManager, KeyedMutex } from '@mr-tick/adapters/tools'
-import { AddonAccessService, IAnalyticsEngine } from '@mr-tick/application'
+} from '@rastrokit/adapters/data'
+import { AddonsFacade } from '@rastrokit/adapters/facades'
+import { LicensingApiConfiguration } from '@rastrokit/adapters/http'
+import { LicensingHttpClient } from '@rastrokit/adapters/http'
+import { FileManager, KeyedMutex } from '@rastrokit/adapters/tools'
+import { AddonAccessService, IAnalyticsEngine } from '@rastrokit/application'
 import {
   AddonAuthenticatorRegistry,
   AddonConnectionProfilesResolver,
@@ -55,13 +55,13 @@ import {
   UnlinkConnectionService,
   UpdateAddonService,
   UpdateWorkspaceIdentityService,
-} from '@mr-tick/application'
-import { isRecord } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { isRecord } from '@rastrokit/shared/helpers'
 import {
   IEventEmitter,
   IJobEvents,
   ISystemEventEmitter,
-} from '@mr-tick/shared/transport'
+} from '@rastrokit/shared/transport'
 import {
   asClass,
   asValue,

@@ -1,5 +1,5 @@
-import { IHostBridge } from '@mr-tick/application'
-import { TaskViewModel } from '@mr-tick/shared/view-models'
+import { IHostBridge } from '@rastrokit/application'
+import { TaskViewModel } from '@rastrokit/shared/view-models'
 
 import { mapTaskViewModelToRxDB } from '@/lib/tasks-enrichment'
 import { SyncTaskRxDBDTO } from '@/local-db/schemas/tasks-sync-schema'

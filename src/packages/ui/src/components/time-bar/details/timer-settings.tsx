@@ -1,6 +1,6 @@
 'use client'
 
-import { AddonTimerbarMenuItem, DisplayInfo } from '@mr-tick/application'
+import { AddonTimerbarMenuItem, DisplayInfo } from '@rastrokit/application'
 import {
   Clock3,
   ClockArrowDown,
@@ -137,8 +137,6 @@ export const TimerSettings = memo(({ isMini }: TimerSettingsProps) => {
     setLogOption,
     selectedDisplayId,
     setSelectedDisplayId,
-    discordRpc,
-    setDiscordRpc,
     antiBurnout,
     setAntiBurnout,
     activeWindowTracking,
@@ -559,20 +557,6 @@ export const TimerSettings = memo(({ isMini }: TimerSettingsProps) => {
               </span>
             </div>
             <div className="space-y-2.5">
-              {/* <div className="flex items-center justify-between">
-                <Label
-                  className="flex cursor-pointer items-center gap-1.5 text-[11px] font-medium"
-                  htmlFor="discord-rpc"
-                >
-                  Discord RPC
-                </Label>
-                <Switch
-                  id="discord-rpc"
-                  className="scale-75"
-                  checked={discordRpc}
-                  onCheckedChange={setDiscordRpc}
-                />
-              </div> */}
               <div className="flex items-center justify-between">
                 <Label
                   className="flex cursor-pointer items-center gap-1.5 text-[11px] font-medium"

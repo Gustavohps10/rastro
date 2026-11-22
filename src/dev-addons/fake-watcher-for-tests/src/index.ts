@@ -32,7 +32,7 @@ import {
   isString,
   type LocalEntryInput,
   type LocalOperationIdentity,
-} from '@mr-tick/sdk'
+} from '@rastrokit/sdk'
 
 interface RoomAllocationRule {
   readonly ruleName: string

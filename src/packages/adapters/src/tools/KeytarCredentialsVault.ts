@@ -4,14 +4,14 @@ import {
   CredentialVaultReadResult,
   IConnectionCredentialsVault,
   ICredentialsVault,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import keytar from 'keytar'
 
 export class KeytarCredentialsVault
   implements ICredentialsVault, IConnectionCredentialsVault
 {
   async readCredential(
-    reference: import('@mr-tick/application').CredentialReference,
+    reference: import('@rastrokit/application').CredentialReference,
   ): Promise<CredentialVaultReadResult> {
     try {
       const token = await keytar.getPassword(
@@ -26,7 +26,7 @@ export class KeytarCredentialsVault
   }
 
   async writeCredential(
-    reference: import('@mr-tick/application').CredentialReference,
+    reference: import('@rastrokit/application').CredentialReference,
     token: string,
   ): Promise<CredentialVaultMutationResult> {
     try {
@@ -38,7 +38,7 @@ export class KeytarCredentialsVault
   }
 
   async removeCredential(
-    reference: import('@mr-tick/application').CredentialReference,
+    reference: import('@rastrokit/application').CredentialReference,
   ): Promise<CredentialVaultMutationResult> {
     try {
       await keytar.deletePassword(reference.service, reference.account)

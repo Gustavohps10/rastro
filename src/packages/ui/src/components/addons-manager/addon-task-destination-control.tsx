@@ -4,9 +4,9 @@ import type {
   CoreConnection,
   CoreTask,
   LocalRuntimeSyncStatus,
-} from '@mr-tick/application'
-import { isDataSource } from '@mr-tick/shared/helpers'
-import type { MetadataItem } from '@mr-tick/shared/view-models'
+} from '@rastrokit/application'
+import { isDataSource } from '@rastrokit/shared/helpers'
+import type { MetadataItem } from '@rastrokit/shared/view-models'
 import {
   QueryClient,
   QueryClientContext,

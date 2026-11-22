@@ -1,5 +1,5 @@
-import type { IEventsAPI } from '@mr-tick/application'
-import type { ISystemEvents } from '@mr-tick/shared/transport'
+import type { IEventsAPI } from '@rastrokit/application'
+import type { ISystemEvents } from '@rastrokit/shared/transport'
 
 export type AddonSystemEvents = Pick<
   ISystemEvents,

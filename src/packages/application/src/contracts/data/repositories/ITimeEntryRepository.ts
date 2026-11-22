@@ -1,4 +1,4 @@
-﻿import { TimeEntry } from '@mr-tick/domain'
+﻿import { TimeEntry } from '@rastrokit/domain'
 
 import { IRepositoryBase } from '@/contracts/data'
 

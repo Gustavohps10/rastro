@@ -16,10 +16,10 @@ import {
   TimeEntryPullPageDTO,
   UpdatedTaskResult,
   UpdatedTimeEntryResult,
-} from '@mr-tick/application'
-import { Workspace } from '@mr-tick/domain'
-import { IAddon, IAddonManifest } from '@mr-tick/sdk'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { Workspace } from '@rastrokit/domain'
+import { IAddon, IAddonManifest } from '@rastrokit/sdk'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import { describe, expect, it, vi } from 'vitest'
 
 import { DataSourceResolver } from '@/main/resolvers/data-source-resolver'
@@ -1041,6 +1041,7 @@ describe('AddonLoader - Capabilities & Granular Lifetime - Execution Policy & Pr
           execute: async () =>
             Either.success({ items: [], total: 0, page: 1, pageSize: 50 }),
         },
+        'rastro://oauth/callback',
       )
 
       const dsManifest: IAddonManifest = {

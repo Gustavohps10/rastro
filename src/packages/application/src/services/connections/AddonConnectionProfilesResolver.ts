@@ -1,5 +1,5 @@
-import type { ConnectionProfileDescriptor } from '@mr-tick/domain'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+import type { ConnectionProfileDescriptor } from '@rastrokit/domain'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
 import type { IAddonConnectionProfilesRegistry } from '@/contracts/core/IAddonConnectionProfilesResolver'
 import type { AddonSettingsSchema } from '@/contracts/host/IHostBridge'

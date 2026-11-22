@@ -7,8 +7,8 @@ import type {
   AnalyticsQueryResult,
   AnalyticsSyncState,
   AnalyticsSyncStrategy,
-} from '@mr-tick/application'
-import type { AnalyticsLoadProgressEvent } from '@mr-tick/shared/transport'
+} from '@rastrokit/application'
+import type { AnalyticsLoadProgressEvent } from '@rastrokit/shared/transport'
 
 export type {
   AnalyticsFilterDefinition,

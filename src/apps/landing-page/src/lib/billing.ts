@@ -27,16 +27,15 @@ export interface CreateCheckoutSessionResponse {
   url: string
 }
 
-const DEFAULT_MISTERTICK_API_URL =
-  'https://mistertick-api.rastrokit.workers.dev'
+const DEFAULT_RASTRO_API_URL = 'https://rastro-api.rastrokit.workers.dev'
 
-export function resolveMisterTickApiCandidateUrls(): string[] {
-  const configured = process.env.NEXT_PUBLIC_MISTERTICK_API_URL
+export function resolveRastroApiCandidateUrls(): string[] {
+  const configured = process.env.NEXT_PUBLIC_RASTRO_API_URL
   if (configured) {
     const trimmed = configured.trim()
     if (trimmed.length > 0) return [trimmed.replace(/\/+$/, '')]
   }
-  return [DEFAULT_MISTERTICK_API_URL]
+  return [DEFAULT_RASTRO_API_URL]
 }
 
 export function normalizeSupportedCurrency(
@@ -167,7 +166,7 @@ export function findCurrencyOption(
 }
 
 export async function fetchPlusPlansCatalog(): Promise<BillingPlansCatalogResponse | null> {
-  const candidates = resolveMisterTickApiCandidateUrls()
+  const candidates = resolveRastroApiCandidateUrls()
   for (const baseUrl of candidates) {
     try {
       const response = await fetch(`${baseUrl}/billing/plans`, {
@@ -219,7 +218,7 @@ export interface RecoverLicensesResponse {
 export async function sendEmailVerificationCode(
   email: string,
 ): Promise<{ ok: boolean; error?: string }> {
-  const candidates = resolveMisterTickApiCandidateUrls()
+  const candidates = resolveRastroApiCandidateUrls()
   for (const baseUrl of candidates) {
     try {
       const response = await fetch(`${baseUrl}/billing/auth/send-code`, {
@@ -250,7 +249,7 @@ export async function verifyEmailVerificationCode(
   email: string,
   code: string,
 ): Promise<{ ok: boolean; verificationToken?: string; error?: string }> {
-  const candidates = resolveMisterTickApiCandidateUrls()
+  const candidates = resolveRastroApiCandidateUrls()
   for (const baseUrl of candidates) {
     try {
       const response = await fetch(`${baseUrl}/billing/auth/verify-code`, {
@@ -285,7 +284,7 @@ export async function recoverLicensesApi(
   email: string,
   verificationToken: string,
 ): Promise<{ ok: boolean; data?: RecoverLicensesResponse; error?: string }> {
-  const candidates = resolveMisterTickApiCandidateUrls()
+  const candidates = resolveRastroApiCandidateUrls()
   for (const baseUrl of candidates) {
     try {
       const response = await fetch(`${baseUrl}/billing/licenses/recover`, {
@@ -368,7 +367,7 @@ export async function rotateLicenseKeyApi(
   licenseId: string,
   verificationToken: string,
 ): Promise<{ ok: boolean; data?: RotateLicenseKeyResponse; error?: string }> {
-  const candidates = resolveMisterTickApiCandidateUrls()
+  const candidates = resolveRastroApiCandidateUrls()
   for (const baseUrl of candidates) {
     try {
       const response = await fetch(`${baseUrl}/billing/licenses/rotate`, {
@@ -411,7 +410,7 @@ export async function createPlusCheckout(input: {
   successUrl: string
   cancelUrl: string
 }): Promise<CreatePlusCheckoutResult> {
-  const candidates = resolveMisterTickApiCandidateUrls()
+  const candidates = resolveRastroApiCandidateUrls()
   for (const baseUrl of candidates) {
     try {
       const response = await fetch(`${baseUrl}/billing/checkout`, {

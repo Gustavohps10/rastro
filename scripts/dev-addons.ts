@@ -56,8 +56,8 @@ interface ExtendedDevAddonInfo extends DevAddonInfo {
   isSdkLinked: boolean
 }
 
-export function resolveMrTickAddonsDir(): string {
-  const customPath = process.env.MR_TICK_ADDONS_PATH
+export function resolveRastroAddonsDir(): string {
+  const customPath = process.env.RASTRO_ADDONS_PATH
   if (customPath) {
     return resolve(customPath)
   }
@@ -66,22 +66,16 @@ export function resolveMrTickAddonsDir(): string {
   if (platform === 'win32') {
     const appData = process.env.APPDATA
     if (appData) {
-      return join(appData, 'mr-tick', 'addons')
+      return join(appData, 'rastro', 'addons')
     }
-    return join(homedir(), 'AppData', 'Roaming', 'mr-tick', 'addons')
+    return join(homedir(), 'AppData', 'Roaming', 'rastro', 'addons')
   }
 
   if (platform === 'darwin') {
-    return join(
-      homedir(),
-      'Library',
-      'Application Support',
-      'mr-tick',
-      'addons',
-    )
+    return join(homedir(), 'Library', 'Application Support', 'rastro', 'addons')
   }
 
-  return join(homedir(), '.config', 'mr-tick', 'addons')
+  return join(homedir(), '.config', 'rastro', 'addons')
 }
 
 function parseManifest(filePath: string): ManifestData {
@@ -143,7 +137,7 @@ function checkIsSdkLinked(addonSourcePath: string): boolean {
   const addonSdkNodeModules = join(
     addonSourcePath,
     'node_modules',
-    '@mr-tick',
+    '@rastrokit',
     'sdk',
   )
   if (!existsSync(addonSdkNodeModules)) return false
@@ -158,11 +152,11 @@ function checkIsSdkLinked(addonSourcePath: string): boolean {
 }
 
 function linkLocalSdkToAddon(addonSourcePath: string): void {
-  const mrTickScopeDir = join(addonSourcePath, 'node_modules', '@mr-tick')
-  if (!existsSync(mrTickScopeDir)) return
+  const sdkScopeDirectory = join(addonSourcePath, 'node_modules', '@rastrokit')
+  if (!existsSync(sdkScopeDirectory)) return
 
-  const sdkTarget = join(mrTickScopeDir, 'sdk')
-  const sdkBackup = join(mrTickScopeDir, '.sdk-npm-backup')
+  const sdkTarget = join(sdkScopeDirectory, 'sdk')
+  const sdkBackup = join(sdkScopeDirectory, '.sdk-npm-backup')
 
   try {
     if (existsSync(sdkTarget)) {
@@ -188,11 +182,11 @@ function linkLocalSdkToAddon(addonSourcePath: string): void {
 }
 
 function unlinkLocalSdkFromAddon(addonSourcePath: string): void {
-  const mrTickScopeDir = join(addonSourcePath, 'node_modules', '@mr-tick')
-  if (!existsSync(mrTickScopeDir)) return
+  const sdkScopeDirectory = join(addonSourcePath, 'node_modules', '@rastrokit')
+  if (!existsSync(sdkScopeDirectory)) return
 
-  const sdkTarget = join(mrTickScopeDir, 'sdk')
-  const sdkBackup = join(mrTickScopeDir, '.sdk-npm-backup')
+  const sdkTarget = join(sdkScopeDirectory, 'sdk')
+  const sdkBackup = join(sdkScopeDirectory, '.sdk-npm-backup')
 
   try {
     if (existsSync(sdkTarget)) {
@@ -339,7 +333,7 @@ function buildAddonInfoFromPath(
 }
 
 export function scanDevAddons(): ExtendedDevAddonInfo[] {
-  const addonsDir = resolveMrTickAddonsDir()
+  const addonsDir = resolveRastroAddonsDir()
   const result: ExtendedDevAddonInfo[] = []
 
   if (existsSync(devAddonsDir)) {
@@ -384,7 +378,7 @@ export function scanDevAddons(): ExtendedDevAddonInfo[] {
 }
 
 export function linkAddon(addon: ExtendedDevAddonInfo): boolean {
-  const addonsDir = resolveMrTickAddonsDir()
+  const addonsDir = resolveRastroAddonsDir()
   if (!existsSync(addonsDir)) {
     mkdirSync(addonsDir, { recursive: true })
   }
@@ -442,7 +436,7 @@ export function unlinkAddon(addon: ExtendedDevAddonInfo): boolean {
     unlinkLocalSdkFromAddon(addon.sourcePath)
   }
 
-  const addonsDir = resolveMrTickAddonsDir()
+  const addonsDir = resolveRastroAddonsDir()
   const sanitizedFolderName = addon.id.replace(/[/\\?%*:|"<>]/g, '_')
   const catalogBackupDir = join(
     dirname(addonsDir),
@@ -503,13 +497,13 @@ export function unlinkAddon(addon: ExtendedDevAddonInfo): boolean {
 
 export function listAddons(): void {
   const addons = scanDevAddons()
-  const targetDir = resolveMrTickAddonsDir()
+  const targetDir = resolveRastroAddonsDir()
 
   console.log('\n========================================================')
   console.log('📦 Rastro Dev Addons Manager')
   console.log('========================================================')
   console.log(`📍 Diretório Dev:    ${devAddonsDir}`)
-  console.log(`🎯 Destino Mr-tick:  ${targetDir}\n`)
+  console.log(`🎯 Destino Rastro:  ${targetDir}\n`)
 
   if (addons.length === 0) {
     console.log('Nenhum addon de desenvolvimento encontrado em src/dev-addons.')
@@ -596,7 +590,7 @@ export async function runBuild(
         clean: false,
         platform: 'node',
         shims: true,
-        external: ['@mr-tick/sdk', 'electron', 'axios'],
+        external: ['@rastrokit/sdk', 'electron', 'axios'],
         ...(hasAddonTsConfig ? { tsconfig: addonTsConfig } : {}),
       })
     } catch (err) {

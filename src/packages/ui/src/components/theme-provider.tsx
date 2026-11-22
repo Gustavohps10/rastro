@@ -27,7 +27,7 @@ const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
 export function ThemeProvider({
   children,
   defaultTheme = 'system',
-  storageKey = 'mr-tick-theme',
+  storageKey = 'rastro-theme',
   ...props
 }: ThemeProviderProps) {
   const bridge = useHostBridge()

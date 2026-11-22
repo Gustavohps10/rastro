@@ -11,9 +11,9 @@ Declare `auth` no manifesto. Para usar esse fluxo, registre um `AddonConnectionA
 | Ambiente        | Endereço de retorno cadastrado no serviço | Página abre no desktop      |
 | --------------- | --------------------------------------- | --------------------------- |
 | Desenvolvimento | `http://localhost:3000/oauth/callback`  | `electron://oauth/callback` |
-| Produção        | `https://mistertick.com/oauth/callback` | `mr-tick://oauth/callback`  |
+| Produção        | `https://mistertick.com/oauth/callback` | `rastro://oauth/callback`  |
 
-Essas são as rotas usadas atualmente pelo addon do Discord. Cadastre no serviço externo o endereço HTTP da tabela; a página abre o aplicativo em seguida. Use o mesmo `redirectUri` ao trocar o código por credenciais. O protocolo interno `mr-tick-app://`, usado para recursos e ativação, tem outra finalidade.
+Essas são as rotas usadas atualmente pelo addon do Discord. Cadastre no serviço externo o endereço HTTP da tabela; a página abre o aplicativo em seguida. Use o mesmo `redirectUri` ao trocar o código por credenciais. A ponte web usa `electron://oauth/callback` no desenvolvimento e `rastro://oauth/callback` no aplicativo empacotado.
 
 1. Registre o perfil e o autenticador OAuth, incluindo seu `redirectUri` HTTP.
 2. `core.connections.createAuthorizationRequest(scope)` fornece `state`, a prova PKCE (`codeChallenge`, com método S256) e o endereço de retorno ao autenticador.
@@ -25,7 +25,7 @@ Essas são as rotas usadas atualmente pelo addon do Discord. Cadastre no serviç
 A função abaixo cria somente o pedido de autorização. A troca do código por credenciais, a identificação da conta e a renovação dependem do serviço integrado:
 
 ```ts
-import { Either, type AddonConnectionAuthenticator } from '@mr-tick/sdk'
+import { Either, type AddonConnectionAuthenticator } from '@rastrokit/sdk'
 
 type OAuthAuthenticator = Extract<
   AddonConnectionAuthenticator,

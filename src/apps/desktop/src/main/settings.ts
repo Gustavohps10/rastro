@@ -1,4 +1,4 @@
-﻿import { AppSettings } from '@mr-tick/application'
+﻿import { AppSettings } from '@rastrokit/application'
 import { app } from 'electron'
 import { existsSync, readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'

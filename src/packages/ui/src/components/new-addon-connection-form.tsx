@@ -4,8 +4,8 @@ import type {
   AddonSettingsField,
   AddonSettingsSchema,
   AddonSettingsTab,
-} from '@mr-tick/sdk'
-import type { WorkspaceConnectionIdentityViewModel } from '@mr-tick/shared/view-models'
+} from '@rastrokit/sdk'
+import type { WorkspaceConnectionIdentityViewModel } from '@rastrokit/shared/view-models'
 import { useQuery } from '@tanstack/react-query'
 import { Loader2, Lock, PlugZap, ShieldCheck } from 'lucide-react'
 import React from 'react'

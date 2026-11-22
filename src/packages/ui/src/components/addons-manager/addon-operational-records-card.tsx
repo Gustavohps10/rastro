@@ -6,7 +6,7 @@ import type {
   AddonSettingsOperationalListField,
   AddonSettingValue,
   AddonVaultScope,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { AlertCircle, Clock, Layers, Loader2, RefreshCw } from 'lucide-react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 

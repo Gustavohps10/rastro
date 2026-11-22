@@ -1,6 +1,6 @@
 # SDK: Observadores Configuráveis e Formulários Declarativos
 
-Este guia documenta os contratos públicos do `@mr-tick/sdk` para o desenvolvimento de **Observadores Configuráveis** (*Configurable Observers*), como o repositório externo `discord-addon` e fixtures neutras de automação.
+Este guia documenta os contratos públicos do `@rastrokit/sdk` para o desenvolvimento de **Observadores Configuráveis** (*Configurable Observers*), como o repositório externo `discord-addon` e fixtures neutras de automação.
 
 Os observadores são extensões com a capability `watcher` que capturam sinais do ambiente de trabalho (chamadas de voz, presenças em salas, commits ou eventos externos) e os convertem em **sugestões locais de apontamento**, preservando a soberania do usuário e a integridade do Core.
 
@@ -357,7 +357,7 @@ const result = await context.core.timeEntries.createSuggestion(
     endDate: session.endedAt,
     source: 'addon',
     addonSource: {
-      id: 'mistertick-discord',
+      id: 'rastro-discord',
       name: 'Discord Presence Addon',
       metadata: {
         channelId: session.channelId,

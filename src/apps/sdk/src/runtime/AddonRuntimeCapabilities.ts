@@ -12,8 +12,8 @@ import type {
   LocalTimerInput,
   LocalTimerStateDTO,
   TimeEntryRecordDTO,
-} from '@mr-tick/application/local-runtime'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application/local-runtime'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
 export class AddonTimerControlLock {
   private owner: string | null = null

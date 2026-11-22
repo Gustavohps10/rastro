@@ -1,4 +1,4 @@
-﻿import { Task } from '@mr-tick/domain'
+﻿import { Task } from '@rastrokit/domain'
 
 import { IRepositoryBase } from '@/contracts/data'
 

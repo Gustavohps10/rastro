@@ -25,7 +25,7 @@ export class UpdaterService {
       this.isPortable = false // Em desenvolvimento, simularemos ambiente padrão (setup/idle)
     } else {
       this.isPortable =
-        !fs.existsSync(path.join(rootPath, 'Uninstall mr-tick.exe')) &&
+        !fs.existsSync(path.join(rootPath, 'Uninstall rastro.exe')) &&
         process.platform === 'win32'
     }
 
@@ -291,11 +291,11 @@ export class UpdaterService {
     }
 
     const version = this.latestUpdateInfo.version
-    const fileName = `mr-tick-${version}-portable.zip`
-    const tag = encodeURIComponent(`@mr-tick/desktop@${version}`)
+    const fileName = `rastro-${version}-portable.zip`
+    const tag = encodeURIComponent(`@rastrokit/desktop@${version}`)
     const url = `https://github.com/Gustavohps10/rastro/releases/download/${tag}/${fileName}`
 
-    const tempDir = path.join(app.getPath('temp'), 'mr-tick-update')
+    const tempDir = path.join(app.getPath('temp'), 'rastro-update')
     if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true })
 
     this.portableZipPath = path.join(tempDir, fileName)
@@ -398,7 +398,7 @@ export class UpdaterService {
 
       const tempBase = path.join(
         app.getPath('temp'),
-        'mr-tick-update-extracted-',
+        'rastro-update-extracted-',
       )
       const extractDir = fs.mkdtempSync(tempBase)
 

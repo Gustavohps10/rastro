@@ -15,17 +15,17 @@ import type {
   AnalyticsSyncStrategy,
   SaveAnalyticsWorkspaceStateInput,
   WorkspaceViewModel,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import {
   analyticsSelectionKey,
   createAnalyticsDatasetScope,
-} from '@mr-tick/application'
-import type { AddonManifestViewModel } from '@mr-tick/sdk'
-import { isAnalytics } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import type { AddonManifestViewModel } from '@rastrokit/sdk'
+import { isAnalytics } from '@rastrokit/shared/helpers'
 import type {
   AnalyticsLoadProgressEvent,
   AnalyticsStorageResetEvent,
-} from '@mr-tick/shared/transport'
+} from '@rastrokit/shared/transport'
 import {
   type Edge,
   MarkerType,

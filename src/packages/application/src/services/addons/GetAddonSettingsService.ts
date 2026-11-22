@@ -1,4 +1,4 @@
-import { AppError, Either, isNonEmptyString } from '@mr-tick/shared/helpers'
+import { AppError, Either, isNonEmptyString } from '@rastrokit/shared/helpers'
 
 import type {
   AddonSettingsSchema,

@@ -1,9 +1,9 @@
-import { AppError, Either } from '@mr-tick/shared/helpers'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import type {
   AnalyticsLoadProgressEvent,
   AnalyticsStorageErrorEvent,
   ISystemEventEmitter,
-} from '@mr-tick/shared/transport'
+} from '@rastrokit/shared/transport'
 
 import type {
   AnalyticsColumnSchema,

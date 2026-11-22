@@ -50,4 +50,4 @@ services/sync/
 
 - Regras de transição de estado de timers ativos (pertencem a `local-runtime/`).
 - Manipulação do cofre de senhas (pertence a `connections/`).
-- Mapeamento de telas e componentes visuais (pertence a `@mr-tick/ui`).
+- Mapeamento de telas e componentes visuais (pertence a `@rastrokit/ui`).

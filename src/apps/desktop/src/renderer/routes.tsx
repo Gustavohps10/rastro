@@ -6,7 +6,7 @@ import {
   TimeEntriesLayout,
   WidgetLayout,
   WorkspaceLayout,
-} from '@mr-tick/ui/layouts'
+} from '@rastrokit/ui/layouts'
 import {
   Activities,
   Analytics,
@@ -20,7 +20,7 @@ import {
   TimeEntriesTimesheet,
   TimerWidget,
   WorkspaceSettings,
-} from '@mr-tick/ui/pages'
+} from '@rastrokit/ui/pages'
 import { createHashRouter, Navigate } from 'react-router-dom'
 
 export const router = createHashRouter([

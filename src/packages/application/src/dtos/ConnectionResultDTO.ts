@@ -1,4 +1,4 @@
-import type { ConnectionIdentity } from '@mr-tick/domain'
+import type { ConnectionIdentity } from '@rastrokit/domain'
 
 import type { MemberDTO } from '@/dtos/MemberDTO'
 

@@ -3,7 +3,7 @@ import type {
   DiagnosticOperationalWorkspaceStatus,
   DiagnosticReplicationAvailability,
   DiagnosticWorkspaceOperationalStatus,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { FolderKanban } from 'lucide-react'
 import React from 'react'
 

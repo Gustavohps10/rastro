@@ -1,4 +1,4 @@
-import type { AddonLoadFailuresSnapshot } from '@mr-tick/shared/view-models'
+import type { AddonLoadFailuresSnapshot } from '@rastrokit/shared/view-models'
 import { act, renderHook } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 

@@ -234,7 +234,6 @@ describe('Timer Bar Interactions & Orientation (100% Component Coverage)', () =>
       timerDirection: 'up',
       logOption: 'ask',
       antiBurnout: true,
-      discordRpc: false,
       activeWindowTracking: false,
       hiddenBlocks: [],
       enabledAddonIds: [],
@@ -545,8 +544,8 @@ describe('Timer Bar Interactions & Orientation (100% Component Coverage)', () =>
       // Transform must reflect both X and Y components (+100px, +60px)
       expect(card.style.transform).toBe('translate3d(100px, 60px, 0)')
 
-      // Verify localStorage persistence under mr-tick:widget:free-offset
-      const saved = window.localStorage.getItem('mr-tick:widget:free-offset')
+      // Verify localStorage persistence under rastro:widget:free-offset
+      const saved = window.localStorage.getItem('rastro:widget:free-offset')
       expect(saved).toBeTruthy()
       const parsed = JSON.parse(saved as string)
       expect(parsed.bottom).toEqual({ x: 100, y: 60 })
@@ -639,7 +638,7 @@ describe('Timer Bar Interactions & Orientation (100% Component Coverage)', () =>
       // In vertical orientation, 2D dragging preserves both X and Y!
       expect(card.style.transform).toBe('translate3d(40px, 90px, 0)')
 
-      const saved = window.localStorage.getItem('mr-tick:widget:free-offset')
+      const saved = window.localStorage.getItem('rastro:widget:free-offset')
       expect(saved).toBeTruthy()
       const parsed = JSON.parse(saved as string)
       expect(parsed.left).toEqual({ x: 40, y: 90 })
@@ -778,7 +777,7 @@ describe('Timer Bar Interactions & Orientation (100% Component Coverage)', () =>
 
       // Must be saved in workspace dock storage, leaving widget storage untouched
       const workspaceSaved = window.localStorage.getItem(
-        'mr-tick:workspace:dock-offset',
+        'rastro:workspace:dock-offset',
       )
       expect(workspaceSaved).toBeTruthy()
       const parsedWorkspace = JSON.parse(workspaceSaved as string)
@@ -786,7 +785,7 @@ describe('Timer Bar Interactions & Orientation (100% Component Coverage)', () =>
 
       // Widget storage must be clean
       const widgetSaved = window.localStorage.getItem(
-        'mr-tick:widget:free-offset',
+        'rastro:widget:free-offset',
       )
       expect(widgetSaved).toBeNull()
     })
@@ -849,7 +848,7 @@ describe('Timer Bar Interactions & Orientation (100% Component Coverage)', () =>
         expect(card.classList.contains('z-30')).toBe(false)
         expect(card.style.transform).toBe('translate3d(100px, 60px, 0)')
         expect(
-          window.localStorage.getItem('mr-tick:widget:free-offset'),
+          window.localStorage.getItem('rastro:widget:free-offset'),
         ).toContain('"x":100,"y":60')
         fireEvent(
           window,

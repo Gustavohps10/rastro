@@ -8,13 +8,13 @@ import {
   SQLiteConnectionReservationRepository,
   SQLiteWorkspaceCredentialReferenceRegistry,
   SQLiteWorkspacesRepository,
-} from '@mr-tick/adapters/data'
+} from '@rastrokit/adapters/data'
 import type {
   IConnectionCredentialsVault,
   ICredentialsVault,
-} from '@mr-tick/application'
-import { CredentialReferenceFactory } from '@mr-tick/application'
-import { Workspace } from '@mr-tick/domain'
+} from '@rastrokit/application'
+import { CredentialReferenceFactory } from '@rastrokit/application'
+import { Workspace } from '@rastrokit/domain'
 import { afterEach, describe, expect, it } from 'vitest'
 
 import { DesktopCredentialRecovery } from './DesktopCredentialRecovery'

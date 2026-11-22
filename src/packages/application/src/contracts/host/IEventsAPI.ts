@@ -1,4 +1,4 @@
-import type { ISystemEvents } from '@mr-tick/shared/transport'
+import type { ISystemEvents } from '@rastrokit/shared/transport'
 
 export interface IEventsAPI<TEvents extends object = ISystemEvents> {
   on<K extends keyof TEvents>(

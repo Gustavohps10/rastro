@@ -1,7 +1,7 @@
 'use client'
 
-import { Button } from '@mr-tick/ui/button'
-import { Input } from '@mr-tick/ui/input'
+import { Button } from '@rastrokit/ui/button'
+import { Input } from '@rastrokit/ui/input'
 import {
   AlertTriangle,
   ArrowRight,
@@ -38,6 +38,7 @@ import {
   type SupportedBillingCurrency,
   verifyEmailVerificationCode,
 } from '@/lib/billing'
+import { createDesktopActivationUrl } from '@/lib/desktop-links'
 
 export interface LicenseViewProps {
   navbar: React.ReactNode
@@ -793,9 +794,9 @@ function LicenseViewInner({
                               className="gap-1.5 text-xs"
                             >
                               <a
-                                href={`mistertick://activate?key=${encodeURIComponent(
+                                href={createDesktopActivationUrl(
                                   item.activationKey,
-                                )}`}
+                                )}
                               >
                                 <ExternalLink className="size-3.5" />
                                 {t('recoverSection.activateDesktop')}
@@ -1053,9 +1054,9 @@ function LicenseViewInner({
                     <div className="flex justify-end pt-1">
                       <Button asChild size="sm" className="gap-1.5 text-xs">
                         <a
-                          href={`mistertick://activate?key=${encodeURIComponent(
+                          href={createDesktopActivationUrl(
                             rotatedResult.newKey,
-                          )}`}
+                          )}
                         >
                           <ExternalLink className="size-3.5" />
                           {t('rotateSection.activateDesktop')}

@@ -1,6 +1,6 @@
 import { electronAPI } from '@electron-toolkit/preload'
-import type { IHostBridge } from '@mr-tick/application'
-import { isWorkspaceScoped } from '@mr-tick/shared/helpers'
+import type { IHostBridge } from '@rastrokit/application'
+import { isWorkspaceScoped } from '@rastrokit/shared/helpers'
 import { contextBridge, ipcRenderer } from 'electron'
 
 import {

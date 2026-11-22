@@ -1,9 +1,9 @@
 import type {
   DiagnosticStorageAvailability,
   IHostBridge,
-} from '@mr-tick/application'
-import { isWorkspaceScoped } from '@mr-tick/shared/helpers'
-import { createBrowserLocalRuntime } from '@mr-tick/ui/local-runtime'
+} from '@rastrokit/application'
+import { isWorkspaceScoped } from '@rastrokit/shared/helpers'
+import { createBrowserLocalRuntime } from '@rastrokit/ui/local-runtime'
 
 import type {
   RuntimeCorePacket,

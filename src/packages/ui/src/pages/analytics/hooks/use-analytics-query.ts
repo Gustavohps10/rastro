@@ -1,7 +1,7 @@
 import type {
   AnalyticsQueryInput,
   AnalyticsQueryResult,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { useCallback, useEffect, useState } from 'react'
 
 import { useHostBridge } from '@/hooks'

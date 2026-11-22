@@ -1,5 +1,5 @@
-import type { AddonSettingsValues } from '@mr-tick/application'
-import type { AddonSettingsField } from '@mr-tick/sdk'
+import type { AddonSettingsValues } from '@rastrokit/application'
+import type { AddonSettingsField } from '@rastrokit/sdk'
 import { describe, expect, it } from 'vitest'
 
 import {

@@ -1,7 +1,7 @@
 import type {
   AnalyticsDatasetRow,
   AnalyticsQueryResult,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import type { ReactNode } from 'react'
 import {
   Area,

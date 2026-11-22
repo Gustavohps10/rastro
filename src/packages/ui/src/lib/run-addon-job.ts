@@ -1,6 +1,6 @@
-import type { IHostBridge } from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
-import type { IJobEvent } from '@mr-tick/shared/transport'
+import type { IHostBridge } from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
+import type { IJobEvent } from '@rastrokit/shared/transport'
 
 function resolveErrorMessage(error: string | undefined): string {
   if (error) {

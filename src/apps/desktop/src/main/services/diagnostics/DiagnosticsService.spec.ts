@@ -6,8 +6,8 @@ import type {
   DiagnosticStorageItem,
   IAnalyticsDiagnosticAdapter,
   IMetadataDiagnosticAdapter,
-} from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import { shell } from 'electron'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
@@ -31,7 +31,7 @@ describe('DiagnosticsService', () => {
   let mockAnalyticsAdapter: IAnalyticsDiagnosticAdapter
   let eventsBuffer: DiagnosticEventsBuffer
   let bootJournal: BootJournal
-  const userDataPath = path.join(os.homedir(), '.mr-tick-test')
+  const userDataPath = path.join(os.homedir(), '.rastro-test')
   const sessionId = 'test-session-1'
 
   beforeEach(() => {
@@ -617,7 +617,7 @@ describe('DiagnosticsService', () => {
 
     const homeStoragePath = path.join(
       os.homedir(),
-      '.mr-tick-test',
+      '.rastro-test',
       'analytics',
       'ws-1.duckdb',
     )

@@ -1,5 +1,5 @@
-import { DataSourceConnection, Workspace } from '@mr-tick/domain'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+import { DataSourceConnection, Workspace } from '@rastrokit/domain'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
 import {
   DeleteWorkspaceInput,

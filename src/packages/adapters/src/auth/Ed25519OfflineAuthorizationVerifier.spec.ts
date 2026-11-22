@@ -1,4 +1,4 @@
-import { OfflineAuthorizationClaims } from '@mr-tick/domain'
+import { OfflineAuthorizationClaims } from '@rastrokit/domain'
 import crypto from 'crypto'
 import { describe, expect, it } from 'vitest'
 

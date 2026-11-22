@@ -1,4 +1,4 @@
-import type { AddonLoadFailureViewModel } from '@mr-tick/shared/view-models'
+import type { AddonLoadFailureViewModel } from '@rastrokit/shared/view-models'
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import {

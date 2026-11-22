@@ -1,4 +1,4 @@
-import { AppError, Either } from '@mr-tick/shared/helpers'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
 export interface IAddonConsentRepository {
   isApproved(fingerprint: string): Promise<Either<AppError, boolean>>

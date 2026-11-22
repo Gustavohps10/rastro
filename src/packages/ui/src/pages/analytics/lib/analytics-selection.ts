@@ -3,11 +3,11 @@ import type {
   AnalyticsDatasetQueryInput,
   AnalyticsDatasetScope,
   AnalyticsFilterValue,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import {
   createAnalyticsDatasetScope,
   pruneAnalyticsFilters,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 
 function normalizeOptionalString(
   value: string | undefined,

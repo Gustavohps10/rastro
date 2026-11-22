@@ -41,7 +41,7 @@ export async function runManifestWizard(addonDir: string) {
     defaultShortDesc = existingManifest.shortDescription
   let defaultDesc = pkg.description
   if (existingManifest.description) defaultDesc = existingManifest.description
-  let defaultTags = ['mr-tick']
+  let defaultTags = ['rastro']
   if (existingManifest.tags) defaultTags = existingManifest.tags
   let defaultSourceUrl = pkg.defaultSourceUrl
   if (existingManifest.sourceUrl) defaultSourceUrl = existingManifest.sourceUrl

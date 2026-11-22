@@ -1,4 +1,4 @@
-﻿import { PaginatedViewModel, ViewModel } from '@mr-tick/shared/view-models'
+﻿import { PaginatedViewModel, ViewModel } from '@rastrokit/shared/view-models'
 
 export type HandlerBase<T> = {
   [K in keyof T]: T[K] extends (...args: any[]) => any

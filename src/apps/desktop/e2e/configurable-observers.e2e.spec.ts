@@ -95,7 +95,7 @@ test.describe('E2E - Observers Configuráveis por Contratos do SDK (Fixture Neut
     await page.getByTestId('app-rail-settings-btn').first().click()
     await page.getByTestId('settings-nav-tab-addons-installed').click()
     await page
-      .getByTestId('addon-configure-btn-mr-tick-fake-watcher-for-tests')
+      .getByTestId('addon-configure-btn-rastro-fake-watcher-for-tests')
       .click()
     await page
       .getByTestId('addon-capability-tab-rooms-observer-tab')
@@ -165,9 +165,9 @@ test.describe('E2E - Observers Configuráveis por Contratos do SDK (Fixture Neut
     await expect(installedTabBtn).toBeVisible({ timeout: 10000 })
     await installedTabBtn.click()
 
-    // 3. Abrir configurações da fixture neutra (mr-tick-fake-watcher-for-tests)
+    // 3. Abrir configurações da fixture neutra (rastro-fake-watcher-for-tests)
     const configureBtn = page.locator(
-      '[data-testid="addon-configure-btn-mr-tick-fake-watcher-for-tests"]',
+      '[data-testid="addon-configure-btn-rastro-fake-watcher-for-tests"]',
     )
     await expect(configureBtn).toBeVisible({ timeout: 10000 })
     await configureBtn.click()
@@ -417,7 +417,7 @@ test.describe('E2E - Observers Configuráveis por Contratos do SDK (Fixture Neut
     await installedTabBtn.click()
 
     const configureBtn = page.locator(
-      '[data-testid="addon-configure-btn-mr-tick-fake-watcher-for-tests"]',
+      '[data-testid="addon-configure-btn-rastro-fake-watcher-for-tests"]',
     )
     await expect(configureBtn).toBeVisible({ timeout: 10000 })
     await configureBtn.click()
@@ -513,7 +513,7 @@ test.describe('E2E - Observers Configuráveis por Contratos do SDK (Fixture Neut
     await installedTabBtn.click()
 
     const configureBtn = page.locator(
-      '[data-testid="addon-configure-btn-mr-tick-fake-watcher-for-tests"]',
+      '[data-testid="addon-configure-btn-rastro-fake-watcher-for-tests"]',
     )
     await expect(configureBtn).toBeVisible({ timeout: 10000 })
     await configureBtn.click()
@@ -594,7 +594,7 @@ test.describe('E2E - Observers Configuráveis por Contratos do SDK (Fixture Neut
         entryId: 'entry-existing-overlap-01',
         payload: {
           taskId: 'ALPHA-101',
-          connectionInstanceId: 'mr-tick-datasource-alpha-c1',
+          connectionInstanceId: 'rastro-datasource-alpha-c1',
           userId: '201',
           userName: 'Beatriz Alpha',
           comments: 'Apontamento Ativo Conflitante',
@@ -613,7 +613,7 @@ test.describe('E2E - Observers Configuráveis por Contratos do SDK (Fixture Neut
         entryId: 'entry-suggestion-overlap-01',
         payload: {
           taskId: 'ALPHA-102',
-          connectionInstanceId: 'mr-tick-datasource-alpha-c1',
+          connectionInstanceId: 'rastro-datasource-alpha-c1',
           userId: '201',
           userName: 'Beatriz Alpha',
           comments: 'Reunião Observada Sobreposta',
@@ -687,7 +687,7 @@ test.describe('E2E - Observers Configuráveis por Contratos do SDK (Fixture Neut
     await installedTabBtn.click()
 
     const configureBtn = page.locator(
-      '[data-testid="addon-configure-btn-mr-tick-fake-watcher-for-tests"]',
+      '[data-testid="addon-configure-btn-rastro-fake-watcher-for-tests"]',
     )
     await expect(configureBtn).toBeVisible({ timeout: 10000 })
     await configureBtn.click()
@@ -776,12 +776,12 @@ test.describe('E2E - Observers Configuráveis por Contratos do SDK (Fixture Neut
         NODE_ENV: electronNodeEnv,
         FAKE_DB_IN_MEMORY: 'true',
         PLAYWRIGHT_TEST: '1',
-        MR_TICK_RUNTIME_PROBE_WORKSPACE: workspace.id,
-        MR_TICK_TEST_USER_DATA_DIR: userDataPath,
-        MR_TICK_DISCORD_RPC_PIPE_OVERRIDE:
+        RASTRO_RUNTIME_PROBE_WORKSPACE: workspace.id,
+        RASTRO_TEST_USER_DATA_DIR: userDataPath,
+        RASTRO_DISCORD_RPC_PIPE_OVERRIDE:
           process.platform === 'win32'
-            ? `\\\\.\\pipe\\mr-tick-discord-isolated-${testInfo.workerIndex}`
-            : `/tmp/mr-tick-discord-isolated-${testInfo.workerIndex}`,
+            ? `\\\\.\\pipe\\rastro-discord-isolated-${testInfo.workerIndex}`
+            : `/tmp/rastro-discord-isolated-${testInfo.workerIndex}`,
       },
     })
 
@@ -812,7 +812,7 @@ test.describe('E2E - Observers Configuráveis por Contratos do SDK (Fixture Neut
     await restartedInstalledBtn.click()
 
     const restartedConfigBtn = restartedWindow.locator(
-      '[data-testid="addon-configure-btn-mr-tick-fake-watcher-for-tests"]',
+      '[data-testid="addon-configure-btn-rastro-fake-watcher-for-tests"]',
     )
     await expect(restartedConfigBtn).toBeVisible({ timeout: 10000 })
     await restartedConfigBtn.click()
@@ -866,8 +866,8 @@ test.describe('E2E - Observers Configuráveis por Contratos do SDK (Fixture Neut
 
     const pipePath =
       process.platform === 'win32'
-        ? `\\\\.\\pipe\\mr-tick-discord-e2e-${Date.now()}-${testInfo.workerIndex}`
-        : `/tmp/mr-tick-discord-e2e-${Date.now()}-${testInfo.workerIndex}`
+        ? `\\\\.\\pipe\\rastro-discord-e2e-${Date.now()}-${testInfo.workerIndex}`
+        : `/tmp/rastro-discord-e2e-${Date.now()}-${testInfo.workerIndex}`
 
     const mockRpcServer = new DiscordMockRpcServer(pipePath)
     await mockRpcServer.start()
@@ -880,9 +880,9 @@ test.describe('E2E - Observers Configuráveis por Contratos do SDK (Fixture Neut
         NODE_ENV: electronNodeEnv,
         FAKE_DB_IN_MEMORY: 'true',
         PLAYWRIGHT_TEST: '1',
-        MR_TICK_RUNTIME_PROBE_WORKSPACE: workspace.id,
-        MR_TICK_TEST_USER_DATA_DIR: userDataPath,
-        MR_TICK_DISCORD_RPC_PIPE_OVERRIDE: pipePath,
+        RASTRO_RUNTIME_PROBE_WORKSPACE: workspace.id,
+        RASTRO_TEST_USER_DATA_DIR: userDataPath,
+        RASTRO_DISCORD_RPC_PIPE_OVERRIDE: pipePath,
       },
     })
 
@@ -933,7 +933,7 @@ test.describe('E2E - Observers Configuráveis por Contratos do SDK (Fixture Neut
         })
         .toBeGreaterThanOrEqual(1)
 
-      // 1. Abrir Configurações -> Addons Instalados -> Discord Presence (mistertick-discord)
+      // 1. Abrir Configurações -> Addons Instalados -> Discord Presence (rastro-discord)
       const settingsButton = win.locator(
         '[data-testid="app-rail-settings-btn"]',
       )
@@ -947,7 +947,7 @@ test.describe('E2E - Observers Configuráveis por Contratos do SDK (Fixture Neut
       await installedTabBtn.click()
 
       const configureBtn = win.locator(
-        '[data-testid="addon-configure-btn-mistertick-discord"]',
+        '[data-testid="addon-configure-btn-rastro-discord"]',
       )
       await expect(configureBtn).toBeVisible({ timeout: 10000 })
       await configureBtn.click()
@@ -1264,8 +1264,8 @@ test.describe('E2E - Observers Configuráveis por Contratos do SDK (Fixture Neut
 
     const pipePath =
       process.platform === 'win32'
-        ? `\\\\.\\pipe\\mr-tick-discord-e2e-${Date.now()}-${testInfo.workerIndex}`
-        : `/tmp/mr-tick-discord-e2e-${Date.now()}-${testInfo.workerIndex}`
+        ? `\\\\.\\pipe\\rastro-discord-e2e-${Date.now()}-${testInfo.workerIndex}`
+        : `/tmp/rastro-discord-e2e-${Date.now()}-${testInfo.workerIndex}`
 
     const mockRpcServer = new DiscordMockRpcServer(pipePath)
     await mockRpcServer.start()
@@ -1278,9 +1278,9 @@ test.describe('E2E - Observers Configuráveis por Contratos do SDK (Fixture Neut
         NODE_ENV: electronNodeEnv,
         FAKE_DB_IN_MEMORY: 'true',
         PLAYWRIGHT_TEST: '1',
-        MR_TICK_RUNTIME_PROBE_WORKSPACE: workspace.id,
-        MR_TICK_TEST_USER_DATA_DIR: userDataPath,
-        MR_TICK_DISCORD_RPC_PIPE_OVERRIDE: pipePath,
+        RASTRO_RUNTIME_PROBE_WORKSPACE: workspace.id,
+        RASTRO_TEST_USER_DATA_DIR: userDataPath,
+        RASTRO_DISCORD_RPC_PIPE_OVERRIDE: pipePath,
       },
     })
 
@@ -1340,7 +1340,7 @@ test.describe('E2E - Observers Configuráveis por Contratos do SDK (Fixture Neut
       await installedTabBtn.click()
 
       const configureBtn = win.locator(
-        '[data-testid="addon-configure-btn-mistertick-discord"]',
+        '[data-testid="addon-configure-btn-rastro-discord"]',
       )
       await expect(configureBtn).toBeVisible({ timeout: 10000 })
       await configureBtn.click()

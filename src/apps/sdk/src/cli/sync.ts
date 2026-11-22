@@ -25,7 +25,7 @@ function extractRepo(addonDir: string): string {
     const match = pkg.repository.url.match(/github\.com[/:]([^/.]+\/[^/.]+)/)
     if (match && match[1]) return match[1].replace(/\.git$/, '')
   }
-  return 'mr-tick-community/plugin'
+  return 'seuusuario/plugin'
 }
 
 function resolveRepo(optionRepo: string | undefined, rootDir: string): string {
@@ -68,7 +68,7 @@ function resolveCapabilities(manifest: AddonConfig): AddonCapability[] {
 
 function resolveTags(manifest: AddonConfig): string[] {
   if (manifest.tags && manifest.tags.length > 0) return manifest.tags
-  return ['mr-tick']
+  return ['rastro']
 }
 
 function resolveTier(manifest: AddonConfig): AddonTier | undefined {

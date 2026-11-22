@@ -139,7 +139,7 @@ Representa tarefas sincronizadas a partir de sistemas externos, armazenadas reat
 | id                   | String   | **Chave primária local.** Chave composta determinística `connectionInstanceId::sourceId`. |
 | sourceId             | String   | Identificador oficial da tarefa no sistema externo (ex: ID da issue no Redmine/Jira).     |
 | connectionInstanceId | String   | Identificador da conexão ativa no workspace.                                              |
-| dataSourceId         | String   | Identificador do plugin/provedor do conector (ex: `mr-tick-redmine`).                     |
+| dataSourceId         | String   | Identificador do plugin/provedor do conector (ex: `rastro-redmine`).                     |
 | _deleted             | Boolean  | Flag nativa de soft delete do RxDB.                                                       |
 | syncStatus           | String   | Status de sincronização: `synced`, `pending_push`, `pulling`, `conflict`, `local_only`.   |
 | lastPulledAt         | DateTime | Timestamp ISO do último pull executado com sucesso.                                       |
@@ -180,7 +180,7 @@ Representa registros de tempo vinculados a tarefas, gerenciados com garantias de
 | id                   | String   | **Chave primária local.** Hash SHA-256 determinístico de `connectionInstanceId::remoteId` para registros importados, ou UUID v4 para criações locais não confirmadas. |
 | _deleted             | Boolean  | Flag nativa de soft delete do RxDB.                                                                                                                                   |
 | connectionInstanceId | String   | Identificador único da conexão ativa no workspace.                                                                                                                    |
-| dataSourceId         | String   | Identificador do plugin/provedor do datasource (ex: `mr-tick-redmine`).                                                                                               |
+| dataSourceId         | String   | Identificador do plugin/provedor do datasource (ex: `rastro-redmine`).                                                                                               |
 | syncStatus           | String   | Status de sincronização: `synced`, `pending_push`, `creating`, `ambiguous`, `conflict`, `local_only`, `error`.                                                        |
 | remoteDeleted        | Boolean  | Tombstone que confirma a ausência remota do registro; impede que a exclusão local seja reenviada como DELETE ao provedor.                                             |
 | deletionConfirmed    | Boolean  | Confirmação durável de exclusão solicitada explicitamente pelo usuário.                                                                                               |
@@ -267,7 +267,7 @@ Armazena metadados provenientes da fonte externa (status, prioridades, papéis, 
 | id                   | String   | **Chave primária local.** Chave composta determinística `connectionInstanceId::sourceId`. |
 | sourceId             | String   | Identificador de metadados na fonte externa.                                              |
 | connectionInstanceId | String   | Identificador da conexão ativa no workspace.                                              |
-| dataSourceId         | String   | Identificador do plugin/provedor do conector (ex: `mr-tick-redmine`).                     |
+| dataSourceId         | String   | Identificador do plugin/provedor do conector (ex: `rastro-redmine`).                     |
 | _deleted             | Boolean  | Flag nativa de soft delete do RxDB.                                                       |
 | syncStatus           | String   | Status de sincronização (`synced`, `pulling`, `conflict`, `local_only`).                  |
 | lastPulledAt         | DateTime | Timestamp ISO do último pull executado.                                                   |
@@ -920,7 +920,7 @@ flowchart TB
         UI <--> Loader
     end
 
-    subgraph Addons [Addon Ecosystem — @mr-tick/sdk]
+    subgraph Addons [Addon Ecosystem — @rastrokit/sdk]
         direction TB
         DS[DataSources — Redmine, Jira, Fake]
         Themes[Visual Themes — CSS Injected]
@@ -988,7 +988,7 @@ flowchart TB
 
 **Contexto:** Ferramentas extensíveis costumam sofrer de fragmentação ou acoplamento forte quando cada tipo de plugin (tema, conector, atalho) exige uma arquitetura isolada.
 
-**Decisão:** O Rastro adota um contrato de **Addon Multicapacidade** no `@mr-tick/sdk`. Um único Addon pode registrar simultaneamente DataSources, Menus de Sidebar, Botões e Popovers na Timerbar, Comandos, Watchers e Temas Visuais.
+**Decisão:** O Rastro adota um contrato de **Addon Multicapacidade** no `@rastrokit/sdk`. Um único Addon pode registrar simultaneamente DataSources, Menus de Sidebar, Botões e Popovers na Timerbar, Comandos, Watchers e Temas Visuais.
 
 **Consequências:**
 

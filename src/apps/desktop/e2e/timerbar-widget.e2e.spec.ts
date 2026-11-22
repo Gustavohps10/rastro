@@ -26,7 +26,7 @@ async function openWorkspace(page: Page): Promise<void> {
 
   const fakeWorkspace = seedWorkspaces.workspaces.find((workspace) =>
     workspace.connections.some(
-      (connection) => connection.addonId === 'mr-tick-datasource-fake',
+      (connection) => connection.addonId === 'rastro-datasource-fake',
     ),
   )
   expect(fakeWorkspace).toBeDefined()

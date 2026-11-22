@@ -1,5 +1,5 @@
 @startuml ComponentCustomExtensions
-title Rastro - SDK (@mr-tick/sdk)
+title Rastro - SDK (@rastrokit/sdk)
 
 package "Rastro Addon Core" {
     interface "IAddon" as IAddon

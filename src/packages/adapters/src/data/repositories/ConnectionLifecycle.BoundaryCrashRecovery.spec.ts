@@ -2,9 +2,9 @@ import {
   ConnectionLifecycleCoordinator,
   CredentialReferenceFactory,
   RecoverConnectionLifecycleService,
-} from '@mr-tick/application'
-import { ConnectionProfileDescriptor, Workspace } from '@mr-tick/domain'
-import { Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { ConnectionProfileDescriptor, Workspace } from '@rastrokit/domain'
+import { Either } from '@rastrokit/shared/helpers'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 import {
@@ -48,14 +48,14 @@ describe('Deterministic Database/Vault Boundary - Crash Recovery & CAS', () => {
     if (created.isFailure()) return
     const workspace = created.success
     const connInstanceId = 'conn-refresh-1'
-    workspace.createConnection(connInstanceId, 'mistertick-discord', profile)
+    workspace.createConnection(connInstanceId, 'rastro-discord', profile)
     await repository.create(workspace)
 
     const reservationResult = await reservationRepository.reserveConnectionSlot(
       {
         reservationId: 'res-boundary-refresh-1',
         workspaceId: workspace.id,
-        addonId: 'mistertick-discord',
+        addonId: 'rastro-discord',
         connectionProfileId: 'discord-presence',
         connectionId: connInstanceId,
         cardinality: 'single',
@@ -79,7 +79,7 @@ describe('Deterministic Database/Vault Boundary - Crash Recovery & CAS', () => {
     const connectResult = await coordinator.connect({
       workspaceId: workspace.id,
       connectionInstanceId: connInstanceId,
-      addonId: 'mistertick-discord',
+      addonId: 'rastro-discord',
       profile,
       method: 'authorized',
       authorizationRole: 'primary',
@@ -111,7 +111,7 @@ describe('Deterministic Database/Vault Boundary - Crash Recovery & CAS', () => {
     // 2. Simula falha/crash durante performTokenRefresh ap+�s candidate_written no SQLite
     const refreshOpId = 'refresh-op-crash-1'
     const candidateRef = CredentialReferenceFactory.createConnectionCandidate({
-      ownerId: 'mistertick-discord',
+      ownerId: 'rastro-discord',
       workspaceId: workspace.id,
       connectionId: connInstanceId,
       authorizationId: initialAuth.authorizationId,
@@ -188,14 +188,14 @@ describe('Deterministic Database/Vault Boundary - Crash Recovery & CAS', () => {
     if (created.isFailure()) return
     const workspace = created.success
     const connInstanceId = 'conn-refresh-cas-fail'
-    workspace.createConnection(connInstanceId, 'mistertick-discord', profile)
+    workspace.createConnection(connInstanceId, 'rastro-discord', profile)
     await repository.create(workspace)
 
     const reservationResult = await reservationRepository.reserveConnectionSlot(
       {
         reservationId: 'res-boundary-refresh-cas',
         workspaceId: workspace.id,
-        addonId: 'mistertick-discord',
+        addonId: 'rastro-discord',
         connectionProfileId: 'discord-presence',
         connectionId: connInstanceId,
         cardinality: 'single',
@@ -219,7 +219,7 @@ describe('Deterministic Database/Vault Boundary - Crash Recovery & CAS', () => {
     const connectResult = await coordinator.connect({
       workspaceId: workspace.id,
       connectionInstanceId: connInstanceId,
-      addonId: 'mistertick-discord',
+      addonId: 'rastro-discord',
       profile,
       method: 'authorized',
       authorizationRole: 'primary',
@@ -250,7 +250,7 @@ describe('Deterministic Database/Vault Boundary - Crash Recovery & CAS', () => {
     // 2. Simula crash ap+�s candidate_written
     const refreshOpId = 'refresh-op-cas-fail-1'
     const candidateRef = CredentialReferenceFactory.createConnectionCandidate({
-      ownerId: 'mistertick-discord',
+      ownerId: 'rastro-discord',
       workspaceId: workspace.id,
       connectionId: connInstanceId,
       authorizationId: initialAuth.authorizationId,
@@ -309,14 +309,14 @@ describe('Deterministic Database/Vault Boundary - Crash Recovery & CAS', () => {
     if (created.isFailure()) return
     const workspace = created.success
     const connInstanceId = 'conn-refresh-superseeded'
-    workspace.createConnection(connInstanceId, 'mistertick-discord', profile)
+    workspace.createConnection(connInstanceId, 'rastro-discord', profile)
     await repository.create(workspace)
 
     const reservationResult = await reservationRepository.reserveConnectionSlot(
       {
         reservationId: 'res-boundary-refresh-sup',
         workspaceId: workspace.id,
-        addonId: 'mistertick-discord',
+        addonId: 'rastro-discord',
         connectionProfileId: 'discord-presence',
         connectionId: connInstanceId,
         cardinality: 'single',
@@ -341,7 +341,7 @@ describe('Deterministic Database/Vault Boundary - Crash Recovery & CAS', () => {
     const connect1 = await coordinator.connect({
       workspaceId: workspace.id,
       connectionInstanceId: connInstanceId,
-      addonId: 'mistertick-discord',
+      addonId: 'rastro-discord',
       profile,
       method: 'authorized',
       authorizationRole: 'primary',
@@ -390,7 +390,7 @@ describe('Deterministic Database/Vault Boundary - Crash Recovery & CAS', () => {
     const connect2 = await coordinator.connect({
       workspaceId: workspace.id,
       connectionInstanceId: connInstanceId,
-      addonId: 'mistertick-discord',
+      addonId: 'rastro-discord',
       profile,
       method: 'authorized',
       authorizationRole: 'primary',
@@ -458,14 +458,14 @@ describe('Deterministic Database/Vault Boundary - Crash Recovery & CAS', () => {
     if (created.isFailure()) return
     const workspace = created.success
     const connInstanceId = 'conn-refresh-2'
-    workspace.createConnection(connInstanceId, 'mistertick-discord', profile)
+    workspace.createConnection(connInstanceId, 'rastro-discord', profile)
     await repository.create(workspace)
 
     const reservationResult = await reservationRepository.reserveConnectionSlot(
       {
         reservationId: 'res-boundary-refresh-2',
         workspaceId: workspace.id,
-        addonId: 'mistertick-discord',
+        addonId: 'rastro-discord',
         connectionProfileId: 'discord-presence',
         connectionId: connInstanceId,
         cardinality: 'single',
@@ -489,7 +489,7 @@ describe('Deterministic Database/Vault Boundary - Crash Recovery & CAS', () => {
     await coordinator.connect({
       workspaceId: workspace.id,
       connectionInstanceId: connInstanceId,
-      addonId: 'mistertick-discord',
+      addonId: 'rastro-discord',
       profile,
       method: 'authorized',
       authorizationRole: 'primary',
@@ -519,7 +519,7 @@ describe('Deterministic Database/Vault Boundary - Crash Recovery & CAS', () => {
     // 2. Simula que metadata_committed ocorreu (workspace atualizado no SQLite e journal avancado)
     const refreshOpId = 'refresh-op-committed-2'
     const candidateRef = CredentialReferenceFactory.createConnectionCandidate({
-      ownerId: 'mistertick-discord',
+      ownerId: 'rastro-discord',
       workspaceId: workspace.id,
       connectionId: connInstanceId,
       authorizationId: initialAuth.authorizationId,

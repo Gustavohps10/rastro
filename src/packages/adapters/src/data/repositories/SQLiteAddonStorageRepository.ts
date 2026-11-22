@@ -3,8 +3,8 @@ import type {
   AddonStorageListPage,
   AddonStorageListRequest,
   IAddonStorageRepository,
-} from '@mr-tick/application'
-import { AppError, Either, isNonEmptyString } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AppError, Either, isNonEmptyString } from '@rastrokit/shared/helpers'
 import type { Knex } from 'knex'
 
 import {

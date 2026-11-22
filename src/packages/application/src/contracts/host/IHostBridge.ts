@@ -1,6 +1,6 @@
-import type { ConnectionProfileDescriptor } from '@mr-tick/domain'
-import type { AddonCapability } from '@mr-tick/shared/helpers'
-import { IHeaders, IJobResult, IRequest } from '@mr-tick/shared/transport'
+import type { ConnectionProfileDescriptor } from '@rastrokit/domain'
+import type { AddonCapability } from '@rastrokit/shared/helpers'
+import { IHeaders, IJobResult, IRequest } from '@rastrokit/shared/transport'
 
 import { TimeEntryPullCheckpointDTO, TimeEntryPullPageDTO } from '@/dtos'
 
@@ -34,7 +34,11 @@ import type {
   AnalyticsFilterOption,
 } from '../data/providers/IAnalyticsProvider'
 import type { MappingFieldDefinition } from '../data/providers/IMetadataProvider'
-export type { IHeaders, IJobResult, IRequest } from '@mr-tick/shared/transport'
+export type {
+  IHeaders,
+  IJobResult,
+  IRequest,
+} from '@rastrokit/shared/transport'
 export type {
   AddonInstallerViewModel,
   AddonLoadFailuresSnapshot,
@@ -51,7 +55,7 @@ export type {
   TimeEntryViewModel,
   ViewModel,
   WorkspaceViewModel,
-} from '@mr-tick/shared/view-models'
+} from '@rastrokit/shared/view-models'
 import {
   AddonInstallerViewModel,
   AddonLoadFailuresSnapshot,
@@ -65,7 +69,7 @@ import {
   TimeEntryViewModel,
   ViewModel,
   WorkspaceViewModel,
-} from '@mr-tick/shared/view-models'
+} from '@rastrokit/shared/view-models'
 
 import type {
   CoreConnection,

@@ -1,4 +1,4 @@
-import { IKeyedMutex } from '@mr-tick/application'
+import { IKeyedMutex } from '@rastrokit/application'
 
 /**
  * Implementação em memória de {@link IKeyedMutex}.

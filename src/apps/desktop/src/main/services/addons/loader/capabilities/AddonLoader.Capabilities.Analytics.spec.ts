@@ -2,9 +2,9 @@ import type {
   AnalyticsDatasetManifest,
   AnalyticsProviderContext,
   IAnalyticsProvider,
-} from '@mr-tick/application'
-import type { IAddonManifest } from '@mr-tick/sdk'
-import { Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import type { IAddonManifest } from '@rastrokit/sdk'
+import { Either } from '@rastrokit/shared/helpers'
 import { describe, expect, it, vi } from 'vitest'
 
 import {

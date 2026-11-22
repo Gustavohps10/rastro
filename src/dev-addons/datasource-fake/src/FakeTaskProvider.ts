@@ -8,7 +8,7 @@ import {
   type PaginationOptionsDTO,
   type TaskDTO,
   type UpdatedTaskResult,
-} from '@mr-tick/sdk'
+} from '@rastrokit/sdk'
 
 import { FakeDatabaseStore } from './FakeDatabaseStore'
 

@@ -6,8 +6,8 @@ import {
   isNumber,
   isRecord,
   isString,
-} from '@mr-tick/shared/helpers'
-import type { MemberViewModel } from '@mr-tick/shared/view-models'
+} from '@rastrokit/shared/helpers'
+import type { MemberViewModel } from '@rastrokit/shared/view-models'
 
 export interface StoredConnectionCredentialPayload {
   credentials?: Record<string, string | number | boolean>

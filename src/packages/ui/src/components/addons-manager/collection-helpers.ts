@@ -2,10 +2,10 @@ import type {
   AddonCollectionItemEnvelope,
   AddonSettingsValues,
   AddonSettingValue,
-} from '@mr-tick/application'
-import type { AddonSettingsField } from '@mr-tick/sdk'
+} from '@rastrokit/application'
+import type { AddonSettingsField } from '@rastrokit/sdk'
 
-export type { AddonCollectionItemEnvelope } from '@mr-tick/application'
+export type { AddonCollectionItemEnvelope } from '@rastrokit/application'
 
 export function createCollectionItemEnvelope(
   initialValues: AddonSettingsValues,

@@ -98,7 +98,7 @@ export const useUpdaterStore = create<UpdaterStoreState>()(
       },
     }),
     {
-      name: 'mr-tick-updater-store',
+      name: 'rastro-updater-store',
       partialize: (state) => ({
         skippedVersion: state.skippedVersion,
         remindLaterUntil: state.remindLaterUntil,

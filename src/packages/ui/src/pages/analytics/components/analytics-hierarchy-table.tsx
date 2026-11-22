@@ -2,7 +2,7 @@ import type {
   AnalyticsDatasetCellValue,
   AnalyticsDatasetRow,
   AnalyticsQueryResult,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { Fragment, useState } from 'react'
 
 import { Button } from '@/components/ui/button'

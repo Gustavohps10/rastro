@@ -1,4 +1,4 @@
-import { AppError, Either } from '@mr-tick/shared/helpers'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import type { Mocked } from 'vitest'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
@@ -139,7 +139,7 @@ describe('ImportAddonService', () => {
     addonsFacadeMock.parseManifest.mockResolvedValue(
       Either.success(
         createBaseManifest({
-          id: 'mistertick-discord',
+          id: 'rastro-discord',
           tier: 'plus',
         }),
       ),

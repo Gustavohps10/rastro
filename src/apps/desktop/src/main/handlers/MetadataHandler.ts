@@ -2,14 +2,14 @@ import {
   IMetadataPullUseCase,
   MetadataDTO,
   PullMetadataInput,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import {
   AppError,
   createResponseViewModel,
   Either,
-} from '@mr-tick/shared/helpers'
-import { IRequest } from '@mr-tick/shared/transport'
-import { MetadataViewModel, ViewModel } from '@mr-tick/shared/view-models'
+} from '@rastrokit/shared/helpers'
+import { IRequest } from '@rastrokit/shared/transport'
+import { MetadataViewModel, ViewModel } from '@rastrokit/shared/view-models'
 
 import { HandlerBase } from '@/main/handlers/HandlerBase'
 

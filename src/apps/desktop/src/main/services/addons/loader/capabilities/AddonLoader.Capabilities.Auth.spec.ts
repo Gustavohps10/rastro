@@ -2,9 +2,9 @@ import {
   AddonAuthenticatorRegistry,
   type AddonConnectionAuthenticator,
   AddonConnectionProfilesResolver,
-} from '@mr-tick/application'
-import type { ConnectionProfileDescriptor } from '@mr-tick/domain'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import type { ConnectionProfileDescriptor } from '@rastrokit/domain'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { createLoader } from './AddonLoader.Capabilities.fixture'

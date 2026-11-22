@@ -2,7 +2,7 @@ import type {
   AnalyticsPlanNode,
   AnalyticsQueryInput,
   IHostBridge,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { renderHook, waitFor } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 

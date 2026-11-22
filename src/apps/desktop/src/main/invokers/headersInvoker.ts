@@ -1,5 +1,5 @@
-﻿import { IHeadersAPI } from '@mr-tick/application'
-import { IHeaders } from '@mr-tick/shared/transport'
+﻿import { IHeadersAPI } from '@rastrokit/application'
+import { IHeaders } from '@rastrokit/shared/transport'
 
 import { IpcInvoker } from '@/main/adapters/IpcInvoker'
 

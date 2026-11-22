@@ -10,7 +10,7 @@ Engine de produtividade e rastreamento de tempo local-first para desenvolvedores
 
 <p align="center">
     <img src="https://img.shields.io/github/languages/top/Gustavohps10/rastro?label=TypeScript&color=4f94ee&style=flat-square&logoColor=ffffff&logo=typescript"/>
-    <img src="https://img.shields.io/website?url=https://mr-tick.app&label=Website&color=4f94ee&style=flat-square"/>
+    <img src="https://img.shields.io/website?url=https://mistertick.com&label=Website&color=4f94ee&style=flat-square"/>
     <img src="https://img.shields.io/github/commit-activity/w/Gustavohps10/rastro?label=Commits&color=4f94ee&style=flat-square&logo=git&logoColor=ffffff"/>
     <img src="https://img.shields.io/github/created-at/gustavohps10/rastro?label=Created%20At&color=4f94ee&style=flat-square"/>
     <img src="https://img.shields.io/github/license/gustavohps10/rastro?label=License&color=4f94ee&style=flat-square"/>

@@ -1,4 +1,4 @@
-import { AppError, Either } from '@mr-tick/shared/helpers'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import type { Mocked } from 'vitest'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
@@ -23,12 +23,12 @@ describe('UpdateAddonService', () => {
   let addonAccessServiceMock: Mocked<IAddonAccessService>
 
   const existingManifest: AddonManifestDTO = {
-    id: 'mr-tick-datasource-redmine',
+    id: 'rastro-datasource-redmine',
     name: 'Redmine Integration',
     version: '0.7.0',
     creator: 'Community',
     description: 'Plugin Redmine v0.7.0',
-    path: './addons/mr-tick-datasource-redmine/0.7.0',
+    path: './addons/rastro-datasource-redmine/0.7.0',
     logo: '',
     downloads: 10,
     stars: 5,
@@ -37,7 +37,7 @@ describe('UpdateAddonService', () => {
   }
 
   const updatedManifest: AddonManifestDTO = {
-    id: 'mr-tick-datasource-redmine',
+    id: 'rastro-datasource-redmine',
     name: 'Redmine Integration',
     version: '0.8.0',
     creator: 'Community',
@@ -54,7 +54,7 @@ describe('UpdateAddonService', () => {
   const fakeExtractedFiles = [
     {
       name: 'manifest.yaml',
-      content: Buffer.from('id: mr-tick-datasource-redmine\nversion: 0.8.0'),
+      content: Buffer.from('id: rastro-datasource-redmine\nversion: 0.8.0'),
     },
     {
       name: 'index.js',
@@ -90,7 +90,7 @@ describe('UpdateAddonService', () => {
             return Either.success({
               ...updatedManifest,
               installed: true,
-              path: 'C:/isolated-user-data/addons/mr-tick-datasource-redmine/0.8.0',
+              path: 'C:/isolated-user-data/addons/rastro-datasource-redmine/0.8.0',
             })
           }
           return Either.success(existingManifest)
@@ -106,7 +106,7 @@ describe('UpdateAddonService', () => {
       backupAddon: vi
         .fn()
         .mockResolvedValue(
-          Either.success('./addons/mr-tick-datasource-redmine/0.7.0.backup'),
+          Either.success('./addons/rastro-datasource-redmine/0.7.0.backup'),
         ),
       restoreAddonBackup: vi.fn().mockResolvedValue(Either.success()),
       removeAddonBackup: vi.fn().mockResolvedValue(Either.success()),
@@ -121,7 +121,7 @@ describe('UpdateAddonService', () => {
     addonAccessServiceMock = {
       authorizeFiles: vi.fn().mockResolvedValue(
         Either.success({
-          addonId: 'mr-tick-datasource-redmine',
+          addonId: 'rastro-datasource-redmine',
           version: '0.8.0',
           classification: 'free',
           fingerprint: 'a'.repeat(64),
@@ -129,7 +129,7 @@ describe('UpdateAddonService', () => {
       ),
       authorizeDirectory: vi.fn().mockResolvedValue(
         Either.success({
-          addonId: 'mr-tick-datasource-redmine',
+          addonId: 'rastro-datasource-redmine',
           version: '0.8.0',
           classification: 'free',
           fingerprint: 'a'.repeat(64),
@@ -148,13 +148,13 @@ describe('UpdateAddonService', () => {
 
   it('deve atualizar com sucesso, desativando versão antiga, gravando novos arquivos, ativando nova versão e limpando backup', async () => {
     const result = await sut.execute({
-      addonId: 'mr-tick-datasource-redmine',
+      addonId: 'rastro-datasource-redmine',
       downloadUrl: 'https://example.com/redmine-0.8.0.tladdon',
     })
 
     expect(result.isSuccess()).toBe(true)
     expect(addonsFacadeMock.getInstalledById).toHaveBeenCalledWith(
-      'mr-tick-datasource-redmine',
+      'rastro-datasource-redmine',
     )
     expect(addonsFacadeMock.downloadFile).toHaveBeenCalledWith(
       'https://example.com/redmine-0.8.0.tladdon',
@@ -162,29 +162,29 @@ describe('UpdateAddonService', () => {
       undefined,
     )
     expect(addonReloaderMock.deactivateAddon).toHaveBeenCalledWith(
-      'mr-tick-datasource-redmine',
+      'rastro-datasource-redmine',
     )
     expect(addonsFacadeMock.backupAddon).toHaveBeenCalledWith(
-      'mr-tick-datasource-redmine',
+      'rastro-datasource-redmine',
       '0.7.0',
     )
     expect(fileStorageMock.write).toHaveBeenCalledWith(
-      './addons/mr-tick-datasource-redmine/0.8.0/manifest.yaml',
+      './addons/rastro-datasource-redmine/0.8.0/manifest.yaml',
       fakeExtractedFiles[0].content,
     )
     expect(fileStorageMock.write).toHaveBeenCalledWith(
-      './addons/mr-tick-datasource-redmine/0.8.0/index.js',
+      './addons/rastro-datasource-redmine/0.8.0/index.js',
       fakeExtractedFiles[1].content,
     )
     expect(addonReloaderMock.loadAndActivateFromDisk).toHaveBeenCalledWith(
-      'mr-tick-datasource-redmine',
-      'C:/isolated-user-data/addons/mr-tick-datasource-redmine/0.8.0',
+      'rastro-datasource-redmine',
+      'C:/isolated-user-data/addons/rastro-datasource-redmine/0.8.0',
     )
     expect(addonsFacadeMock.removeAddonBackup).toHaveBeenCalledWith(
-      './addons/mr-tick-datasource-redmine/0.7.0.backup',
+      './addons/rastro-datasource-redmine/0.7.0.backup',
     )
     expect(addonsFacadeMock.uninstallAddon).toHaveBeenCalledWith(
-      'mr-tick-datasource-redmine',
+      'rastro-datasource-redmine',
       '0.7.0',
     )
   })
@@ -195,22 +195,22 @@ describe('UpdateAddonService', () => {
       .mockResolvedValueOnce(true)
 
     const result = await sut.execute({
-      addonId: 'mr-tick-datasource-redmine',
+      addonId: 'rastro-datasource-redmine',
       downloadUrl: 'https://example.com/redmine-0.8.0.tladdon',
     })
 
     expect(result.isFailure()).toBe(true)
     expect(result.failure.messageKey).toBe('FALHA_AO_ATIVAR_NOVA_VERSAO')
     expect(addonsFacadeMock.restoreAddonBackup).toHaveBeenCalledWith(
-      'mr-tick-datasource-redmine',
-      './addons/mr-tick-datasource-redmine/0.7.0.backup',
+      'rastro-datasource-redmine',
+      './addons/rastro-datasource-redmine/0.7.0.backup',
     )
     expect(addonReloaderMock.loadAndActivateFromDisk).toHaveBeenCalledWith(
-      'mr-tick-datasource-redmine',
-      './addons/mr-tick-datasource-redmine/0.7.0',
+      'rastro-datasource-redmine',
+      './addons/rastro-datasource-redmine/0.7.0',
     )
     expect(addonsFacadeMock.removeAddonBackup).toHaveBeenCalledWith(
-      './addons/mr-tick-datasource-redmine/0.7.0.backup',
+      './addons/rastro-datasource-redmine/0.7.0.backup',
     )
   })
 
@@ -223,7 +223,7 @@ describe('UpdateAddonService', () => {
     )
 
     const result = await sut.execute({
-      addonId: 'mr-tick-datasource-redmine',
+      addonId: 'rastro-datasource-redmine',
       downloadUrl: 'https://example.com/redmine-0.8.0.tladdon',
     })
 
@@ -240,7 +240,7 @@ describe('UpdateAddonService', () => {
     )
 
     const result = await sut.execute({
-      addonId: 'mr-tick-datasource-redmine',
+      addonId: 'rastro-datasource-redmine',
       downloadUrl: 'https://example.com/redmine-0.8.0.tladdon',
     })
 
@@ -256,7 +256,7 @@ describe('UpdateAddonService', () => {
         Either.success({
           ...updatedManifest,
           installed: true,
-          path: 'C:/isolated-user-data/addons/mr-tick-datasource-redmine/0.8.0',
+          path: 'C:/isolated-user-data/addons/rastro-datasource-redmine/0.8.0',
         }),
       )
     const result = await sut.execute({
@@ -266,7 +266,7 @@ describe('UpdateAddonService', () => {
     expect(result.isSuccess()).toBe(true)
     expect(addonReloaderMock.loadAndActivateFromDisk).toHaveBeenCalledWith(
       existingManifest.id,
-      'C:/isolated-user-data/addons/mr-tick-datasource-redmine/0.8.0',
+      'C:/isolated-user-data/addons/rastro-datasource-redmine/0.8.0',
     )
   })
 

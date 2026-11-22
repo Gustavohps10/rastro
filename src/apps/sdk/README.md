@@ -1,4 +1,4 @@
-# @mr-tick/sdk
+# @rastrokit/sdk
 
 O SDK reúne ferramentas para criar extensões do Rastro sem alterar o aplicativo. Ele permite conectar ferramentas de trabalho, consultar tarefas, registrar apontamentos e sugestões, adicionar ações e criar temas. Essas extensões são chamadas de addons.
 

@@ -51,7 +51,7 @@ _(Ou `npx changeset`)_
 O assistente no terminal fará 3 perguntas:
 
 1. **Qual pacote foi alterado?**
-   - Use as setas do teclado e pressione `Espaço` para selecionar o(s) pacote(s) afetado(s) (ex: `@mr-tick/desktop`, `@mr-tick/landing-page`, `@mr-tick/sdk`, `@mr-tick/ui`, etc.) e aperte `Enter`.
+   - Use as setas do teclado e pressione `Espaço` para selecionar o(s) pacote(s) afetado(s) (ex: `@rastrokit/desktop`, `@rastrokit/landing-page`, `@rastrokit/sdk`, `@rastrokit/ui`, etc.) e aperte `Enter`.
 2. **Qual é o tipo de versionamento?**
    - **`patch`**: Correções de bugs, pequenas melhorias internas que não adicionam novas funções para o usuário (Ex: `0.5.1` ➔ `0.5.2`).
    - **`minor`**: Novas funcionalidades, novas telas ou campos retrocompatíveis (Ex: `0.5.1` ➔ `0.6.0`).
@@ -127,7 +127,7 @@ Quando o monorepo está em modo prerelease, o arquivo `.changeset/pre.json` fica
   "mode": "pre",
   "tag": "beta",
   "initialVersions": {
-    "@mr-tick/desktop": "0.2.0"
+    "@rastrokit/desktop": "0.2.0"
   }
 }
 ```
@@ -138,7 +138,7 @@ Nesse estado:
 - A pipeline compila os instaladores e publica releases marcadas como **Pre-release** no GitHub Releases, ficando disponíveis para quem ativou o switch "Beta Channel" nas configurações do app.
 
 > ⚠️ **Regra de Ouro (No Mixed Changesets)**:
-> Pacotes internos listados na chave `"ignore"` do `.changeset/config.json` (como `@mr-tick/ui`, `@mr-tick/domain`, etc.) **nunca devem ser misturados com pacotes publicáveis** (como `@mr-tick/desktop`) dentro do mesmo arquivo `.changeset/*.md`. Caso contrário, a action do Changesets falhará com o erro `Mixed changesets that contain both ignored and not ignored packages are not allowed`. Para o desktop, aponte sempre o changeset diretamente para `'@mr-tick/desktop'`.
+> Pacotes internos listados na chave `"ignore"` do `.changeset/config.json` (como `@rastrokit/ui`, `@rastrokit/domain`, etc.) **nunca devem ser misturados com pacotes publicáveis** (como `@rastrokit/desktop`) dentro do mesmo arquivo `.changeset/*.md`. Caso contrário, a action do Changesets falhará com o erro `Mixed changesets that contain both ignored and not ignored packages are not allowed`. Para o desktop, aponte sempre o changeset diretamente para `'@rastrokit/desktop'`.
 
 ---
 
@@ -167,7 +167,7 @@ Quando todos os testes no canal Beta forem concluídos com 100% de sucesso e for
 
    ```markdown
    ---
-   '@mr-tick/desktop': minor
+   '@rastrokit/desktop': minor
    ---
 
    feat: release 0.3.0 stable
@@ -192,7 +192,7 @@ Quando todos os testes no canal Beta forem concluídos com 100% de sucesso e for
 
 6. **Merge do PR Oficial do Robô**:
    - O mantenedor revisa e dá **Merge** no PR do robô no GitHub.
-   - A pipeline do Windows compila os instaladores `.exe` e `.zip` finais, cria a tag oficial `@mr-tick/desktop@0.3.0`, atualiza o manifesto `latest.yml` e publica a **Release Oficial Estável** no GitHub!
+   - A pipeline do Windows compila os instaladores `.exe` e `.zip` finais, cria a tag oficial `@rastrokit/desktop@0.3.0`, atualiza o manifesto `latest.yml` e publica a **Release Oficial Estável** no GitHub!
 
 ---
 

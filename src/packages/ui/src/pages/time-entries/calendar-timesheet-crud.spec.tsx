@@ -74,7 +74,7 @@ const mockActivities: SyncMetadataItem[] = [
 
 const mockTasks: SyncTaskRxDBDTO[] = [
   {
-    id: 'mr-tick-fake::API-415',
+    id: 'rastro-fake::API-415',
     sourceId: 'API-415',
     connectionInstanceId: 'conn-1',
     dataSourceId: 'jira',
@@ -91,7 +91,7 @@ const mockTasks: SyncTaskRxDBDTO[] = [
     _deleted: false,
   },
   {
-    id: 'mr-tick-fake::DOC-131',
+    id: 'rastro-fake::DOC-131',
     sourceId: 'DOC-131',
     connectionInstanceId: 'conn-1',
     dataSourceId: 'jira',
@@ -111,13 +111,13 @@ const mockTasks: SyncTaskRxDBDTO[] = [
 
 const mockTasksById: Record<string, SyncTaskRxDBDTO> = {
   'API-415': mockTasks[0],
-  'mr-tick-fake::API-415': mockTasks[0],
+  'rastro-fake::API-415': mockTasks[0],
   'conn-1::API-415': mockTasks[0],
-  'conn-1::mr-tick-fake::API-415': mockTasks[0],
+  'conn-1::rastro-fake::API-415': mockTasks[0],
   'DOC-131': mockTasks[1],
-  'mr-tick-fake::DOC-131': mockTasks[1],
+  'rastro-fake::DOC-131': mockTasks[1],
   'conn-1::DOC-131': mockTasks[1],
-  'conn-1::mr-tick-fake::DOC-131': mockTasks[1],
+  'conn-1::rastro-fake::DOC-131': mockTasks[1],
 }
 
 const queryState = vi.hoisted(() => ({ isLoading: false }))
@@ -137,7 +137,7 @@ vi.mock('@/pages/time-entries/hooks/use-time-entries-data', () => ({
           remoteId: 'remote-1',
           lastPulledAt: null,
           lastPushedAt: null,
-          task: { id: 'mr-tick-fake::API-415' },
+          task: { id: 'rastro-fake::API-415' },
           activity: { id: 'act-dev', name: 'Desenvolvimento' },
           user: { id: 'user-1', name: 'Dev User' },
           startDate: '2026-09-02T10:00:00.000Z',
@@ -159,7 +159,7 @@ vi.mock('@/pages/time-entries/hooks/use-time-entries-data', () => ({
           remoteId: 'remote-2',
           lastPulledAt: null,
           lastPushedAt: null,
-          task: { id: 'mr-tick-fake::DOC-131' },
+          task: { id: 'rastro-fake::DOC-131' },
           activity: { id: 'act-doc', name: 'Documentação' },
           user: { id: 'user-1', name: 'Dev User' },
           startDate: '2026-09-29T14:00:00.000Z',
@@ -338,7 +338,7 @@ describe('Calendar and Timesheet Decoupling & Reactive CRUD Tests', () => {
       screen.getAllByRole('img', { name: /Jira Software/i }).length,
     ).toBeGreaterThan(0)
     // Should display sanitized clean task IDs without compound keys
-    expect(screen.queryByText(/mr-tick-fake/)).toBeNull()
+    expect(screen.queryByText(/rastro-fake/)).toBeNull()
     // Should display formatted hour totals
     expect(screen.getByText('3h 30m')).toBeTruthy()
   })
@@ -377,7 +377,7 @@ describe('Calendar and Timesheet Decoupling & Reactive CRUD Tests', () => {
     // Should display sanitized clean task ID and title
     expect(screen.getByText('#DOC-131')).toBeTruthy()
     expect(screen.getByText('Manual de Instalação')).toBeTruthy()
-    expect(screen.queryByText(/mr-tick-fake/)).toBeNull()
+    expect(screen.queryByText(/rastro-fake/)).toBeNull()
   })
 
   it('handles draft addition, update, and deletion in TimeEntriesDayCard', () => {

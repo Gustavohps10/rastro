@@ -5,8 +5,8 @@ import {
   CredentialVaultReadResult,
   IAddonAuthenticatorRegistry,
   IConnectionCredentialsVault,
-} from '@mr-tick/application'
-import { ConnectionProfileDescriptor } from '@mr-tick/domain'
+} from '@rastrokit/application'
+import { ConnectionProfileDescriptor } from '@rastrokit/domain'
 
 import { SQLiteConnectionLifecycleRepository } from './SQLiteConnectionLifecycleRepository'
 import { SQLiteConnectionLifecycleTransactionBoundary } from './SQLiteConnectionLifecycleTransactionBoundary'

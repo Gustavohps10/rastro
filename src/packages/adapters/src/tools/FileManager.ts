@@ -1,5 +1,5 @@
-﻿import { FileData, IFileManager } from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+﻿import { FileData, IFileManager } from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import archiver from 'archiver'
 import { fileTypeFromBuffer } from 'file-type'
 import unzipper from 'unzipper'

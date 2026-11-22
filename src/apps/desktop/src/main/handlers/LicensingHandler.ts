@@ -1,10 +1,10 @@
-import { ILicensingFacade } from '@mr-tick/application'
-import { createResponseViewModel } from '@mr-tick/shared/helpers'
-import { IRequest } from '@mr-tick/shared/transport'
+import { ILicensingFacade } from '@rastrokit/application'
+import { createResponseViewModel } from '@rastrokit/shared/helpers'
+import { IRequest } from '@rastrokit/shared/transport'
 import {
   LicensingStatusViewModel,
   ViewModel,
-} from '@mr-tick/shared/view-models'
+} from '@rastrokit/shared/view-models'
 import { IpcMainInvokeEvent } from 'electron'
 
 import { HandlerBase } from './HandlerBase'

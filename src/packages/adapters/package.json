@@ -1,5 +1,5 @@
 {
-  "name": "@mr-tick/adapters",
+  "name": "@rastrokit/adapters",
   "version": "1.5.1",
   "private": true,
   "description": "Pacote de infraestrutura consolidado para o Rastro, contendo implementações concretas de recursos externos",
@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch --no-dts",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit --tsBuildInfoFile ../../../.temps/typescript/adapters.tsbuildinfo",
     "clean": "rimraf dist .turbo"
   },
   "exports": {
@@ -45,10 +45,10 @@
     }
   },
   "dependencies": {
-    "@mr-tick/application": "workspace:*",
-    "@mr-tick/domain": "workspace:*",
-    "@mr-tick/sdk": "workspace:*",
-    "@mr-tick/shared": "workspace:*",
+    "@rastrokit/application": "workspace:*",
+    "@rastrokit/domain": "workspace:*",
+    "@rastrokit/sdk": "workspace:*",
+    "@rastrokit/shared": "workspace:*",
     "ajv": "^8.17.1",
     "archiver": "^7.0.1",
     "axios": "^1.7.9",

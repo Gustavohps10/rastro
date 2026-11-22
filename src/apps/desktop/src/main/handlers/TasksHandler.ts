@@ -1,13 +1,13 @@
 import { randomUUID } from 'node:crypto'
 
-import { ITaskPullUseCase, TaskDTO } from '@mr-tick/application'
-import { createResponseViewModel } from '@mr-tick/shared/helpers'
-import { IRequest } from '@mr-tick/shared/transport'
+import { ITaskPullUseCase, TaskDTO } from '@rastrokit/application'
+import { createResponseViewModel } from '@rastrokit/shared/helpers'
+import { IRequest } from '@rastrokit/shared/transport'
 import {
   PaginatedViewModel,
   TaskViewModel,
   ViewModel,
-} from '@mr-tick/shared/view-models'
+} from '@rastrokit/shared/view-models'
 import { IpcMainInvokeEvent } from 'electron'
 
 import { HandlerBase } from '@/main/handlers/HandlerBase'

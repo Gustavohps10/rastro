@@ -1,4 +1,4 @@
-import type { AddonCapability } from '@mr-tick/shared/helpers'
+import type { AddonCapability } from '@rastrokit/shared/helpers'
 export {
   type AddonCapability,
   hasCapability,
@@ -8,7 +8,7 @@ export {
   isTheme,
   isWatcher,
   VALID_ADDON_CAPABILITIES,
-} from '@mr-tick/shared/helpers'
+} from '@rastrokit/shared/helpers'
 
 export type AddonTier = 'free' | 'plus'
 

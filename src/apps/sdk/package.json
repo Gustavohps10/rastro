@@ -1,10 +1,11 @@
 {
-  "name": "@mr-tick/sdk",
+  "name": "@rastrokit/sdk",
   "version": "0.15.0",
   "description": "Toolkit para o ecossistema Rastro.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mr-tick-community/mr-tick.git"
+    "url": "https://github.com/Gustavohps10/rastro.git",
+    "directory": "src/apps/sdk"
   },
   "type": "module",
   "main": "./dist/index.js",
@@ -23,13 +24,13 @@
   },
   "scripts": {
     "build": "tsup --format esm,cjs",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit --tsBuildInfoFile ../../../.temps/typescript/sdk.tsbuildinfo",
     "clean": "rimraf dist .turbo"
   },
   "devDependencies": {
-    "@mr-tick/application": "workspace:*",
-    "@mr-tick/domain": "workspace:*",
-    "@mr-tick/shared": "workspace:*",
+    "@rastrokit/application": "workspace:*",
+    "@rastrokit/domain": "workspace:*",
+    "@rastrokit/shared": "workspace:*",
     "@types/adm-zip": "^0",
     "@types/js-yaml": "^4.0.9",
     "@types/turndown": "^5.0.5",
@@ -42,7 +43,7 @@
     "zod": "4.6.6"
   },
   "bin": {
-    "mr-tick": "./dist/cli.cjs"
+    "rastro": "./dist/cli.cjs"
   },
   "dependencies": {
     "highlight.js": "^11.11.1",

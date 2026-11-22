@@ -20,6 +20,6 @@ Esta camada orquestra os **Casos de Uso (Use Cases)** do ecossistema Rastro.
 
 ## 🚫 O que NUNCA colocar aqui
 
-- Mocks ou drivers de bancos de dados específicos (pertencem a `@mr-tick/adapters`).
-- Componentes visuais, hooks React ou estilos (pertencem a `@mr-tick/ui` ou `apps/desktop`).
-- Definições de entidades puras sem orquestração (pertencem a `@mr-tick/domain`).
+- Mocks ou drivers de bancos de dados específicos (pertencem a `@rastrokit/adapters`).
+- Componentes visuais, hooks React ou estilos (pertencem a `@rastrokit/ui` ou `apps/desktop`).
+- Definições de entidades puras sem orquestração (pertencem a `@rastrokit/domain`).

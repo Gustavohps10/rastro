@@ -10,19 +10,19 @@ import {
   WorkspaceCredentialDeleteReservation,
   WorkspaceCredentialReferenceInput,
   WorkspaceCredentialWriteReservation,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import type {
   AddonSettingsValues,
   AddonVaultScope,
   IAddonVaultAPI,
-} from '@mr-tick/sdk'
+} from '@rastrokit/sdk'
 import {
   AppError,
   Either,
   isNonEmptyString,
   isRecord,
   isString,
-} from '@mr-tick/shared/helpers'
+} from '@rastrokit/shared/helpers'
 
 /** Shared queue prevents settings UI and background addon updates losing each other. */
 export class AddonScopedVault

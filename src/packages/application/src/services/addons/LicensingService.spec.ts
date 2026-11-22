@@ -1,5 +1,5 @@
-import { OfflineAuthorizationClaims } from '@mr-tick/domain'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+import { OfflineAuthorizationClaims } from '@rastrokit/domain'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import { describe, expect, it, vi } from 'vitest'
 
 import {
@@ -80,15 +80,15 @@ describe('LicensingService', () => {
     expect(initial.success.isPlusActive).toBe(false)
 
     const activated = await service.activateLicense(
-      'MRTICK-ABCD-EFGH-IJKL-MNOP',
+      'RASTRO-ABCD-EFGH-IJKL-MNOP',
     )
     expect(activated.isSuccess()).toBe(true)
     expect(activated.success.isPlusActive).toBe(true)
     expect(activated.success.tier).toBe('plus')
-    expect(activated.success.licenseKeyMasked).toBe('MRTICK--****-****-MNOP')
+    expect(activated.success.licenseKeyMasked).toBe('RASTRO--****-****-MNOP')
 
     const download = await service.downloadPlusPackage(
-      'mistertick-discord',
+      'rastro-discord',
       '0.1.0',
     )
     expect(download.isSuccess()).toBe(true)

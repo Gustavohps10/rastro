@@ -24,7 +24,7 @@ O Rastro cuida da conta escolhida, das tentativas de autorização, da renovaç�
 ## Registro
 
 ```ts
-import { type AddonContext, type AppError, type Either } from '@mr-tick/sdk'
+import { type AddonContext, type AppError, type Either } from '@rastrokit/sdk'
 
 export function registerProfiles(context: AddonContext): Either<AppError, void> {
   return context.contributions.connections.registerProfiles([
@@ -54,7 +54,7 @@ import {
   type AddonConnectionAuthenticator,
   type IHttpClient,
   type JsonValue,
-} from '@mr-tick/sdk'
+} from '@rastrokit/sdk'
 
 type Account = { id: string; name: string }
 

@@ -1,4 +1,4 @@
-import type { AppError, Either } from '@mr-tick/shared/helpers'
+import type { AppError, Either } from '@rastrokit/shared/helpers'
 
 import type { MetadataDTO } from '../../dtos/MetadataDTO'
 import type { ConnectionCredentialPayload } from '../strategies/IAuthenticationStrategy'

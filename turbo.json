@@ -41,7 +41,7 @@
       "inputs": ["$TURBO_DEFAULT$", "!*.md", "!.github/**", "!.changeset/**"],
       "outputs": []
     },
-    "@mr-tick/desktop#build": {
+    "@rastrokit/desktop#build": {
       "dependsOn": ["^build"],
       "inputs": [
         "$TURBO_DEFAULT$",
@@ -50,7 +50,7 @@
       ],
       "outputs": ["out/**"]
     },
-    "@mr-tick/desktop#typecheck": {
+    "@rastrokit/desktop#typecheck": {
       "dependsOn": ["^build"],
       "inputs": [
         "$TURBO_DEFAULT$",
@@ -59,18 +59,18 @@
       ],
       "outputs": []
     },
-    "@mr-tick/landing-page#build": {
+    "@rastrokit/landing-page#build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", ".source/**"],
       "passThroughEnv": ["GITHUB_TOKEN"]
     },
-    "@mr-tick/landing-page#typecheck": {
+    "@rastrokit/landing-page#typecheck": {
       "dependsOn": ["^build"],
       "outputs": [".source/**"]
     }
   },
   "agentGuidance": false,
-  "cacheDir": ".turbo/cache",
+  "cacheDir": ".temps/turbo/cache",
   "globalDependencies": ["tsconfig.base.json"],
   "globalEnv": ["CI", "NODE_ENV", "RUNNER_OS", "RUNNER_ARCH"],
   "globalPassThroughEnv": ["NODE_OPTIONS"]

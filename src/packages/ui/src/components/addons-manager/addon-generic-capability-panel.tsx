@@ -1,6 +1,6 @@
 'use client'
 
-import type { AddonManifestViewModel } from '@mr-tick/sdk'
+import type { AddonManifestViewModel } from '@rastrokit/sdk'
 import { Calendar, Check, Clock, GlobeIcon, Sliders } from 'lucide-react'
 import React, { useState } from 'react'
 import { toast } from 'sonner'

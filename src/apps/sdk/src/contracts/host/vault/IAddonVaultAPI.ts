@@ -10,4 +10,4 @@ export type {
   AddonTaskReferenceValue,
   AddonVaultScope,
   IAddonVaultAPI,
-} from '@mr-tick/application'
+} from '@rastrokit/application'

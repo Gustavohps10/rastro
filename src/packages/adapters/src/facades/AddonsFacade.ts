@@ -6,9 +6,9 @@ import {
   IAddonsFacade,
   IFileStorage,
   ILicensingFacade,
-} from '@mr-tick/application'
-import { AddonTier } from '@mr-tick/domain'
-import { AddonCapability, isAddonCapability } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AddonTier } from '@rastrokit/domain'
+import { AddonCapability, isAddonCapability } from '@rastrokit/shared/helpers'
 import {
   AppError,
   compareSemVer,
@@ -23,8 +23,8 @@ import {
   isRecord,
   isString,
   parseSemVer,
-} from '@mr-tick/shared/helpers'
-import { IJobEvent } from '@mr-tick/shared/transport'
+} from '@rastrokit/shared/helpers'
+import { IJobEvent } from '@rastrokit/shared/transport'
 import axios from 'axios'
 import crypto from 'crypto'
 import { promises as fs } from 'fs'
@@ -156,7 +156,7 @@ function extractPlusDownloadRouteParams(
   downloadUrl: string,
 ): { addonId: string; version: string } | null {
   const match =
-    /^https:\/\/mistertick-api\.rastrokit\.workers\.dev\/catalog\/(?:plus-addons|addons)\/([^/]+)\/versions\/([^/]+)\/download(?:\.tladdon)?$/i.exec(
+    /^https:\/\/rastro-api\.rastrokit\.workers\.dev\/catalog\/(?:plus-addons|addons)\/([^/]+)\/versions\/([^/]+)\/download(?:\.tladdon)?$/i.exec(
       downloadUrl.trim(),
     )
   if (!match || !match[1] || !match[2]) return null

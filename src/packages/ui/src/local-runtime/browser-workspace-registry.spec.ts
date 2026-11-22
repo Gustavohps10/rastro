@@ -1,7 +1,7 @@
 import 'fake-indexeddb/auto'
 
-import { LocalRuntime } from '@mr-tick/application/local-runtime'
-import type { WorkspaceViewModel } from '@mr-tick/shared/view-models'
+import { LocalRuntime } from '@rastrokit/application/local-runtime'
+import type { WorkspaceViewModel } from '@rastrokit/shared/view-models'
 import { createRxDatabase, removeRxDatabase } from 'rxdb'
 import { getRxStorageDexie } from 'rxdb/plugins/storage-dexie'
 import { describe, expect, it, vi } from 'vitest'
@@ -185,7 +185,7 @@ describe('Browser workspace owner lifecycle', () => {
     const open = vi.spyOn(registry, 'open')
     const tasks = vi.spyOn(bridge.tasks, 'pull')
     const metadata = vi.spyOn(bridge.metadata, 'pull')
-    const query: import('@mr-tick/application').CoreCacheQuery = {
+    const query: import('@rastrokit/application').CoreCacheQuery = {
       action: 'tasks',
       workspaceId,
       connectionInstanceId: 'connection',

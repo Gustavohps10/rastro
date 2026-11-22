@@ -1,4 +1,4 @@
-id: mr-tick-fake-watcher-for-tests
+id: rastro-fake-watcher-for-tests
 name: Meeting Room Observer (Fake Watcher)
 version: 1.0.1
 requiredApiVersion: '-1'

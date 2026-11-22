@@ -17,7 +17,7 @@ import {
   IAddonStorageRepository,
   isFlatSettingsFieldList,
   SaveAddonSettingsService,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import {
   IAddonReloader,
   IConnectionCredentialsVault,
@@ -28,9 +28,9 @@ import {
   ILocalRuntimeAPI,
   IOAuthAttemptCoordinator,
   IWorkspaceCredentialReferenceRegistry,
-} from '@mr-tick/application'
-import { isValidConnectionProfileDescriptors } from '@mr-tick/domain'
-import type { IAddonAnalyticsAPI, IAnalyticsSource } from '@mr-tick/sdk'
+} from '@rastrokit/application'
+import { isValidConnectionProfileDescriptors } from '@rastrokit/domain'
+import type { IAddonAnalyticsAPI, IAnalyticsSource } from '@rastrokit/sdk'
 import {
   AddonActionResponse,
   AddonCapability,
@@ -79,7 +79,7 @@ import {
   OAuthResult,
   SidebarMenuItem,
   TimerbarMenuItem,
-} from '@mr-tick/sdk'
+} from '@rastrokit/sdk'
 import {
   AppError,
   Either,
@@ -90,17 +90,18 @@ import {
   isNonEmptyString,
   isRecord,
   isString,
-} from '@mr-tick/shared/helpers'
-import { ISystemEvents } from '@mr-tick/shared/transport'
+} from '@rastrokit/shared/helpers'
+import { ISystemEvents } from '@rastrokit/shared/transport'
 import {
   AddonLoadFailureReason,
   AddonLoadFailuresSnapshot,
   AddonLoadFailureStage,
   AddonLoadFailureViewModel,
-} from '@mr-tick/shared/view-models'
+} from '@rastrokit/shared/view-models'
 import { app, BrowserWindow, Notification, shell } from 'electron'
 import yaml from 'js-yaml'
 
+import { parseRastroDeepLink } from '@/main/rastro-protocol'
 import { getSettings, saveSettings } from '@/main/settings'
 
 import sdkPkg from '../../../../../../sdk/package.json'
@@ -781,13 +782,7 @@ export class AddonLoader implements IAddonReloader {
   public createOAuthAPI(addonId: string): IAddonOAuthAPI {
     return {
       generatePKCE: () => generatePKCE(),
-      generateState: (prefix?: string) => {
-        let statePrefix = addonId
-        if (prefix) {
-          statePrefix = prefix
-        }
-        return generateOAuthState(statePrefix)
-      },
+      generateState: (prefix?: string) => generateOAuthState(prefix),
       authorize: (options: OAuthAuthorizeOptions) => {
         return new Promise<OAuthResult>((resolve, reject) => {
           try {
@@ -820,10 +815,8 @@ export class AddonLoader implements IAddonReloader {
               )
             }
 
-            let state = generateOAuthState(addonId)
-            if (options.state) {
-              state = options.state
-            }
+            let state = generateOAuthState()
+            if (options.state) state = options.state
             const existingStateInUrl = parsedUrl.searchParams.get('state')
 
             if (existingStateInUrl && existingStateInUrl !== state) {
@@ -1328,18 +1321,14 @@ export class AddonLoader implements IAddonReloader {
 
   public handleOAuthCallbackUrl(rawUrl: string): boolean {
     try {
-      if (!rawUrl) return false
-      const parsed = new URL(rawUrl)
-      if (parsed.protocol !== 'electron:' && parsed.protocol !== 'mr-tick:')
-        return false
-      if (parsed.hostname !== 'oauth' || parsed.pathname !== '/callback')
-        return false
+      const link = parseRastroDeepLink(rawUrl, app.isPackaged)
+      if (link?.kind !== 'oauth') return false
 
       console.log(
         '[AddonLoader] 🔗 Deep Link OAuth recebido em /oauth/callback',
       )
       const params: Record<string, string> = {}
-      parsed.searchParams.forEach((val, key) => {
+      link.url.searchParams.forEach((val, key) => {
         params[key] = val
       })
 
@@ -1360,7 +1349,7 @@ export class AddonLoader implements IAddonReloader {
       const req = this.pendingOAuthRequests.get(state)
       if (!req) {
         console.warn(
-          `[AddonLoader] ⚠️ Callback OAuth ignorado: state "${state}" desconhecido ou expirado.`,
+          '[AddonLoader] ⚠️ Callback OAuth ignorado: state desconhecido ou expirado.',
         )
         return false
       }

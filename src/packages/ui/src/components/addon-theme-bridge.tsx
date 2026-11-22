@@ -50,7 +50,7 @@ export function AddonThemeBridge() {
   }, [bridge, queryClient])
 
   useEffect(() => {
-    const STYLE_ID = 'mr-tick-addon-active-theme'
+    const STYLE_ID = 'rastro-addon-active-theme'
     let styleEl = document.getElementById(STYLE_ID) as HTMLStyleElement | null
 
     console.log(
@@ -76,7 +76,7 @@ export function AddonThemeBridge() {
       styleEl.setAttribute('type', 'text/css')
       document.head.appendChild(styleEl)
       console.log(
-        '🎨 [AddonThemeBridge] Tag <style id="mr-tick-addon-active-theme"> inserida no <head>.',
+        '🎨 [AddonThemeBridge] Tag <style id="rastro-addon-active-theme"> inserida no <head>.',
       )
     }
 

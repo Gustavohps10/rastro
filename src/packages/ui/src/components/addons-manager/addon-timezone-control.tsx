@@ -1,7 +1,7 @@
 import type {
   AddonSettingsSelectField,
   AddonSettingsTimezoneField,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { useMemo } from 'react'
 
 import {

@@ -1,6 +1,6 @@
 import { createServer } from 'node:http'
 
-import type { JsonValue } from '@mr-tick/application'
+import type { JsonValue } from '@rastrokit/application'
 import { afterEach, describe, expect, it } from 'vitest'
 
 import { HttpClient } from './HttpClient'

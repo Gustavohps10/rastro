@@ -5,8 +5,8 @@ import type {
   DiagnosticEvent,
   DiagnosticEventLevel,
   DiagnosticScope,
-} from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import { z } from 'zod'
 
 import type { DiagnosticEventsBuffer } from './DiagnosticEventsBuffer'

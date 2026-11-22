@@ -47,8 +47,8 @@ export type {
   UpdatedTaskResult,
   UpdatedTimeEntryResult,
   WorkspaceDTO,
-} from '@mr-tick/application'
-export type { ConnectionProfileDescriptor } from '@mr-tick/domain'
+} from '@rastrokit/application'
+export type { ConnectionProfileDescriptor } from '@rastrokit/domain'
 export {
   AppError,
   Either,
@@ -63,6 +63,6 @@ export {
   isWorkspaceScoped,
   TokenRefreshError,
   type TokenRefreshErrorOptions,
-} from '@mr-tick/shared/helpers'
-export type { IHeaders, IRequest } from '@mr-tick/shared/transport'
-export * from '@mr-tick/shared/view-models'
+} from '@rastrokit/shared/helpers'
+export type { IHeaders, IRequest } from '@rastrokit/shared/transport'
+export * from '@rastrokit/shared/view-models'

@@ -1,8 +1,8 @@
-import { IHostBridge } from '@mr-tick/application'
+import { IHostBridge } from '@rastrokit/application'
 import {
   SyncDocumentViewModel,
   TimeEntryViewModel,
-} from '@mr-tick/shared/view-models'
+} from '@rastrokit/shared/view-models'
 import {
   defaultHashSha256,
   normalizeMangoQuery,

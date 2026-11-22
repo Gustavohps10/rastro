@@ -13,7 +13,7 @@ describe('SQLiteAddonStorageRepository', () => {
 
   beforeEach(async () => {
     temporaryDirectory = await fs.promises.mkdtemp(
-      path.join(os.tmpdir(), 'mr-tick-sqlite-storage-'),
+      path.join(os.tmpdir(), 'rastro-sqlite-storage-'),
     )
     dbFilePath = path.join(temporaryDirectory, 'workspaces.sqlite')
     repository = new SQLiteAddonStorageRepository(dbFilePath)

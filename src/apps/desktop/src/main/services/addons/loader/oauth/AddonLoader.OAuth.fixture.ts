@@ -1,4 +1,4 @@
-import { EMPTY_HTTP_CONFIG } from '@mr-tick/adapters/contracts'
+import { EMPTY_HTTP_CONFIG } from '@rastrokit/adapters/contracts'
 import {
   AddonAuthenticatorRegistry,
   AddonConnectionProfilesResolver,
@@ -6,7 +6,7 @@ import {
   type ICredentialsVault,
   type ILocalRuntimeAPI,
   OAuthAttemptCoordinator,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 
 import {
   ElectronHttpClientFactory,

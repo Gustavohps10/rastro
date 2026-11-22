@@ -46,5 +46,5 @@ export type {
   IAnalyticsProvider,
   IAnalyticsSource,
   SaveAnalyticsWorkspaceStateInput,
-} from '@mr-tick/application'
-export { createAnalyticsDatasetScope } from '@mr-tick/application'
+} from '@rastrokit/application'
+export { createAnalyticsDatasetScope } from '@rastrokit/application'

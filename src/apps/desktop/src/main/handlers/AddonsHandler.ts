@@ -9,7 +9,7 @@ import type {
   AddonSettingsValues,
   AddonSettingsView,
   AddonVaultScope,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import {
   AddonManifest,
   ANALYTICS_FILTER_DYNAMIC_SOURCES,
@@ -26,8 +26,8 @@ import {
   IImportAddonUseCase,
   IUpdateAddonUseCase,
   type MappingFieldDefinition,
-} from '@mr-tick/application'
-import { type ConnectionProfileDescriptor } from '@mr-tick/domain'
+} from '@rastrokit/application'
+import { type ConnectionProfileDescriptor } from '@rastrokit/domain'
 import {
   AddonActionResponse,
   AddonSettingsSchema,
@@ -35,17 +35,17 @@ import {
   CommandResult,
   type SidebarMenuItem,
   type TimerbarMenuItem,
-} from '@mr-tick/sdk'
+} from '@rastrokit/sdk'
 import {
   createResponseViewModel,
   isNonEmptyString,
-} from '@mr-tick/shared/helpers'
+} from '@rastrokit/shared/helpers'
 import {
   IEventEmitter,
   IJobEvents,
   IJobResult,
   IRequest,
-} from '@mr-tick/shared/transport'
+} from '@rastrokit/shared/transport'
 import {
   AddonInstallerViewModel,
   AddonLoadFailuresSnapshot,
@@ -53,7 +53,7 @@ import {
   AddonThemeViewModel,
   PaginatedViewModel,
   ViewModel,
-} from '@mr-tick/shared/view-models'
+} from '@rastrokit/shared/view-models'
 import { type IpcMainInvokeEvent, webContents } from 'electron'
 
 import { HandlerBase } from '@/main/handlers/HandlerBase'

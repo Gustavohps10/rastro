@@ -28,12 +28,12 @@ asarUnpack:
   - resources/**
   - node_modules/@duckdb/node-bindings*/**
 protocols:
-  name: Rastro Auth Protocol
+  name: Rastro
   schemes:
-    - mr-tick
+    - rastro
 win:
   icon: resources/favicon.ico
-  executableName: mr-tick
+  executableName: rastro
   target:
     - target: nsis
       arch:
@@ -41,8 +41,9 @@ win:
     - target: zip
       arch:
         - x64
-  artifactName: mr-tick-${version}-portable.${ext}
+  artifactName: rastro-${version}-portable.${ext}
 nsis:
+  include: resources/installer.nsh
   oneClick: false
   allowToChangeInstallationDirectory: true
   allowElevation: true
@@ -51,7 +52,7 @@ nsis:
   uninstallerIcon: resources/favicon.ico
   installerSidebar: resources/install-sidebar.bmp
   uninstallerSidebar: resources/install-sidebar.bmp
-  artifactName: mr-tick-${version}-setup.${ext}
+  artifactName: rastro-${version}-setup.${ext}
   shortcutName: ${productName}
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always

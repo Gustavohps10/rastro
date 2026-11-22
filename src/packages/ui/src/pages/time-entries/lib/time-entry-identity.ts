@@ -3,4 +3,4 @@ export {
   authorizeTimeEntryRecreation,
   hasUnconfirmedRemoteOperation,
   resetTimeEntryRemoteIdentity,
-} from '@mr-tick/application/local-runtime'
+} from '@rastrokit/application/local-runtime'

@@ -1,5 +1,5 @@
-import type { IHostBridge } from '@mr-tick/application'
-import type { AddonLoadFailuresSnapshot } from '@mr-tick/shared/view-models'
+import type { IHostBridge } from '@rastrokit/application'
+import type { AddonLoadFailuresSnapshot } from '@rastrokit/shared/view-models'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { act, cleanup, renderHook, waitFor } from '@testing-library/react'
 import { createElement, type ReactNode } from 'react'

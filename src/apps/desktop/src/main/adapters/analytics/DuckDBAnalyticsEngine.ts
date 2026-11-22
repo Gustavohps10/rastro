@@ -32,8 +32,8 @@ import {
   type JsonValue,
   type SaveAnalyticsWorkspaceStateInput,
   validatePersistedAnalyticsSpacesJson,
-} from '@mr-tick/application'
-import { AppError, Either, type FieldErrors } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AppError, Either, type FieldErrors } from '@rastrokit/shared/helpers'
 import { z } from 'zod'
 
 import { analyticsDatasetQuerySchema } from '../../validation/analyticsQuery'

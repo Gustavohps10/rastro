@@ -1,5 +1,5 @@
-import type { IWorkspacesAPI } from '@mr-tick/application'
-import type { WorkspaceViewModel } from '@mr-tick/shared/view-models'
+import type { IWorkspacesAPI } from '@rastrokit/application'
+import type { WorkspaceViewModel } from '@rastrokit/shared/view-models'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import React from 'react'

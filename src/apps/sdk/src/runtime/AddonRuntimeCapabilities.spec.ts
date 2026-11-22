@@ -4,7 +4,7 @@ import type {
   LocalRuntimeResponse,
   LocalRuntimeResult,
   TimeEntryRecordDTO,
-} from '@mr-tick/application/local-runtime'
+} from '@rastrokit/application/local-runtime'
 import { describe, expect, it } from 'vitest'
 
 import {

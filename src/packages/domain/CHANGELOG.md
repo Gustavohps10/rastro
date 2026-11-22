@@ -1,4 +1,4 @@
-# @mr-tick/domain
+# @rastrokit/domain
 
 ## 2.0.2
 
@@ -7,7 +7,7 @@
 - Updated dependencies [b744b04]
 - Updated dependencies [6485090]
 - Updated dependencies [9463fa9]
-  - @mr-tick/shared@1.7.0
+  - @rastrokit/shared@1.7.0
 
 ## 2.0.1
 
@@ -22,7 +22,7 @@
 - 358dd86: Ajusta tolerância de relógio (clock skew leeway) na validação de tokens offline e sincroniza o cache do React Query em mutações de licença.
 - Updated dependencies [2561ab1]
 - Updated dependencies [9746084]
-  - @mr-tick/shared@1.6.0
+  - @rastrokit/shared@1.6.0
 
 ## 2.0.0
 
@@ -41,7 +41,7 @@
 ### Patch Changes
 
 - Updated dependencies [a0bd5ef]
-  - @mr-tick/shared@1.5.0
+  - @rastrokit/shared@1.5.0
 
 ## 1.1.0
 
@@ -55,22 +55,22 @@
 
 - Updated dependencies [6d14757]
 - Updated dependencies [24d3de8]
-  - @mr-tick/shared@1.4.0
+  - @rastrokit/shared@1.4.0
 
 ## 1.0.6
 
 ### Patch Changes
 
-- 46475ba: Adiciona ecossistema Mr. Tick Plus fim a fim: suporte ao tier `plus`, hash `sha256`, `size` e assinatura Ed25519 de pacotes `.tladdon` no `@mr-tick/sdk`, verificação offline/online de licença (`lic-2026-01`) e pacotes assinados (`cat-2026-01`), download autenticado no Cloudflare R2 com validação SHA-256, deep link `mistertick://activate?key=...` no Electron e interface de ativação e badges Plus na loja e página de addons.
+- 46475ba: Adiciona ecossistema Rastro Plus fim a fim: suporte ao tier `plus`, hash `sha256`, `size` e assinatura Ed25519 de pacotes `.tladdon` no `@rastrokit/sdk`, verificação offline/online de licença (`lic-2026-01`) e pacotes assinados (`cat-2026-01`), download autenticado no Cloudflare R2 com validação SHA-256, deep link `rastro://activate?key=...` no Electron e interface de ativação e badges Plus na loja e página de addons.
 - Updated dependencies [46475ba]
-  - @mr-tick/shared@1.3.1
+  - @rastrokit/shared@1.3.1
 
 ## 1.0.5
 
 ### Patch Changes
 
 - Updated dependencies [f44420a]
-  - @mr-tick/shared@1.3.0
+  - @rastrokit/shared@1.3.0
 
 ## 1.0.4
 
@@ -78,7 +78,7 @@
 
 - Updated dependencies [df0ddc8]
 - Updated dependencies [df0ddc8]
-  - @mr-tick/shared@1.2.0
+  - @rastrokit/shared@1.2.0
 
 ## 1.0.3
 
@@ -91,10 +91,10 @@
 ### Patch Changes
 
 - Updated dependencies [00bc018]
-  - @mr-tick/shared@1.1.0
+  - @rastrokit/shared@1.1.0
 
 ## 1.0.1
 
 ### Patch Changes
 
-- @mr-tick/shared@1.0.1
+- @rastrokit/shared@1.0.1

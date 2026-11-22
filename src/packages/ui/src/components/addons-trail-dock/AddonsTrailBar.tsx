@@ -1,5 +1,5 @@
-import type { AddonManifestViewModel } from '@mr-tick/shared/view-models'
-import type { AddonLoadFailureViewModel } from '@mr-tick/shared/view-models'
+import type { AddonManifestViewModel } from '@rastrokit/shared/view-models'
+import type { AddonLoadFailureViewModel } from '@rastrokit/shared/view-models'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { AlertTriangle, Database } from 'lucide-react'
 import React, { useMemo, useState } from 'react'

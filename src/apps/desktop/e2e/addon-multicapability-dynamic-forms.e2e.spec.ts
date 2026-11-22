@@ -16,9 +16,9 @@ test.describe('E2E - Addons com Múltiplas Capacidades e Forms Dinâmicos Reativ
     await expect(installedTabBtn).toBeVisible({ timeout: 10000 })
     await installedTabBtn.click()
 
-    // 3. Clicar em "Configurar" no addon fake instalado (mr-tick-datasource-fake)
+    // 3. Clicar em "Configurar" no addon fake instalado (rastro-datasource-fake)
     const configureFakeAddonBtn = page.locator(
-      '[data-testid="addon-configure-btn-mr-tick-datasource-fake"]',
+      '[data-testid="addon-configure-btn-rastro-datasource-fake"]',
     )
     await expect(configureFakeAddonBtn).toBeVisible({ timeout: 10000 })
     await configureFakeAddonBtn.click()

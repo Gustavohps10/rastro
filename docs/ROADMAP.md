@@ -23,10 +23,10 @@ O Rastro é o **cockpit de produtividade e time tracking local-first** para dese
 - [x] Reconciliação canônica, prevenção de conflitos e recuperação atômica de criação de apontamentos.
 - [x] Paginação por snapshot com cursores controlados pelo provedor (`TimeEntriesPaginationSnapshotPage`).
 - [x] Identidade local determinística via SHA-256 (`connectionInstanceId::remoteId`) para convergência sem duplicatas entre janelas.
-- [x] App Desktop completo (`@mr-tick/desktop`) em Electron + React + Tailwind v4.
+- [x] App Desktop completo (`@rastrokit/desktop`) em Electron + React + Tailwind v4.
 - [x] Timer de alta precisão executado no Main Process com suporte a Journal e Boot Recovery.
 - [x] Widget flutuante com suporte a click-through e atalhos globais.
-- [x] SDK canônico de plugins (`@mr-tick/sdk`) baseado em DTOs puros e tratamento funcional de erros (`Either<AppError, T>`).
+- [x] SDK canônico de plugins (`@rastrokit/sdk`) baseado em DTOs puros e tratamento funcional de erros (`Either<AppError, T>`).
 - [x] Plugin de referência oficial: `redmine-plugin` v0.7.0.
 - [x] Suíte determinística com 58 testes E2E do Electron e cobertura unitária completa.
 
@@ -35,7 +35,7 @@ O Rastro é o **cockpit de produtividade e time tracking local-first** para dese
 ### 🚀 Fase 2: Distribuição, Auto-Update & Estabilidade de Addons (Próximo Marco)
 
 - [ ] **Homologação Completa do Auto-Update:**
-  - Validação do fluxo de atualização transparente com tags monorepo (`@mr-tick/desktop@x.y.z`) via GitHub Releases.
+  - Validação do fluxo de atualização transparente com tags monorepo (`@rastrokit/desktop@x.y.z`) via GitHub Releases.
   - Notificação não intrusiva na interface para reinicialização suave.
 - [ ] **Gestão Visual de Incompatibilidade de Addons:**
   - Exibição de alertas amigáveis na UI quando um addon instalado requerer versão superior do SDK (`requiredApiVersion`).

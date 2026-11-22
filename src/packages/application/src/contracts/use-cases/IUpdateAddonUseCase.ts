@@ -1,5 +1,5 @@
-import { AppError, Either } from '@mr-tick/shared/helpers'
-import { IJobEvent } from '@mr-tick/shared/transport'
+import { AppError, Either } from '@rastrokit/shared/helpers'
+import { IJobEvent } from '@rastrokit/shared/transport'
 
 export interface UpdateAddonInput {
   addonId: string

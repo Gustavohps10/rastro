@@ -4,8 +4,8 @@ import type {
   DiagnosticCheckResult,
   DiagnosticStorageItem,
   IMetadataDiagnosticAdapter,
-} from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import type { Knex } from 'knex'
 
 import { resolveSQLiteFilename } from '../repositories/sqlite-connection'

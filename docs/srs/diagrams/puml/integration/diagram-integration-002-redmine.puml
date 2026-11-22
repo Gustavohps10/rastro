@@ -1,16 +1,16 @@
 @startuml IntegrationRedmine
 title Redmine Integration Flow
-participant MrTick
+participant Rastro
 participant RedmineAdapter
 participant RedmineAPI
 
-MrTick -> RedmineAdapter: Request Sync (lastCheckpoint)
+Rastro -> RedmineAdapter: Request Sync (lastCheckpoint)
 RedmineAdapter -> RedmineAPI: GET /issues.json (checkpoint)
 RedmineAPI -> RedmineAdapter: JSON (issues)
 
 RedmineAdapter -> RedmineAdapter: Map RedmineIssue -> Task
 RedmineAdapter -> RedmineAdapter: Map status, tracker, priority
-RedmineAdapter -> MrTick: Return Normalized Data
+RedmineAdapter -> Rastro: Return Normalized Data
 
 note over RedmineAdapter
   Conversão de metadados

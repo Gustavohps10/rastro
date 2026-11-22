@@ -1,4 +1,4 @@
-import { IHostBridge } from '@mr-tick/application'
+import { IHostBridge } from '@rastrokit/application'
 import React, { createContext } from 'react'
 
 export const HostBridgeContext = createContext<IHostBridge | null>(null)

@@ -1,4 +1,4 @@
-import { LicensingActivationRequestDTO } from '@mr-tick/application'
+import { LicensingActivationRequestDTO } from '@rastrokit/application'
 import axios, { AxiosError, AxiosHeaders } from 'axios'
 import crypto from 'crypto'
 import { afterEach, describe, expect, it, vi } from 'vitest'
@@ -27,7 +27,7 @@ const authorization = {
   token: `${payloadBase64Url}.${signatureBase64Url}`,
 }
 const input: LicensingActivationRequestDTO = {
-  activationKey: 'mrtick_live_caseSensitive',
+  activationKey: 'rastro_live_caseSensitive',
   installationId: 'installation-one',
   deviceLabel: 'Desktop',
 }
@@ -51,12 +51,12 @@ describe('LicensingHttpClient contrato real do Worker', () => {
         response({ authorization, replacedInstallationId: null }),
       )
     const client = new LicensingHttpClient({
-      baseUrl: 'https://api.mistertick.test/',
+      baseUrl: 'https://api.rastro.test/',
     })
     const result = await client.activate(input)
     expect(result.isSuccess()).toBe(true)
     expect(post).toHaveBeenCalledWith(
-      'https://api.mistertick.test/licensing/activate',
+      'https://api.rastro.test/licensing/activate',
       input,
       expect.any(Object),
     )
@@ -68,7 +68,7 @@ describe('LicensingHttpClient contrato real do Worker', () => {
       .mockResolvedValueOnce(response(authorization))
       .mockResolvedValueOnce(response({ deactivated: false }))
     const client = new LicensingHttpClient({
-      baseUrl: 'https://api.mistertick.test',
+      baseUrl: 'https://api.rastro.test',
     })
     const body = {
       activationKey: input.activationKey,
@@ -80,13 +80,13 @@ describe('LicensingHttpClient contrato real do Worker', () => {
     expect((await client.deactivate(body)).isSuccess()).toBe(true)
     expect(post).toHaveBeenNthCalledWith(
       1,
-      'https://api.mistertick.test/licensing/refresh',
+      'https://api.rastro.test/licensing/refresh',
       body,
       expect.any(Object),
     )
     expect(post).toHaveBeenNthCalledWith(
       2,
-      'https://api.mistertick.test/licensing/deactivate',
+      'https://api.rastro.test/licensing/deactivate',
       body,
       expect.any(Object),
     )
@@ -96,7 +96,7 @@ describe('LicensingHttpClient contrato real do Worker', () => {
       .mockResolvedValueOnce(response({ code: 'LICENSE_REVOKED' }, 403))
       .mockResolvedValueOnce(response({ token: 'malformed' }))
     const client = new LicensingHttpClient({
-      baseUrl: 'https://api.mistertick.test',
+      baseUrl: 'https://api.rastro.test',
     })
     const revoked = await client.refresh(input)
     expect(revoked.failure.statusCode).toBe(403)
@@ -109,7 +109,7 @@ describe('LicensingHttpClient contrato real do Worker', () => {
       new AxiosError('Connection unavailable', AxiosError.ERR_NETWORK),
     )
     const client = new LicensingHttpClient({
-      baseUrl: 'https://api.mistertick.test',
+      baseUrl: 'https://api.rastro.test',
     })
     const failed = await client.refresh(input)
     expect(failed.failure.statusCode).toBe(0)
@@ -123,7 +123,7 @@ describe('LicensingHttpClient contrato real do Worker', () => {
       headers: { 'x-addon-sha256': sha256 },
     })
     const client = new LicensingHttpClient({
-      baseUrl: 'https://api.mistertick.test',
+      baseUrl: 'https://api.rastro.test',
     })
     const downloaded = await client.downloadPlusAddonPackage({
       ...input,
@@ -133,7 +133,7 @@ describe('LicensingHttpClient contrato real do Worker', () => {
     expect(downloaded.success.bytes).toEqual(bytes)
     expect(downloaded.success.sha256).toBe(sha256)
     expect(post).toHaveBeenCalledWith(
-      'https://api.mistertick.test/catalog/addons/org%2Fjira/versions/1.0.0/download',
+      'https://api.rastro.test/catalog/addons/org%2Fjira/versions/1.0.0/download',
       {
         activationKey: input.activationKey,
         installationId: input.installationId,

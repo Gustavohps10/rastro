@@ -1,8 +1,8 @@
 import {
   DIAGNOSTICS_SNAPSHOT_UPDATED_EVENT,
   type DiagnosticSnapshot,
-} from '@mr-tick/application'
-import type { ViewModel } from '@mr-tick/shared/view-models'
+} from '@rastrokit/application'
+import type { ViewModel } from '@rastrokit/shared/view-models'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 

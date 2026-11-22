@@ -2,8 +2,8 @@ import {
   AppError,
   DEFAULT_MIN_API_VERSION,
   Either,
-} from '@mr-tick/shared/helpers'
-import { IJobEvent } from '@mr-tick/shared/transport'
+} from '@rastrokit/shared/helpers'
+import { IJobEvent } from '@rastrokit/shared/transport'
 
 import { FileData, IFileManager, IFileStorage } from '@/contracts'
 import { IAddonsFacade } from '@/contracts/facades'

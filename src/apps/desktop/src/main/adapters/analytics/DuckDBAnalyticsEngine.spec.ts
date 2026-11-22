@@ -11,7 +11,7 @@ import type {
   AnalyticsGeneration,
   AnalyticsQueryInput,
   AnalyticsSyncMetadata,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { afterEach, describe, expect, it } from 'vitest'
 
 import { DuckDBAnalyticsEngine } from './DuckDBAnalyticsEngine'

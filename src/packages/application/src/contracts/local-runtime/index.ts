@@ -1,4 +1,4 @@
-import type { AppError, Either, FieldErrors } from '@mr-tick/shared/helpers'
+import type { AppError, Either, FieldErrors } from '@rastrokit/shared/helpers'
 
 import type {
   CreateTimeEntryDTO,

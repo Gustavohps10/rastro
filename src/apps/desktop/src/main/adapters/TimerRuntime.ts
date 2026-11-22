@@ -1,5 +1,5 @@
-import type { TimerStateDTO } from '@mr-tick/application'
-import { isNonEmptyString, isRecord } from '@mr-tick/shared/helpers'
+import type { TimerStateDTO } from '@rastrokit/application'
+import { isNonEmptyString, isRecord } from '@rastrokit/shared/helpers'
 import { BrowserWindow, ipcMain } from 'electron'
 
 import type { AddonLoader } from '@/main/services/addons/loader/AddonLoader'

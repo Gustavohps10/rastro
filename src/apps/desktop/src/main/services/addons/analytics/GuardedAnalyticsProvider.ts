@@ -5,8 +5,8 @@ import type {
   AnalyticsFilterDynamicSource,
   AnalyticsFilterOption,
   IAnalyticsProvider,
-} from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 
 import type { AddonBindingLifetime } from '../lifecycle/AddonLifetime'
 

@@ -1,15 +1,8 @@
 import { randomUUID } from 'node:crypto'
-import {
-  existsSync,
-  mkdirSync,
-  readFileSync,
-  unlinkSync,
-  watch,
-  writeFileSync,
-} from 'node:fs'
+import { mkdirSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import { join } from 'node:path'
-import { fileURLToPath, pathToFileURL } from 'node:url'
+import { fileURLToPath } from 'node:url'
 
 import { electronApp, is, optimizer } from '@electron-toolkit/utils'
 import {
@@ -21,12 +14,12 @@ import {
   SqliteMetadataDiagnosticAdapter,
   SQLiteWorkspaceCredentialReferenceRegistry,
   SQLiteWorkspacesRepository,
-} from '@mr-tick/adapters/data'
+} from '@rastrokit/adapters/data'
 import {
   HardDiskStorage,
   KeytarCredentialsVault,
-} from '@mr-tick/adapters/tools'
-import type { IListTasksUseCase } from '@mr-tick/application'
+} from '@rastrokit/adapters/tools'
+import type { IListTasksUseCase } from '@rastrokit/application'
 import {
   IAddonAccessService,
   IAddonAuthenticatorRegistry,
@@ -38,10 +31,10 @@ import {
   ILinkConnectionUseCase,
   IOAuthAttemptCoordinator,
   IUnlinkConnectionUseCase,
-} from '@mr-tick/application'
-import { IAddonsFacade, ILicensingFacade } from '@mr-tick/application'
-import { ContainerBuilder, PlatformDependencies } from '@mr-tick/IoC'
-import { AddonLoadFailuresSnapshot } from '@mr-tick/shared/view-models'
+} from '@rastrokit/application'
+import { IAddonsFacade, ILicensingFacade } from '@rastrokit/application'
+import { ContainerBuilder, PlatformDependencies } from '@rastrokit/IoC'
+import { AddonLoadFailuresSnapshot } from '@rastrokit/shared/view-models'
 import {
   app,
   BrowserWindow,
@@ -65,6 +58,10 @@ import {
 import { ElectronJobEventEmitter } from '@/main/adapters/ElectronJobEventEmitter'
 import { TimerRuntime } from '@/main/adapters/TimerRuntime'
 import {
+  forwardDevOAuthCallback,
+  watchDevOAuthCallbacks,
+} from '@/main/dev-oauth-handoff'
+import {
   CoreHandler,
   LicensingHandler,
   TasksHandler,
@@ -77,6 +74,15 @@ import { AddonsHandler } from '@/main/handlers/AddonsHandler'
 import { AnalyticsWarehouseHandler } from '@/main/handlers/AnalyticsWarehouseHandler'
 import { MetadataHandler } from '@/main/handlers/MetadataHandler'
 import { WorkspacesHandler } from '@/main/handlers/WorkspacesHandler'
+import {
+  findRastroDeepLink,
+  getOAuthCallbackProtocol,
+  parseRastroDeepLink,
+  RASTRO_ASSET_BASE_URL,
+  RASTRO_PROTOCOL,
+  type RastroDeepLink,
+  resolveRastroAvatarUrl,
+} from '@/main/rastro-protocol'
 import { DataSourceResolver } from '@/main/resolvers/data-source-resolver'
 import { openIpcRoutes } from '@/main/routes'
 import { AddonLoader } from '@/main/services/addons/loader/AddonLoader'
@@ -127,47 +133,9 @@ export type IHandlersScope = {
   updaterHandler: typeof UpdaterHandler
 }
 
-const oauthCallbackProtocol = app.isPackaged ? 'mr-tick' : 'electron'
-
-function findDeepLinkInArgs(args: string[]): string | undefined {
-  for (const arg of args) {
-    const oauthPrefix = `${oauthCallbackProtocol}://`
-    if (arg.includes(oauthPrefix))
-      return arg.substring(arg.indexOf(oauthPrefix))
-    if (arg.includes('mr-tick-app://')) {
-      return arg.substring(arg.indexOf('mr-tick-app://'))
-    }
-    if (arg.includes('mistertick://')) {
-      return arg.substring(arg.indexOf('mistertick://'))
-    }
-  }
-  return undefined
-}
-
-function extractActivationKeyFromDeepLink(cleanUrl: string): string | null {
-  try {
-    let normalized = ''
-    if (cleanUrl.startsWith('mistertick://')) {
-      normalized = cleanUrl.replace('mistertick://', 'http://localhost/')
-    }
-    if (cleanUrl.startsWith('mr-tick-app://')) {
-      normalized = cleanUrl.replace('mr-tick-app://', 'http://localhost/')
-    }
-    if (!normalized) return null
-
-    const parsed = new URL(normalized)
-    if (parsed.pathname !== '/activate') return null
-    const key = parsed.searchParams.get('key')
-    if (!key || key.trim().length === 0) return null
-    return key.trim()
-  } catch {
-    return null
-  }
-}
-
 app.name = 'Rastro'
 
-const testUserDataPath = process.env.MR_TICK_TEST_USER_DATA_DIR
+const testUserDataPath = process.env.RASTRO_TEST_USER_DATA_DIR
 
 function configureUserDataPath(): void {
   if (process.env.NODE_ENV === 'test' && testUserDataPath) {
@@ -175,7 +143,7 @@ function configureUserDataPath(): void {
     return
   }
 
-  const directory = join(app.getPath('appData'), 'mr-tick')
+  const directory = join(app.getPath('appData'), 'rastro')
   mkdirSync(directory, { recursive: true })
   app.setPath('userData', directory)
 }
@@ -183,29 +151,20 @@ function configureUserDataPath(): void {
 configureUserDataPath()
 
 const userDataDir = app.getPath('userData')
-const bridgeFilePath = join(userDataDir, 'oauth_bridge.tmp')
 
 const isTestMode = process.env.NODE_ENV === 'test'
+// The Windows singleton message can be blocked when dev Electron runs elevated.
+const useDevOAuthHandoff =
+  process.platform === 'win32' && !app.isPackaged && !isTestMode
 let gotTheLock = true
 if (!isTestMode) {
   gotTheLock = app.requestSingleInstanceLock()
 }
 
 if (!gotTheLock) {
-  console.log('[Rastro Core] ❌ Instância secundária capturada.')
-
-  const cleanUrl = findDeepLinkInArgs(process.argv)
-
-  if (cleanUrl) {
-    try {
-      writeFileSync(bridgeFilePath, cleanUrl, 'utf-8')
-      console.log(
-        '[Rastro Core] 💾 URL gravada na ponte com sucesso:',
-        cleanUrl,
-      )
-    } catch (err) {
-      console.error('[Rastro Core] Erro ao gravar URL no arquivo ponte:', err)
-    }
+  if (useDevOAuthHandoff) {
+    const link = findRastroDeepLink(process.argv, false)
+    if (link?.kind === 'oauth') forwardDevOAuthCallback(userDataDir, link.url)
   }
 
   app.exit(0)
@@ -255,53 +214,18 @@ if (gotTheLock) {
     )
   }
 
-  function handleIncomingDeepLink(rawUrl: string) {
-    const cleanUrl = rawUrl.replace(/\/$/, '').trim()
-    console.log('[Rastro Core] 🔗 Deep Link recebido:', cleanUrl)
-
+  function handleIncomingDeepLink(link: RastroDeepLink): void {
     if (mainWindow && !mainWindow.isDestroyed()) {
       if (mainWindow.isMinimized()) mainWindow.restore()
       mainWindow.focus()
     }
 
-    const activationKey = extractActivationKeyFromDeepLink(cleanUrl)
-    if (activationKey) {
-      void processActivationDeepLinkKey(activationKey)
+    if (link.kind === 'activation') {
+      void processActivationDeepLinkKey(link.key)
       return
     }
 
-    if (
-      globalAddonLoader &&
-      cleanUrl.startsWith(`${oauthCallbackProtocol}://`)
-    ) {
-      globalAddonLoader.handleOAuthCallbackUrl(cleanUrl)
-    }
-  }
-
-  try {
-    if (existsSync(bridgeFilePath)) {
-      unlinkSync(bridgeFilePath)
-    }
-
-    watch(userDataDir, (eventType, filename) => {
-      if (
-        eventType &&
-        filename === 'oauth_bridge.tmp' &&
-        existsSync(bridgeFilePath)
-      ) {
-        try {
-          const content = readFileSync(bridgeFilePath, 'utf-8').trim()
-          if (content) {
-            unlinkSync(bridgeFilePath)
-            handleIncomingDeepLink(content)
-          }
-        } catch {
-          // Ignora se o arquivo estiver bloqueado temporariamente durante a escrita
-        }
-      }
-    })
-  } catch (err) {
-    console.error('[Rastro Core] Erro ao iniciar watcher da ponte:', err)
+    globalAddonLoader?.handleOAuthCallbackUrl(link.url.href)
   }
 
   if (process.platform === 'win32') {
@@ -322,7 +246,7 @@ if (gotTheLock) {
       console.log('✅ [C++ plugin] ✓ Carregado: window_overlay.node')
     } catch (err) {
       console.error(
-        '❌ [@mr-tick/desktop] Erro ao carregar window_overlay.node:',
+        '❌ [@rastrokit/desktop] Erro ao carregar window_overlay.node:',
         err,
       )
     }
@@ -343,8 +267,8 @@ if (gotTheLock) {
   )
 
   const remoteDebugPort =
-    process.env.MR_TICK_REMOTE_DEBUG_PORT ||
-    (process.env.MR_TICK_DEBUG === '1' ? '9333' : null)
+    process.env.RASTRO_REMOTE_DEBUG_PORT ||
+    (process.env.RASTRO_DEBUG === '1' ? '9333' : null)
   if (remoteDebugPort) {
     app.commandLine.appendSwitch('remote-debugging-port', remoteDebugPort)
     console.log(
@@ -354,56 +278,38 @@ if (gotTheLock) {
 
   protocol.registerSchemesAsPrivileged([
     {
-      scheme: 'mr-tick-app',
-      privileges: { standard: true, secure: true, supportFetchAPI: true },
-    },
-    {
-      scheme: 'mistertick',
+      scheme: RASTRO_PROTOCOL,
       privileges: { standard: true, secure: true, supportFetchAPI: true },
     },
   ])
 
-  const currentCompiledFile = fileURLToPath(import.meta.url)
+  const oauthCallbackProtocol = getOAuthCallbackProtocol(app.isPackaged)
 
-  if (!app.isPackaged) {
-    console.log('[Rastro Core] 🔗 Registrando protocolos (Dev Monorepo):', {
-      executable: process.execPath,
-      compiledFile: currentCompiledFile,
-    })
-
-    app.setAsDefaultProtocolClient(oauthCallbackProtocol, process.execPath, [
-      currentCompiledFile,
-    ])
-    app.setAsDefaultProtocolClient('mr-tick-app', process.execPath, [
-      currentCompiledFile,
-    ])
-    app.setAsDefaultProtocolClient('mistertick', process.execPath, [
-      currentCompiledFile,
-    ])
-  }
   if (app.isPackaged) {
-    app.setAsDefaultProtocolClient(oauthCallbackProtocol)
-    app.setAsDefaultProtocolClient('mr-tick-app')
-    app.setAsDefaultProtocolClient('mistertick')
+    app.setAsDefaultProtocolClient(RASTRO_PROTOCOL)
+  }
+
+  if (!app.isPackaged && !isTestMode) {
+    const compiledFile = fileURLToPath(import.meta.url)
+    app.setAsDefaultProtocolClient(oauthCallbackProtocol, process.execPath, [
+      compiledFile,
+    ])
   }
 
   app.on('second-instance', (event, commandLine) => {
     if (!event) return
-    const rawDeepLink = findDeepLinkInArgs(commandLine)
-    if (rawDeepLink) {
-      handleIncomingDeepLink(rawDeepLink)
-    }
+    const link = findRastroDeepLink(commandLine, app.isPackaged)
+    if (!link) return
+    if (useDevOAuthHandoff && link.kind === 'oauth') return
+    handleIncomingDeepLink(link)
   })
 
   app.on('open-url', (event, url) => {
+    const link = parseRastroDeepLink(url, app.isPackaged)
+    if (!link) return
+
     event.preventDefault()
-    if (
-      url.startsWith(`${oauthCallbackProtocol}://`) ||
-      url.startsWith('mr-tick-app://') ||
-      url.startsWith('mistertick://')
-    ) {
-      handleIncomingDeepLink(url)
-    }
+    handleIncomingDeepLink(link)
   })
 
   const createWindow = () => {
@@ -578,42 +484,31 @@ if (gotTheLock) {
     })
   }
 
-  function handleProtocol() {
-    protocol.handle('mr-tick-app', async (request) => {
-      try {
-        if (request.url.startsWith('mr-tick-app://activate')) {
-          handleIncomingDeepLink(request.url)
-          return new Response('OK', { status: 200 })
-        }
-
-        let filePath = request.url.replace('mr-tick-app://', '')
-        filePath = filePath
-          .replace(/[?&]buster=[^&]*/g, '')
-          .replace(/[?&]$/, '')
-        filePath = decodeURIComponent(filePath)
-
-        if (process.platform === 'win32' && /^[a-zA-Z]\//.test(filePath)) {
-          filePath = filePath[0].toUpperCase() + ':' + filePath.slice(1)
-        }
-
-        const fileUrl = pathToFileURL(filePath).toString()
-        return net.fetch(fileUrl)
-      } catch (error) {
-        console.error('Erro no protocolo mr-tick-app:', error)
-        return new Response('Resource not found', { status: 404 })
+  function registerAssetProtocol(): void {
+    protocol.handle(RASTRO_PROTOCOL, async (request) => {
+      if (request.method !== 'GET' && request.method !== 'HEAD') {
+        return new Response(null, { status: 405 })
       }
-    })
 
-    protocol.handle('mistertick', async (request) => {
-      handleIncomingDeepLink(request.url)
-      return new Response('OK', { status: 200 })
+      const fileUrl = await resolveRastroAvatarUrl(userDataDir, request.url)
+      if (!fileUrl) return new Response(null, { status: 404 })
+
+      const asset = await net
+        .fetch(fileUrl.href, { method: request.method })
+        .catch(() => undefined)
+      if (!asset) return new Response(null, { status: 404 })
+
+      const headers = new Headers(asset.headers)
+      headers.set('Content-Security-Policy', "default-src 'none'; sandbox")
+      headers.set('X-Content-Type-Options', 'nosniff')
+      return new Response(asset.body, { status: asset.status, headers })
     })
   }
 
   app
     .whenReady()
     .then(async () => {
-      handleProtocol()
+      registerAssetProtocol()
 
       const userDataPath = app.getPath('userData')
       const sessionId = randomUUID()
@@ -717,7 +612,7 @@ if (gotTheLock) {
       const diagnosticsHandler = new DiagnosticsHandler(diagnosticsService)
       const nodeFileStorage = new HardDiskStorage(
         userDataPath,
-        'mr-tick-app://',
+        RASTRO_ASSET_BASE_URL,
       )
       const containerBuilder = new ContainerBuilder()
         .addSecurityDependencies({
@@ -792,6 +687,7 @@ if (gotTheLock) {
             oauthAttemptCoordinator,
             addonLoader.systemEventEmitter,
             serviceProvider.resolve<IListTasksUseCase>('taskLookupService'),
+            `${oauthCallbackProtocol}://oauth/callback`,
           ),
         addonAccessService,
         credentialRegistry,
@@ -809,7 +705,14 @@ if (gotTheLock) {
       )
       globalAddonLoader = addonLoader
 
-      const initialDeepLink = findDeepLinkInArgs(process.argv)
+      if (useDevOAuthHandoff) {
+        const closeOAuthHandoff = watchDevOAuthCallbacks(userDataDir, (url) => {
+          handleIncomingDeepLink({ kind: 'oauth', url })
+        })
+        app.once('will-quit', closeOAuthHandoff)
+      }
+
+      const initialDeepLink = findRastroDeepLink(process.argv, app.isPackaged)
       if (initialDeepLink) {
         handleIncomingDeepLink(initialDeepLink)
       }
@@ -1117,7 +1020,7 @@ if (gotTheLock) {
       createWindow()
       if (
         process.env.NODE_ENV !== 'test' ||
-        process.env.MR_TICK_OPEN_WIDGET_IN_TEST === 'true'
+        process.env.RASTRO_OPEN_WIDGET_IN_TEST === 'true'
       ) {
         const targetWsId = await getTargetWorkspaceId()
         createSecondaryWindow(targetWsId)

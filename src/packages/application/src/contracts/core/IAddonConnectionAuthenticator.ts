@@ -1,9 +1,9 @@
-import type { ConnectionIdentity } from '@mr-tick/domain'
+import type { ConnectionIdentity } from '@rastrokit/domain'
 import type {
   AppError,
   Either,
   TokenRefreshError,
-} from '@mr-tick/shared/helpers'
+} from '@rastrokit/shared/helpers'
 
 import type { CoreConnectionScope } from './CoreContext'
 

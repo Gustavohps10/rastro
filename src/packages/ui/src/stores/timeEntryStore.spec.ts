@@ -4,7 +4,7 @@ import type {
   ILocalRuntimeAPI,
   LocalRuntimeResponse,
   LocalTimeEntrySnapshot,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { registerDatabaseScope } from '@/local-runtime/persistence-client'

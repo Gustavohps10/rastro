@@ -1,4 +1,4 @@
-import { IWorkspacesAPI } from '@mr-tick/application'
+import { IWorkspacesAPI } from '@rastrokit/application'
 
 import { IpcInvoker } from '@/main/adapters/IpcInvoker'
 

@@ -1,4 +1,4 @@
-import { IHostBridge } from '@mr-tick/application'
+import { IHostBridge } from '@rastrokit/application'
 
 const ipcClient: IHostBridge = {
   diagnostics: window.api.diagnostics,

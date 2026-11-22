@@ -6,8 +6,8 @@ import {
   LicensingPlusDownloadRequestDTO,
   LicensingPlusDownloadResultDTO,
   LicensingRefreshRequestDTO,
-} from '@mr-tick/application'
-import { offlineAuthorizationClaimsSchema } from '@mr-tick/domain'
+} from '@rastrokit/application'
+import { offlineAuthorizationClaimsSchema } from '@rastrokit/domain'
 import {
   AppError,
   Either,
@@ -17,7 +17,7 @@ import {
   isNonEmptyString,
   isRecord,
   isString,
-} from '@mr-tick/shared/helpers'
+} from '@rastrokit/shared/helpers'
 import axios from 'axios'
 import crypto from 'crypto'
 

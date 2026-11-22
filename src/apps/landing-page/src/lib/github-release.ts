@@ -10,7 +10,7 @@ export function toSemver(ver: string): string | null {
 }
 
 export function getTagSemver(tagName: string): string | null {
-  return toSemver(tagName.replace('@mr-tick/desktop@', ''))
+  return toSemver(tagName.replace('@rastrokit/desktop@', ''))
 }
 
 export function getLatestReleasePerMinor<T extends { version: string }>(
@@ -204,7 +204,7 @@ export async function fetchLatestDesktopReleases(): Promise<{
     }
 
     const desktopReleases = releases.filter((r: GitHubRelease) =>
-      r.tag_name?.startsWith('@mr-tick/desktop@'),
+      r.tag_name?.startsWith('@rastrokit/desktop@'),
     )
 
     const rawBetaReleases = desktopReleases.filter(
@@ -219,7 +219,7 @@ export async function fetchLatestDesktopReleases(): Promise<{
       isBeta: boolean,
       isLatest: boolean,
     ): Promise<DesktopReleaseInfo | null> => {
-      const rawVersion = release.tag_name.replace('@mr-tick/desktop@', '')
+      const rawVersion = release.tag_name.replace('@rastrokit/desktop@', '')
       const version = rawVersion.startsWith('v') ? rawVersion : `v${rawVersion}`
 
       const installerAsset = release.assets?.find((a: GitHubReleaseAsset) =>

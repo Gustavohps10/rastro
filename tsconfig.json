@@ -2,21 +2,22 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "tsBuildInfoFile": "./.temps/typescript/root.tsbuildinfo",
     "paths": {
-      "@mr-tick/application": ["src/packages/application/src"],
-      "@mr-tick/application/*": ["src/packages/application/src/*"],
+      "@rastrokit/application": ["src/packages/application/src"],
+      "@rastrokit/application/*": ["src/packages/application/src/*"],
 
-      "@mr-tick/adapters": ["src/packages/adapters/src"],
-      "@mr-tick/adapters/*": ["src/packages/adapters/src/*"],
+      "@rastrokit/adapters": ["src/packages/adapters/src"],
+      "@rastrokit/adapters/*": ["src/packages/adapters/src/*"],
 
-      "@mr-tick/shared": ["src/packages/shared/src"],
-      "@mr-tick/shared/*": ["src/packages/shared/src/*"],
+      "@rastrokit/shared": ["src/packages/shared/src"],
+      "@rastrokit/shared/*": ["src/packages/shared/src/*"],
 
-      "@mr-tick/domain": ["src/packages/domain/src"],
-      "@mr-tick/domain/*": ["src/packages/domain/src/*"],
+      "@rastrokit/domain": ["src/packages/domain/src"],
+      "@rastrokit/domain/*": ["src/packages/domain/src/*"],
 
-      "@mr-tick/sdk": ["src/apps/sdk/src"],
-      "@mr-tick/sdk/*": ["src/apps/sdk/src/*"],
+      "@rastrokit/sdk": ["src/apps/sdk/src"],
+      "@rastrokit/sdk/*": ["src/apps/sdk/src/*"],
 
       "@/*": [
         "src/packages/ui/src/*",

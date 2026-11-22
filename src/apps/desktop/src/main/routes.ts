@@ -7,10 +7,10 @@ import {
   IDataSourceResolver,
   IServiceProvider,
   SanitizedDiagnosticReport,
-} from '@mr-tick/application'
-import { isBoolean } from '@mr-tick/shared/helpers'
-import { IRequest } from '@mr-tick/shared/transport'
-import type { ViewModel } from '@mr-tick/shared/view-models'
+} from '@rastrokit/application'
+import { isBoolean } from '@rastrokit/shared/helpers'
+import { IRequest } from '@rastrokit/shared/transport'
+import type { ViewModel } from '@rastrokit/shared/view-models'
 import { app, BrowserWindow, screen } from 'electron'
 import { z } from 'zod'
 
@@ -197,7 +197,7 @@ export function openIpcRoutes(
     if (app.isPackaged) {
       installPath = dirname(process.execPath)
       isPortable =
-        !existsSync(join(installPath, 'Uninstall mr-tick.exe')) &&
+        !existsSync(join(installPath, 'Uninstall rastro.exe')) &&
         process.platform === 'win32'
     }
 

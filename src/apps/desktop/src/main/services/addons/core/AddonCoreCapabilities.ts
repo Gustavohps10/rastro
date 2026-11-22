@@ -27,17 +27,20 @@ import type {
   IUnlinkConnectionUseCase,
   IWorkspacesRepository,
   WorkspaceConnectionDTO,
-} from '@mr-tick/application'
-import { validateCoreCacheQuery, validateCoreScope } from '@mr-tick/application'
+} from '@rastrokit/application'
+import {
+  validateCoreCacheQuery,
+  validateCoreScope,
+} from '@rastrokit/application'
 import {
   type ConnectionIdentity,
   type ConnectionProfileDescriptor,
   type DataSourceConnection,
   isValidConnectionProfileDescriptors,
   type Workspace,
-} from '@mr-tick/domain'
-import { AppError, Either, isNonEmptyString } from '@mr-tick/shared/helpers'
-import type { ISystemEventEmitter } from '@mr-tick/shared/transport'
+} from '@rastrokit/domain'
+import { AppError, Either, isNonEmptyString } from '@rastrokit/shared/helpers'
+import type { ISystemEventEmitter } from '@rastrokit/shared/transport'
 
 /** Exposes product capabilities, without repository entities or provider secrets. */
 export class AddonCoreCapabilities implements ICoreAddonCapabilities {
@@ -62,6 +65,7 @@ export class AddonCoreCapabilities implements ICoreAddonCapabilities {
     private readonly oauthAttemptCoordinator: IOAuthAttemptCoordinator,
     private readonly systemEventEmitter: ISystemEventEmitter,
     private readonly taskLookupService: IListTasksUseCase,
+    private readonly defaultOAuthRedirectUri: string,
   ) {
     this.runtime = {
       getState: () => transport.getState(),
@@ -318,13 +322,13 @@ export class AddonCoreCapabilities implements ICoreAddonCapabilities {
 
     let redirectUri = authenticator.redirectUri
     if (redirectUri === undefined || redirectUri.trim().length === 0) {
-      const envRedirect = process.env.MR_TICK_OAUTH_REDIRECT_URI
+      const envRedirect = process.env.RASTRO_OAUTH_REDIRECT_URI
       if (envRedirect !== undefined && envRedirect.trim().length > 0) {
         redirectUri = envRedirect.trim()
       }
     }
     if (redirectUri === undefined || redirectUri.trim().length === 0) {
-      redirectUri = 'mr-tick-app://oauth/callback'
+      redirectUri = this.defaultOAuthRedirectUri
     }
 
     const attemptResult = await this.oauthAttemptCoordinator.startAttempt({

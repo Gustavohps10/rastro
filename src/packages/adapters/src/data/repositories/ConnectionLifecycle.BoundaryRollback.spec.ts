@@ -3,9 +3,9 @@ import {
   CredentialReferenceFactory,
   type IConnectionLifecycleTransactionBoundary,
   RecoverConnectionLifecycleService,
-} from '@mr-tick/application'
-import { ConnectionProfileDescriptor, Workspace } from '@mr-tick/domain'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { ConnectionProfileDescriptor, Workspace } from '@rastrokit/domain'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 import {
@@ -51,7 +51,7 @@ describe('Deterministic Database/Vault Boundary - Atomic Commit & Rollback', () 
     const workspace = created.success
 
     const connInstanceId = 'conn-boundary-1'
-    workspace.createConnection(connInstanceId, 'mistertick-discord', profile)
+    workspace.createConnection(connInstanceId, 'rastro-discord', profile)
     const savedInitial = await repository.create(workspace)
     expect(savedInitial.isSuccess()).toBe(true)
 
@@ -61,7 +61,7 @@ describe('Deterministic Database/Vault Boundary - Atomic Commit & Rollback', () 
       {
         reservationId,
         workspaceId: workspace.id,
-        addonId: 'mistertick-discord',
+        addonId: 'rastro-discord',
         connectionProfileId: 'discord-presence',
         connectionId: connInstanceId,
         cardinality: 'single',
@@ -73,7 +73,7 @@ describe('Deterministic Database/Vault Boundary - Atomic Commit & Rollback', () 
     // 3. Simulate coordinator.connect interruption between workspace update and metadata_committed:
     // candidate written into vault
     const candidateRef = CredentialReferenceFactory.createConnectionCandidate({
-      ownerId: 'mistertick-discord',
+      ownerId: 'rastro-discord',
       workspaceId: workspace.id,
       connectionId: connInstanceId,
       authorizationId: 'auth-1',
@@ -154,7 +154,7 @@ describe('Deterministic Database/Vault Boundary - Atomic Commit & Rollback', () 
     const workspace = created.success
 
     const connInstanceId = 'conn-boundary-2'
-    workspace.createConnection(connInstanceId, 'mistertick-discord', profile)
+    workspace.createConnection(connInstanceId, 'rastro-discord', profile)
     const savedInitial = await repository.create(workspace)
     expect(savedInitial.isSuccess()).toBe(true)
 
@@ -163,7 +163,7 @@ describe('Deterministic Database/Vault Boundary - Atomic Commit & Rollback', () 
       {
         reservationId,
         workspaceId: workspace.id,
-        addonId: 'mistertick-discord',
+        addonId: 'rastro-discord',
         connectionProfileId: 'discord-presence',
         connectionId: connInstanceId,
         cardinality: 'single',
@@ -220,7 +220,7 @@ describe('Deterministic Database/Vault Boundary - Atomic Commit & Rollback', () 
     const connectResult = await coordinator.connect({
       workspaceId: workspace.id,
       connectionInstanceId: connInstanceId,
-      addonId: 'mistertick-discord',
+      addonId: 'rastro-discord',
       profile,
       method: 'authorized',
       authorizationRole: 'primary',
@@ -269,7 +269,7 @@ describe('Deterministic Database/Vault Boundary - Atomic Commit & Rollback', () 
     const workspace = created.success
 
     const connInstanceId = 'conn-boundary-3'
-    workspace.createConnection(connInstanceId, 'mistertick-discord', profile)
+    workspace.createConnection(connInstanceId, 'rastro-discord', profile)
     const savedInitial = await repository.create(workspace)
     expect(savedInitial.isSuccess()).toBe(true)
 
@@ -278,7 +278,7 @@ describe('Deterministic Database/Vault Boundary - Atomic Commit & Rollback', () 
       {
         reservationId,
         workspaceId: workspace.id,
-        addonId: 'mistertick-discord',
+        addonId: 'rastro-discord',
         connectionProfileId: 'discord-presence',
         connectionId: connInstanceId,
         cardinality: 'single',
@@ -304,7 +304,7 @@ describe('Deterministic Database/Vault Boundary - Atomic Commit & Rollback', () 
     const connectResult = await coordinator.connect({
       workspaceId: workspace.id,
       connectionInstanceId: connInstanceId,
-      addonId: 'mistertick-discord',
+      addonId: 'rastro-discord',
       profile,
       method: 'authorized',
       authorizationRole: 'primary',

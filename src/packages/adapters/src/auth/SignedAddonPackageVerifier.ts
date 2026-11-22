@@ -7,13 +7,13 @@ import {
   IAddonPackageVerifier,
   IAddonsFacade,
   VerifiedAddonPackage,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import {
   ADDON_CATALOG_RECEIPT_FILE,
   AddonCatalogManifestV2,
   SignedAddonCatalogManifestV2,
-} from '@mr-tick/sdk'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/sdk'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import Ajv from 'ajv'
 
 export interface IAddonPackageVerificationConfiguration {

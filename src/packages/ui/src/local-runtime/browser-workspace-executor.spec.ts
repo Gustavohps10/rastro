@@ -3,8 +3,8 @@ import 'fake-indexeddb/auto'
 import type {
   LocalPersistenceCommand,
   LocalTimeEntrySnapshot,
-} from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { createStore } from 'zustand'
 
@@ -301,7 +301,7 @@ describe('Durable local command receipts with a real RxDB collection', () => {
   })
 
   it('distinguishes absent metadata from an available empty snapshot and hides storage fields', async () => {
-    const input: import('@mr-tick/application').CoreCacheQuery = {
+    const input: import('@rastrokit/application').CoreCacheQuery = {
       action: 'metadata',
       workspaceId,
       connectionInstanceId: 'connection',

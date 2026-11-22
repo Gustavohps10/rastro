@@ -6,9 +6,9 @@ import {
   CommandGroup,
   CommandItem,
   CommandList,
-} from '@mr-tick/ui/command'
-import { Popover, PopoverContent, PopoverTrigger } from '@mr-tick/ui/popover'
-import { cn } from '@mr-tick/ui/utils'
+} from '@rastrokit/ui/command'
+import { Popover, PopoverContent, PopoverTrigger } from '@rastrokit/ui/popover'
+import { cn } from '@rastrokit/ui/utils'
 import {
   AlertTriangle,
   ArrowUpRight,

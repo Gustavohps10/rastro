@@ -1,1 +1,1 @@
-export type { CoreRuntimeState, ICoreRuntimeAPI } from '@mr-tick/application'
+export type { CoreRuntimeState, ICoreRuntimeAPI } from '@rastrokit/application'

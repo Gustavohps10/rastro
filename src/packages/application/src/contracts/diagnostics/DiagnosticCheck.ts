@@ -1,4 +1,4 @@
-import type { FieldErrors } from '@mr-tick/shared/helpers'
+import type { FieldErrors } from '@rastrokit/shared/helpers'
 
 import type { DiagnosticScope } from './DiagnosticScope'
 

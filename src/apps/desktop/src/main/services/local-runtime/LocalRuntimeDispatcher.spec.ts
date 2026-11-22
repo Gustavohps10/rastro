@@ -7,8 +7,8 @@ import type {
   LocalRuntimeResponse,
   LocalSyncRequest,
   LocalSyncResponse,
-} from '@mr-tick/application'
-import { Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { Either } from '@rastrokit/shared/helpers'
 import { BrowserWindow } from 'electron'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 

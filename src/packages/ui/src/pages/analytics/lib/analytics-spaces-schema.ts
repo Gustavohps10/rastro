@@ -5,8 +5,8 @@ import {
   ANALYTICS_REFERENCE_LINE_MODES,
   ANALYTICS_WIDGET_IDS,
   ANALYTICS_WORKFLOW_NODE_KINDS,
-} from '@mr-tick/application'
-import { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import { AppError, Either } from '@rastrokit/shared/helpers'
 import { z } from 'zod'
 
 import type { AnalyticsSpaceConfig } from './analytics-types'

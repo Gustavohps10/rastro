@@ -1,4 +1,4 @@
-import type { ConfiguredFieldMapping } from '@mr-tick/sdk'
+import type { ConfiguredFieldMapping } from '@rastrokit/sdk'
 import { ColumnDef, Row as TanStackRow } from '@tanstack/react-table'
 import { format, isValid, parseISO } from 'date-fns'
 import {

@@ -2,7 +2,7 @@ import type {
   AnalyticsDatasetManifest,
   AnalyticsQueryInput,
   JsonValue,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import { z } from 'zod'
 
 export const jsonValueSchema: z.ZodType<JsonValue> = z.lazy(() =>

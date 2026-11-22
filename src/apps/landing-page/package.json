@@ -1,11 +1,11 @@
 {
-  "name": "@mr-tick/landing-page",
+  "name": "@rastrokit/landing-page",
   "version": "0.1.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "typecheck": "fumadocs-mdx && tsc --noEmit",
+    "typecheck": "fumadocs-mdx && tsc --noEmit --tsBuildInfoFile ../../../.temps/typescript/landing-page.tsbuildinfo",
     "postinstall": "fumadocs-mdx",
     "clean": "rimraf .next dist .turbo",
     "start": "next start",
@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "@modelcontextprotocol/server": "^2.3.1",
-    "@mr-tick/application": "workspace:*",
-    "@mr-tick/ui": "workspace:*",
+    "@rastrokit/application": "workspace:*",
+    "@rastrokit/ui": "workspace:*",
     "@tailwindcss/typography": "^0.5.16",
     "@tanstack/react-query": "^5.77.2",
     "fumadocs-core": "^16.15.0",

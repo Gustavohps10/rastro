@@ -1,4 +1,8 @@
+import { join } from 'node:path'
+
 import { defineConfig } from '@playwright/test'
+
+import { playwrightRoot } from './e2e/fixtures/artifact-paths'
 
 function getWorkerCount(): number {
   if (process.env.CI) return 2
@@ -10,6 +14,7 @@ function getWorkerCount(): number {
 
 export default defineConfig({
   testDir: './e2e',
+  outputDir: join(playwrightRoot, 'results'),
   timeout: 60000,
   expect: {
     timeout: 10000,
@@ -21,7 +26,7 @@ export default defineConfig({
   ...(process.env.CI ? { grepInvert: /@local-windows/ } : {}),
   reporter: [
     ['list'],
-    ['html', { outputFolder: 'playwright-report', open: 'never' }],
+    ['html', { outputFolder: join(playwrightRoot, 'report'), open: 'never' }],
   ],
   use: {
     viewport: { width: 1600, height: 900 },

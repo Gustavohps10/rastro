@@ -8,7 +8,7 @@ import { viteStaticCopy } from 'vite-plugin-static-copy'
 import uiPackage from '../../packages/ui/package.json'
 
 const uiSubpaths = Object.keys(uiPackage.exports).map(
-  (subpath) => `@mr-tick/ui/${subpath.slice(2)}`,
+  (subpath) => `@rastrokit/ui/${subpath.slice(2)}`,
 )
 
 export default defineConfig({
@@ -26,7 +26,7 @@ export default defineConfig({
     ],
     resolve: {
       alias: {
-        '@mr-tick/IoC': resolve(__dirname, '../../packages/IoC.ts'),
+        '@rastrokit/IoC': resolve(__dirname, '../../packages/IoC.ts'),
         '@': resolve(__dirname, 'src'),
       },
     },
@@ -74,7 +74,7 @@ export default defineConfig({
       ],
     },
     optimizeDeps: {
-      exclude: ['@mr-tick/ui', ...uiSubpaths],
+      exclude: ['@rastrokit/ui', ...uiSubpaths],
     },
     plugins: [react(), tailwindcss(), image()],
     build: {

@@ -1,7 +1,7 @@
 import type {
   AnalyticsPlanNode,
   AnalyticsPublication,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 
 import type { SpaceWorkflowNodeConfig, WidgetId } from './analytics-types'
 

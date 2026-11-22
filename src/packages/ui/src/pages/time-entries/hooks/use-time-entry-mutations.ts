@@ -1,4 +1,4 @@
-import type { ConflictingTimeEntry, TimeInterval } from '@mr-tick/application'
+import type { ConflictingTimeEntry, TimeInterval } from '@rastrokit/application'
 import { useQueryClient } from '@tanstack/react-query'
 import { addSeconds, parseISO } from 'date-fns'
 import { useCallback, useEffect, useRef, useState } from 'react'

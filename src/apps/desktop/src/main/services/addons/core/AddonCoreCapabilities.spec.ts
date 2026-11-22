@@ -15,11 +15,11 @@ import {
   type IUnlinkConnectionUseCase,
   type IWorkspacesRepository,
   OAuthAttemptCoordinator,
-} from '@mr-tick/application'
-import type { ConnectionProfileDescriptor } from '@mr-tick/domain'
-import { Workspace } from '@mr-tick/domain'
-import { AppError, Either } from '@mr-tick/shared/helpers'
-import { NoOpSystemEventEmitter } from '@mr-tick/shared/transport'
+} from '@rastrokit/application'
+import type { ConnectionProfileDescriptor } from '@rastrokit/domain'
+import { Workspace } from '@rastrokit/domain'
+import { AppError, Either } from '@rastrokit/shared/helpers'
+import { NoOpSystemEventEmitter } from '@rastrokit/shared/transport'
 import { describe, expect, it, vi } from 'vitest'
 
 import { TaskLookupService } from '../../tasks/TaskLookupService'
@@ -265,6 +265,7 @@ function fixture(
       oauthAttemptCoordinator,
       new NoOpSystemEventEmitter(),
       taskLookupService,
+      'rastro://oauth/callback',
     ),
   }
 }

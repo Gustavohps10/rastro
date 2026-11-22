@@ -1,12 +1,12 @@
 import {
   type IConnectionCredentialsVault,
   type ICredentialsVault,
-} from '@mr-tick/application'
+} from '@rastrokit/application'
 import {
   exchangeAuthorizationCode,
   formatStoredToken,
   generatePKCE,
-} from '@mr-tick/sdk'
+} from '@rastrokit/sdk'
 import { shell } from 'electron'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
@@ -14,6 +14,7 @@ import { AddonLoader } from '../AddonLoader'
 import { createOAuthTestSetup } from './AddonLoader.OAuth.fixture'
 
 vi.mock('electron', () => ({
+  app: { isPackaged: true },
   shell: {
     openExternal: vi.fn(),
   },
@@ -60,7 +61,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - Token Exchange', () => {
         clientId: 'client-123',
         code: 'auth-code',
         codeVerifier: 'verifier-123',
-        redirectUri: 'https://mr-tickapp.com.br/oauth/callback',
+        redirectUri: 'https://mistertick.com/oauth/callback',
       })
 
       expect(result.accessToken).toBe('valid-access-token')
@@ -87,7 +88,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - Token Exchange', () => {
           clientId: 'client-123',
           code: 'auth-code',
           codeVerifier: 'verifier-123',
-          redirectUri: 'https://mr-tickapp.com.br/oauth/callback',
+          redirectUri: 'https://mistertick.com/oauth/callback',
         }),
       ).rejects.toThrow(
         'Falha na troca de código OAuth: Code verifier is invalid',
@@ -111,7 +112,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - Token Exchange', () => {
           clientId: 'client-123',
           code: 'auth-code',
           codeVerifier: 'verifier-123',
-          redirectUri: 'https://mr-tickapp.com.br/oauth/callback',
+          redirectUri: 'https://mistertick.com/oauth/callback',
         }),
       ).rejects.toThrow(
         'Falha na troca de código OAuth: Client is not authorized',
@@ -222,7 +223,7 @@ describe('OAuth 2.0 PKCE Flow in AddonLoader - Token Exchange', () => {
 
       expect(capturedOAuthState).toMatch(/^oauth-ds_[0-9a-f-]{36}$/)
       addonLoader.handleOAuthCallbackUrl(
-        `mr-tick://oauth/callback?code=ds-oauth-code-777&state=${capturedOAuthState}`,
+        `rastro://oauth/callback?code=ds-oauth-code-777&state=${capturedOAuthState}`,
       )
 
       const authResult = await authPromise

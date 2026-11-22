@@ -7,6 +7,7 @@ import archiver from 'archiver'
 
 import type { IHostBridge } from '../../../packages/application/src/contracts/host/IHostBridge'
 import sdkPackage from '../../sdk/package.json' with { type: 'json' }
+import { electronUserDataRoot } from './fixtures/artifact-paths'
 import { expect, test } from './fixtures/electron-fixture'
 
 declare global {
@@ -60,8 +61,9 @@ for (const scenario of ['success', 'activation-failure', 'linked-addon']) {
         app.getPath('userData'),
       )
       const sdkApiVersion = sdkPackage.version
-      const expectedRoot = resolve('test-results/electron-user-data')
-      expect(resolve(userData).startsWith(expectedRoot + sep)).toBe(true)
+      expect(resolve(userData).startsWith(electronUserDataRoot + sep)).toBe(
+        true,
+      )
       const oldFolder = join(userData, 'addons', id, '0.9.0')
       if (linked) {
         const sourceFolder = join(userData, 'linked-audit-source', id)

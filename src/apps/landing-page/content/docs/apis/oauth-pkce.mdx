@@ -9,9 +9,9 @@ Declare `auth` in the manifest. For workspace connections, register an `AddonCon
 | Environment | Provider HTTP redirect                  | Landing page opens          |
 | ----------- | --------------------------------------- | --------------------------- |
 | Development | `http://localhost:3000/oauth/callback`  | `electron://oauth/callback` |
-| Production  | `https://mistertick.com/oauth/callback` | `mr-tick://oauth/callback`  |
+| Production  | `https://mistertick.com/oauth/callback` | `rastro://oauth/callback`  |
 
-These are the current Discord/desktop bridge routes. Register HTTP URLs at the provider, not desktop deep links. Use the same `redirectUri` when exchanging the code. The internal `mr-tick-app://` resource/activation protocol is not the OAuth callback.
+These are the current Discord/desktop bridge routes. Register HTTP URLs at the provider, not desktop deep links. Use the same `redirectUri` when exchanging the code. The web bridge uses `electron://oauth/callback` in development and `rastro://oauth/callback` in packaged releases.
 
 1. Register the profile and OAuth authenticator, including its HTTP `redirectUri`.
 2. `core.connections.createAuthorizationRequest(scope)` supplies state, S256 challenge and redirect URI to the authenticator.
@@ -23,7 +23,7 @@ These are the current Discord/desktop bridge routes. Register HTTP URLs at the p
 The following factory implements only the authorization-request method. Token exchange, identity discovery and refresh are provider-specific:
 
 ```ts
-import { Either, type AddonConnectionAuthenticator } from '@mr-tick/sdk'
+import { Either, type AddonConnectionAuthenticator } from '@rastrokit/sdk'
 
 type OAuthAuthenticator = Extract<
   AddonConnectionAuthenticator,

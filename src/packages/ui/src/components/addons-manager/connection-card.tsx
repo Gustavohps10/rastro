@@ -1,6 +1,6 @@
 'use client'
 
-import type { WorkspaceConnectionIdentityViewModel } from '@mr-tick/shared/view-models'
+import type { WorkspaceConnectionIdentityViewModel } from '@rastrokit/shared/view-models'
 import {
   AlertCircle,
   Clock,

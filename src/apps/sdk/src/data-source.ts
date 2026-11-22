@@ -5,8 +5,8 @@ import type {
   ITaskProvider,
   ITimeEntryProvider,
   MappingFieldDefinition,
-} from '@mr-tick/application'
-import type { AppError, Either } from '@mr-tick/shared/helpers'
+} from '@rastrokit/application'
+import type { AppError, Either } from '@rastrokit/shared/helpers'
 
 export type { DataSourceContext, MappingFieldDefinition }
 

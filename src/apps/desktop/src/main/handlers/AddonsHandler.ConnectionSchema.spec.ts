@@ -1,5 +1,5 @@
-import { AddonConnectionProfilesResolver } from '@mr-tick/application'
-import type { AddonSettingsSchema } from '@mr-tick/sdk'
+import { AddonConnectionProfilesResolver } from '@rastrokit/application'
+import type { AddonSettingsSchema } from '@rastrokit/sdk'
 import type { IpcMainInvokeEvent } from 'electron'
 import { describe, expect, it } from 'vitest'
 

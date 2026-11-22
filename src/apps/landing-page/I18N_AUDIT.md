@@ -44,7 +44,7 @@ Textos de marketing em Positioning, Integrations, OfflineArchitecture, Pricing (
 
 ## Limitações preservadas
 
-Billing success foi validado como página de confirmação e instruções, sem compra real. A página não verifica a sessão de pagamento no servidor. A demonstração interativa reutiliza @mr-tick/ui, cujo conteúdo e alguns rótulos têm idioma próprio; a entrega não cria i18n para todo o desktop. Links sociais, termos e privacidade já definidos como # continuam placeholders.
+Billing success foi validado como página de confirmação e instruções, sem compra real. A página não verifica a sessão de pagamento no servidor. A demonstração interativa reutiliza @rastrokit/ui, cujo conteúdo e alguns rótulos têm idioma próprio; a entrega não cria i18n para todo o desktop. Links sociais, termos e privacidade já definidos como # continuam placeholders.
 
 O primeiro build da rodada anterior falhou por falta de espaço. Foram limpos somente .next da landing e .turbo, com autorização do usuário. A landing é ignorada pela configuração de Changesets; versões não foram alteradas.
 

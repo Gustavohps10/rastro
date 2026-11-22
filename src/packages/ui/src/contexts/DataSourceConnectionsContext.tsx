@@ -6,8 +6,8 @@ import type {
   ViewModel,
   WorkspaceConnectionViewModel,
   WorkspaceViewModel,
-} from '@mr-tick/sdk'
-import { isDataSource } from '@mr-tick/shared/helpers'
+} from '@rastrokit/sdk'
+import { isDataSource } from '@rastrokit/shared/helpers'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import React, {
   createContext,

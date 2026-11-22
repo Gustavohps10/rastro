@@ -1,4 +1,4 @@
-import { SyncTimeEntryDTO, TimeEntryDTO } from '@mr-tick/application'
+import { SyncTimeEntryDTO, TimeEntryDTO } from '@rastrokit/application'
 
 import {
   SyncTimeEntryRxDBDTO,

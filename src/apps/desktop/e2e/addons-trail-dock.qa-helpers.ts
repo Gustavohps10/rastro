@@ -1,12 +1,17 @@
 import { randomUUID } from 'node:crypto'
 import { lstat, mkdir, realpath, writeFile } from 'node:fs/promises'
-import { dirname, join, resolve } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { dirname, join, relative, resolve } from 'node:path'
 
 import type { ElectronApplication, Locator, Page } from '@playwright/test'
 
 import type { IHostBridge } from '../../../packages/application/src/contracts/host/IHostBridge'
 import type { AddonLoadFailuresSnapshot } from '../../../packages/shared/src/view-models/AddonLoadFailureViewModel'
+import {
+  electronUserDataRoot,
+  getElectronUserDataPath,
+  playwrightRoot,
+  temporaryRoot,
+} from './fixtures/artifact-paths'
 import { expect } from './fixtures/electron-fixture'
 import seed from './fixtures/seed-workspaces.json' with { type: 'json' }
 
@@ -18,27 +23,24 @@ declare global {
 }
 
 export type DockPosition = 'right' | 'left' | 'top' | 'bottom'
-const desktopRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 
 export async function assertBeforeFixtureCleanup(workerIndex: number) {
   // Runs in beforeAll, before the shared test-scoped fixture removes storage.
   // Reject junctions in every existing ancestor of its fixed worker profile.
+  const repoRoot = dirname(temporaryRoot)
+  const physicalRoot = await realpath(repoRoot)
   for (const folder of [
-    join(desktopRoot, 'test-results'),
-    join(desktopRoot, 'test-results/electron-user-data'),
-    join(
-      desktopRoot,
-      'test-results/electron-user-data',
-      `worker-${workerIndex}`,
-    ),
+    temporaryRoot,
+    playwrightRoot,
+    electronUserDataRoot,
+    getElectronUserDataPath(workerIndex),
   ]) {
     try {
       expect((await lstat(folder)).isSymbolicLink()).toBe(false)
-      const physicalRoot = await realpath(desktopRoot)
       const physicalFolder = await realpath(folder)
-      expect(
-        physicalFolder.startsWith(join(physicalRoot, 'test-results')),
-      ).toBe(true)
+      expect(physicalFolder).toBe(
+        resolve(physicalRoot, relative(repoRoot, folder)),
+      )
     } catch (error) {
       if (error instanceof Error && 'code' in error && error.code === 'ENOENT')
         continue
@@ -50,7 +52,7 @@ export async function assertBeforeFixtureCleanup(workerIndex: number) {
 export async function openDockWorkspace(page: Page) {
   const workspace = seed.workspaces.find((item) =>
     item.connections.some(
-      (connection) => connection.addonId === 'mr-tick-datasource-fake',
+      (connection) => connection.addonId === 'rastro-datasource-fake',
     ),
   )
   if (!workspace) throw new Error('QA fixture missing explicit fake workspace')
@@ -134,11 +136,7 @@ export async function checkedTestProfile(
   const userData = await app.evaluate(({ app: electronApp }) =>
     electronApp.getPath('userData'),
   )
-  const expected = resolve(
-    desktopRoot,
-    'test-results/electron-user-data',
-    `worker-${workerIndex}`,
-  )
+  const expected = getElectronUserDataPath(workerIndex)
   expect(resolve(userData)).toBe(expected)
   expect(await realpath(userData)).toBe(await realpath(expected))
   // New addon writes must not follow junctions outside the isolated profile.

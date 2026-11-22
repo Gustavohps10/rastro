@@ -71,7 +71,7 @@ describe('SqliteMetadataDiagnosticAdapter', () => {
   })
 
   it('measures real SQLite file on disk including WAL and SHM if present', async () => {
-    tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'mr-tick-sqlite-diag-'))
+    tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'rastro-sqlite-diag-'))
     const dbPath = path.join(tempDir, 'workspaces.sqlite')
     db = knex({
       client: 'better-sqlite3',
@@ -109,7 +109,7 @@ describe('SqliteMetadataDiagnosticAdapter', () => {
   })
 
   it('returns unavailable measurement when WAL file encounters permission denied EACCES', async () => {
-    tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'mr-tick-sqlite-diag-'))
+    tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'rastro-sqlite-diag-'))
     const dbPath = path.join(tempDir, 'workspaces.sqlite')
     await fs.writeFile(dbPath, 'test-sqlite-data')
 
@@ -144,7 +144,7 @@ describe('SqliteMetadataDiagnosticAdapter', () => {
   })
 
   it('returns unavailable measurement when stat throws an Error without code', async () => {
-    tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'mr-tick-sqlite-diag-'))
+    tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'rastro-sqlite-diag-'))
     const dbPath = path.join(tempDir, 'workspaces.sqlite')
     await fs.writeFile(dbPath, 'test-sqlite-data')
 

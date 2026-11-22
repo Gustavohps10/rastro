@@ -3,15 +3,17 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import { describe, expect, it } from 'vitest'
+import { HardDiskStorage } from '@rastrokit/adapters/tools'
+import { describe, expect, it, vi } from 'vitest'
 
-import { HardDiskStorage } from '../../../../packages/adapters/src/tools/HardDiskStorage'
 import {
   findRastroDeepLink,
   parseRastroDeepLink,
   RASTRO_ASSET_BASE_URL,
   resolveRastroAvatarUrl,
 } from './rastro-protocol'
+
+vi.mock('keytar', () => ({ default: {} }))
 
 describe('Rastro desktop protocol', () => {
   it('encaminha o retorno do navegador à instância em desenvolvimento', () => {

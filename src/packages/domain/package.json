@@ -1,6 +1,6 @@
 {
   "name": "@rastrokit/domain",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "private": true,
   "description": "Contém as entidades, interfaces e regras de negócio principais do ecossistema Rastro.",
   "type": "module",

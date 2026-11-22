@@ -88,7 +88,7 @@ function resolveDownloadUrl(
     if (trimmed.length > 0) return trimmed
   }
   if (tier === 'plus') {
-    return `https://mistertick-api.mistertick.workers.dev/catalog/plus-addons/${addonId}/versions/${version}/download`
+    return `https://mistertick-api.rastrokit.workers.dev/catalog/plus-addons/${addonId}/versions/${version}/download`
   }
   if (manifest.downloadUrl) {
     const trimmed = manifest.downloadUrl.trim()

@@ -156,7 +156,7 @@ function extractPlusDownloadRouteParams(
   downloadUrl: string,
 ): { addonId: string; version: string } | null {
   const match =
-    /^https:\/\/mistertick-api\.mistertick\.workers\.dev\/catalog\/(?:plus-addons|addons)\/([^/]+)\/versions\/([^/]+)\/download(?:\.tladdon)?$/i.exec(
+    /^https:\/\/mistertick-api\.rastrokit\.workers\.dev\/catalog\/(?:plus-addons|addons)\/([^/]+)\/versions\/([^/]+)\/download(?:\.tladdon)?$/i.exec(
       downloadUrl.trim(),
     )
   if (!match || !match[1] || !match[2]) return null
@@ -200,17 +200,9 @@ export class AddonsFacade implements IAddonsFacade {
 
   public async listAvailable(): Promise<Either<AppError, AddonManifestDTO[]>> {
     try {
-      const primaryUrl =
-        'https://mistertick.github.io/addons-manifest/index.json'
-      const fallbackUrl =
-        'https://addons-manifest.mistertick.workers.dev/index.json'
-
-      let response
-      try {
-        response = await axios.get<object[]>(primaryUrl)
-      } catch {
-        response = await axios.get<object[]>(fallbackUrl)
-      }
+      const catalogUrl =
+        'https://raw.githubusercontent.com/rastrokit/addons-manifest/main/index.json'
+      const response = await axios.get<object[]>(catalogUrl)
 
       const data: object = response.data
 

@@ -105,7 +105,7 @@ describe('buildAddon (mr-tick pkg)', () => {
       )
       expect(result.size).toBe(fs.statSync(result.outFile).size)
       expect(result.downloadUrl).toBe(
-        'https://mistertick-api.mistertick.workers.dev/catalog/plus-addons/mistertick-discord/versions/0.1.0/download',
+        'https://mistertick-api.rastrokit.workers.dev/catalog/plus-addons/mistertick-discord/versions/0.1.0/download',
       )
       const zip = new AdmZip(result.outFile)
       expect(zip.getEntry('dist/index.js')).not.toBeNull()

@@ -28,7 +28,7 @@ export interface CreateCheckoutSessionResponse {
 }
 
 const DEFAULT_MISTERTICK_API_URL =
-  'https://mistertick-api.mistertick.workers.dev'
+  'https://mistertick-api.rastrokit.workers.dev'
 
 export function resolveMisterTickApiCandidateUrls(): string[] {
   const configured = process.env.NEXT_PUBLIC_MISTERTICK_API_URL

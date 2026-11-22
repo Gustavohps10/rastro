@@ -32,5 +32,5 @@ export const addonPackageVerificationConfiguration: IAddonPackageVerificationCon
     ],
   }
 export const licensingApiConfiguration: LicensingApiConfiguration = {
-  baseUrl: 'https://mistertick-api.mistertick.workers.dev',
+  baseUrl: 'https://mistertick-api.rastrokit.workers.dev',
 }

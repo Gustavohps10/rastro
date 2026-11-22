@@ -53,7 +53,7 @@ sourceUrl: https://github.com/mistertick/discord-addon
 screenshots:
   - url: https://example.com/screen1.png
     caption: Tela 1
-downloadUrl: https://mistertick-api.mistertick.workers.dev/catalog/plus-addons/mistertick-discord/versions/0.1.0/download
+downloadUrl: https://mistertick-api.rastrokit.workers.dev/catalog/plus-addons/mistertick-discord/versions/0.1.0/download
 requiredApiVersion: '>=0.8.0'
 releaseDate: '2026-10-12'
 changelog:
@@ -100,7 +100,7 @@ changelog:
     )
 
     const result = await facade.downloadFile(
-      'https://mistertick-api.mistertick.workers.dev/catalog/plus-addons/mistertick-discord/versions/0.1.0/download',
+      'https://mistertick-api.rastrokit.workers.dev/catalog/plus-addons/mistertick-discord/versions/0.1.0/download',
     )
 
     expect(result.isSuccess()).toBe(true)
@@ -110,7 +110,7 @@ changelog:
     )
 
     const badShaResult = await facade.downloadFile(
-      'https://mistertick-api.mistertick.workers.dev/catalog/plus-addons/mistertick-discord/versions/0.1.0/download',
+      'https://mistertick-api.rastrokit.workers.dev/catalog/plus-addons/mistertick-discord/versions/0.1.0/download',
       undefined,
       'f'.repeat(64),
     )
@@ -183,6 +183,9 @@ iconUrl: https://example.com/icon.png
 
     expect(result.isSuccess()).toBe(true)
     expect(axios.get).toHaveBeenCalledTimes(1)
+    expect(axios.get).toHaveBeenCalledWith(
+      'https://raw.githubusercontent.com/rastrokit/addons-manifest/main/index.json',
+    )
     if (result.isSuccess()) {
       expect(result.success).toHaveLength(2)
       expect(result.success[0].id).toBe('mr-tick-datasource-redmine')

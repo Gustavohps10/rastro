@@ -3,9 +3,9 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import { HardDiskStorage } from '@rastrokit/adapters/tools'
 import { describe, expect, it } from 'vitest'
 
+import { HardDiskStorage } from '../../../../packages/adapters/src/tools/HardDiskStorage'
 import {
   findRastroDeepLink,
   parseRastroDeepLink,

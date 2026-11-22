@@ -203,6 +203,7 @@ jobs:
           fi
           trap 'rm -f -- "$NPM_CONFIG_USERCONFIG"' EXIT
           printf '%s\n' '//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}' > "$NPM_CONFIG_USERCONFIG"
+          npm whoami --registry https://registry.npmjs.org
           npm publish --access public --registry https://registry.npmjs.org
 
       - name: Changesets Action (Create PR or Publish NPM)

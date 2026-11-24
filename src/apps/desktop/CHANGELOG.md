@@ -1,5 +1,11 @@
 ﻿# @rastrokit/desktop
 
+## 0.16.3
+
+### Patch Changes
+
+- 77cc7a4: Inclui novamente `highlight.js` no empacotamento do desktop, pois `@rastrokit/sdk` (`MarkupConverter`) importa o módulo em runtime no processo principal.
+
 ## 0.16.2
 
 ### Patch Changes

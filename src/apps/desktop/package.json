@@ -2,7 +2,7 @@
   "private": true,
   "name": "@rastrokit/desktop",
   "productName": "Rastro",
-  "version": "0.16.2",
+  "version": "0.16.3",
   "description": "Rastro Desktop App.",
   "author": "Gustavo Henrique",
   "repository": {

@@ -78,7 +78,7 @@ export default defineConfig({
     },
     plugins: [react(), tailwindcss(), image()],
     build: {
-      sourcemap: true,
+      sourcemap: false,
       rollupOptions: {
         input: resolve(__dirname, 'src/renderer/index.html'),
         onwarn(warning, warn) {

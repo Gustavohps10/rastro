@@ -16,7 +16,7 @@ files:
   - '!{.env,.env.*,.npmrc,pnpm-lock.yaml}'
   - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
   - '!**/node_modules/{electron,@next,next,@playwright,playwright,playwright-core,vite,tsx,@esbuild,esbuild,@rollup,rollup,typescript,@babel,@img,sharp,tailwindcss,@tailwindcss,lightningcss*,@eslint*,eslint*,prettier*,vitest*,@vitest*,jsdom,msw,husky,@changesets*,turbo*,@types,sqlite3,lokijs,fake-indexeddb}/**'
-  - '!**/node_modules/{react-icons,lucide-react,firebase,@firebase,date-fns,date-fns-jalali,@atlaskit,rxdb,react-day-picker,@rastrokit/ui,react,react-dom,react-router,react-router-dom,highlight.js,framer-motion,recharts,babel-plugin-react-compiler,motion-dom,@xyflow,nuqs,tailwind-merge,@tanstack}/**'
+  - '!**/node_modules/{react-icons,lucide-react,firebase,@firebase,date-fns,date-fns-jalali,@atlaskit,rxdb,react-day-picker,@rastrokit/ui,react,react-dom,react-router,react-router-dom,framer-motion,recharts,babel-plugin-react-compiler,motion-dom,@xyflow,nuqs,tailwind-merge,@tanstack}/**'
   - '!**/node_modules/better-sqlite3/deps/**'
   - '!**/node_modules/**/*.map'
   - '!**/node_modules/*/*.d.ts'
